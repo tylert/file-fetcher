@@ -2,3 +2,17 @@
 .*.sw?
 *.py[co]
 __pycache__/
+
+*SHA*SUMS*
+*.sha256
+*.sig
+*.sign
+*.gpg
+
+*.iso
+*.iso.*
+
+*.deb
+*.pdf
+*.tar.gz
+*.zip
