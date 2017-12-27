@@ -1,0 +1,4 @@
+.DS_Store
+.*.sw?
+*.py[co]
+__pycache__/
