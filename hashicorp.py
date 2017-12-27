@@ -5,7 +5,23 @@ import json
 # pip install requests
 import requests
 
-from fetcher import (find_latest, fetch_hashicorp_files)
+from fetcher import find_latest, fetch_file
+
+
+def fetch_hashicorp_files(tool, version):
+    '''Fetch a given tool version from Hashicorp.'''
+
+    fetch_file('https://releases.hashicorp.com/{}/{}/{}_{}_SHA256SUMS'.format(tool, version, tool, version),
+               '{}_{}_SHA256SUMS.txt'.format(tool, version))
+    fetch_file('https://releases.hashicorp.com/{}/{}/{}_{}_SHA256SUMS.sig'.format(tool, version, tool, version),
+               '{}_{}_SHA256SUMS.sig'.format(tool, version))
+
+    if tool == 'vagrant':
+        fetch_file('https://releases.hashicorp.com/{}/{}/{}_{}_x86_64.deb'.format(tool, version, tool, version),
+                   '{}_{}_x86_64.deb'.format(tool, version))
+    else:
+        fetch_file('https://releases.hashicorp.com/{}/{}/{}_{}_linux_amd64.zip'.format(tool, version, tool, version),
+                   '{}_{}_linux_amd64.zip'.format(tool, version))
 
 
 if __name__ == '__main__':

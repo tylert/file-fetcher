@@ -35,55 +35,6 @@ def fetch_file(url, output):
             outfile.write(block)
 
 
-def fetch_hashicorp_files(tool, version):
-    '''Fetch a given tool version from Hashicorp.'''
-
-    fetch_file('https://releases.hashicorp.com/{}/{}/{}_{}_SHA256SUMS'.format(tool, version, tool, version),
-               '{}_{}_SHA256SUMS.txt'.format(tool, version))
-    fetch_file('https://releases.hashicorp.com/{}/{}/{}_{}_SHA256SUMS.sig'.format(tool, version, tool, version),
-               '{}_{}_SHA256SUMS.sig'.format(tool, version))
-
-    if tool == 'vagrant':
-        fetch_file('https://releases.hashicorp.com/{}/{}/{}_{}_x86_64.deb'.format(tool, version, tool, version),
-                   '{}_{}_x86_64.deb'.format(tool, version))
-    else:
-        fetch_file('https://releases.hashicorp.com/{}/{}/{}_{}_linux_amd64.zip'.format(tool, version, tool, version),
-                   '{}_{}_linux_amd64.zip'.format(tool, version))
-
-
-def fetch_debian_archive_files(release, iso):
-    '''Fetch a Debian archive release.'''
-
-    fetch_file('https://cdimage.debian.org/cdimage/archive/{}/amd64/iso-cd/SHA512SUMS'.format(release),
-               'SHA512SUMS-{}.txt'.format(os.path.splitext(iso)[0]))
-    fetch_file('https://cdimage.debian.org/cdimage/archive/{}/amd64/iso-cd/SHA512SUMS.sign'.format(release),
-               'SHA512SUMS-{}.sign'.format(os.path.splitext(iso)[0]))
-    fetch_file('https://cdimage.debian.org/cdimage/archive/{}/amd64/iso-cd/{}'.format(release, iso),
-               '{}'.format(iso))
-
-
-def fetch_debian_release_files(iso):
-    '''Fetch a Debian release.'''
-
-    fetch_file('https://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/SHA512SUMS',
-               'SHA512SUMS-{}.txt'.format(os.path.splitext(iso)[0]))
-    fetch_file('https://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/SHA512SUMS.sign',
-               'SHA512SUMS-{}.sign'.format(os.path.splitext(iso)[0]))
-    fetch_file('https://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/{}'.format(iso),
-               '{}'.format(iso))
-
-
-def fetch_debian_testing_files(iso):
-    '''Fetch a Debian testing release.'''
-
-    fetch_file('https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/SHA512SUMS',
-               'SHA512SUMS-{}.txt'.format(os.path.splitext(iso)[0]))
-    fetch_file('https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/SHA512SUMS.sign',
-               'SHA512SUMS-{}.sign'.format(os.path.splitext(iso)[0]))
-    fetch_file('https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/{}'.format(iso),
-               '{}'.format(iso))
-
-
 def fetch_ubuntu_release_files(release, iso):
     '''Fetch an Ubuntu release.'''
 
