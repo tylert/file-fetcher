@@ -23,11 +23,11 @@ def find_latest(versions):
 def fetch_file(url, output):
     '''Fetch a given file from url and save it as output.'''
 
-    r = requests.get(url, stream=True)
-    r.raise_for_status()
+    with requests.get(url, stream=True) as r, \
+            open(output, 'wb') as outfile:
+        r.raise_for_status()
 
-    print('Fetching {}'.format(output))
+        print('Fetching {} size {}'.format(output, int(r.headers['content-length'])))
 
-    with open(output, 'wb') as outfile:
         for block in r.iter_content(1024):
             outfile.write(block)
