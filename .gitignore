@@ -5,6 +5,8 @@ __pycache__/
 
 *SHA*SUMS*
 *.sha256
+*.md5
+
 *.sig
 *.sign
 *.gpg
@@ -12,7 +14,7 @@ __pycache__/
 *.iso
 *.iso.*
 
-*.deb
 *.pdf
+*.deb
 *.tar.gz
 *.zip
