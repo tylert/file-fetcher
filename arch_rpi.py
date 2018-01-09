@@ -5,7 +5,9 @@ import datetime
 from fetcher import fetch_file
 
 
-if __name__ == '__main__':
+def main():
+    '''Main function.'''
+
     date = datetime.datetime.today().strftime('%Y-%m-%d')
 
     fetch_file('http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-3-latest.tar.gz.sig',
@@ -14,3 +16,7 @@ if __name__ == '__main__':
                'ArchLinuxARM-rpi-3-{}.tar.gz.md5'.format(date))
     fetch_file('http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-3-latest.tar.gz',
                'ArchLinuxARM-rpi-3-{}.tar.gz'.format(date))
+
+
+if __name__ == '__main__':
+    main()

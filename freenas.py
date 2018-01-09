@@ -11,8 +11,16 @@ from bs4 import BeautifulSoup
 from fetcher import fetch_file
 
 
-def fetch_freenas_release_files(iso):
-    '''Fetch a FreeNAS release.'''
+def main():
+    '''Main function.'''
+
+    r = requests.get('https://download.freenas.org/stable/x64')
+    r.raise_for_status()
+    s = BeautifulSoup(r.text, 'html.parser')
+
+    for link in s.find_all('a'):
+        if 'iso' in link.text and 'sha256' not in link.text:
+            iso = link.text
 
     # FreeNAS does not provide a convenient download link for the PDF version
     # of the users' guide.  They only provide an online HTML version at
@@ -38,11 +46,4 @@ def fetch_freenas_release_files(iso):
 
 
 if __name__ == '__main__':
-    r = requests.get('https://download.freenas.org/stable/x64')
-    r.raise_for_status()
-    s = BeautifulSoup(r.text, 'html.parser')
-
-    for link in s.find_all('a'):
-        if 'iso' in link.text and 'sha256' not in link.text:
-            iso = link.text
-    fetch_freenas_release_files(iso)
+    main()

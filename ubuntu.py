@@ -33,9 +33,10 @@ def fetch_ubuntu_testing_files(iso):
                '{}'.format(iso))
 
 
-if __name__ == '__main__':
+def main():
+    '''Main function.'''
 
-    # trusty (EoL is 2019-04-??)
+    # trusty 14.04.x (EoL is 2019-04-??)
     r = requests.get('http://releases.ubuntu.com/trusty')
     r.raise_for_status()
     s = BeautifulSoup(r.text, 'html.parser')
@@ -50,7 +51,7 @@ if __name__ == '__main__':
             iso = link.text
     fetch_ubuntu_release_files('trusty', iso)
 
-    # xenial (EoL is 2021-04-??)
+    # xenial 16.04.x (EoL is 2021-04-??)
     r = requests.get('http://releases.ubuntu.com/xenial')
     r.raise_for_status()
     s = BeautifulSoup(r.text, 'html.parser')
@@ -65,7 +66,7 @@ if __name__ == '__main__':
             iso = link.text
     fetch_ubuntu_release_files('xenial', iso)
 
-    # artful (EoL is 2018-07-??)
+    # artful 17.10 (EoL is 2018-07-??)
     r = requests.get('http://releases.ubuntu.com/artful')
     r.raise_for_status()
     s = BeautifulSoup(r.text, 'html.parser')
@@ -80,7 +81,7 @@ if __name__ == '__main__':
             iso = link.text
     fetch_ubuntu_release_files('artful', iso)
 
-    # bionic (EoL is 2023-04-??)
+    # bionic 18.04.x (EoL is 2023-04-??)
     r = requests.get('http://cdimage.ubuntu.com/ubuntu-server/daily/current')
     r.raise_for_status()
     s = BeautifulSoup(r.text, 'html.parser')
@@ -89,3 +90,7 @@ if __name__ == '__main__':
         if 'iso' in link.text and 'amd64' in link.text and 'zsync' not in link.text:
             iso = link.text
     fetch_ubuntu_testing_files(iso)
+
+
+if __name__ == '__main__':
+    main()

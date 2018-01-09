@@ -11,77 +11,40 @@ from bs4 import BeautifulSoup
 from fetcher import fetch_file
 
 
-def fetch_debian_archive_files(release, iso):
-    '''Fetch a Debian archive release.'''
+def fetch_debian_release(release):
+    '''Fetch a complete Debian release.'''
 
-    fetch_file('https://cdimage.debian.org/cdimage/archive/{}/amd64/iso-cd/SHA512SUMS'.format(release),
+    r = requests.get('https://cdimage.debian.org/cdimage/{}/amd64/iso-cd'.format(release))
+    r.raise_for_status()
+    s = BeautifulSoup(r.text, 'html.parser')
+
+    for link in s.find_all('a'):
+        if 'iso' in link.text and 'netinst' in link.text and '-mac-' not in link.text:
+            iso = link.text
+
+    fetch_file('https://cdimage.debian.org/cdimage/{}/amd64/iso-cd/SHA512SUMS'.format(release),
                'SHA512SUMS-{}.txt'.format(os.path.splitext(iso)[0]))
-    fetch_file('https://cdimage.debian.org/cdimage/archive/{}/amd64/iso-cd/SHA512SUMS.sign'.format(release),
+    fetch_file('https://cdimage.debian.org/cdimage/{}/amd64/iso-cd/SHA512SUMS.sign'.format(release),
                'SHA512SUMS-{}.sign'.format(os.path.splitext(iso)[0]))
-    fetch_file('https://cdimage.debian.org/cdimage/archive/{}/amd64/iso-cd/{}'.format(release, iso),
+    fetch_file('https://cdimage.debian.org/cdimage/{}/amd64/iso-cd/{}'.format(release, iso),
                '{}'.format(iso))
 
 
-def fetch_debian_release_files(iso):
-    '''Fetch a Debian release.'''
+def main():
+    '''Main function.'''
 
-    fetch_file('https://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/SHA512SUMS',
-               'SHA512SUMS-{}.txt'.format(os.path.splitext(iso)[0]))
-    fetch_file('https://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/SHA512SUMS.sign',
-               'SHA512SUMS-{}.sign'.format(os.path.splitext(iso)[0]))
-    fetch_file('https://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/{}'.format(iso),
-               '{}'.format(iso))
+    # wheezy 7.x (EoL is 2018-05-??)
+    fetch_debian_release('archive/7.11.0')
 
+    # jessie 8.x (EoL is 2020-04-?? or 2020-05-??)
+    fetch_debian_release('archive/latest-oldstable')
 
-def fetch_debian_testing_files(iso):
-    '''Fetch a Debian testing release.'''
+    # stretch 9.x (EoL is 2022-06-??)
+    fetch_debian_release('release/current')
 
-    fetch_file('https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/SHA512SUMS',
-               'SHA512SUMS-{}.txt'.format(os.path.splitext(iso)[0]))
-    fetch_file('https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/SHA512SUMS.sign',
-               'SHA512SUMS-{}.sign'.format(os.path.splitext(iso)[0]))
-    fetch_file('https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/{}'.format(iso),
-               '{}'.format(iso))
+    # buster 10.x (EoL is 2024-??-??)
+    fetch_debian_release('weekly-builds')
 
 
 if __name__ == '__main__':
-
-    # wheezy (EoL is 2018-05-??)
-    r = requests.get('https://cdimage.debian.org/cdimage/archive/7.11.0/amd64/iso-cd')
-    r.raise_for_status()
-    s = BeautifulSoup(r.text, 'html.parser')
-
-    for link in s.find_all('a'):
-        if 'iso' in link.text and 'netinst' in link.text and '-mac-' not in link.text:
-            iso = link.text
-    fetch_debian_archive_files('7.11.0', iso)
-
-    # jessie (EoL is 2020-04-?? or 2020-05-??)
-    r = requests.get('https://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd')
-    r.raise_for_status()
-    s = BeautifulSoup(r.text, 'html.parser')
-
-    for link in s.find_all('a'):
-        if 'iso' in link.text and 'netinst' in link.text and '-mac-' not in link.text:
-            iso = link.text
-    fetch_debian_archive_files('latest-oldstable', iso)
-
-    # stretch (EoL is 2022-06-??)
-    r = requests.get('https://cdimage.debian.org/cdimage/release/current/amd64/iso-cd')
-    r.raise_for_status()
-    s = BeautifulSoup(r.text, 'html.parser')
-
-    for link in s.find_all('a'):
-        if 'iso' in link.text and 'netinst' in link.text and '-mac-' not in link.text:
-            iso = link.text
-    fetch_debian_release_files(iso)
-
-    # buster (EoL is 20??-??-??)
-    r = requests.get('https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd')
-    r.raise_for_status()
-    s = BeautifulSoup(r.text, 'html.parser')
-
-    for link in s.find_all('a'):
-        if 'iso' in link.text and 'netinst' in link.text and '-mac-' not in link.text:
-            iso = link.text
-    fetch_debian_testing_files(iso)
+    main()

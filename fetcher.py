@@ -3,7 +3,6 @@ from __future__ import print_function
 
 import hashlib
 import os
-import json
 
 # pip install semver
 import semver
@@ -33,8 +32,8 @@ def fetch_file(url, output):
 
         print('Fetching {} size {}'.format(output, int(r.headers['content-length'])))
 
-        for block in r.iter_content(1024):
-            outfile.write(block)
+        for chunk in r.iter_content(1024):
+            outfile.write(chunk)
 
 
 def hash_file(directory, filename, blocksize=2**20, hash_method='sha512'):

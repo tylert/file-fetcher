@@ -11,7 +11,9 @@ from bs4 import BeautifulSoup
 from fetcher import fetch_file
 
 
-if __name__ == '__main__':
+def main():
+    '''Main function.'''
+
     r = requests.get('https://github.com/keepassxreboot/keepassxc/releases/latest')
     r.raise_for_status()
     s = BeautifulSoup(r.text, 'html.parser')
@@ -25,3 +27,7 @@ if __name__ == '__main__':
                'keepassxc-{}-src.tar.xz.sig'.format(version))
     fetch_file('https://github.com/keepassxreboot/keepassxc/releases/download/{}/keepassxc-{}-src.tar.xz'.format(version, version),
                'keepassxc-{}-src.tar.xz'.format(version))
+
+
+if __name__ == '__main__':
+    main()

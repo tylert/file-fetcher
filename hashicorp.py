@@ -24,7 +24,9 @@ def fetch_hashicorp_files(tool, version):
                    '{}_{}_linux_amd64.zip'.format(tool, version))
 
 
-if __name__ == '__main__':
+def main():
+    '''Main function.'''
+
     r = requests.get('https://releases.hashicorp.com/index.json')
     r.raise_for_status()
 
@@ -41,3 +43,7 @@ if __name__ == '__main__':
     fetch_hashicorp_files('terraform-provider-template', terraform_provider_template)
     fetch_hashicorp_files('terraform-provider-terraform', terraform_provider_terraform)
     fetch_hashicorp_files('vagrant', vagrant)
+
+
+if __name__ == '__main__':
+    main()
