@@ -33,17 +33,17 @@ def fetch_debian_release(release):
 def main():
     '''Main function.'''
 
-    # wheezy 7.x (EoL is 2018-05-??)
-    fetch_debian_release('archive/7.11.0')
+    # buster 10.x (EoL is 2024?-??-01)
+    fetch_debian_release('weekly-builds')
 
-    # jessie 8.x (EoL is 2020-04-?? or 2020-05-??)
-    fetch_debian_release('archive/latest-oldstable')
-
-    # stretch 9.x (EoL is 2022-06-??)
+    # stretch 9.x (EoL is 2022-06-01)
     fetch_debian_release('release/current')
 
-    # buster 10.x (EoL is 2024-??-??)
-    fetch_debian_release('weekly-builds')
+    # jessie 8.x (EoL is 2020-04-01)
+    fetch_debian_release('archive/latest-oldstable')
+
+    # wheezy 7.x (EoL is 2018-05-01)
+    fetch_debian_release('archive/7.11.0')
 
 
 if __name__ == '__main__':
