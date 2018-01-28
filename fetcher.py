@@ -26,14 +26,29 @@ def find_latest(versions):
 def fetch_file(url, output):
     '''Fetch a given file from url and save it as output.'''
 
-    with requests.get(url, stream=True) as r, \
-            open(output, 'wb') as outfile:
+    # Find the size of the file if it exists already
+    existing_size = 0
+    try:
+        existing_size = os.stat(output).st_size
+    except FileNotFoundError:
+        print('Not found {}'.format(output))
+
+    with requests.get(url, stream=True) as r:
         r.raise_for_status()
 
-        print('Fetching {} size {}'.format(output, int(r.headers['content-length'])))
+        new_size = int(r.headers['content-length'])
+        new_type = r.headers['content-type']
 
-        for chunk in r.iter_content(1024):
-            outfile.write(chunk)
+        print('{},{},{},{}'.format(output, existing_size, new_size, new_type))
+
+        # Check if the existing file is already the expected size
+        if new_type != 'text/plain':
+            if existing_size == new_size:
+                return
+
+        with open(output, 'wb') as outfile:
+            for chunk in r.iter_content(1024):
+                outfile.write(chunk)
 
 
 def hash_file(directory, filename, blocksize=2**20, hash_method='sha512'):
