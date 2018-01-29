@@ -37,7 +37,13 @@ def fetch_file(url, output):
         r.raise_for_status()
 
         new_size = int(r.headers['content-length'])
-        new_type = r.headers['content-type']
+
+        # Try to determine the content type, if possible
+        new_type = 'unset'
+        try:
+            new_type = r.headers['content-type']
+        except KeyError:
+            new_type = 'unknown'
 
         print('{},{},{},{}'.format(output, existing_size, new_size, new_type))
 
