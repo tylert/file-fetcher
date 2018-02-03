@@ -10,3 +10,4 @@ TODO
 * dry-run option?
 * check SHASUMS
 * verify signatures
+* add http://mirrors.antergos.com/iso/release/
