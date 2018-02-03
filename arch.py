@@ -12,7 +12,7 @@ from fetcher import fetch_file
 def main():
     '''Main function.'''
 
-    r = requests.get('https://mirror.cedille.club/archlinux/iso/latest')
+    r = requests.get('https://muug.ca/mirror/archlinux/iso/latest')
     r.raise_for_status()
     s = BeautifulSoup(r.text, 'html.parser')
 
@@ -20,18 +20,18 @@ def main():
         if 'iso' in link.text and 'torrent' not in link.text and 'sig' not in link.text:
             iso = link.text
 
-    fetch_file('https://mirror.cedille.club/archlinux/iso/latest/{}.sig'.format(iso),
+    fetch_file('https://muug.ca/mirror/archlinux/iso/latest/{}.sig'.format(iso),
                '{}.sig'.format(iso))
-    fetch_file('https://mirror.cedille.club/archlinux/iso/latest/{}'.format(iso),
+    fetch_file('https://muug.ca/mirror/archlinux/iso/latest/{}'.format(iso),
                '{}'.format(iso))
 
     for link in s.find_all('a'):
         if 'bootstrap' in link.text and 'sig' not in link.text:
             iso = link.text
 
-    fetch_file('https://mirror.cedille.club/archlinux/iso/latest/{}.sig'.format(iso),
+    fetch_file('https://muug.ca/mirror/archlinux/iso/latest/{}.sig'.format(iso),
                '{}.sig'.format(iso))
-    fetch_file('https://mirror.cedille.club/archlinux/iso/latest/{}'.format(iso),
+    fetch_file('https://muug.ca/mirror/archlinux/iso/latest/{}'.format(iso),
                '{}'.format(iso))
 
 
