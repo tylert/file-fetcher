@@ -1,6 +1,4 @@
-# XXX TODO Convert print to logging
-from __future__ import print_function
-
+import logging
 import hashlib
 import os
 
@@ -17,7 +15,7 @@ def find_latest(versions):
     latest = '0.0.0'
 
     for version in versions:
-        print('{} {}'.format(latest, version))
+        logging.warning('{} {}'.format(latest, version))
         latest = semver.max_ver(latest, version)
 
     return latest
@@ -31,7 +29,7 @@ def fetch_file(url, output):
     try:
         existing_size = os.stat(output).st_size
     except FileNotFoundError:
-        print('Not found {}'.format(output))
+        logging.warning('Not found {}'.format(output))
 
     with requests.get(url, stream=True) as r:
         r.raise_for_status()
@@ -45,7 +43,7 @@ def fetch_file(url, output):
         except KeyError:
             new_type = 'unknown'
 
-        print('{},{},{},{}'.format(output, existing_size, new_size, new_type))
+        logging.warning('{},{},{},{}'.format(output, existing_size, new_size, new_type))
 
         # Check if the existing file is already the expected size
         if new_type != 'text/plain':
