@@ -42,9 +42,6 @@ def main():
     # jessie 8.x (EoL is 2020-04-01)
     fetch_debian_release('archive/latest-oldstable')
 
-    # wheezy 7.x (EoL is 2018-05-01)
-    fetch_debian_release('archive/7.11.0')
-
 
 if __name__ == '__main__':
     main()
