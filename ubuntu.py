@@ -37,14 +37,28 @@ def main():
     '''Main function.'''
 
     # bionic 18.04.x (EoL is 2023-04-01)
-    r = requests.get('http://cdimage.ubuntu.com/ubuntu-server/daily/current')
+    r = requests.get('http://cdimage.ubuntu.com/releases/18.04/release')
     r.raise_for_status()
     s = BeautifulSoup(r.text, 'html.parser')
 
     for link in s.find_all('a'):
-        if 'iso' in link.text and 'amd64' in link.text and 'zsync' not in link.text:
+        if 'server' in link.text and 'iso' in link.text and 'amd64' in link.text and 'torrent' not in link.text and 'zsync' not in link.text:
             iso = link.text
     fetch_ubuntu_testing_files(iso)
+
+    r = requests.get('http://releases.ubuntu.com/18.04')
+    r.raise_for_status()
+    s = BeautifulSoup(r.text, 'html.parser')
+
+    for link in s.find_all('a'):
+        if 'server' in link.text and 'iso' in link.text and 'amd64' in link.text and 'torrent' not in link.text and 'zsync' not in link.text:
+            iso = link.text
+    fetch_ubuntu_release_files('bionic', iso)
+
+    for link in s.find_all('a'):
+        if 'desktop' in link.text and 'iso' in link.text and 'amd64' in link.text and 'torrent' not in link.text and 'zsync' not in link.text:
+            iso = link.text
+    fetch_ubuntu_release_files('bionic', iso)
 
     # artful 17.10.x (EoL is 2018-07-01)
     r = requests.get('http://releases.ubuntu.com/artful')
