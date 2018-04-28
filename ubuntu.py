@@ -22,17 +22,6 @@ def fetch_ubuntu_release_files(release, iso):
                '{}'.format(iso))
 
 
-def fetch_ubuntu_testing_files(iso):
-    '''Fetch an Ubuntu testing release.'''
-
-    fetch_file('http://cdimage.ubuntu.com/ubuntu-server/daily/current/SHA256SUMS',
-               'SHA256SUMS-{}.txt'.format(os.path.splitext(iso)[0]))
-    fetch_file('http://cdimage.ubuntu.com/ubuntu-server/daily/current/SHA256SUMS.gpg',
-               'SHA256SUMS-{}.gpg'.format(os.path.splitext(iso)[0]))
-    fetch_file('http://cdimage.ubuntu.com/ubuntu-server/daily/current/{}'.format(iso),
-               '{}'.format(iso))
-
-
 def main():
     '''Main function.'''
 
@@ -44,9 +33,14 @@ def main():
     for link in s.find_all('a'):
         if 'server' in link.text and 'iso' in link.text and 'amd64' in link.text and 'torrent' not in link.text and 'zsync' not in link.text:
             iso = link.text
-    fetch_ubuntu_testing_files(iso)
+    fetch_file('http://cdimage.ubuntu.com/releases/18.04/release/SHA256SUMS',
+               'SHA256SUMS-{}.txt'.format(os.path.splitext(iso)[0]))
+    fetch_file('http://cdimage.ubuntu.com/releases/18.04/release/SHA256SUMS.gpg',
+               'SHA256SUMS-{}.gpg'.format(os.path.splitext(iso)[0]))
+    fetch_file('http://cdimage.ubuntu.com/releases/18.04/release/{}'.format(iso),
+               '{}'.format(iso))
 
-    r = requests.get('http://releases.ubuntu.com/18.04')
+    r = requests.get('http://releases.ubuntu.com/bionic')
     r.raise_for_status()
     s = BeautifulSoup(r.text, 'html.parser')
 
