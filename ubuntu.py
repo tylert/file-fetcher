@@ -26,18 +26,18 @@ def main():
     '''Main function.'''
 
     # bionic 18.04.x (EoL is 2023-04-01)
-    r = requests.get('http://cdimage.ubuntu.com/releases/18.04/release')
+    r = requests.get('http://cdimage.ubuntu.com/releases/18.04.1/release')
     r.raise_for_status()
     s = BeautifulSoup(r.text, 'html.parser')
 
     for link in s.find_all('a'):
         if 'server' in link.text and 'iso' in link.text and 'amd64' in link.text and 'torrent' not in link.text and 'zsync' not in link.text:
             iso = link.text
-    fetch_file('http://cdimage.ubuntu.com/releases/18.04/release/SHA256SUMS',
+    fetch_file('http://cdimage.ubuntu.com/releases/18.04.1/release/SHA256SUMS',
                'SHA256SUMS-{}.txt'.format(os.path.splitext(iso)[0]))
-    fetch_file('http://cdimage.ubuntu.com/releases/18.04/release/SHA256SUMS.gpg',
+    fetch_file('http://cdimage.ubuntu.com/releases/18.04.1/release/SHA256SUMS.gpg',
                'SHA256SUMS-{}.gpg'.format(os.path.splitext(iso)[0]))
-    fetch_file('http://cdimage.ubuntu.com/releases/18.04/release/{}'.format(iso),
+    fetch_file('http://cdimage.ubuntu.com/releases/18.04.1/release/{}'.format(iso),
                '{}'.format(iso))
 
     r = requests.get('http://releases.ubuntu.com/bionic')
@@ -46,11 +46,6 @@ def main():
 
     for link in s.find_all('a'):
         if 'server' in link.text and 'iso' in link.text and 'amd64' in link.text and 'torrent' not in link.text and 'zsync' not in link.text:
-            iso = link.text
-    fetch_ubuntu_release_files('bionic', iso)
-
-    for link in s.find_all('a'):
-        if 'desktop' in link.text and 'iso' in link.text and 'amd64' in link.text and 'torrent' not in link.text and 'zsync' not in link.text:
             iso = link.text
     fetch_ubuntu_release_files('bionic', iso)
 
@@ -64,11 +59,6 @@ def main():
             iso = link.text
     fetch_ubuntu_release_files('xenial', iso)
 
-    for link in s.find_all('a'):
-        if 'desktop' in link.text and 'iso' in link.text and 'amd64' in link.text and 'torrent' not in link.text and 'zsync' not in link.text:
-            iso = link.text
-    fetch_ubuntu_release_files('xenial', iso)
-
     # trusty 14.04.x (EoL is 2019-04-01)
     r = requests.get('http://releases.ubuntu.com/trusty')
     r.raise_for_status()
@@ -76,11 +66,6 @@ def main():
 
     for link in s.find_all('a'):
         if 'server' in link.text and 'iso' in link.text and 'amd64' in link.text and 'torrent' not in link.text and 'zsync' not in link.text:
-            iso = link.text
-    fetch_ubuntu_release_files('trusty', iso)
-
-    for link in s.find_all('a'):
-        if 'desktop' in link.text and 'iso' in link.text and 'amd64' in link.text and 'torrent' not in link.text and 'zsync' not in link.text:
             iso = link.text
     fetch_ubuntu_release_files('trusty', iso)
 
