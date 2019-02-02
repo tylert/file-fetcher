@@ -19,7 +19,7 @@ def fetch_debian_release(release):
     s = BeautifulSoup(r.text, 'html.parser')
 
     for link in s.find_all('a'):
-        if 'iso' in link.text and 'netinst' in link.text and '-mac-' not in link.text:
+        if 'iso' in link.text and 'netinst' in link.text and 'mac' not in link.text:
             iso = link.text
 
     fetch_file('https://cdimage.debian.org/cdimage/{}/amd64/iso-cd/SHA512SUMS'.format(release),
