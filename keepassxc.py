@@ -21,7 +21,7 @@ def main():
     for link in s.find_all('a'):
         if 'tar.xz' in link.text and 'sig' not in link.text and 'DIGEST' not in link.text:
             matcher = re.compile('\d+\.\d+\.\d+')
-            version = matcher.findall(link.text.split('\n')[3])[0]
+            version = matcher.findall(link.text.split('\n')[2])[0]
 
     fetch_file('https://github.com/keepassxreboot/keepassxc/releases/download/{}/keepassxc-{}-src.tar.xz.sig'.format(version, version),
                'keepassxc-{}-src.tar.xz.sig'.format(version))
