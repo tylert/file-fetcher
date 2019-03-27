@@ -23,6 +23,8 @@ def main():
             matcher = re.compile('\d+\.\d+\.\d+')
             version = matcher.findall(link.text.split('\n')[2])[0]
 
+    fetch_file('https://github.com/keepassxreboot/keepassxc/releases/download/{}/keepassxc-{}-src.tar.xz.DIGEST'.format(version, version),
+               'keepassxc-{}-src.tar.xz.DIGEST'.format(version))
     fetch_file('https://github.com/keepassxreboot/keepassxc/releases/download/{}/keepassxc-{}-src.tar.xz.sig'.format(version, version),
                'keepassxc-{}-src.tar.xz.sig'.format(version))
     fetch_file('https://github.com/keepassxreboot/keepassxc/releases/download/{}/keepassxc-{}-src.tar.xz'.format(version, version),
