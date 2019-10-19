@@ -34,6 +34,22 @@ def main():
     fetch_file('http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-3-latest.tar.gz',
                'ArchLinuxARM-rpi-3-{}.tar.gz'.format(date))
 
+    # Raspberry Pi 2B
+    fetch_file('http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz.sig',
+               'ArchLinuxARM-rpi-2-{}.tar.gz.sig'.format(date))
+    fetch_file('http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz.md5',
+               'ArchLinuxARM-rpi-2-{}.tar.gz.md5'.format(date))
+    fetch_file('http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz',
+               'ArchLinuxARM-rpi-2-{}.tar.gz'.format(date))
+
+    # Multi-platform
+    # fetch_file('http://os.archlinuxarm.org/os/ArchLinuxARM-aarch64-latest.tar.gz.sig',
+    #            'ArchLinuxARM-aarch64-{}.tar.gz.sig'.format(date))
+    # fetch_file('http://os.archlinuxarm.org/os/ArchLinuxARM-aarch64-latest.tar.gz.md5',
+    #            'ArchLinuxARM-aarch64-{}.tar.gz.md5'.format(date))
+    # fetch_file('http://os.archlinuxarm.org/os/ArchLinuxARM-aarch64-latest.tar.gz',
+    #            'ArchLinuxARM-aarch64-{}.tar.gz'.format(date))
+
 
 if __name__ == '__main__':
     main()
