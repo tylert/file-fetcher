@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 
-# pip install requests
 import requests
-
-# pip install beautifulsoup4
 from bs4 import BeautifulSoup
 
 from fetcher import fetch_file

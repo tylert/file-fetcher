@@ -2,7 +2,6 @@
 
 import json
 
-# pip install requests
 import requests
 
 from fetcher import find_latest, fetch_file

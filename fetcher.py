@@ -2,10 +2,7 @@ import logging
 import hashlib
 import os
 
-# pip install semver
 import semver
-
-# pip install requests
 import requests
 
 
