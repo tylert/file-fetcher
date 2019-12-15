@@ -12,9 +12,13 @@ def find_latest(versions):
     latest = '0.0.0'
 
     for version in versions:
-        if 'ent' not in version and 'beta' not in version:
+        if '+ent' not in version and '-alpha' not in version \
+                and '-beta' not in version and '-rc' not in version \
+                and '-oci' not in version:
             logging.warning('{} {}'.format(latest, version))
             latest = semver.max_ver(latest, version)
+        else:
+            logging.warning('SKIPPING {}'.format(version))
 
     return latest
 
