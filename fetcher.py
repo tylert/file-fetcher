@@ -57,23 +57,19 @@ def fetch_file(url, output):
                 outfile.write(chunk)
 
 
-class HashMethodException(Exception):
+class InvalidHashMethodException(Exception):
     pass
 
 
 def hash_file(filename, directory=None, hash_method='sha512', chunksize=2**16):
     '''Calculate the hash of a file using the specified method.'''
 
-    if hash_method == 'sha512':
-        file_hash = sha512()
-    elif hash_method == 'sha256':
-        file_hash = sha256()
-    elif hash_method == 'sha1':
-        file_hash = sha1()
-    elif hash_method == 'md5':
-        file_hash = md5()
-    else:
-        raise HashMethodException('Invalid hash method')
+    # Any requested hash method that is invalid or that we forgot to import in
+    # this module, will cause an exception
+    try:
+        file_hash = globals()[hash_method]()
+    except:
+        raise InvalidHashMethodException('Invalid hash method')
 
     if directory is None:
         full_path = filename
