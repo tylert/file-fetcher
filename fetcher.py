@@ -1,5 +1,5 @@
 import logging
-import hashlib
+from hashlib import sha512, sha256, sha1, md5
 import os
 
 import semver
@@ -57,21 +57,20 @@ def fetch_file(url, output):
                 outfile.write(chunk)
 
 
-def hash_file(directory, filename, blocksize=2**20, hash_method='sha512'):
+def hash_file(directory, filename, hash_method='sha512', blocksize=2**20):
     '''Calculate the checksum of a file using the specified method.'''
 
     if hash_method == 'sha512':
-        file_hash = hashlib.sha512()
+        file_hash = sha512()
     elif hash_method == 'sha256':
-        file_hash = hashlib.sha256()
-    elif hash_method == 'sha2':
-        file_hash = hashlib.sha2()
+        file_hash = sha256()
+    elif hash_method == 'md5':
+        file_hash = md5()
     else:
-        file_hash = hashlib.sha1()
+        file_hash = sha1()
 
     if os.path.isfile(os.path.join(directory, filename)) and \
             os.access(os.path.join(directory, filename), os.R_OK):
-
         with open(os.path.join(directory, filename), 'rb') as filehandle:
             while True:
                 block = filehandle.read(blocksize)
