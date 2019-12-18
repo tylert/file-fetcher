@@ -57,25 +57,37 @@ def fetch_file(url, output):
                 outfile.write(chunk)
 
 
-def hash_file(directory, filename, hash_method='sha512', blocksize=2**20):
-    '''Calculate the checksum of a file using the specified method.'''
+class HashMethodException(Exception):
+    pass
+
+
+def hash_file(filename, directory=None, hash_method='sha512', chunksize=2**16):
+    '''Calculate the hash of a file using the specified method.'''
 
     if hash_method == 'sha512':
         file_hash = sha512()
     elif hash_method == 'sha256':
         file_hash = sha256()
+    elif hash_method == 'sha1':
+        file_hash = sha1()
     elif hash_method == 'md5':
         file_hash = md5()
     else:
-        file_hash = sha1()
+        raise HashMethodException('Invalid hash method')
 
-    if os.path.isfile(os.path.join(directory, filename)) and \
-            os.access(os.path.join(directory, filename), os.R_OK):
-        with open(os.path.join(directory, filename), 'rb') as filehandle:
+    if directory is None:
+        full_path = filename
+    else:
+        full_path = os.path.join(directory, filename)
+
+    if os.path.isfile(full_path) and os.access(full_path, os.R_OK):
+        with open(full_path, 'rb') as filehandle:
             while True:
-                block = filehandle.read(blocksize)
-                if not block:
+                chunk = filehandle.read(chunksize)
+                if not chunk:
                     break
-                file_hash.update(block)
+                file_hash.update(chunk)
 
-    return file_hash.hexdigest()
+        return file_hash.hexdigest()
+    else:
+        return ''
