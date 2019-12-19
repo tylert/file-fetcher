@@ -30,14 +30,19 @@ def fetch_debian_release(release):
 def main():
     '''Main function.'''
 
-    # buster 10.x (EoL is 2024?-??-01)
+    # https://en.wikipedia.org/wiki/Debian_version_history#Release_table
+
+    # bullseye 11.x (EoL is 2026?-??-01)
     fetch_debian_release('weekly-builds')
 
-    # stretch 9.x (EoL is 2022-06-01)
+    # buster 10.x (EoL is 2024-??-01)
     fetch_debian_release('release/current')
 
-    # jessie 8.x (EoL is 2020-04-01)
+    # stretch 9.x (EoL is 2022-06-01)
     fetch_debian_release('archive/latest-oldstable')
+
+    # jessie 8.x (EoL is 2020-06-30)
+    fetch_debian_release('archive/latest-oldoldstable')
 
 
 if __name__ == '__main__':
