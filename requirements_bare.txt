@@ -1,5 +1,6 @@
 beautifulsoup4
 gnupg
 progressbar33
+pytest
 requests
 semver
