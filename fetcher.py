@@ -1,5 +1,5 @@
-import logging
 from hashlib import sha512, sha256, sha1, md5
+import logging
 import os
 
 import semver
@@ -57,22 +57,19 @@ def fetch_file(url, output):
                 outfile.write(chunk)
 
 
-def hash_file(filename, directory=None, hash_method='sha512', chunksize=2**16):
+def hash_file(filename, hash_method='sha512', chunk_size=2**16):
     '''Calculate the hash of a file using the specified method.'''
+
+    # https://stackoverflow.com/questions/17731660/hashlib-optimal-size-of-chunks-to-be-used-in-md5-update
 
     # Any requested hash method that is invalid or that we forgot to import in
     # this module, will cause an exception
     file_hash = globals()[hash_method]()
 
-    if directory is None:
-        full_path = filename
-    else:
-        full_path = os.path.join(directory, filename)
-
-    if os.path.isfile(full_path) and os.access(full_path, os.R_OK):
-        with open(full_path, 'rb') as filehandle:
+    if os.path.isfile(filename) and os.access(filename, os.R_OK):
+        with open(filename, 'rb') as filehandle:
             while True:
-                chunk = filehandle.read(chunksize)
+                chunk = filehandle.read(chunk_size)
                 if not chunk:
                     break
                 file_hash.update(chunk)
