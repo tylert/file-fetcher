@@ -11,9 +11,9 @@ from fetcher import fetch_file
 def fetch_ubuntu_cdimage_files(release, iso):
     '''Fetch an Ubuntu release.'''
 
-    fetch_file('http://cdimage.ubuntu.com/releases/{}/release/SHA256SUMS',
+    fetch_file('http://cdimage.ubuntu.com/releases/{}/release/SHA256SUMS'.format(release),
                'SHA256SUMS-{}.txt'.format(os.path.splitext(iso)[0]))
-    fetch_file('http://cdimage.ubuntu.com/releases/{}/release/SHA256SUMS.gpg',
+    fetch_file('http://cdimage.ubuntu.com/releases/{}/release/SHA256SUMS.gpg'.format(release),
                'SHA256SUMS-{}.gpg'.format(os.path.splitext(iso)[0]))
     fetch_file('http://cdimage.ubuntu.com/releases/{}/release/{}'.format(release, iso),
                '{}'.format(iso))
