@@ -8,6 +8,17 @@ from bs4 import BeautifulSoup
 from fetcher import fetch_file
 
 
+def fetch_ubuntu_cdimage_files(release, iso):
+    '''Fetch an Ubuntu release.'''
+
+    fetch_file('http://cdimage.ubuntu.com/releases/{}/release/SHA256SUMS',
+               'SHA256SUMS-{}.txt'.format(os.path.splitext(iso)[0]))
+    fetch_file('http://cdimage.ubuntu.com/releases/{}/release/SHA256SUMS.gpg',
+               'SHA256SUMS-{}.gpg'.format(os.path.splitext(iso)[0]))
+    fetch_file('http://cdimage.ubuntu.com/releases/{}/release/{}'.format(release, iso),
+               '{}'.format(iso))
+
+
 def fetch_ubuntu_release_files(release, iso):
     '''Fetch an Ubuntu release.'''
 
@@ -30,12 +41,7 @@ def main():
     for link in s.find_all('a'):
         if 'server' in link.text and 'iso' in link.text and 'amd64' in link.text and 'torrent' not in link.text and 'zsync' not in link.text:
             iso = link.text
-    fetch_file('http://cdimage.ubuntu.com/releases/bionic/release/SHA256SUMS',
-               'SHA256SUMS-{}.txt'.format(os.path.splitext(iso)[0]))
-    fetch_file('http://cdimage.ubuntu.com/releases/bionic/release/SHA256SUMS.gpg',
-               'SHA256SUMS-{}.gpg'.format(os.path.splitext(iso)[0]))
-    fetch_file('http://cdimage.ubuntu.com/releases/bionic/release/{}'.format(iso),
-               '{}'.format(iso))
+    fetch_ubuntu_cdimage_files('bionic', iso)
 
     r = requests.get('http://releases.ubuntu.com/bionic')
     r.raise_for_status()
