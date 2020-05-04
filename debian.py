@@ -41,9 +41,6 @@ def main():
     # stretch 9.x (EoL is 2022-06-01)
     fetch_debian_release('archive/latest-oldstable')
 
-    # jessie 8.x (EoL is 2020-06-30)
-    fetch_debian_release('archive/latest-oldoldstable')
-
 
 if __name__ == '__main__':
     main()
