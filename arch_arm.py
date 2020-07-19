@@ -19,12 +19,12 @@ def main():
                'ArchLinuxARM-odroid-xu3-{}.tar.gz'.format(date))
 
     # Raspberry Pi 4B
-    fetch_file('http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz.sig',
-               'ArchLinuxARM-rpi-4-{}.tar.gz.sig'.format(date))
-    fetch_file('http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz.md5',
-               'ArchLinuxARM-rpi-4-{}.tar.gz.md5'.format(date))
-    fetch_file('http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz',
-               'ArchLinuxARM-rpi-4-{}.tar.gz'.format(date))
+    # fetch_file('http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz.sig',
+    #            'ArchLinuxARM-rpi-4-{}.tar.gz.sig'.format(date))
+    # fetch_file('http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz.md5',
+    #            'ArchLinuxARM-rpi-4-{}.tar.gz.md5'.format(date))
+    # fetch_file('http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz',
+    #            'ArchLinuxARM-rpi-4-{}.tar.gz'.format(date))
 
     # Raspberry Pi 3B
     fetch_file('http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-3-latest.tar.gz.sig',
