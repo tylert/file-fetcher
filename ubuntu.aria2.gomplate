@@ -1,0 +1,26 @@
+#        _                 _
+#  _   _| |__  _   _ _ __ | |_ _   _
+# | | | | '_ \| | | | '_ \| __| | | |
+# | |_| | |_) | |_| | | | | |_| |_| |
+#  \__,_|_.__/ \__,_|_| |_|\__|\__,_|
+
+# release0
+http://releases.ubuntu.com/{{ (ds "dl").ubuntu.release0 }}/SHA256SUMS
+	out=ubuntu-{{ (ds "dl").ubuntu.release0 }}-live-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt
+http://releases.ubuntu.com/{{ (ds "dl").ubuntu.release0 }}/SHA256SUMS.gpg
+	out=ubuntu-{{ (ds "dl").ubuntu.release0 }}-live-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt.gpg
+http://releases.ubuntu.com/{{ (ds "dl").ubuntu.release0 }}/ubuntu-{{ (ds "dl").ubuntu.release0 }}-live-server-{{ (ds "dl").ubuntu.architecture }}.iso
+
+# release1
+http://cdimage.ubuntu.com/releases/{{ (ds "dl").ubuntu.release1 }}/release/SHA256SUMS
+	out=ubuntu-{{ (ds "dl").ubuntu.release1 }}-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt
+http://cdimage.ubuntu.com/releases/{{ (ds "dl").ubuntu.release1 }}/release/SHA256SUMS.gpg
+	out=ubuntu-{{ (ds "dl").ubuntu.release1 }}-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt.gpg
+http://cdimage.ubuntu.com/releases/{{ (ds "dl").ubuntu.release1 }}/release/ubuntu-{{ (ds "dl").ubuntu.release1 }}-server-{{ (ds "dl").ubuntu.architecture }}.iso
+
+# release2
+http://releases.ubuntu.com/{{ (ds "dl").ubuntu.release2 }}/SHA256SUMS
+	out=ubuntu-{{ (ds "dl").ubuntu.release2 }}-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt
+http://releases.ubuntu.com/{{ (ds "dl").ubuntu.release2 }}/SHA256SUMS.gpg
+	out=ubuntu-{{ (ds "dl").ubuntu.release2 }}-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt.gpg
+http://releases.ubuntu.com/{{ (ds "dl").ubuntu.release2 }}/ubuntu-{{ (ds "dl").ubuntu.release2 }}-server-{{ (ds "dl").ubuntu.architecture }}.iso

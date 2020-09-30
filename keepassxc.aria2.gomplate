@@ -1,0 +1,21 @@
+#  _
+# | | _____  ___ _ __   __ _ ___ _____  _____
+# | |/ / _ \/ _ \ '_ \ / _` / __/ __\ \/ / __|
+# |   <  __/  __/ |_) | (_| \__ \__ \>  < (__
+# |_|\_\___|\___| .__/ \__,_|___/___/_/\_\___|
+#               |_|
+
+# appimage
+https://github.com/keepassxreboot/keepassxc/releases/download/{{ (ds "dl").keepassxc.release }}/KeePassXC-{{ (ds "dl").keepassxc.release }}-{{ (ds "dl").keepassxc.architecture }}.AppImage.DIGEST
+	out=keepassxc-{{ (ds "dl").keepassxc.release }}-{{ (ds "dl").keepassxc.architecture }}.appimage.sha256sums.txt
+https://github.com/keepassxreboot/keepassxc/releases/download/{{ (ds "dl").keepassxc.release }}/KeePassXC-{{ (ds "dl").keepassxc.release }}-{{ (ds "dl").keepassxc.architecture }}.AppImage.sig
+	out=keepassxc-{{ (ds "dl").keepassxc.release }}-{{ (ds "dl").keepassxc.architecture }}.appimage.sha256sums.txt.sig
+https://github.com/keepassxreboot/keepassxc/releases/download/{{ (ds "dl").keepassxc.release }}/KeePassXC-{{ (ds "dl").keepassxc.release }}-{{ (ds "dl").keepassxc.architecture }}.AppImage
+	out=keepassxc-{{ (ds "dl").keepassxc.release }}-{{ (ds "dl").keepassxc.architecture }}.appimage
+
+# source
+https://github.com/keepassxreboot/keepassxc/releases/download/{{ (ds "dl").keepassxc.release }}/keepassxc-{{ (ds "dl").keepassxc.release }}-src.tar.xz.DIGEST
+	out=keepassxc-{{ (ds "dl").keepassxc.release }}-src.tar.xz.sha256sums.txt
+https://github.com/keepassxreboot/keepassxc/releases/download/{{ (ds "dl").keepassxc.release }}/keepassxc-{{ (ds "dl").keepassxc.release }}-src.tar.xz.sig
+	out=keepassxc-{{ (ds "dl").keepassxc.release }}-src.tar.xz.sha256sums.txt.sig
+https://github.com/keepassxreboot/keepassxc/releases/download/{{ (ds "dl").keepassxc.release }}/keepassxc-{{ (ds "dl").keepassxc.release }}-src.tar.xz

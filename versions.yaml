@@ -1,0 +1,21 @@
+# gomplate -d dl=foo.yaml -f foo.tmpl
+
+keepassxc:
+  architecture: x86_64
+  release: 2.6.1
+
+debian:
+  architecture: amd64
+  stable: 10.6.0
+  oldstable: 9.13.0
+
+ubuntu:
+  architecture: amd64
+  release0: 20.04.1
+  release1: 18.04.5
+  release2: 16.04.7
+
+archlinux:
+  architecture: x86_64
+  mirror: https://muug.ca/mirror/archlinux/iso/latest
+  release: 2020.10.01
