@@ -11,3 +11,13 @@
 # bootstrap
 {{ (ds "dl").archlinux.mirror }}/archlinux-bootstrap-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture }}.tar.gz.sig
 {{ (ds "dl").archlinux.mirror }}/archlinux-bootstrap-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture }}.tar.gz
+
+# pi 4B/3B aarch64 variant
+http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-aarch64-latest.tar.gz.md5
+http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-aarch64-latest.tar.gz.sig
+http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-aarch64-latest.tar.gz
+
+# odroid HC2/HC1/XU4/XU3
+http://os.archlinuxarm.org/os/ArchLinuxARM-odroid-xu3-latest.tar.gz.md5
+http://os.archlinuxarm.org/os/ArchLinuxARM-odroid-xu3-latest.tar.gz.sig
+http://os.archlinuxarm.org/os/ArchLinuxARM-odroid-xu3-latest.tar.gz
