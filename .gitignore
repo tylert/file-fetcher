@@ -10,6 +10,9 @@ __pycache__/
 *.sig
 *.sign
 *.gpg
+*.asc
+
+*.AppImage
 
 *.iso
 *.iso.*
@@ -18,3 +21,5 @@ __pycache__/
 *.deb
 *.tar.gz
 *.zip
+
+*.aria2
