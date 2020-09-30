@@ -1,0 +1,13 @@
+#        _ _   _                 _
+#  _   _| | |_(_)_ __ ___   __ _| | _____ _ __    ___ _   _ _ __ __ _
+# | | | | | __| | '_ ` _ \ / _` | |/ / _ \ '__|  / __| | | | '__/ _` |
+# | |_| | | |_| | | | | | | (_| |   <  __/ |    | (__| |_| | | | (_| |
+#  \__,_|_|\__|_|_| |_| |_|\__,_|_|\_\___|_|     \___|\__,_|_|  \__,_|
+
+# appimage
+https://github.com/Ultimaker/Cura/releases/download/{{ (ds "dl").ultimaker_cura.release }}/Ultimaker_Cura-{{ (ds "dl").ultimaker_cura.release }}.AppImage.asc
+https://github.com/Ultimaker/Cura/releases/download/{{ (ds "dl").ultimaker_cura.release }}/Ultimaker_Cura-{{ (ds "dl").ultimaker_cura.release }}.AppImage
+
+# source
+https://github.com/Ultimaker/Cura/archive/{{ (ds "dl").ultimaker_cura.release }}.tar.gz
+	out=Ultimaker_Cura-{{ (ds "dl").ultimaker_cura.release }}.tar.gz

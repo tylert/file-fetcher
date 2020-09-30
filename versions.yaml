@@ -19,3 +19,6 @@ archlinux:
   architecture: x86_64
   mirror: https://muug.ca/mirror/archlinux/iso/latest
   release: 2020.10.01
+
+ultimaker_cura:
+  release: 4.7.1
