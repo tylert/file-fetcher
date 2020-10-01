@@ -10,7 +10,9 @@
 
 # bootstrap
 {{ (ds "dl").archlinux.mirror }}/archlinux-bootstrap-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture0 }}.tar.gz.sig
+	out=archlinux-{{ (ds "dl").archlinux.release }}-bootstrap-{{ (ds "dl").archlinux.architecture0 }}.tar.gz.sig
 {{ (ds "dl").archlinux.mirror }}/archlinux-bootstrap-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture0 }}.tar.gz
+	out=archlinux-{{ (ds "dl").archlinux.release }}-bootstrap-{{ (ds "dl").archlinux.architecture0 }}.tar.gz
 
 # XXX TODO FIXME Replace these with a loop from a list
 http://os.archlinuxarm.org/os/ArchLinuxARM-{{ (ds "dl").archlinux.architecture1 }}-latest.tar.gz.md5
