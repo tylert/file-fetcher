@@ -1,0 +1,27 @@
+#                         _
+#  _ __ ___   __ _ _ __  (_) __ _ _ __ ___
+# | '_ ` _ \ / _` | '_ \ | |/ _` | '__/ _ \
+# | | | | | | (_| | | | || | (_| | | | (_) |
+# |_| |_| |_|\__,_|_| |_|/ |\__,_|_|  \___/
+#                      |__/
+
+https://osdn.net/projects/manjaro/storage/Manjaro-User-Guide.pdf
+	out=manjaro-user-guide.pdf
+
+# architect (official)
+https://osdn.net/projects/manjaro/storage/architect/20.0.3/manjaro-architect-20.0.3-200607-linux56.iso.sha256
+https://osdn.net/projects/manjaro/storage/architect/20.0.3/manjaro-architect-20.0.3-200607-linux56.iso.sig
+https://osdn.net/projects/manjaro/storage/architect/20.0.3/manjaro-architect-20.0.3-200607-linux56.iso
+# https://osdn.net/projects/manjaro/storage/architect/20.0.3/manjaro-architect-20.0.3-200607-linux56.iso.torrent
+
+# cinnamon-minimal (community)
+https://osdn.net/projects/manjaro-community/storage/cinnamon/20.1/minimal/manjaro-cinnamon-20.1-minimal-200912-linux58.iso.sha256
+https://osdn.net/projects/manjaro-community/storage/cinnamon/20.1/minimal/manjaro-cinnamon-20.1-minimal-200912-linux58.iso.sig
+https://osdn.net/projects/manjaro-community/storage/cinnamon/20.1/minimal/manjaro-cinnamon-20.1-minimal-200912-linux58.iso
+# https://osdn.net/projects/manjaro-community/storage/cinnamon/20.1/minimal/manjaro-cinnamon-20.1-minimal-200912-linux58.iso.torrent
+
+# cinnamon (community)
+https://osdn.net/projects/manjaro-community/storage/cinnamon/20.1/manjaro-cinnamon-20.1-200913-linux58.iso.sha256
+https://osdn.net/projects/manjaro-community/storage/cinnamon/20.1/manjaro-cinnamon-20.1-200913-linux58.iso.sig
+https://osdn.net/projects/manjaro-community/storage/cinnamon/20.1/manjaro-cinnamon-20.1-200913-linux58.iso
+# https://osdn.net/projects/manjaro-community/storage/cinnamon/20.1/manjaro-cinnamon-20.1-200913-linux58.iso.torrent
