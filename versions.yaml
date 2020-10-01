@@ -3,7 +3,7 @@
 # XXX TODO FIXME Do all arch fetches in a loop from a list
 # XXX TODO FIXME Handle more than one mirror at a time
 archlinux:
-  architecture: x86_64
+  architecture0: x86_64
   architecture1: rpi-aarch64  # pi 4b/3b aarch64 variant
   architecture2: odroid-xu3  # hc2/hc1/xu4/xu3
   mirror: https://muug.ca/mirror/archlinux/iso/latest
