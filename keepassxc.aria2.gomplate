@@ -5,7 +5,7 @@
 # |_|\_\___|\___| .__/ \__,_|___/___/_/\_\___|
 #               |_|
 
-# appimage
+# appimage (linux)
 https://github.com/keepassxreboot/keepassxc/releases/download/{{ (ds "dl").keepassxc.release }}/KeePassXC-{{ (ds "dl").keepassxc.release }}-{{ (ds "dl").keepassxc.architecture }}.AppImage.DIGEST
 	out=keepassxc-{{ (ds "dl").keepassxc.release }}-{{ (ds "dl").keepassxc.architecture }}.appimage.sha256sums.txt
 https://github.com/keepassxreboot/keepassxc/releases/download/{{ (ds "dl").keepassxc.release }}/KeePassXC-{{ (ds "dl").keepassxc.release }}-{{ (ds "dl").keepassxc.architecture }}.AppImage.sig

@@ -1,24 +1,37 @@
 # gomplate -d dl=foo.yaml -f foo.tmpl
 
-keepassxc:
+# XXX TODO FIXME Do all arch fetches in a loop from a list
+# XXX TODO FIXME Handle more than one mirror at a time
+archlinux:
   architecture: x86_64
-  release: 2.6.1
+  architecture1: rpi-aarch64  # pi 4b/3b aarch64 variant
+  architecture2: odroid-xu3  # hc2/hc1/xu4/xu3
+  mirror: https://muug.ca/mirror/archlinux/iso/latest
+  release: 2020.10.01
+
+# XXX TODO FIXME Do all variant fetches in a loop from a list
+centos:
+  architecture: x86_64
+  release0: 8.2.2004
+  release1: 7.8.2003
+  variant0: minimal  # boot, minimal or dvd1
+  variant1: Minimal  # NetInstall, Minimal or DVD
+  minor1: 2003
 
 debian:
   architecture: amd64
   stable: 10.6.0
   oldstable: 9.13.0
 
+keepassxc:
+  architecture: x86_64
+  release: 2.6.1
+
 ubuntu:
   architecture: amd64
   release0: 20.04.1
   release1: 18.04.5
   release2: 16.04.7
-
-archlinux:
-  architecture: x86_64
-  mirror: https://muug.ca/mirror/archlinux/iso/latest
-  release: 2020.10.01
 
 ultimaker_cura:
   release: 4.7.1

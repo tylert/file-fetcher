@@ -5,19 +5,24 @@
 #  \__,_|_|  \___|_| |_|_|_|_| |_|\__,_/_/\_\
 
 # iso
-{{ (ds "dl").archlinux.mirror }}/archlinux-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture }}.iso.sig
-{{ (ds "dl").archlinux.mirror }}/archlinux-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture }}.iso
+{{ (ds "dl").archlinux.mirror }}/archlinux-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture0 }}.iso.sig
+{{ (ds "dl").archlinux.mirror }}/archlinux-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture0 }}.iso
 
 # bootstrap
-{{ (ds "dl").archlinux.mirror }}/archlinux-bootstrap-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture }}.tar.gz.sig
-{{ (ds "dl").archlinux.mirror }}/archlinux-bootstrap-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture }}.tar.gz
+{{ (ds "dl").archlinux.mirror }}/archlinux-bootstrap-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture0 }}.tar.gz.sig
+{{ (ds "dl").archlinux.mirror }}/archlinux-bootstrap-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture0 }}.tar.gz
 
-# pi 4B/3B aarch64 variant
-http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-aarch64-latest.tar.gz.md5
-http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-aarch64-latest.tar.gz.sig
-http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-aarch64-latest.tar.gz
+# XXX TODO FIXME Replace these with a loop from a list
+http://os.archlinuxarm.org/os/ArchLinuxARM-{{ (ds "dl").archlinux.architecture1 }}-latest.tar.gz.md5
+	out=archlinux-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture1 }}.tar.gz.md5
+http://os.archlinuxarm.org/os/ArchLinuxARM-{{ (ds "dl").archlinux.architecture1 }}-latest.tar.gz.sig
+	out=archlinux-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture1 }}.tar.gz.sig
+http://os.archlinuxarm.org/os/ArchLinuxARM-{{ (ds "dl").archlinux.architecture1 }}-latest.tar.gz
+	out=archlinux-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture1 }}.tar.gz
 
-# odroid HC2/HC1/XU4/XU3
-http://os.archlinuxarm.org/os/ArchLinuxARM-odroid-xu3-latest.tar.gz.md5
-http://os.archlinuxarm.org/os/ArchLinuxARM-odroid-xu3-latest.tar.gz.sig
-http://os.archlinuxarm.org/os/ArchLinuxARM-odroid-xu3-latest.tar.gz
+http://os.archlinuxarm.org/os/ArchLinuxARM-{{ (ds "dl").archlinux.architecture2 }}-latest.tar.gz.md5
+	out=archlinux-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture2 }}.tar.gz.md5
+http://os.archlinuxarm.org/os/ArchLinuxARM-{{ (ds "dl").archlinux.architecture2 }}-latest.tar.gz.sig
+	out=archlinux-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture2 }}.tar.gz.sig
+http://os.archlinuxarm.org/os/ArchLinuxARM-{{ (ds "dl").archlinux.architecture2 }}-latest.tar.gz
+	out=archlinux-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture2 }}.tar.gz

@@ -1,0 +1,23 @@
+#                 _
+#   ___ ___ _ __ | |_ ___  ___
+#  / __/ _ \ '_ \| __/ _ \/ __|
+# | (_|  __/ | | | || (_) \__ \
+#  \___\___|_| |_|\__\___/|___/
+
+# XXX TODO FIXME Handle multiple variant fetching with a loop from a list
+# release0 (8.x)
+http://centos.mirror.iweb.ca/{{ (ds "dl").centos.release0 }}/isos/{{ (ds "dl").centos.architecture }}/CHECKSUM
+	out=centos-{{ (ds "dl").centos.release0 }}-{{ (ds "dl").centos.architecture }}-{{ (ds "dl").centos.variant0 }}.iso.sha256sums.txt
+http://centos.mirror.iweb.ca/{{ (ds "dl").centos.release0 }}/isos/{{ (ds "dl").centos.architecture }}/CHECKSUM.asc
+	out=centos-{{ (ds "dl").centos.release0 }}-{{ (ds "dl").centos.architecture }}-{{ (ds "dl").centos.variant0 }}.iso.sha256sums.txt.asc
+http://centos.mirror.iweb.ca/{{ (ds "dl").centos.release0 }}/isos/{{ (ds "dl").centos.architecture }}/CentOS-{{ (ds "dl").centos.release0 }}-{{ (ds "dl").centos.architecture }}-{{ (ds "dl").centos.variant0 }}.iso
+	out=centos-{{ (ds "dl").centos.release0 }}-{{ (ds "dl").centos.architecture }}-{{ (ds "dl").centos.variant0 }}.iso
+
+# XXX TODO FIXME Handle multiple variant fetching with a loop from a list
+# release1 (7.x)
+http://centos.mirror.iweb.ca/{{ (ds "dl").centos.release1 }}/isos/{{ (ds "dl").centos.architecture }}/sha256sum.txt
+	out=centos-{{ (ds "dl").centos.release1 }}-{{ (ds "dl").centos.architecture }}-{{ (ds "dl").centos.variant1 }}-iso.sha256sums.txt
+http://centos.mirror.iweb.ca/{{ (ds "dl").centos.release1 }}/isos/{{ (ds "dl").centos.architecture }}/sha256sum.txt.asc
+	out=centos-{{ (ds "dl").centos.release1 }}-{{ (ds "dl").centos.architecture }}-{{ (ds "dl").centos.variant1 }}-iso.sha256sums.txt.asc
+http://centos.mirror.iweb.ca/{{ (ds "dl").centos.release1 }}/isos/{{ (ds "dl").centos.architecture }}/CentOS-7-{{ (ds "dl").centos.architecture }}-{{ (ds "dl").centos.variant1 }}-{{ (ds "dl").centos.minor1 }}.iso
+	out=centos-{{ (ds "dl").centos.release1 }}-{{ (ds "dl").centos.architecture }}-{{ (ds "dl").centos.variant1 }}.iso
