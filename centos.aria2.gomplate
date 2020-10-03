@@ -5,7 +5,7 @@
 #  \___\___|_| |_|\__\___/|___/
 
 # release0 (8.x)
-{{ range (ds "dl").centos.variants0 }}
+{{- range (ds "dl").centos.variants0 }}
 http://centos.mirror.iweb.ca/{{ (ds "dl").centos.release0 }}/isos/{{ (ds "dl").centos.architecture }}/CHECKSUM
 	out=centos-{{ (ds "dl").centos.release0 }}-{{ (ds "dl").centos.architecture }}-{{ . }}.iso.sha256sums.txt
 http://centos.mirror.iweb.ca/{{ (ds "dl").centos.release0 }}/isos/{{ (ds "dl").centos.architecture }}/CHECKSUM.asc
@@ -15,7 +15,7 @@ http://centos.mirror.iweb.ca/{{ (ds "dl").centos.release0 }}/isos/{{ (ds "dl").c
 {{ end }}
 
 # release1 (7.x)
-{{ range (ds "dl").centos.variants1 }}
+{{- range (ds "dl").centos.variants1 }}
 http://centos.mirror.iweb.ca/{{ (ds "dl").centos.release1 }}/isos/{{ (ds "dl").centos.architecture }}/sha256sum.txt
 	out=centos-{{ (ds "dl").centos.release1 }}-{{ (ds "dl").centos.architecture }}-{{ . | toLower }}-iso.sha256sums.txt
 http://centos.mirror.iweb.ca/{{ (ds "dl").centos.release1 }}/isos/{{ (ds "dl").centos.architecture }}/sha256sum.txt.asc

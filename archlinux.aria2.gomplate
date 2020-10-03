@@ -14,17 +14,12 @@
 {{ (ds "dl").archlinux.mirror }}/archlinux-bootstrap-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture0 }}.tar.gz
 	out=archlinux-{{ (ds "dl").archlinux.release }}-bootstrap-{{ (ds "dl").archlinux.architecture0 }}.tar.gz
 
-# XXX TODO FIXME Replace these with a loop from a list
-http://os.archlinuxarm.org/os/ArchLinuxARM-{{ (ds "dl").archlinux.architecture1 }}-latest.tar.gz.md5
-	out=archlinux-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture1 }}.tar.gz.md5
-http://os.archlinuxarm.org/os/ArchLinuxARM-{{ (ds "dl").archlinux.architecture1 }}-latest.tar.gz.sig
-	out=archlinux-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture1 }}.tar.gz.sig
-http://os.archlinuxarm.org/os/ArchLinuxARM-{{ (ds "dl").archlinux.architecture1 }}-latest.tar.gz
-	out=archlinux-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture1 }}.tar.gz
-
-http://os.archlinuxarm.org/os/ArchLinuxARM-{{ (ds "dl").archlinux.architecture2 }}-latest.tar.gz.md5
-	out=archlinux-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture2 }}.tar.gz.md5
-http://os.archlinuxarm.org/os/ArchLinuxARM-{{ (ds "dl").archlinux.architecture2 }}-latest.tar.gz.sig
-	out=archlinux-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture2 }}.tar.gz.sig
-http://os.archlinuxarm.org/os/ArchLinuxARM-{{ (ds "dl").archlinux.architecture2 }}-latest.tar.gz
-	out=archlinux-{{ (ds "dl").archlinux.release }}-{{ (ds "dl").archlinux.architecture2 }}.tar.gz
+# arm loads
+{{- range (ds "dl").archlinux.architectures }}
+http://os.archlinuxarm.org/os/ArchLinuxARM-{{ . }}-latest.tar.gz.md5
+	out=archlinux-{{ (ds "dl").archlinux.release }}-{{ . }}.tar.gz.md5
+http://os.archlinuxarm.org/os/ArchLinuxARM-{{ . }}-latest.tar.gz.sig
+	out=archlinux-{{ (ds "dl").archlinux.release }}-{{ . }}.tar.gz.sig
+http://os.archlinuxarm.org/os/ArchLinuxARM-{{ . }}-latest.tar.gz
+	out=archlinux-{{ (ds "dl").archlinux.release }}-{{ . }}.tar.gz
+{{ end }}

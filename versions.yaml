@@ -1,12 +1,9 @@
 # gomplate -d dl=foo.yaml -f foo.tmpl
 
-# XXX TODO FIXME Do all arch fetches in a loop from a list
 # XXX TODO FIXME Handle more than one mirror at a time
 archlinux:
   architecture0: x86_64
-  architecture1: rpi-aarch64  # pi 4b/3b aarch64 variant
-  architecture2: odroid-xu3  # hc2/hc1/xu4/xu3
-# architectures: [rpi-aarch64, odroid-xu3]
+  architectures: [rpi-aarch64, odroid-xu3]  # pi4b/pi3b arm8 variant, hc2/hc1/xu4/xu3 arm7
   mirror: https://muug.ca/mirror/archlinux/iso/latest
   release: 2020.10.01
 
