@@ -1,0 +1,16 @@
+#                              _       _
+#   __ _  ___  _ __ ___  _ __ | | __ _| |_ ___
+#  / _` |/ _ \| '_ ` _ \| '_ \| |/ _` | __/ _ \
+# | (_| | (_) | | | | | | |_) | | (_| | ||  __/
+#  \__, |\___/|_| |_| |_| .__/|_|\__,_|\__\___|
+#  |___/                |_|
+
+# binary
+https://github.com/hairyhenderson/gomplate/releases/download/{{ (ds "dl").gomplate.release }}/checksums-{{ (ds "dl").gomplate.release }}_sha512.txt
+	out=gomplate-{{ (ds "dl").gomplate.release }}.sha512sums.txt
+https://github.com/hairyhenderson/gomplate/releases/download/{{ (ds "dl").gomplate.release }}/gomplate_{{ (ds "dl").gomplate.operating_system }}-{{ (ds "dl").gomplate.architecture }}
+	out=gomplate-{{ (ds "dl").gomplate.release }}-{{ (ds "dl").gomplate.operating_system }}-{{ (ds "dl").gomplate.architecture }}
+
+# source
+https://github.com/hairyhenderson/gomplate/archive/{{ (ds "dl").gomplate.release }}.tar.gz
+	out=gomplate-{{ (ds "dl").gomplate.release }}.tar.gz

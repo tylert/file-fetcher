@@ -14,14 +14,21 @@ centos:
   architecture: x86_64
   release0: 8.2.2004
   release1: 7.8.2003
-  variant0: minimal  # boot, minimal or dvd1
-  variant1: Minimal  # NetInstall, Minimal or DVD
+  variant0: minimal
+# variant0: [boot, minimal, dvd1]
+  variant1: Minimal
+# variant1: [NetInstall, Minimal, DVD]
   minor1: 2003
 
 debian:
   architecture: amd64
   stable: 10.6.0
   oldstable: 9.13.0
+
+gomplate:
+  architecture: amd64
+  operating_system: linux
+  release: v3.8.0
 
 keepassxc:
   architecture: x86_64
