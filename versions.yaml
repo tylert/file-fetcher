@@ -6,18 +6,16 @@ archlinux:
   architecture0: x86_64
   architecture1: rpi-aarch64  # pi 4b/3b aarch64 variant
   architecture2: odroid-xu3  # hc2/hc1/xu4/xu3
+# architectures: [rpi-aarch64, odroid-xu3]
   mirror: https://muug.ca/mirror/archlinux/iso/latest
   release: 2020.10.01
 
-# XXX TODO FIXME Do all variant fetches in a loop from a list
 centos:
   architecture: x86_64
   release0: 8.2.2004
   release1: 7.8.2003
-  variant0: minimal
-# variant0: [boot, minimal, dvd1]
-  variant1: Minimal
-# variant1: [NetInstall, Minimal, DVD]
+  variants0: [boot, minimal, dvd1]
+  variants1: [NetInstall, Minimal, DVD]
   minor1: 2003
 
 debian:
