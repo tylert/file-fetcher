@@ -1,0 +1,14 @@
+#           _ _ _
+#   ___  __| (_) |_ ___ _ __
+#  / _ \/ _` | | __/ __| '_ \
+# |  __/ (_| | | || (__| |_) |
+#  \___|\__,_|_|\__\___| .__/
+#                      |_|
+
+# binaries
+https://www.farnsworth.org/dale/codeplug/editcp/downloads/{{ (ds "dl").operating_system }}/editcp-{{ (ds "dl").release }}.tar.xz
+https://www.farnsworth.org/dale/codeplug/dmrRadio/downloads/{{ (ds "dl").operating_system }}/dmrRadio-{{ (ds "dl").release }}.tar.xz
+
+# source
+https://github.com/DaleFarnsworth-DMR/editcp/archive/v{{ (ds "dl").release }}.tar.gz
+https://github.com/DaleFarnsworth-DMR/dmrRadio/archive/v{{ (ds "dl").release }}.tar.gz
