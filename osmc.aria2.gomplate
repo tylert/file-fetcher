@@ -1,0 +1,7 @@
+#   ___  ___ _ __ ___   ___
+#  / _ \/ __| '_ ` _ \ / __|
+# | (_) \__ \ | | | | | (__
+#  \___/|___/_| |_| |_|\___|
+
+https://ftp.fau.de/osmc/osmc/download//installers/diskimages/OSMC_TGT_{{ (ds "dl").platform }}_{{ (ds "dl").release }}.md5
+https://ftp.fau.de/osmc/osmc/download//installers/diskimages/OSMC_TGT_{{ (ds "dl").platform }}_{{ (ds "dl").release }}.img.gz

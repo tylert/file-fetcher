@@ -33,6 +33,10 @@ keepassxc:
   architecture: x86_64
   release: 2.6.1
 
+osmc:
+  platform: rbp2
+  release: 20200616
+
 ubuntu:
   architecture: amd64
   releaseB: 20.10
