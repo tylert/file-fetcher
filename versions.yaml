@@ -6,6 +6,7 @@
 
 # gomplate -d dl=foo.yaml -f foo.tmpl
 
+# https://muug.ca/mirror/archlinux/iso/latest/
 # XXX TODO FIXME Handle more than one mirror at a time
 archlinux:
   architecture0: x86_64
@@ -13,6 +14,8 @@ archlinux:
   mirror: https://muug.ca/mirror/archlinux/iso/latest
   release: 2020.10.01
 
+# http://centos.mirror.iweb.ca/8/isos/x86_64/
+# http://centos.mirror.iweb.ca/7/isos/x86_64/
 centos:
   architecture: x86_64
   release0: 8.2.2004
@@ -21,32 +24,46 @@ centos:
   variants1: [NetInstall, Minimal, DVD]  # Everything
   minor1: 2003
 
+# http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/
+# http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/
+# http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd/
 debian:
   architecture: amd64
   stable: 10.6.0
   oldstable: 9.13.0
 
+# https://www.farnsworth.org/dale/codeplug/editcp/downloads/linux/
+# https://www.farnsworth.org/dale/codeplug/dmrRadio/downloads/linux/
+# https://github.com/DaleFarnsworth-DMR/editcp
+# https://github.com/DaleFarnsworth-DMR/dmrRadio
 editcp:
   operating_system: linux
   release: 1.0.23
 
+# https://github.com/hairyhenderson/gomplate/releases
+# https://github.com/hairyhenderson/gomplate
 gomplate:
   architecture: amd64
   operating_system: linux
   release: v3.8.0
 
+# https://keepassxc.org/download/
 keepassxc:
   architecture: x86_64
   release: 2.6.1
 
+# https://libreelec.tv/raspberry-pi-4/
 libreelec:
   platform: RPi4
   release: 9.2.5
 
+# https://ftp.fau.de/osmc/osmc/download/installers/diskimages/
 osmc:
   platform: rbp2
   release: 20200616
 
+# http://releases.ubuntu.com/
+# http://cdimage.ubuntu.com/
 ubuntu:
   architecture: amd64
   releaseB: 20.10
@@ -54,5 +71,7 @@ ubuntu:
   release1: 18.04.5
   release2: 16.04.7
 
+# https://github.com/Ultimaker/Cura/releases
+# https://github.com/Ultimaker/Cura
 ultimaker_cura:
   release: 4.7.1

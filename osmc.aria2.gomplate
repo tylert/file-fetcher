@@ -3,5 +3,5 @@
 # | (_) \__ \ | | | | | (__
 #  \___/|___/_| |_| |_|\___|
 
-https://ftp.fau.de/osmc/osmc/download//installers/diskimages/OSMC_TGT_{{ (ds "dl").osmc.platform }}_{{ (ds "dl").osmc.release }}.md5
-https://ftp.fau.de/osmc/osmc/download//installers/diskimages/OSMC_TGT_{{ (ds "dl").osmc.platform }}_{{ (ds "dl").osmc.release }}.img.gz
+https://ftp.fau.de/osmc/osmc/download/installers/diskimages/OSMC_TGT_{{ (ds "dl").osmc.platform }}_{{ (ds "dl").osmc.release }}.md5
+https://ftp.fau.de/osmc/osmc/download/installers/diskimages/OSMC_TGT_{{ (ds "dl").osmc.platform }}_{{ (ds "dl").osmc.release }}.img.gz
