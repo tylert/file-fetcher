@@ -1,3 +1,9 @@
+#                     _
+# __   _____ _ __ ___(_) ___  _ __  ___
+# \ \ / / _ \ '__/ __| |/ _ \| '_ \/ __|
+#  \ V /  __/ |  \__ \ | (_) | | | \__ \
+#   \_/ \___|_|  |___/_|\___/|_| |_|___/
+
 # gomplate -d dl=foo.yaml -f foo.tmpl
 
 # XXX TODO FIXME Handle more than one mirror at a time
@@ -32,6 +38,10 @@ gomplate:
 keepassxc:
   architecture: x86_64
   release: 2.6.1
+
+libreelec:
+  platform: RPi4
+  release: 9.2.5
 
 osmc:
   platform: rbp2
