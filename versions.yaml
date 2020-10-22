@@ -83,6 +83,5 @@ ubuntu:
   release2: 16.04.7
 
 # https://github.com/Ultimaker/Cura/releases
-# https://github.com/Ultimaker/Cura
 ultimaker_cura:
   release: 4.7.1
