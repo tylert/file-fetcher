@@ -50,7 +50,7 @@ gomplate:
 # https://keepassxc.org/download/
 keepassxc:
   architecture: x86_64
-  release: 2.6.1
+  release: 2.6.2
 
 # https://libreelec.tv/raspberry-pi-4/
 libreelec:
