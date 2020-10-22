@@ -13,4 +13,4 @@ https://github.com/hairyhenderson/gomplate/releases/download/{{ (ds "dl").gompla
 
 # source
 https://github.com/hairyhenderson/gomplate/archive/{{ (ds "dl").gomplate.release }}.tar.gz
-	out=gomplate-{{ (ds "dl").gomplate.release }}.tar.gz
+	out=gomplate-{{ (ds "dl").gomplate.release }}-src.tar.gz

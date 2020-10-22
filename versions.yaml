@@ -38,7 +38,8 @@ debian:
 # https://github.com/DaleFarnsworth-DMR/dmrRadio
 editcp:
   operating_system: linux
-  release: 1.0.23
+  editcp_release: 1.0.23
+  dfu_release: 1.0.20
 
 # https://github.com/hairyhenderson/gomplate/releases
 # https://github.com/hairyhenderson/gomplate
