@@ -4,7 +4,7 @@
 # | |_| | |_) | |_| | | | | |_| |_| |
 #  \__,_|_.__/ \__,_|_| |_|\__|\__,_|
 
-# releaseB (20.10)
+# releaseX (20.10)
 http://releases.ubuntu.com/{{ (ds "dl").ubuntu.releaseX }}/SHA256SUMS
 	out=ubuntu-{{ (ds "dl").ubuntu.releaseX }}-live-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt
 http://releases.ubuntu.com/{{ (ds "dl").ubuntu.releaseX }}/SHA256SUMS.gpg
