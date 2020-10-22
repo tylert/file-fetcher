@@ -10,6 +10,7 @@ https://www.farnsworth.org/dale/codeplug/editcp/downloads/{{ (ds "dl").editcp.op
 https://www.farnsworth.org/dale/codeplug/dmrRadio/downloads/{{ (ds "dl").editcp.operating_system }}/dmrRadio-{{ (ds "dl").editcp.editcp_release }}.tar.xz
 
 # source
+# XXX FIXME TODO Add the rest of the subordinate source code blobs
 https://github.com/DaleFarnsworth-DMR/editcp/archive/v{{ (ds "dl").editcp.editcp_release }}.tar.gz
 	out=editcp-{{ (ds "dl").editcp.editcp_release }}-src.tar.gz
 https://github.com/DaleFarnsworth-DMR/dmrRadio/archive/v{{ (ds "dl").editcp.editcp_release }}.tar.gz

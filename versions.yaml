@@ -34,19 +34,29 @@ debian:
 
 # https://www.farnsworth.org/dale/codeplug/editcp/downloads/linux/
 # https://www.farnsworth.org/dale/codeplug/dmrRadio/downloads/linux/
-# https://github.com/DaleFarnsworth-DMR/editcp
-# https://github.com/DaleFarnsworth-DMR/dmrRadio
+# https://github.com/DaleFarnsworth-DMR/codeplug/releases
+# https://github.com/DaleFarnsworth-DMR/debug/releases
+# https://github.com/DaleFarnsworth-DMR/dfu/releases
+# https://github.com/DaleFarnsworth-DMR/dmrRadio/releases
+# https://github.com/DaleFarnsworth-DMR/docCodeplug/releases
+# https://github.com/DaleFarnsworth-DMR/docker/releases
+# https://github.com/DaleFarnsworth-DMR/docs/releases
+# https://github.com/DaleFarnsworth-DMR/editcp/releases
+# https://github.com/DaleFarnsworth-DMR/genCodeplugInfo/releases
+# https://github.com/DaleFarnsworth-DMR/genFileData/releases
+# https://github.com/DaleFarnsworth-DMR/stdfu/releases
+# https://github.com/DaleFarnsworth-DMR/ui/releases
+# https://github.com/DaleFarnsworth-DMR/userdb/releases
 editcp:
   operating_system: linux
   editcp_release: 1.0.23
   dfu_release: 1.0.20
 
 # https://github.com/hairyhenderson/gomplate/releases
-# https://github.com/hairyhenderson/gomplate
 gomplate:
   architecture: amd64
   operating_system: linux
-  release: v3.8.0
+  release: 3.8.0
 
 # https://keepassxc.org/download/
 keepassxc:

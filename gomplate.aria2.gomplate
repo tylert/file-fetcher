@@ -6,11 +6,11 @@
 #  |___/                |_|
 
 # binary
-https://github.com/hairyhenderson/gomplate/releases/download/{{ (ds "dl").gomplate.release }}/checksums-{{ (ds "dl").gomplate.release }}_sha512.txt
+https://github.com/hairyhenderson/gomplate/releases/download/v{{ (ds "dl").gomplate.release }}/checksums-v{{ (ds "dl").gomplate.release }}_sha512.txt
 	out=gomplate-{{ (ds "dl").gomplate.release }}.sha512sums.txt
-https://github.com/hairyhenderson/gomplate/releases/download/{{ (ds "dl").gomplate.release }}/gomplate_{{ (ds "dl").gomplate.operating_system }}-{{ (ds "dl").gomplate.architecture }}
+https://github.com/hairyhenderson/gomplate/releases/download/v{{ (ds "dl").gomplate.release }}/gomplate_{{ (ds "dl").gomplate.operating_system }}-{{ (ds "dl").gomplate.architecture }}
 	out=gomplate-{{ (ds "dl").gomplate.release }}-{{ (ds "dl").gomplate.operating_system }}-{{ (ds "dl").gomplate.architecture }}
 
 # source
-https://github.com/hairyhenderson/gomplate/archive/{{ (ds "dl").gomplate.release }}.tar.gz
+https://github.com/hairyhenderson/gomplate/archive/v{{ (ds "dl").gomplate.release }}.tar.gz
 	out=gomplate-{{ (ds "dl").gomplate.release }}-src.tar.gz
