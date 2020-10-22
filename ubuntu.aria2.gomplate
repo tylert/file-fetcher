@@ -5,12 +5,11 @@
 #  \__,_|_.__/ \__,_|_| |_|\__|\__,_|
 
 # releaseB (20.10)
-# XXX FIXME TODO Remove "-beta" from the release once it goes GA
-http://releases.ubuntu.com/{{ (ds "dl").ubuntu.releaseB }}/SHA256SUMS
-	out=ubuntu-{{ (ds "dl").ubuntu.releaseB }}-beta-live-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt
-http://releases.ubuntu.com/{{ (ds "dl").ubuntu.releaseB }}/SHA256SUMS.gpg
-	out=ubuntu-{{ (ds "dl").ubuntu.releaseB }}-beta-live-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt.gpg
-http://releases.ubuntu.com/{{ (ds "dl").ubuntu.releaseB }}/ubuntu-{{ (ds "dl").ubuntu.releaseB }}-beta-live-server-{{ (ds "dl").ubuntu.architecture }}.iso
+http://releases.ubuntu.com/{{ (ds "dl").ubuntu.releaseX }}/SHA256SUMS
+	out=ubuntu-{{ (ds "dl").ubuntu.releaseX }}-live-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt
+http://releases.ubuntu.com/{{ (ds "dl").ubuntu.releaseX }}/SHA256SUMS.gpg
+	out=ubuntu-{{ (ds "dl").ubuntu.releaseX }}-live-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt.gpg
+http://releases.ubuntu.com/{{ (ds "dl").ubuntu.releaseX }}/ubuntu-{{ (ds "dl").ubuntu.releaseX }}-live-server-{{ (ds "dl").ubuntu.architecture }}.iso
 
 # release0 (20.04.x LTS)
 http://releases.ubuntu.com/{{ (ds "dl").ubuntu.release0 }}/SHA256SUMS
