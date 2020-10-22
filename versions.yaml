@@ -60,7 +60,7 @@ libreelec:
 # https://ftp.fau.de/osmc/osmc/download/installers/diskimages/
 osmc:
   platform: rbp2
-  release: 20200616
+  release: 20201019
 
 # http://releases.ubuntu.com/
 # http://cdimage.ubuntu.com/

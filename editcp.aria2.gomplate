@@ -11,4 +11,6 @@ https://www.farnsworth.org/dale/codeplug/dmrRadio/downloads/{{ (ds "dl").editcp.
 
 # source
 https://github.com/DaleFarnsworth-DMR/editcp/archive/v{{ (ds "dl").editcp.release }}.tar.gz
+	out=editcp-{{ (ds "dl").editcp.release }}-src.tar.gz
 https://github.com/DaleFarnsworth-DMR/dmrRadio/archive/v{{ (ds "dl").editcp.release }}.tar.gz
+	out=dmrRadio-{{ (ds "dl").editcp.release }}-src.tar.gz
