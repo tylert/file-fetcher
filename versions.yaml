@@ -58,6 +58,15 @@ gomplate:
   operating_system: linux
   release: 3.8.0
 
+hashicorp:
+  architecture: amd64
+  operating_system: linux
+  product: packer
+  release: 0.0.0
+  vagrant_architecture: x86_64
+  vagrant_package: deb
+  vagrant_release: 0.0.0
+
 # https://keepassxc.org/download/
 keepassxc:
   architecture: x86_64
