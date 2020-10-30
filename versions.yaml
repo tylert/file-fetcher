@@ -82,6 +82,11 @@ osmc:
   platform: rbp2
   release: 20201019
 
+# https://www.pistar.uk/downloads/
+pi-star:
+  platform: RPi
+  release: 4.1.2_20-May-2020
+
 # http://releases.ubuntu.com/
 # http://cdimage.ubuntu.com/
 ubuntu:
