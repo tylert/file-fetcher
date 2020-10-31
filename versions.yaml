@@ -58,6 +58,8 @@ gomplate:
   operating_system: linux
   release: 3.8.0
 
+# https://releases.hashicorp.com
+# https://releases.hashicorp.com/index.json
 hashicorp:
   architecture: amd64
   operating_system: linux
