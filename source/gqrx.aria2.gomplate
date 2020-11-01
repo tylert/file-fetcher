@@ -1,0 +1,13 @@
+#   __ _  __ _ _ ____  __
+#  / _` |/ _` | '__\ \/ /
+# | (_| | (_| | |   >  <
+#  \__, |\__, |_|  /_/\_\
+#  |___/    |_|
+
+# binary
+https://github.com/csete/gqrx/releases/download/v{{ (ds "dl").gqrx.release }}/Gqrx-v{{ (ds "dl").gqrx.release }}-{{ (ds "dl").gqrx.architecture }}.AppImage
+	out=gqrx-{{ (ds "dl").gqrx.release }}-{{ (ds "dl").gqrx.architecture }}.appimage
+
+# source
+https://github.com/csete/gqrx/archive/v{{ (ds "dl").gqrx.release }}.tar.gz
+	out=gqrx-{{ (ds "dl").gqrx.release }}-src.tar.gz
