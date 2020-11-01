@@ -91,6 +91,7 @@ pi-star:
 
 # http://releases.ubuntu.com/
 # http://cdimage.ubuntu.com/
+# https://ubuntu.com/download/raspberry-pi
 ubuntu:
   architecture: amd64
   releaseX: '20.10'
