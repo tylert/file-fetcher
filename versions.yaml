@@ -82,7 +82,7 @@ keepassxc:
 # https://libreelec.tv/raspberry-pi-4/
 libreelec:
   platform: RPi4
-  release: 9.2.5
+  release: 9.2.6
 
 # https://ftp.fau.de/osmc/osmc/download/installers/diskimages/
 osmc:
