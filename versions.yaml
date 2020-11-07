@@ -55,7 +55,7 @@ editcp:
 # https://github.com/csete/gqrx/releases
 gqrx:
   architecture: x86_64
-  release: 2.13.3
+  release: 2.13.5
 
 # https://github.com/hairyhenderson/gomplate/releases
 gomplate:
