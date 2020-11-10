@@ -52,16 +52,16 @@ editcp:
   editcp_release: 1.0.23
   dfu_release: 1.0.20
 
-# https://github.com/csete/gqrx/releases
-gqrx:
-  architecture: x86_64
-  release: 2.13.5
-
-# https://github.com/hairyhenderson/gomplate/releases
+# https://github.com/hairyhenderson/gomplate/releases/latest
 gomplate:
   architecture: amd64
   operating_system: linux
   release: 3.8.0
+
+# https://github.com/csete/gqrx/releases/latest
+gqrx:
+  architecture: x86_64
+  release: 2.13.5
 
 # https://releases.hashicorp.com
 # https://releases.hashicorp.com/index.json
@@ -104,7 +104,7 @@ ubuntu:
   release1: 18.04.5
   release2: 16.04.7
 
-# https://github.com/Ultimaker/Cura/releases
+# https://github.com/Ultimaker/Cura/releases/latest
 ultimaker_cura:
   architecture: x86_64
-  release: 4.7.1
+  release: 4.8.0
