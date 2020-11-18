@@ -12,17 +12,17 @@ archlinux:
   architecture0: x86_64
   architectures: [rpi-aarch64, odroid-xu3]  # pi4b/pi3b arm8 variant, hc2/hc1/xu4/xu3 arm7
   mirror: https://muug.ca/mirror/archlinux/iso/latest
-  release: 2020.10.01
+  release: 2020.11.01
 
 # http://centos.mirror.iweb.ca/8/isos/x86_64/
 # http://centos.mirror.iweb.ca/7/isos/x86_64/
 centos:
   architecture: x86_64
   release0: 8.2.2004
-  release1: 7.8.2003
+  release1: 7.9.2009
   variants0: [boot, minimal, dvd1]
   variants1: [NetInstall, Minimal, DVD]  # Everything
-  minor1: 2003
+  minor1: 2009
 
 # http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/
 # http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/
