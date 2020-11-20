@@ -61,7 +61,7 @@ gomplate:
 # https://github.com/csete/gqrx/releases/latest
 gqrx:
   architecture: x86_64
-  release: 2.13.5
+  release: '2.14'
 
 # https://releases.hashicorp.com
 # https://releases.hashicorp.com/index.json
