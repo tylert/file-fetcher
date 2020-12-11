@@ -29,7 +29,7 @@ centos:
 # http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd/
 debian:
   architecture: amd64
-  stable: 10.6.0
+  stable: 10.7.0
   oldstable: 9.13.0
 
 # https://www.farnsworth.org/dale/codeplug/editcp/downloads/linux/
@@ -61,7 +61,7 @@ gomplate:
 # https://github.com/csete/gqrx/releases/latest
 gqrx:
   architecture: x86_64
-  release: 2.14.2
+  release: 2.14.3
 
 # https://releases.hashicorp.com
 # https://releases.hashicorp.com/index.json

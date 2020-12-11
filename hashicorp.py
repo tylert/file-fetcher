@@ -17,6 +17,7 @@ def main():
     packer = get_latest_semver_hashicorp(json.loads(r.text)['packer']['versions'].keys())
     terraform = get_latest_semver_hashicorp(json.loads(r.text)['terraform']['versions'].keys())
     terraform_provider_aws = get_latest_semver_hashicorp(json.loads(r.text)['terraform-provider-aws']['versions'].keys())
+    terraform_provider_http = get_latest_semver_hashicorp(json.loads(r.text)['terraform-provider-http']['versions'].keys())
     vagrant = get_latest_semver_hashicorp(json.loads(r.text)['vagrant']['versions'].keys())
     vault = get_latest_semver_hashicorp(json.loads(r.text)['vault']['versions'].keys())
 
@@ -28,6 +29,8 @@ def main():
     print('  release: {}'.format(terraform))
     print('terraform-provider-aws:')
     print('  release: {}'.format(terraform_provider_aws))
+    print('terraform-provider-http:')
+    print('  release: {}'.format(terraform_provider_http))
     print('vagrant:')
     print('  release: {}'.format(vagrant))
     print('vault:')
