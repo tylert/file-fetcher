@@ -18,7 +18,7 @@ archlinux:
 # http://centos.mirror.iweb.ca/7/isos/x86_64/
 centos:
   architecture: x86_64
-  release0: 8.2.2004
+  release0: 8.3.2011
   release1: 7.9.2009
   variants0: [boot, minimal, dvd1]
   variants1: [NetInstall, Minimal, DVD]  # Everything
