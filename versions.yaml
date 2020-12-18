@@ -20,8 +20,8 @@ centos:
   architecture: x86_64
   release0: 8.3.2011
   release1: 7.9.2009
-  variants0: [boot, minimal, dvd1]
-  variants1: [NetInstall, Minimal, DVD]  # Everything
+  variants0: [boot, dvd1]
+  variants1: [NetInstall, Minimal, DVD, Everything]
   minor1: 2009
 
 # http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/
