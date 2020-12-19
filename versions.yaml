@@ -74,6 +74,14 @@ hashicorp:
   vagrant_package: deb
   vagrant_release: 0.0.0
 
+# https://github.com/alexellis/k3sup/releases/latest
+k3sup:
+  architecture: amd64
+  operating_system: linux
+  suffix: ''  # the linux-amd64 one has an empty suffix
+  suffix_new: ''
+  release: 0.9.12
+
 # https://keepassxc.org/download/
 keepassxc:
   architecture: x86_64
