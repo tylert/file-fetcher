@@ -12,7 +12,7 @@ archlinux:
   architecture0: x86_64
   architectures: [rpi-aarch64, odroid-xu3]  # pi4b/pi3b arm8 variant, hc2/hc1/xu4/xu3 arm7
   mirror: https://muug.ca/mirror/archlinux/iso/latest
-  release: 2020.12.01
+  release: 2021.01.01
 
 # http://centos.mirror.iweb.ca/8/isos/x86_64/
 # http://centos.mirror.iweb.ca/7/isos/x86_64/
@@ -61,7 +61,7 @@ gomplate:
 # https://github.com/csete/gqrx/releases/latest
 gqrx:
   architecture: x86_64
-  release: 2.14.3
+  release: 2.14.4
 
 # https://releases.hashicorp.com
 # https://releases.hashicorp.com/index.json
@@ -80,7 +80,7 @@ k3sup:
   operating_system: linux
   suffix: ''  # the linux-amd64 one has an empty suffix
   suffix_new: ''
-  release: 0.9.12
+  release: 0.9.13
 
 # https://keepassxc.org/download/
 keepassxc:
