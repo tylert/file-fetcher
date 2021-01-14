@@ -82,10 +82,10 @@ k3sup:
   suffix_new: ''
   release: 0.9.13
 
-# https://keepassxc.org/download/
+# https://github.com/keepassxreboot/keepassxc/releases/latest
 keepassxc:
   architecture: x86_64
-  release: 2.6.2
+  release: 2.6.3
 
 # https://libreelec.tv/raspberry-pi-4/
 libreelec:
