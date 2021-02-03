@@ -56,7 +56,7 @@ editcp:
 gomplate:
   architecture: amd64
   operating_system: linux
-  release: 3.8.0
+  release: 3.9.0
 
 # https://github.com/csete/gqrx/releases/latest
 gqrx:
@@ -85,7 +85,7 @@ k3sup:
 # https://github.com/keepassxreboot/keepassxc/releases/latest
 keepassxc:
   architecture: x86_64
-  release: 2.6.3
+  release: 2.6.4
 
 # https://libreelec.tv/raspberry-pi-4/
 libreelec:
