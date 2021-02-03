@@ -24,10 +24,3 @@ http://cdimage.ubuntu.com/releases/{{ (ds "dl").ubuntu.release1 }}/release/SHA25
 http://cdimage.ubuntu.com/releases/{{ (ds "dl").ubuntu.release1 }}/release/SHA256SUMS.gpg
 	out=ubuntu-{{ (ds "dl").ubuntu.release1 }}-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt.gpg
 http://cdimage.ubuntu.com/releases/{{ (ds "dl").ubuntu.release1 }}/release/ubuntu-{{ (ds "dl").ubuntu.release1 }}-server-{{ (ds "dl").ubuntu.architecture }}.iso
-
-# release2 (16.04.x LTS)
-http://releases.ubuntu.com/{{ (ds "dl").ubuntu.release2 }}/SHA256SUMS
-	out=ubuntu-{{ (ds "dl").ubuntu.release2 }}-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt
-http://releases.ubuntu.com/{{ (ds "dl").ubuntu.release2 }}/SHA256SUMS.gpg
-	out=ubuntu-{{ (ds "dl").ubuntu.release2 }}-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt.gpg
-http://releases.ubuntu.com/{{ (ds "dl").ubuntu.release2 }}/ubuntu-{{ (ds "dl").ubuntu.release2 }}-server-{{ (ds "dl").ubuntu.architecture }}.iso

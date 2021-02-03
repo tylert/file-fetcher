@@ -110,7 +110,6 @@ ubuntu:
   releaseX: '20.10'
   release0: 20.04.1
   release1: 18.04.5
-  release2: 16.04.7
 
 # https://github.com/Ultimaker/Cura/releases/latest
 ultimaker_cura:
