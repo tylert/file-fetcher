@@ -14,16 +14,6 @@ archlinux:
   mirror: https://muug.ca/mirror/archlinux/iso/latest
   release: 2021.02.01
 
-# http://centos.mirror.iweb.ca/8/isos/x86_64/
-# http://centos.mirror.iweb.ca/7/isos/x86_64/
-centos:
-  architecture: x86_64
-  release0: 8.3.2011
-  release1: 7.9.2009
-  variants0: [boot, dvd1]
-  variants1: [NetInstall, Minimal, DVD, Everything]
-  minor1: 2009
-
 # http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/
 # http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/
 # http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd/
