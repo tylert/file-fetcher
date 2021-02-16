@@ -4,23 +4,27 @@
 # | |_| | |_) | |_| | | | | |_| |_| |
 #  \__,_|_.__/ \__,_|_| |_|\__|\__,_|
 
-# releaseX (20.10)
-http://releases.ubuntu.com/{{ (ds "dl").ubuntu.releaseX }}/SHA256SUMS
-	out=ubuntu-{{ (ds "dl").ubuntu.releaseX }}-live-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt
-http://releases.ubuntu.com/{{ (ds "dl").ubuntu.releaseX }}/SHA256SUMS.gpg
-	out=ubuntu-{{ (ds "dl").ubuntu.releaseX }}-live-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt.gpg
-http://releases.ubuntu.com/{{ (ds "dl").ubuntu.releaseX }}/ubuntu-{{ (ds "dl").ubuntu.releaseX }}-live-server-{{ (ds "dl").ubuntu.architecture }}.iso
+# new releases (20.04.x LTS, onwards)
+{{- range (ds "dl").ubuntu.releases_server }}
+http://releases.ubuntu.com/{{ . }}/SHA256SUMS
+	out=ubuntu-{{ . }}-live-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt
+http://releases.ubuntu.com/{{ . }}/SHA256SUMS.gpg
+	out=ubuntu-{{ . }}-live-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt.gpg
+http://releases.ubuntu.com/{{ . }}/ubuntu-{{ . }}-live-server-{{ (ds "dl").ubuntu.architecture }}.iso
+{{ end }}
 
-# release0 (20.04.x LTS)
-http://releases.ubuntu.com/{{ (ds "dl").ubuntu.release0 }}/SHA256SUMS
-	out=ubuntu-{{ (ds "dl").ubuntu.release0 }}-live-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt
-http://releases.ubuntu.com/{{ (ds "dl").ubuntu.release0 }}/SHA256SUMS.gpg
-	out=ubuntu-{{ (ds "dl").ubuntu.release0 }}-live-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt.gpg
-http://releases.ubuntu.com/{{ (ds "dl").ubuntu.release0 }}/ubuntu-{{ (ds "dl").ubuntu.release0 }}-live-server-{{ (ds "dl").ubuntu.architecture }}.iso
+# OMFG, Ubuntu, why can't you just name your ISOs deterministically?!?!
+{{- range (ds "dl").ubuntu.releases_desktop }}
+http://releases.ubuntu.com/{{ . }}/SHA256SUMS
+	out=ubuntu-{{ . }}-desktop-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt
+http://releases.ubuntu.com/{{ . }}/SHA256SUMS.gpg
+	out=ubuntu-{{ . }}-desktop-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt.gpg
+http://releases.ubuntu.com/{{ . }}/ubuntu-{{ . }}-desktop-{{ (ds "dl").ubuntu.architecture }}.iso
+{{ end }}
 
-# release1 (18.04.x LTS)
-http://cdimage.ubuntu.com/releases/{{ (ds "dl").ubuntu.release1 }}/release/SHA256SUMS
-	out=ubuntu-{{ (ds "dl").ubuntu.release1 }}-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt
-http://cdimage.ubuntu.com/releases/{{ (ds "dl").ubuntu.release1 }}/release/SHA256SUMS.gpg
-	out=ubuntu-{{ (ds "dl").ubuntu.release1 }}-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt.gpg
-http://cdimage.ubuntu.com/releases/{{ (ds "dl").ubuntu.release1 }}/release/ubuntu-{{ (ds "dl").ubuntu.release1 }}-server-{{ (ds "dl").ubuntu.architecture }}.iso
+# old release (18.04.x LTS)
+http://cdimage.ubuntu.com/releases/{{ (ds "dl").ubuntu.release_old }}/release/SHA256SUMS
+	out=ubuntu-{{ (ds "dl").ubuntu.release_old }}-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt
+http://cdimage.ubuntu.com/releases/{{ (ds "dl").ubuntu.release_old }}/release/SHA256SUMS.gpg
+	out=ubuntu-{{ (ds "dl").ubuntu.release_old }}-server-{{ (ds "dl").ubuntu.architecture }}.iso.sha256sums.txt.gpg
+http://cdimage.ubuntu.com/releases/{{ (ds "dl").ubuntu.release_old }}/release/ubuntu-{{ (ds "dl").ubuntu.release_old }}-server-{{ (ds "dl").ubuntu.architecture }}.iso
