@@ -19,7 +19,7 @@ archlinux:
 # http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd/
 debian:
   architecture: amd64
-  stable: 10.7.0
+  stable: 10.8.0
   oldstable: 9.13.0
 
 # https://www.farnsworth.org/dale/codeplug/editcp/downloads/linux/
@@ -90,7 +90,7 @@ osmc:
 # https://www.pistar.uk/downloads/
 pi-star:
   platform: RPi
-  release: 4.1.2_20-May-2020
+  release: 4.1.4_08-Feb-2021
 
 # http://releases.ubuntu.com/
 # http://cdimage.ubuntu.com/
@@ -98,7 +98,7 @@ pi-star:
 ubuntu:
   architecture: amd64
   releaseX: '20.10'
-  release0: 20.04.1
+  release0: 20.04.2
   release1: 18.04.5
 
 # https://github.com/Ultimaker/Cura/releases/latest
