@@ -70,7 +70,7 @@ k3sup:
   operating_system: linux
   suffix: ''  # the linux-amd64 one has an empty suffix
   suffix_new: ''
-  release: 0.10.0
+  release: 0.10.1
 
 # https://github.com/keepassxreboot/keepassxc/releases/latest
 keepassxc:
