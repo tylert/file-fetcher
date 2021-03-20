@@ -82,11 +82,6 @@ libreelec:
   platform: RPi4
   release: 9.2.6
 
-# https://ftp.fau.de/osmc/osmc/download/installers/diskimages/
-osmc:
-  platform: rbp2
-  release: 20201227
-
 # https://www.pistar.uk/downloads/
 pi-star:
   platform: RPi
