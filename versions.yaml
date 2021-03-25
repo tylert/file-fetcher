@@ -38,9 +38,12 @@ debian:
 # https://github.com/DaleFarnsworth-DMR/ui/releases
 # https://github.com/DaleFarnsworth-DMR/userdb/releases
 editcp:
-  operating_system: linux
-  editcp_release: 1.0.23
+  codeplug_release: 1.0.23
   dfu_release: 1.0.20
+  dmr_radio_release: 1.0.25
+  editcp_release: 1.0.23
+  operating_system: linux
+  stdfu_release: 1.0.20
 
 # https://github.com/hairyhenderson/gomplate/releases/latest
 gomplate:

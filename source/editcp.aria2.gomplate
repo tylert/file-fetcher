@@ -13,11 +13,11 @@ https://www.farnsworth.org/dale/codeplug/dmrRadio/downloads/{{ (ds "dl").editcp.
 # XXX FIXME TODO Add the rest of the subordinate source code blobs
 https://github.com/DaleFarnsworth-DMR/editcp/archive/v{{ (ds "dl").editcp.editcp_release }}.tar.gz
 	out=editcp-{{ (ds "dl").editcp.editcp_release }}-src.tar.gz
-https://github.com/DaleFarnsworth-DMR/dmrRadio/archive/v{{ (ds "dl").editcp.editcp_release }}.tar.gz
-	out=dmrRadio-{{ (ds "dl").editcp.editcp_release }}-src.tar.gz
-https://github.com/DaleFarnsworth-DMR/codeplug/archive/v{{ (ds "dl").editcp.editcp_release }}.tar.gz
-	out=codeplug-{{ (ds "dl").editcp.editcp_release }}-src.tar.gz
-https://github.com/DaleFarnsworth-DMR/stdfu/archive/v{{ (ds "dl").editcp.dfu_release }}.tar.gz
-	out=stdfu-{{ (ds "dl").editcp.dfu_release }}-src.tar.gz
+https://github.com/DaleFarnsworth-DMR/dmrRadio/archive/v{{ (ds "dl").editcp.dmr_radio_release }}.tar.gz
+	out=dmrRadio-{{ (ds "dl").editcp.dmr_radio_release }}-src.tar.gz
+https://github.com/DaleFarnsworth-DMR/codeplug/archive/v{{ (ds "dl").editcp.codeplug_release }}.tar.gz
+	out=codeplug-{{ (ds "dl").editcp.codeplug_release }}-src.tar.gz
+https://github.com/DaleFarnsworth-DMR/stdfu/archive/v{{ (ds "dl").editcp.stdfu_release }}.tar.gz
+	out=stdfu-{{ (ds "dl").editcp.stdfu_release }}-src.tar.gz
 https://github.com/DaleFarnsworth-DMR/dfu/archive/v{{ (ds "dl").editcp.dfu_release }}.tar.gz
 	out=dfu-{{ (ds "dl").editcp.dfu_release }}-src.tar.gz
