@@ -12,14 +12,14 @@ archlinux:
   architecture0: x86_64
   architectures: [rpi-aarch64, odroid-xu3]  # pi4b/pi3b arm8 variant, hc2/hc1/xu4/xu3 arm7
   mirror: https://muug.ca/mirror/archlinux/iso/latest
-  release: 2021.03.01
+  release: 2021.04.01
 
 # http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/
 # http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/
 # http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd/
 debian:
   architecture: amd64
-  stable: 10.8.0
+  stable: 10.9.0
   oldstable: 9.13.0
 
 # https://www.farnsworth.org/dale/codeplug/editcp/downloads/linux/
