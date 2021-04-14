@@ -73,7 +73,7 @@ k3sup:
   operating_system: linux
   suffix: ''  # the linux-amd64 one has an empty suffix
   suffix_new: ''
-  release: 0.10.1
+  release: 0.10.2
 
 # https://github.com/keepassxreboot/keepassxc/releases/latest
 keepassxc:
@@ -95,8 +95,8 @@ pi-star:
 # https://ubuntu.com/download/raspberry-pi
 ubuntu:
   architecture: amd64
-  releases_server: [20.04.2, '20.10']
-  releases_desktop: [20.04.2.0, '20.10']
+  releases_server: ['20.10', 20.04.2]
+  releases_desktop: ['20.10', 20.04.2.0]
   release_old: 18.04.5
 
 # https://github.com/Ultimaker/Cura/releases/latest
