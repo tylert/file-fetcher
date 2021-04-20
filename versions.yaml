@@ -102,4 +102,4 @@ ubuntu:
 # https://github.com/Ultimaker/Cura/releases/latest
 ultimaker_cura:
   architecture: x86_64
-  release: 4.8.0
+  release: 4.9.0
