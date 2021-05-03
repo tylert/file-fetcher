@@ -12,7 +12,7 @@ archlinux:
   architecture0: x86_64
   architectures: [rpi-aarch64, odroid-xu3]  # pi4b/pi3b arm8 variant, hc2/hc1/xu4/xu3 arm7
   mirror: https://muug.ca/mirror/archlinux/iso/latest
-  release: 2021.04.01
+  release: 2021.05.01
 
 # http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/
 # http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/
@@ -56,6 +56,14 @@ gqrx:
   architecture: x86_64
   release: 2.14.4
 
+# https://github.com/jsiebens/hashi-up/releases/latest
+hashi_up:
+  architecture: amd64
+  operating_system: linux
+  release: 0.10.1
+  suffix: ''  # the linux-amd64 one has an empty suffix
+  suffix_new: ''
+
 # https://releases.hashicorp.com
 # https://releases.hashicorp.com/index.json
 hashicorp:
@@ -71,9 +79,9 @@ hashicorp:
 k3sup:
   architecture: amd64
   operating_system: linux
+  release: 0.10.2
   suffix: ''  # the linux-amd64 one has an empty suffix
   suffix_new: ''
-  release: 0.10.2
 
 # https://github.com/keepassxreboot/keepassxc/releases/latest
 keepassxc:
