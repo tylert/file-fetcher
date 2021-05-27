@@ -10,9 +10,9 @@
 # XXX TODO FIXME Handle more than one mirror at a time
 archlinux:
   architecture0: x86_64
-  architectures: [rpi-aarch64, odroid-xu3]  # pi4b/pi3b arm8 variant, hc2/hc1/xu4/xu3 arm7
+  architectures: [rpi-aarch64]  # pi4b/pi3b arm8 variant
   mirror: https://muug.ca/mirror/archlinux/iso/latest
-  release: 2021.05.01
+  release: 2021.06.01
 
 # http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/
 # http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/
@@ -60,7 +60,7 @@ gqrx:
 hashi_up:
   architecture: amd64
   operating_system: linux
-  release: 0.10.1
+  release: 0.11.0
   suffix: ''  # the linux-amd64 one has an empty suffix
   suffix_new: ''
 
@@ -79,7 +79,7 @@ hashicorp:
 k3sup:
   architecture: amd64
   operating_system: linux
-  release: 0.10.2
+  release: 0.11.0
   suffix: ''  # the linux-amd64 one has an empty suffix
   suffix_new: ''
 
@@ -103,11 +103,11 @@ pi-star:
 # https://ubuntu.com/download/raspberry-pi
 ubuntu:
   architecture: amd64
-  releases_server: ['20.10', 20.04.2]
-  releases_desktop: ['20.10', 20.04.2.0]
+  releases_server: ['21.04', 20.04.2]
+  releases_desktop: ['21.04', 20.04.2.0]
   release_old: 18.04.5
 
 # https://github.com/Ultimaker/Cura/releases/latest
 ultimaker_cura:
   architecture: x86_64
-  release: 4.9.0
+  release: 4.9.1
