@@ -91,7 +91,7 @@ keepassxc:
 # https://libreelec.tv/raspberry-pi-4/
 libreelec:
   platform: RPi4
-  release: 9.2.6
+  release: 9.2.7  # 9.95.4
 
 # https://www.pistar.uk/downloads/
 pi-star:
