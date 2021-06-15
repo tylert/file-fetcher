@@ -10,7 +10,7 @@
 # XXX TODO FIXME Handle more than one mirror at a time
 archlinux:
   architecture0: x86_64
-  architectures: [rpi-aarch64]  # pi4b/pi3b arm8 variant
+  architectures: [rpi-aarch64, rpi-4, rpi-2, odroid-xu3, odroid-c2]
   mirror: https://muug.ca/mirror/archlinux/iso/latest
   release: 2021.06.01
 
