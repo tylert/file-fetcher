@@ -12,14 +12,14 @@ archlinux:
   architecture0: x86_64
   architectures: [rpi-aarch64, rpi-4, rpi-2, odroid-xu3, odroid-c2]
   mirror: https://muug.ca/mirror/archlinux/iso/latest
-  release: 2021.06.01
+  release: 2021.07.01
 
 # http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/
 # http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/
 # http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd/
 debian:
   architecture: amd64
-  stable: 10.9.0
+  stable: 10.10.0
   oldstable: 9.13.0
 
 # https://www.farnsworth.org/dale/codeplug/editcp/downloads/linux/
@@ -60,7 +60,7 @@ gqrx:
 hashi_up:
   architecture: amd64
   operating_system: linux
-  release: 0.11.0
+  release: 0.12.0
   suffix: ''  # the linux-amd64 one has an empty suffix
   suffix_new: ''
 
