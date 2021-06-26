@@ -96,7 +96,7 @@ libreelec:
 # https://www.pistar.uk/downloads/
 pi-star:
   platform: RPi
-  release: 4.1.4_08-Feb-2021
+  release: 4.1.5_21-Jun-2021
 
 # http://releases.ubuntu.com/
 # http://cdimage.ubuntu.com/
