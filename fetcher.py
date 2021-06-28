@@ -17,10 +17,10 @@ def get_latest_semver_hashicorp(versions):
         if '+ent' not in version and '-alpha' not in version \
                 and '-beta' not in version and '-connect' not in version \
                 and '-oci' not in version and '-rc' not in version:
-            logging.warning('{} {}'.format(latest, version))
+            logging.warning(f'{latest} {version}')
             latest = semver.max_ver(latest, version)
         else:
-            logging.warning('SKIPPING {}'.format(version))
+            logging.warning(f'SKIPPING {version}')
 
     return latest
 
@@ -31,7 +31,7 @@ def get_latest_semver(versions):
     latest = '0.0.0'
 
     for version in versions:
-        logging.warning('{} {}'.format(latest, version))
+        logging.warning(f'{latest} {version}')
         latest = semver.max_ver(latest, version)
 
     return latest
@@ -45,7 +45,7 @@ def fetch_file(url, output):
     try:
         existing_size = os.stat(output).st_size
     except FileNotFoundError:
-        logging.warning('Not found {}'.format(output))
+        logging.warning(f'Not found {output}')
 
     with requests.get(url, stream=True) as r:
         r.raise_for_status()
@@ -59,8 +59,7 @@ def fetch_file(url, output):
         except KeyError:
             new_type = 'unknown'
 
-        logging.warning('{},{},{},{}'.format(output, existing_size, new_size,
-                                             new_type))
+        logging.warning(f'{output},{existing_size},{new_size},{new_type}')
 
         # Check if the existing file is already the expected size
         if new_type != 'text/plain':

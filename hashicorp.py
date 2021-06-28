@@ -22,19 +22,19 @@ def main():
     vault = get_latest_semver_hashicorp(json.loads(r.text)['vault']['versions'].keys())
 
     print('consul:')
-    print('  release: {}'.format(consul))
+    print(f'  release: {consul}')
     print('packer:')
-    print('  release: {}'.format(packer))
+    print(f'  release: {packer}')
     print('terraform:')
-    print('  release: {}'.format(terraform))
+    print(f'  release: {terraform}')
     print('terraform-provider-aws:')
-    print('  release: {}'.format(terraform_provider_aws))
+    print(f'  release: {terraform_provider_aws}')
     print('terraform-provider-http:')
-    print('  release: {}'.format(terraform_provider_http))
+    print(f'  release: {terraform_provider_http}')
     print('vagrant:')
-    print('  release: {}'.format(vagrant))
+    print(f'  release: {vagrant}')
     print('vault:')
-    print('  release: {}'.format(vault))
+    print(f'  release: {vault}')
 
 
 if __name__ == '__main__':

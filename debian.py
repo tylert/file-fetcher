@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 def find_debian_version(release):
     '''Fetch a complete Debian release.'''
 
-    r = requests.get('https://cdimage.debian.org/cdimage/{}/amd64/iso-cd'.format(release))
+    r = requests.get(f'https://cdimage.debian.org/cdimage/{release}/amd64/iso-cd')
     r.raise_for_status()
     s = BeautifulSoup(r.text, 'html.parser')
 
@@ -17,7 +17,7 @@ def find_debian_version(release):
         if 'iso' in link.text and 'netinst' in link.text and 'mac' not in link.text and 'edu' not in link.text:
             iso = link.text
 
-    print('{}'.format(iso))
+    print(f'{iso}')
 
 
 def main():
