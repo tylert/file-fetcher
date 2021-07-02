@@ -9,7 +9,7 @@ VENV_DIR ?= .venv
 # .PRECIOUS: .yaml .preseed .vagrant
 
 .PHONY: all
-all: build
+all: requirements
 
 ACTIVATE = $(VENV_DIR)/bin/activate
 .PHONY: requirements
