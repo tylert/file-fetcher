@@ -12,7 +12,7 @@ archlinux:
   architecture0: x86_64
   architectures: [rpi-aarch64, rpi-4, rpi-2, odroid-xu3, odroid-c2]
   mirror: https://muug.ca/mirror/archlinux/iso/latest
-  release: 2021.07.01
+  release: 2021.08.01
 
 # http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/
 # http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/
@@ -100,7 +100,7 @@ keepassxc:
 # https://libreelec.tv/raspberry-pi-4/
 libreelec:
   platform: RPi4
-  release: 9.2.7  # 9.95.4
+  release: 9.95.5
 
 # https://www.pistar.uk/downloads/
 pi-star:
