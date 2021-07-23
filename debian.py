@@ -25,6 +25,7 @@ def main():
 
     find_debian_version('release/current')
     find_debian_version('archive/latest-oldstable')
+    find_debian_version('archive/latest-oldoldstable')
 
 
 if __name__ == '__main__':
