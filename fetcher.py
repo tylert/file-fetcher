@@ -6,25 +6,6 @@ import semver
 import requests
 
 
-def get_latest_semver_hashicorp(versions):
-    '''Scan all versions in list to find the latest one for HashiCorp products.'''
-
-    latest = '0.0.0'
-
-    for version in versions:
-        # Drop anything that's closed-source (Enterprise), alpha or beta or
-        # rc1, etc.
-        if '+ent' not in version and '-alpha' not in version \
-                and '-beta' not in version and '-connect' not in version \
-                and '-oci' not in version and '-rc' not in version:
-            logging.warning(f'{latest} {version}')
-            latest = semver.max_ver(latest, version)
-        else:
-            logging.warning(f'SKIPPING {version}')
-
-    return latest
-
-
 def get_latest_semver(versions):
     '''Scan all versions in list to find the latest one.'''
 
