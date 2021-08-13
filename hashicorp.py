@@ -4,7 +4,7 @@ import json
 import logging
 
 import requests
-import semver
+from semver import max_ver
 
 
 def get_latest_semver_hashicorp(versions):
@@ -19,7 +19,7 @@ def get_latest_semver_hashicorp(versions):
                 and '-beta' not in version and '-connect' not in version \
                 and '-oci' not in version and '-rc' not in version:
             logging.warning(f'{latest} {version}')
-            latest = semver.max_ver(latest, version)
+            latest = max_ver(latest, version)
         else:
             logging.warning(f'SKIPPING {version}')
 

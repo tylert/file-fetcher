@@ -2,8 +2,8 @@ from hashlib import sha512, sha256, sha1, md5
 import logging
 import os
 
-import semver
 import requests
+from semver import max_ver
 
 
 def get_latest_semver(versions):
@@ -13,7 +13,7 @@ def get_latest_semver(versions):
 
     for version in versions:
         logging.warning(f'{latest} {version}')
-        latest = semver.max_ver(latest, version)
+        latest = max_ver(latest, version)
 
     return latest
 
