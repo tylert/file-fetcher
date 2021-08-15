@@ -19,8 +19,9 @@ archlinux:
 # http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd/
 debian:
   architecture: amd64
-  stable: 10.10.0
-  oldstable: 9.13.0
+  stable: 11.0.0
+  oldstable: 10.10.0
+  oldoldstable: 9.13.0
 
 # https://www.farnsworth.org/dale/codeplug/editcp/
 # https://www.farnsworth.org/dale/codeplug/editcp/downloads/
