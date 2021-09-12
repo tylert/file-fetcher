@@ -43,7 +43,7 @@ editcp:
   codeplug_release: 1.0.23
   debug_release: 1.0.20
   dfu_release: 1.0.20
-  dmr_radio_release: 1.0.29
+  dmr_radio_release: 1.0.31
   doc_codeplug_release: 1.0.18
   docker_release: 1.0.19
   docs_release: 1.0.18
@@ -113,11 +113,11 @@ pi-star:
 # https://ubuntu.com/download/raspberry-pi
 ubuntu:
   architecture: amd64
-  releases_server: ['21.04', 20.04.2]
-  releases_desktop: ['21.04', 20.04.2.0]
+  releases_server: ['21.04', 20.04.3]
+  releases_desktop: ['21.04', 20.04.3]
   release_old: 18.04.5
 
 # https://github.com/Ultimaker/Cura/releases/latest
 ultimaker_cura:
   architecture: x86_64
-  release: 4.10.0
+  release: 4.11.0
