@@ -61,7 +61,7 @@ gomplate:
   operating_system: linux
   release: 3.9.0
 
-# https://github.com/csete/gqrx/releases/latest
+# https://github.com/gqrx-sdr/gqrx/releases/latest
 gqrx:
   architecture: x86_64
   release: 2.14.4
