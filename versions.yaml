@@ -116,7 +116,7 @@ ubuntu:
   architecture: amd64
   releases_server: ['21.10', 20.04.3]
   releases_desktop: ['21.10', 20.04.3]
-  release_old: 18.04.5  # cull this 2023-04-26
+  release_old: 18.04.6  # cull this 2023-04-26
 
 # https://github.com/Ultimaker/Cura/releases/latest
 ultimaker_cura:
