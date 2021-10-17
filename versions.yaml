@@ -60,7 +60,7 @@ editcp:
 gomplate:
   architecture: amd64
   operating_system: linux
-  release: 3.9.0
+  release: 3.10.0
 
 # https://github.com/gqrx-sdr/gqrx/releases/latest
 gqrx:
