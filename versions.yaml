@@ -44,7 +44,7 @@ editcp:
   codeplug_release: 1.0.26
   debug_release: 1.0.20
   dfu_release: 1.0.20
-  dmr_radio_release: 1.0.31
+  dmr_radio_release: 1.0.32
   doc_codeplug_release: 1.0.18
   docker_release: 1.0.19
   docs_release: 1.0.18
@@ -54,7 +54,7 @@ editcp:
   operating_system: linux
   stdfu_release: 1.0.20
   ui_release: 1.0.19
-  user_db_release: 1.0.25
+  user_db_release: 1.0.26
 
 # https://github.com/hairyhenderson/gomplate/releases/latest
 gomplate:
