@@ -48,7 +48,7 @@ editcp:
   doc_codeplug_release: 1.0.18
   docker_release: 1.0.19
   docs_release: 1.0.18
-  editcp_release: 1.0.27
+  editcp_release: 1.0.28
   gen_codeplug_info_release: 1.0.18
   gen_file_data_release: 1.0.18
   operating_system: linux
