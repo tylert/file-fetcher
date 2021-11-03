@@ -12,7 +12,7 @@ archlinux:
   architecture0: x86_64
   architectures: [rpi-aarch64, rpi-4, rpi-2, odroid-xu3, odroid-c2]
   mirror: https://muug.ca/mirror/archlinux/iso/latest
-  release: 2021.10.01
+  release: 2021.11.01
 
 # http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/
 # http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/
