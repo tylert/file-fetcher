@@ -1,6 +1,6 @@
 .DS_Store
 .*.sw?
-*.py[co]
+*.py[coz]
 __pycache__/
 
 *SHA*SUMS*
