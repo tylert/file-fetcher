@@ -5,12 +5,14 @@ file-fetcher
 TODO
 ----
 
+* https://github.com/cavaliercoder/grab
 * https://github.com/melbahja/got
 * https://github.com/akshaykhairmode/summon
 * https://github.com/codingonHP/file_downloader
-* https://github.com/cavaliercoder/grab
+* https://github.com/huydx/hget
 * https://stackoverflow.com/questions/11692860/how-can-i-efficiently-download-a-large-file-using-go
 * https://progolang.com/how-to-download-files-in-go/
+* https://likegeeks.com/downloading-files-using-python/
 
 ::
 
