@@ -90,7 +90,7 @@ hashicorp:
 k3sup:
   architecture: amd64
   operating_system: linux
-  release: 0.11.1
+  release: 0.11.3
   suffix: ''  # the linux-amd64 one has an empty suffix
   suffix_new: ''
 
