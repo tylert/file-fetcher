@@ -12,7 +12,7 @@ archlinux:
   architecture0: x86_64
   architectures: [rpi-aarch64, rpi-4, rpi-2, odroid-xu3, odroid-c2]
   mirror: https://muug.ca/mirror/archlinux/iso/latest
-  release: 2022.01.01
+  release: 2022.02.01
 
 # http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/
 # http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/
@@ -65,7 +65,7 @@ gomplate:
 # https://github.com/gqrx-sdr/gqrx/releases/latest
 gqrx:
   architecture: x86_64
-  release: 2.15.1
+  release: 2.15.8
 
 # https://github.com/jsiebens/hashi-up/releases/latest
 hashi_up:
@@ -121,4 +121,4 @@ ubuntu:
 # https://github.com/Ultimaker/Cura/releases/latest
 ultimaker_cura:
   architecture: x86_64
-  release: 4.12.1
+  release: 4.13.1
