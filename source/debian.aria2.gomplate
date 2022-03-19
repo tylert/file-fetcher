@@ -26,8 +26,8 @@ http://cdimage.debian.org/cdimage/archive/latest-oldstable/{{ (ds "dl").debian.a
 http://cdimage.debian.org/cdimage/archive/latest-oldstable/{{ (ds "dl").debian.architecture }}/iso-cd/debian-{{ (ds "dl").debian.oldstable }}-{{ (ds "dl").debian.architecture }}-netinst.iso
 
 # oldoldstable
-http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/{{ (ds "dl").debian.architecture }}/iso-cd/SHA512SUMS
-	out=debian-{{ (ds "dl").debian.oldoldstable }}-{{ (ds "dl").debian.architecture }}-netinst.iso.sha512sums.txt
-http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/{{ (ds "dl").debian.architecture }}/iso-cd/SHA512SUMS.sign
-	out=debian-{{ (ds "dl").debian.oldoldstable }}-{{ (ds "dl").debian.architecture }}-netinst.iso.sha512sums.txt.gpg
-http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/{{ (ds "dl").debian.architecture }}/iso-cd/debian-{{ (ds "dl").debian.oldoldstable }}-{{ (ds "dl").debian.architecture }}-netinst.iso
+# http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/{{ (ds "dl").debian.architecture }}/iso-cd/SHA512SUMS
+#   out=debian-{{ (ds "dl").debian.oldoldstable }}-{{ (ds "dl").debian.architecture }}-netinst.iso.sha512sums.txt
+# http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/{{ (ds "dl").debian.architecture }}/iso-cd/SHA512SUMS.sign
+#   out=debian-{{ (ds "dl").debian.oldoldstable }}-{{ (ds "dl").debian.architecture }}-netinst.iso.sha512sums.txt.gpg
+# http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/{{ (ds "dl").debian.architecture }}/iso-cd/debian-{{ (ds "dl").debian.oldoldstable }}-{{ (ds "dl").debian.architecture }}-netinst.iso
