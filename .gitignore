@@ -2,6 +2,7 @@
 .*.sw?
 *.py[coz]
 __pycache__/
+.venv/
 
 *SHA*SUMS*
 *.sha256
