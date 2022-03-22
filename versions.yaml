@@ -70,7 +70,7 @@ gqrx:
 hashi_up:
   architecture: amd64
   operating_system: linux
-  release: 0.12.0
+  release: 0.14.0
   suffix: ''  # the linux-amd64 one has an empty suffix
   suffix_new: ''
 
@@ -98,7 +98,7 @@ keepassxc:
   architecture: x86_64
   release: 2.7.0
 
-# https://libreelec.tv/raspberry-pi-4/
+# https://libreelec.tv/downloads/raspberry/
 libreelec:
   platform: RPi4
   release: 9.97.1
@@ -106,7 +106,7 @@ libreelec:
 # https://www.pistar.uk/downloads/
 pi-star:
   platform: RPi
-  release: 4.1.5_21-Jun-2021
+  release: 4.1.5_30-Oct-2021
 
 # http://releases.ubuntu.com/
 # http://cdimage.ubuntu.com/
