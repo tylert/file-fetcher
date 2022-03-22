@@ -96,7 +96,7 @@ k3sup:
 # https://github.com/keepassxreboot/keepassxc/releases/latest
 keepassxc:
   architecture: x86_64
-  release: 2.6.6
+  release: 2.7.0
 
 # https://libreelec.tv/raspberry-pi-4/
 libreelec:
