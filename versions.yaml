@@ -20,25 +20,25 @@ archlinux:
 # http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd/
 debian:
   architecture: amd64
-  stable: 11.2.0
+  stable: 11.3.0
   oldstable: 10.11.0
 
 # https://www.farnsworth.org/dale/codeplug/editcp/
 # https://www.farnsworth.org/dale/codeplug/editcp/downloads/
 # https://www.farnsworth.org/dale/codeplug/dmrRadio/downloads/
-# https://github.com/DaleFarnsworth-DMR/codeplug/releases
-# https://github.com/DaleFarnsworth-DMR/debug/releases
-# https://github.com/DaleFarnsworth-DMR/dfu/releases
-# https://github.com/DaleFarnsworth-DMR/dmrRadio/releases
-# https://github.com/DaleFarnsworth-DMR/docCodeplug/releases
-# https://github.com/DaleFarnsworth-DMR/docker/releases
-# https://github.com/DaleFarnsworth-DMR/docs/releases
-# https://github.com/DaleFarnsworth-DMR/editcp/releases
-# https://github.com/DaleFarnsworth-DMR/genCodeplugInfo/releases
-# https://github.com/DaleFarnsworth-DMR/genFileData/releases
-# https://github.com/DaleFarnsworth-DMR/stdfu/releases
-# https://github.com/DaleFarnsworth-DMR/ui/releases
-# https://github.com/DaleFarnsworth-DMR/userdb/releases
+# https://github.com/dalefarnsworth-dmr/codeplug/releases
+# https://github.com/dalefarnsworth-dmr/debug/releases
+# https://github.com/dalefarnsworth-dmr/dfu/releases
+# https://github.com/dalefarnsworth-dmr/dmrRadio/releases
+# https://github.com/dalefarnsworth-dmr/docCodeplug/releases
+# https://github.com/dalefarnsworth-dmr/docker/releases
+# https://github.com/dalefarnsworth-dmr/docs/releases
+# https://github.com/dalefarnsworth-dmr/editcp/releases
+# https://github.com/dalefarnsworth-dmr/genCodeplugInfo/releases
+# https://github.com/dalefarnsworth-dmr/genFileData/releases
+# https://github.com/dalefarnsworth-dmr/stdfu/releases
+# https://github.com/dalefarnsworth-dmr/ui/releases
+# https://github.com/dalefarnsworth-dmr/userdb/releases
 editcp:
   codeplug_release: 1.0.26
   debug_release: 1.0.20
@@ -75,6 +75,7 @@ hashi_up:
   suffix_new: ''
 
 # https://releases.hashicorp.com
+# https://releases.hashicorp.com/index.html
 # https://releases.hashicorp.com/index.json
 hashicorp:
   architecture: amd64
