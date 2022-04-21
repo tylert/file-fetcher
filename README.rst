@@ -14,6 +14,9 @@ TODO
 * https://stackoverflow.com/questions/11692860/how-can-i-efficiently-download-a-large-file-using-go
 * https://progolang.com/how-to-download-files-in-go/
 * https://likegeeks.com/downloading-files-using-python/
+* http://ariang.mayswind.net/
+* https://github.com/P3TERX/Aria2-Pro-Docker
+* https://github.com/k8s-at-home/charts/tree/master/charts/stable/aria2
 
 ::
 
