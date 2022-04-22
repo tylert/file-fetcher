@@ -17,6 +17,7 @@ TODO
 * http://ariang.mayswind.net/
 * https://github.com/P3TERX/Aria2-Pro-Docker
 * https://github.com/k8s-at-home/charts/tree/master/charts/stable/aria2
+* https://aria2.github.io/manual/en/html/aria2c.html#aria2.addUri
 
 ::
 
