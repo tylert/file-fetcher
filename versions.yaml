@@ -21,7 +21,7 @@ archlinux:
 debian:
   architecture: amd64
   stable: 11.3.0
-  oldstable: 10.11.0
+  oldstable: 10.12.0
 
 # https://www.farnsworth.org/dale/codeplug/editcp/
 # https://www.farnsworth.org/dale/codeplug/editcp/downloads/
