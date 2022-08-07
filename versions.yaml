@@ -121,4 +121,4 @@ ubuntu:
 # https://github.com/Ultimaker/Cura/releases/latest
 ultimaker_cura:
   architecture: x86_64
-  release: 5.0.0
+  release: 5.1.0
