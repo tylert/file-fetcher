@@ -12,7 +12,7 @@ archlinux:
   architecture0: x86_64
   architectures: [rpi-aarch64, odroid-xu3, odroid-c2]
   mirror: https://muug.ca/mirror/archlinux/iso/latest
-  release: 2022.07.01
+  release: 2022.08.05
 
 # http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/
 # http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/
@@ -20,7 +20,7 @@ archlinux:
 # http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd/
 debian:
   architecture: amd64
-  stable: 11.3.0
+  stable: 11.4.0
   oldstable: 10.12.0
 
 # https://www.farnsworth.org/dale/codeplug/editcp/
@@ -59,18 +59,18 @@ editcp:
 gomplate:
   architecture: amd64
   operating_system: linux
-  release: 3.11.0
+  release: 3.11.2
 
 # https://github.com/gqrx-sdr/gqrx/releases/latest
 gqrx:
   architecture: x86_64
-  release: 2.15.8
+  release: 2.15.9
 
 # https://github.com/jsiebens/hashi-up/releases/latest
 hashi_up:
   architecture: amd64
   operating_system: linux
-  release: 0.14.0
+  release: 0.15.0
   suffix: ''  # the linux-amd64 one has an empty suffix
   suffix_new: ''
 
@@ -90,7 +90,7 @@ hashicorp:
 k3sup:
   architecture: amd64
   operating_system: linux
-  release: 0.11.3
+  release: 0.12.0
   suffix: ''  # the linux-amd64 one has an empty suffix
   suffix_new: ''
 
@@ -102,7 +102,7 @@ keepassxc:
 # https://libreelec.tv/downloads/raspberry/
 libreelec:
   platform: RPi4
-  release: 9.97.1
+  release: 10.0.2
 
 # https://www.pistar.uk/downloads/
 pi-star:
@@ -114,8 +114,8 @@ pi-star:
 # https://ubuntu.com/download/raspberry-pi
 ubuntu:
   architecture: amd64
-  releases_server: ['21.10', 20.04.4]
-  releases_desktop: ['21.10', 20.04.4]
+  releases_server: ['22.04', 20.04.4]
+  releases_desktop: ['22.04', 20.04.4]
   release_old: 18.04.6  # cull this 2023-04-26
 
 # https://github.com/Ultimaker/Cura/releases/latest
