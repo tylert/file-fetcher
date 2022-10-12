@@ -18,6 +18,8 @@ TODO
 * https://github.com/P3TERX/Aria2-Pro-Docker
 * https://github.com/k8s-at-home/charts/tree/master/charts/stable/aria2
 * https://aria2.github.io/manual/en/html/aria2c.html#aria2.addUri
+* https://github.com/wahyd4/aria2-ariang-docker
+* https://github.com/openthings/kubernetes-tools/blob/master/aria/aria2-service.yaml
 
 ::
 
