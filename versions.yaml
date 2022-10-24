@@ -6,7 +6,7 @@
 
 # gomplate -d dl=foo.yaml -f foo.tmpl
 
-# https://muug.ca/mirror/archlinux/iso/latest/
+# https://mirror.xenyth.net/archlinux/iso/latest
 # XXX TODO FIXME Handle more than one mirror at a time
 archlinux:
   architecture0: x86_64
@@ -20,8 +20,8 @@ archlinux:
 # http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd/
 debian:
   architecture: amd64
-  stable: 11.4.0
-  oldstable: 10.12.0
+  stable: 11.5.0
+  oldstable: 10.13.0
 
 # https://www.farnsworth.org/dale/codeplug/editcp/
 # https://www.farnsworth.org/dale/codeplug/editcp/downloads/
@@ -59,7 +59,7 @@ editcp:
 gomplate:
   architecture: amd64
   operating_system: linux
-  release: 3.11.2
+  release: 3.11.3
 
 # https://github.com/gqrx-sdr/gqrx/releases/latest
 gqrx:
@@ -70,7 +70,7 @@ gqrx:
 hashi_up:
   architecture: amd64
   operating_system: linux
-  release: 0.15.0
+  release: 0.16.0
   suffix: ''  # the linux-amd64 one has an empty suffix
   suffix_new: ''
 
@@ -90,14 +90,14 @@ hashicorp:
 k3sup:
   architecture: amd64
   operating_system: linux
-  release: 0.12.0
+  release: 0.12.10
   suffix: ''  # the linux-amd64 one has an empty suffix
   suffix_new: ''
 
 # https://github.com/keepassxreboot/keepassxc/releases/latest
 keepassxc:
   architecture: x86_64
-  release: 2.7.1
+  release: 2.7.3
 
 # https://libreelec.tv/downloads/raspberry/
 libreelec:
@@ -114,11 +114,11 @@ pi-star:
 # https://ubuntu.com/download/raspberry-pi
 ubuntu:
   architecture: amd64
-  releases_server: ['22.04', 20.04.4]
-  releases_desktop: ['22.04', 20.04.4]
+  releases_server: [22.04.1, 20.04.5]
+  releases_desktop: [22.04.1, 20.04.5]
   release_old: 18.04.6  # cull this 2023-04-26
 
 # https://github.com/Ultimaker/Cura/releases/latest
 ultimaker_cura:
   architecture: x86_64
-  release: 5.1.0
+  release: 5.2.1
