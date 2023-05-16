@@ -5,6 +5,7 @@ file-fetcher
 TODO
 ----
 
+* https://github.com/siku2/arigo
 * https://github.com/cavaliercoder/grab
 * https://github.com/melbahja/got
 * https://github.com/akshaykhairmode/summon

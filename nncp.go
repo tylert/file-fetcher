@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 	// "github.com/Masterminds/semver"
@@ -12,21 +13,26 @@ import (
 func processElement(index int, element *goquery.Selection) {
 	href, exists := element.Attr("href")
 	if exists {
-		fmt.Println(href)
+		if strings.Contains(href, "download") && !strings.Contains(href, "meta4") {
+			fmt.Println(href)
+		}
 	}
 }
 
 func main() {
-	response, err := http.Get("https://nncp.mirrors.quux.org/Tarballs.html")
+	res, err := http.Get("https://nncp.mirrors.quux.org/Tarballs.html")
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer response.Body.Close()
+	defer res.Body.Close()
+	if res.StatusCode != 200 {
+		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
+	}
 
-	document, err := goquery.NewDocumentFromReader(response.Body)
+	doc, err := goquery.NewDocumentFromReader(res.Body)
 	if err != nil {
 		log.Fatal("Error loading HTTP response body.", err)
 	}
 
-	document.Find("a").Each(processElement)
+	doc.Find("a").Each(processElement)
 }
