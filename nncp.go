@@ -4,20 +4,12 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 	// "github.com/Masterminds/semver"
 )
-
-func processElement(index int, element *goquery.Selection) {
-	href, exists := element.Attr("href")
-	if exists {
-		if strings.Contains(href, "download") && !strings.Contains(href, "meta4") {
-			fmt.Println(href)
-		}
-	}
-}
 
 func main() {
 	res, err := http.Get("https://nncp.mirrors.quux.org/Tarballs.html")
@@ -34,5 +26,18 @@ func main() {
 		log.Fatal("Error loading HTTP response body.", err)
 	}
 
-	doc.Find("a").Each(processElement)
+	// Print out the first 2 non-meta4 download links
+	count := 0
+	doc.Find("a").Each(func(index int, element *goquery.Selection) {
+		href, exists := element.Attr("href")
+		if exists {
+			if strings.Contains(href, "download") && !strings.Contains(href, "meta4") {
+				fmt.Println(fmt.Sprintf("https://nncp.mirrors.quux.org/%s", href))
+				count++
+				if count > 1 {
+					os.Exit(0)
+				}
+			}
+		}
+	})
 }

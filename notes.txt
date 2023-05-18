@@ -10,9 +10,3 @@ fetch only UltiMaker-Cura*linux*AppImage*
 ===
 get https://endeavouros.com/latest-release
 look for hrefs pointed at github.com (skip torrent one)
-===
-get https://nncp.mirrors.quux.org/Tarballs.html
-look for the latest download/ links (skip meta4 one)
-===
-
-https://www.devdungeon.com/content/web-scraping-go
