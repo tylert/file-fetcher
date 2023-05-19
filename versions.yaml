@@ -14,15 +14,6 @@ archlinux:
   mirror: https://mirror.xenyth.net/archlinux/iso/latest
   release: 2022.10.01
 
-# http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/
-# http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/
-# http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd/
-# http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd/
-debian:
-  architecture: amd64
-  stable: 11.5.0
-  oldstable: 10.13.0
-
 # https://releases.hashicorp.com
 # https://releases.hashicorp.com/index.html
 # https://releases.hashicorp.com/index.json

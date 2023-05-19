@@ -8,7 +8,6 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
-	// "github.com/Masterminds/semver"
 )
 
 func main() {
@@ -26,7 +25,6 @@ func main() {
 		log.Fatal("Error loading HTTP response body.", err)
 	}
 
-	// Print out the first 2 non-meta4 download links
 	count := 0
 	doc.Find("a").Each(func(index int, element *goquery.Selection) {
 		href, exists := element.Attr("href")
