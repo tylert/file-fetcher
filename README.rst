@@ -4,6 +4,11 @@ file-fetcher
 
 ::
 
+    go run nncp.go
+
+
+::
+
     curl https://api.github.com/repos/keepassxreboot/keepassxc/releases/latest | jq '.assets[].browser_download_url'
     curl https://api.github.com/repos/keepassxreboot/keepassxc/releases/latest | jq '.tarball_url'
     curl https://api.github.com/repos/keepassxreboot/keepassxc/releases/latest | jq '.tag_name'
