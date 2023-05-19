@@ -23,57 +23,6 @@ debian:
   stable: 11.5.0
   oldstable: 10.13.0
 
-# https://www.farnsworth.org/dale/codeplug/editcp/
-# https://www.farnsworth.org/dale/codeplug/editcp/downloads/
-# https://www.farnsworth.org/dale/codeplug/dmrRadio/downloads/
-# https://github.com/dalefarnsworth-dmr/codeplug/releases
-# https://github.com/dalefarnsworth-dmr/debug/releases
-# https://github.com/dalefarnsworth-dmr/dfu/releases
-# https://github.com/dalefarnsworth-dmr/dmrRadio/releases
-# https://github.com/dalefarnsworth-dmr/docCodeplug/releases
-# https://github.com/dalefarnsworth-dmr/docker/releases
-# https://github.com/dalefarnsworth-dmr/docs/releases
-# https://github.com/dalefarnsworth-dmr/editcp/releases
-# https://github.com/dalefarnsworth-dmr/genCodeplugInfo/releases
-# https://github.com/dalefarnsworth-dmr/genFileData/releases
-# https://github.com/dalefarnsworth-dmr/stdfu/releases
-# https://github.com/dalefarnsworth-dmr/ui/releases
-# https://github.com/dalefarnsworth-dmr/userdb/releases
-editcp:
-  codeplug_release: 1.0.26
-  debug_release: 1.0.20
-  dfu_release: 1.0.20
-  dmr_radio_release: 1.0.32
-  doc_codeplug_release: 1.0.18
-  docker_release: 1.0.19
-  docs_release: 1.0.18
-  editcp_release: 1.0.28
-  gen_codeplug_info_release: 1.0.18
-  gen_file_data_release: 1.0.18
-  operating_system: linux
-  stdfu_release: 1.0.20
-  ui_release: 1.0.19
-  user_db_release: 1.0.26
-
-# https://github.com/hairyhenderson/gomplate/releases/latest
-gomplate:
-  architecture: amd64
-  operating_system: linux
-  release: 3.11.3
-
-# https://github.com/gqrx-sdr/gqrx/releases/latest
-gqrx:
-  architecture: x86_64
-  release: 2.15.9
-
-# https://github.com/jsiebens/hashi-up/releases/latest
-hashi_up:
-  architecture: amd64
-  operating_system: linux
-  release: 0.16.0
-  suffix: ''  # the linux-amd64 one has an empty suffix
-  suffix_new: ''
-
 # https://releases.hashicorp.com
 # https://releases.hashicorp.com/index.html
 # https://releases.hashicorp.com/index.json
@@ -85,19 +34,6 @@ hashicorp:
   vagrant_architecture: x86_64
   vagrant_package: deb
   vagrant_release: 0.0.0
-
-# https://github.com/alexellis/k3sup/releases/latest
-k3sup:
-  architecture: amd64
-  operating_system: linux
-  release: 0.12.10
-  suffix: ''  # the linux-amd64 one has an empty suffix
-  suffix_new: ''
-
-# https://github.com/keepassxreboot/keepassxc/releases/latest
-keepassxc:
-  architecture: x86_64
-  release: 2.7.4
 
 # https://libreelec.tv/downloads/raspberry/
 libreelec:
@@ -117,8 +53,3 @@ ubuntu:
   releases_server: [22.04.1, 20.04.5]
   releases_desktop: [22.04.1, 20.04.5]
   release_old: 18.04.6  # cull this 2023-04-26
-
-# https://github.com/Ultimaker/Cura/releases/latest
-ultimaker_cura:
-  architecture: x86_64
-  release: 5.2.1
