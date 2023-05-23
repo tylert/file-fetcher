@@ -4,7 +4,11 @@ file-fetcher
 
 ::
 
+    go mod init bla
+    go mod tidy
+
     go run nncp.go
+    go run debian.go
 
 
 ::
