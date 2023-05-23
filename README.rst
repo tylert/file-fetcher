@@ -88,5 +88,13 @@ TODO
     aria2c -d foo --conf-path=aria2.conf -i template/foo.aria2.list
     aria2c --dir=bar --conf-path=aria2.conf --input-file=template/bar.aria2.list
 
-get https://endeavouros.com/latest-release
-look for hrefs pointed at github.com (skip torrent one)
+* https://endeavouros.com/latest-release  (the github.com one)
+* https://mirror.xenyth.net/archlinux/iso/latest  (x86_64, rpi-aarch64, odroid-xu3, odroid-c2)
+* https://releases.hashicorp.com/index.html
+* https://releases.hashicorp.com/index.json
+* https://pikvm.org
+* https://libreelec.tv/downloads/raspberry/
+* https://www.pistar.uk/downloads/
+* http://releases.ubuntu.com/
+* http://cdimage.ubuntu.com/
+* https://ubuntu.com/download/raspberry-pi
