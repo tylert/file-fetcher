@@ -4,11 +4,9 @@ file-fetcher
 
 ::
 
-    go mod init bla
-    go mod tidy
-
-    go run nncp.go
-    go run debian.go
+    go run debian/main.go
+    go run nncp/main.go
+    go run openwrt/main.go
 
 
 ::
@@ -59,9 +57,12 @@ file-fetcher
     # https://www.farnsworth.org/dale/codeplug/editcp/downloads/
     # https://www.farnsworth.org/dale/codeplug/editcp/
 
-    curl https://api.github.com/repos/openwrt/openwrt/releases/latest | jq '.name'
-    # https://downloads.openwrt.org/releases/${VERSION}/targets/ath79/generic/openwrt-${VERSION}-ath79-generic-tplink_eap225-v3-{initramfs-kernel,squashrs-factory,squashfs-sysupgrade}.bin + sha256sum
-    # https://downloads.openwrt.org/releases/${VERSION}/targets/ramips/mt7621/openwrt-${VERSION}-ramips-mt7621-ubnt_edgerouter-x-{initramfs-kernel,squashfs-sysupgrade}.bin + sha256sum
+::
+
+    aria2c -d foo --conf-path=aria2.conf -i template/foo.aria2.list
+    aria2c --dir=bar --conf-path=aria2.conf --input-file=template/bar.aria2.list
+
+* https://mholt.github.io/json-to-go/  hit the easy button
 
 
 TODO
@@ -83,14 +84,6 @@ TODO
 * https://aria2.github.io/manual/en/html/aria2c.html#aria2.addUri
 * https://github.com/wahyd4/aria2-ariang-docker
 * https://github.com/openthings/kubernetes-tools/blob/master/aria/aria2-service.yaml
-
-::
-
-    gomplate -d dl=versions.yaml -f source/foo.aria2.gomplate > template/foo.aria2.list
-    gomplate --datasource dl=versions.yaml --file source/bar.aria2.gomplate > template/bar.aria2.list
-
-    aria2c -d foo --conf-path=aria2.conf -i template/foo.aria2.list
-    aria2c --dir=bar --conf-path=aria2.conf --input-file=template/bar.aria2.list
 
 * https://endeavouros.com/latest-release  (the github.com one)
 * https://mirror.xenyth.net/archlinux/iso/latest  (x86_64, rpi-aarch64, odroid-xu3, odroid-c2)
