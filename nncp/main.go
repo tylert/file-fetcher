@@ -25,6 +25,7 @@ func main() {
 		log.Fatal("Error loading HTTP response body.", err)
 	}
 
+	// Stop after showing exactly 2 download links (which should be the newest ones)
 	count := 0
 	doc.Find("a").Each(func(index int, element *goquery.Selection) {
 		href, exists := element.Attr("href")
