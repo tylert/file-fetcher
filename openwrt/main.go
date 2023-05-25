@@ -47,7 +47,7 @@ func dumpOne(url string) {
 	doc.Find("a").Each(func(index int, element *goquery.Selection) {
 		href, exists := element.Attr("href")
 		if exists {
-			if strings.Contains(href, "tplink_eap225-v3") || (strings.Contains(href, "ubnt_edgerouter-x") && !strings.Contains(href, "sfp")) {
+			if strings.Contains(href, "tplink_eap225-v3") || (strings.Contains(href, "ubnt_edgerouter-x") && !strings.Contains(href, "-sfp-")) {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 			}
 		}

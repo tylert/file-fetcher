@@ -27,7 +27,7 @@ func dumpOne(url string) {
 	doc.Find("a").Each(func(index int, element *goquery.Selection) {
 		href, exists := element.Attr("href")
 		if exists {
-			if strings.Contains(href, "netinst.iso") || strings.Contains(href, "SHA") {
+			if (strings.Contains(href, "netinst.iso") && !strings.Contains(href, "-edu-") && !strings.Contains(href, "-mac-")) || strings.Contains(href, "SHA") {
 				fmt.Println(fmt.Sprintf("%s%s", url, href))
 			}
 		}
@@ -36,7 +36,7 @@ func dumpOne(url string) {
 
 func main() {
 	const (
-		testing      = "http://cdimage.debian.org/cdimage/weekly-builds/arm64/iso-cd/"
+		testing      = "http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/"
 		stable       = "http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/"
 		oldstable    = "http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd/"
 		oldoldstable = "http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd/"
