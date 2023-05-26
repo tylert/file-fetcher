@@ -33,6 +33,7 @@ func main() {
 			if strings.Contains(href, "download") {
 				fmt.Println(fmt.Sprintf("https://nncp.mirrors.quux.org/%s", href))
 				fmt.Println("	auto-file-renaming=false")
+				fmt.Println("	dir=NNCP")
 				count--
 				if count <= 0 {
 					os.Exit(0)

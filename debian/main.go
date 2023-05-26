@@ -31,11 +31,13 @@ func dumpOne(url string) {
 			if strings.Contains(href, "netinst.iso") && !strings.Contains(href, "-edu-") && !strings.Contains(href, "-mac-") {
 				fmt.Println(fmt.Sprintf("%s%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
+				fmt.Println("	dir=Debian")
 				fmt.Println("	conditional-get=true")
 			}
 			if strings.Contains(href, "SHA") {
-				fmt.Println(fmt.Sprintf("%s%s.txt", url, href))
+				fmt.Println(fmt.Sprintf("%s%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
+				fmt.Println("	dir=Debian")
 				// fmt.Println("	out=moo")
 			}
 		}

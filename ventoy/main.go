@@ -48,17 +48,20 @@ func main() {
 
 	fmt.Println(fmt.Sprintf("%s", rel.TarballURL))
 	fmt.Println("	auto-file-renaming=false")
+	fmt.Println("	dir=Ventoy")
 	fmt.Println(fmt.Sprintf("	out=ventoy-%s-src.tar.gz", rel.TagName))
 
 	for i := 0; i < len(rel.Assets); i++ {
 		if strings.Contains(rel.Assets[i].Name, "sha256.txt") {
 			fmt.Println(fmt.Sprintf("%s", rel.Assets[i].BrowserDownloadURL))
 			fmt.Println("	auto-file-renaming=false")
+			fmt.Println("	dir=Ventoy")
 			fmt.Println(fmt.Sprintf("	out=ventoy-%s-sha256.txt", rel.TagName))
 		}
 		if strings.Contains(rel.Assets[i].Name, "linux") {
 			fmt.Println(fmt.Sprintf("%s", rel.Assets[i].BrowserDownloadURL))
 			fmt.Println("	auto-file-renaming=false")
+			fmt.Println("	dir=Ventoy")
 		}
 	}
 }

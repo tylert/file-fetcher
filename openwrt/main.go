@@ -53,6 +53,7 @@ func dumpOne(url string) {
 			if strings.Contains(href, "tplink_eap225-v3") || (strings.Contains(href, "ubnt_edgerouter-x") && !strings.Contains(href, "-sfp-")) {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
+				fmt.Println("	dir=OpenWRT")
 			}
 		}
 	})
@@ -76,6 +77,7 @@ func main() {
 
 	fmt.Println(fmt.Sprintf("%s", rel.TarballURL))
 	fmt.Println("	auto-file-renaming=false")
+	fmt.Println("	dir=OpenWRT")
 	fmt.Println(fmt.Sprintf("	out=openwrt-%s-src.tar.gz", rel.Name))
 	dumpOne(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ath79/generic", rel.Name))
 	dumpOne(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ramips/mt7621", rel.Name))
