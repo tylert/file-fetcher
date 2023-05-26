@@ -30,10 +30,12 @@ func dumpOne(url string) {
 		if exists {
 			if strings.Contains(href, "netinst.iso") && !strings.Contains(href, "-edu-") && !strings.Contains(href, "-mac-") {
 				fmt.Println(fmt.Sprintf("%s%s", url, href))
+				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	conditional-get=true")
 			}
 			if strings.Contains(href, "SHA") {
 				fmt.Println(fmt.Sprintf("%s%s.txt", url, href))
+				fmt.Println("	auto-file-renaming=false")
 				// fmt.Println("	out=moo")
 			}
 		}
