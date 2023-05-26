@@ -21,7 +21,9 @@ type Release struct {
 	CreatedAt       time.Time `json:"created_at"`
 	PublishedAt     time.Time `json:"published_at"`
 	TarballURL      string    `json:"tarball_url"`
+	ZipballURL      string    `json:"zipball_url"`
 }
+// OpenWRT doesn't publish their compiled assets on GitHub
 
 func dumpOne(url string) {
 	res, err := http.Get(url)

@@ -15,10 +15,6 @@ file-fetcher
     curl https://api.github.com/repos/keepassxreboot/keepassxc/releases/latest | jq '.tarball_url'
     curl https://api.github.com/repos/keepassxreboot/keepassxc/releases/latest | jq '.tag_name'
 
-    curl https://api.github.com/repos/ventoy/Ventoy/releases/latest | jq '.assets[].browser_download_url'
-    curl https://api.github.com/repos/ventoy/Ventoy/releases/latest | jq '.tarball_url'
-    curl https://api.github.com/repos/ventoy/Ventoy/releases/latest | jq '.tag_name'
-
     curl https://api.github.com/repos/Ultimaker/Cura/releases/latest | jq '.assets[].browser_download_url'
     curl https://api.github.com/repos/Ultimaker/Cura/releases/latest | jq '.tarball_url'
     curl https://api.github.com/repos/Ultimaker/Cura/releases/latest | jq '.tagname'
@@ -63,6 +59,9 @@ file-fetcher
     aria2c --dir=bar --conf-path=aria2.conf --input-file=template/bar.aria2.list
 
 * https://mholt.github.io/json-to-go/  hit the easy button
+* https://aria2.github.io/manual/en/html/aria2c.html#input-file  aria2c input files
+* https://aria2.github.io/manual/en/html/aria2c.html#aria2.addUri
+* https://wiki.archlinux.org/title/Aria2
 
 
 TODO
@@ -81,7 +80,6 @@ TODO
 * http://ariang.mayswind.net/
 * https://github.com/P3TERX/Aria2-Pro-Docker
 * https://github.com/k8s-at-home/charts/tree/master/charts/stable/aria2
-* https://aria2.github.io/manual/en/html/aria2c.html#aria2.addUri
 * https://github.com/wahyd4/aria2-ariang-docker
 * https://github.com/openthings/kubernetes-tools/blob/master/aria/aria2-service.yaml
 

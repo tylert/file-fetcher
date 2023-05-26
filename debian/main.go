@@ -24,11 +24,17 @@ func dumpOne(url string) {
 		log.Fatal("Error loading HTTP response body.", err)
 	}
 
+	// XXX FIXME TODO  Figure out why each link gets printed twice!!!
 	doc.Find("a").Each(func(index int, element *goquery.Selection) {
 		href, exists := element.Attr("href")
 		if exists {
-			if (strings.Contains(href, "netinst.iso") && !strings.Contains(href, "-edu-") && !strings.Contains(href, "-mac-")) || strings.Contains(href, "SHA") {
+			if strings.Contains(href, "netinst.iso") && !strings.Contains(href, "-edu-") && !strings.Contains(href, "-mac-") {
 				fmt.Println(fmt.Sprintf("%s%s", url, href))
+				fmt.Println("	conditional-get=true")
+			}
+			if strings.Contains(href, "SHA") {
+				fmt.Println(fmt.Sprintf("%s%s.txt", url, href))
+				// fmt.Println("	out=moo")
 			}
 		}
 	})
