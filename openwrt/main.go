@@ -43,7 +43,7 @@ func dumpOne(url string) {
 
 	// XXX FIXME TODO  Extract the corresponding sha256sum along with the filename!!!
 	// <tr><td class="n">
-	// <a href="openwrt-22.03.5-ath79-generic-tplink_eap225-v3-initramfs-kernel.bin">tplink_eap225-v3-initramfs-kernel.bin</a>
+	// <a href="openwrt-22.03.5-bla-bla-bla.bin">bla-bla-bla.bin</a>
 	// </td>
 	// <td class="sh">3b28c9bf308b38ccb95aadbd4c52d9c686b8af6ba9ad1b00694f7fedd1f7506f</td>
 
@@ -75,10 +75,13 @@ func main() {
 		log.Fatalf("Kaboom!")
 	}
 
+	// Source code
 	fmt.Println(fmt.Sprintf("%s", rel.TarballURL))
 	fmt.Println("	auto-file-renaming=false")
 	fmt.Println("	dir=OpenWRT")
 	fmt.Println(fmt.Sprintf("	out=openwrt-%s-src.tar.gz", rel.Name))
+
+	// Compiled binaries
 	dumpOne(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ath79/generic", rel.Name))
 	dumpOne(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ramips/mt7621", rel.Name))
 }

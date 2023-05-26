@@ -24,7 +24,8 @@ func dumpOne(url string) {
 		log.Fatal("Error loading HTTP response body.", err)
 	}
 
-	// XXX FIXME TODO  Figure out why each link gets printed twice!!!
+	// XXX FIXME TODO  Figure out how to use the 'td class=indexcolname' one only!!!
+	// XXX FIXME TODO  Figure out how to get the version number and use it to rename the checksums!!!
 	doc.Find("a").Each(func(index int, element *goquery.Selection) {
 		href, exists := element.Attr("href")
 		if exists {
@@ -38,7 +39,7 @@ func dumpOne(url string) {
 				fmt.Println(fmt.Sprintf("%s%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=Debian")
-				// fmt.Println("	out=moo")
+				// fmt.Println("	out=debian-%s-%s", thing1, thing2)
 			}
 		}
 	})
