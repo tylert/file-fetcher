@@ -34,6 +34,7 @@ func dumpOne(url string) {
 				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=Debian")
 				fmt.Println("	conditional-get=true")
+				fmt.Println("	continue=true")
 			}
 			if strings.Contains(href, "SHA") {
 				fmt.Println(fmt.Sprintf("%s%s", url, href))
