@@ -4,6 +4,7 @@ file-fetcher
 
 ::
 
+    go run chdk/main.go
     go run debian/main.go
     go run nncp/main.go
     go run openwrt/main.go
@@ -84,7 +85,6 @@ TODO
 * https://github.com/wahyd4/aria2-ariang-docker
 * https://github.com/openthings/kubernetes-tools/blob/master/aria/aria2-service.yaml
 
-* CHDK
 * https://endeavouros.com/latest-release  (the github.com one)
 * https://mirror.xenyth.net/archlinux/iso/latest  (x86_64, rpi-aarch64, odroid-xu3, odroid-c2)
 * https://releases.hashicorp.com/index.html

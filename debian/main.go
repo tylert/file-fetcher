@@ -47,15 +47,8 @@ func dumpOne(url string) {
 }
 
 func main() {
-	const (
-		testing      = "http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/"
-		stable       = "http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/"
-		oldstable    = "http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd/"
-		oldoldstable = "http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd/"
-	)
-
-	dumpOne(testing)
-	dumpOne(stable)
-	dumpOne(oldstable)
-	dumpOne(oldoldstable)
+	dumpOne("http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/")
+	dumpOne("http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/")
+	dumpOne("http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd/")
+	dumpOne("http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd/")
 }
