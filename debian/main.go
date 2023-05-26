@@ -30,14 +30,14 @@ func dumpOne(url string) {
 		href, exists := element.Attr("href")
 		if exists {
 			if strings.Contains(href, "netinst.iso") && !strings.Contains(href, "-edu-") && !strings.Contains(href, "-mac-") {
-				fmt.Println(fmt.Sprintf("%s%s", url, href))
+				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=Debian")
 				fmt.Println("	conditional-get=true")
 				fmt.Println("	continue=true")
 			}
 			if strings.Contains(href, "SHA") {
-				fmt.Println(fmt.Sprintf("%s%s", url, href))
+				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=Debian")
 				// fmt.Println("	out=debian-%s-%s", thing1, thing2)
@@ -47,8 +47,10 @@ func dumpOne(url string) {
 }
 
 func main() {
-	dumpOne("http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/")
-	dumpOne("http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/")
-	dumpOne("http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd/")
-	dumpOne("http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd/")
+	fmt.Println("# https://www.debian.org")
+
+	dumpOne("http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd")
+	dumpOne("http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd")
+	dumpOne("http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd")
+	dumpOne("http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd")
 }

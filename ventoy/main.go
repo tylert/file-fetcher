@@ -46,6 +46,9 @@ func main() {
 		log.Fatalf("Kaboom!")
 	}
 
+	fmt.Println("# https://github.com/ventoy/Ventoy")
+	fmt.Println("# https://www.ventoy.net")
+
 	// Source code
 	fmt.Println(fmt.Sprintf("%s", rel.TarballURL))
 	fmt.Println("	auto-file-renaming=false")

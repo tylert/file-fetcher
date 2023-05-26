@@ -25,6 +25,9 @@ func main() {
 		log.Fatal("Error loading HTTP response body.", err)
 	}
 
+	fmt.Println("# https://nncp.mirrors.quux.org/Tarballs.html")
+	fmt.Println("# https://www.complete.org/nncp")
+
 	// Stop after showing exactly 3 download links (which should be the newest ones)
 	count := 3
 	doc.Find("a").Each(func(index int, element *goquery.Selection) {

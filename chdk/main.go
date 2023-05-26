@@ -29,7 +29,7 @@ func dumpOne(url string) {
 		href, exists := element.Attr("href")
 		if exists {
 			if strings.Contains(href, "_elph115-") && strings.Contains(href, "full.zip") {
-				fmt.Println(fmt.Sprintf("%s%s", url, href))
+				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=CHDK")
 			}
@@ -38,6 +38,10 @@ func dumpOne(url string) {
 }
 
 func main() {
-	dumpOne("https://mighty-hoernsche.de/")
-	dumpOne("https://mighty-hoernsche.de/trunk/")
+	fmt.Println("# https://mighty-hoernsche.de")
+	fmt.Println("# https://mighty-hoernsche.de/trunk")
+	fmt.Println("# https://chdk.fandom.com/wiki/CHDK")
+
+	dumpOne("https://mighty-hoernsche.de")
+	dumpOne("https://mighty-hoernsche.de/trunk")
 }
