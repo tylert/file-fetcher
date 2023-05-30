@@ -48,6 +48,7 @@ func main() {
 
 	fmt.Println("# https://github.com/alexellis/k3sup")
 
+	// XXX FIXME TODO  Play with the strings to slip a version string in there and add missing architecture for x86_64
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
 		if !strings.Contains(rel.Assets[i].Name, "-armhf") && !strings.Contains(rel.Assets[i].Name, "-darwin") && !strings.Contains(rel.Assets[i].Name, ".exe") {
