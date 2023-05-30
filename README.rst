@@ -5,6 +5,7 @@ file-fetcher
 ::
 
     go run chdk/main.go
+    go run cura/main.go
     go run debian/main.go
     go run nncp/main.go
     go run openwrt/main.go
@@ -16,10 +17,6 @@ file-fetcher
     curl https://api.github.com/repos/keepassxreboot/keepassxc/releases/latest | jq '.assets[].browser_download_url'
     curl https://api.github.com/repos/keepassxreboot/keepassxc/releases/latest | jq '.tarball_url'
     curl https://api.github.com/repos/keepassxreboot/keepassxc/releases/latest | jq '.tag_name'
-
-    curl https://api.github.com/repos/Ultimaker/Cura/releases/latest | jq '.assets[].browser_download_url'
-    curl https://api.github.com/repos/Ultimaker/Cura/releases/latest | jq '.tarball_url'
-    curl https://api.github.com/repos/Ultimaker/Cura/releases/latest | jq '.tagname'
 
     curl https://api.github.com/repos/gqrx-sdr/gqrx/releases/latest | jq '.assets[].browser_download_url'
     curl https://api.github.com/repos/gqrx-sdr/gqrx/releases/latest | jq '.tarball_url'
