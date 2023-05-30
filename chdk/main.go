@@ -24,16 +24,17 @@ func dumpOne(url string) {
 		log.Fatal("Error loading HTTP response body.", err)
 	}
 
-	// XXX FIXME TODO  Stop after finding the first instance!!!
-	doc.Find("a").Each(func(index int, element *goquery.Selection) {
+	doc.Find("a").EachWithBreak(func(index int, element *goquery.Selection) bool {
 		href, exists := element.Attr("href")
 		if exists {
 			if strings.Contains(href, "_elph115-") && strings.Contains(href, "full.zip") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=CHDK")
+				return false
 			}
 		}
+		return true
 	})
 }
 
