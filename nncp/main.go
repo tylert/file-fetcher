@@ -37,6 +37,7 @@ func main() {
 				fmt.Println(fmt.Sprintf("https://nncp.mirrors.quux.org/%s", href))
 				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=NNCP")
+				fmt.Println("	file-allocation=falloc")
 
 				count--
 				if count <= 0 {

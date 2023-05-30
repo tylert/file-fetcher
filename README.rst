@@ -7,6 +7,7 @@ file-fetcher
     go run chdk/main.go
     go run cura/main.go
     go run debian/main.go
+    go run k3sup/main.go
     go run nncp/main.go
     go run openwrt/main.go
     go run ventoy/main.go
@@ -25,10 +26,6 @@ file-fetcher
     curl https://api.github.com/repos/hairyhenderson/gomplate/releases/latest | jq '.assets[].browser_download_url'
     curl https://api.github.com/repos/hairyhenderson/gomplate/releases/latest | jq '.tarball_url'
     curl https://api.github.com/repos/hairyhenderson/gomplate/releases/latest | jq '.tag_name'
-
-    curl https://api.github.com/repos/alexellis/k3sup/releases/latest | jq '.assets[].browser_download_url'
-    curl https://api.github.com/repos/alexellis/k3sup/releases/latest | jq '.tarball_url'
-    curl https://api.github.com/repos/alexellis/k3sup/releases/latest | jq '.tag_name'
 
     curl https://api.github.com/repos/jsiebens/hashi-up/releases/latest | jq '.assets[].browser_download_url'
     curl https://api.github.com/repos/jsiebens/hashi-up/releases/latest | jq '.tarball_url'
@@ -61,6 +58,7 @@ file-fetcher
 * https://aria2.github.io/manual/en/html/aria2c.html#input-file  aria2c input files
 * https://aria2.github.io/manual/en/html/aria2c.html#aria2.addUri
 * https://wiki.archlinux.org/title/Aria2
+* https://github.com/ziahamza/webui-aria2
 
 
 TODO

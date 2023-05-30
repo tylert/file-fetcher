@@ -32,14 +32,16 @@ func dumpOne(url string) {
 			if strings.Contains(href, "netinst.iso") && !strings.Contains(href, "-edu-") && !strings.Contains(href, "-mac-") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
-				fmt.Println("	dir=Debian")
 				fmt.Println("	conditional-get=true")
 				fmt.Println("	continue=true")
+				fmt.Println("	dir=Debian")
+				fmt.Println("	file-allocation=falloc")
 			}
 			if strings.Contains(href, "SHA") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=Debian")
+				fmt.Println("	file-allocation=falloc")
 				// fmt.Println("	out=debian-%s-%s", thing1, thing2)
 			}
 		}
@@ -47,6 +49,7 @@ func dumpOne(url string) {
 }
 
 func main() {
+	fmt.Println("# https://cdimage.debian.org/cdimage")
 	fmt.Println("# https://www.debian.org")
 
 	dumpOne("http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd")

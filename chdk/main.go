@@ -31,6 +31,7 @@ func dumpOne(url string) {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=CHDK")
+				fmt.Println("	file-allocation=falloc")
 				return false
 			}
 		}

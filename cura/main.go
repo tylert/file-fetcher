@@ -49,13 +49,6 @@ func main() {
 	fmt.Println("# https://github.com/Ultimaker/Cura")
 	fmt.Println("# https://ultimaker.com/software/ultimaker-cura")
 
-	// Source code
-	fmt.Println(fmt.Sprintf("%s", rel.TarballURL))
-	fmt.Println("	auto-file-renaming=false")
-	fmt.Println("	conditional-get=true")
-	fmt.Println("	dir=Cura")
-	fmt.Println(fmt.Sprintf("	out=UltiMaker-Cura-%s-src.tar.gz", rel.TagName))
-
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
 		if strings.Contains(rel.Assets[i].Name, "-linux") {
@@ -63,6 +56,15 @@ func main() {
 			fmt.Println("	auto-file-renaming=false")
 			fmt.Println("	conditional-get=true")
 			fmt.Println("	dir=Cura")
+			fmt.Println("	file-allocation=falloc")
 		}
 	}
+
+	// Source code
+	fmt.Println(fmt.Sprintf("%s", rel.TarballURL))
+	fmt.Println("	auto-file-renaming=false")
+	fmt.Println("	conditional-get=true")
+	fmt.Println("	dir=Cura")
+	fmt.Println("	file-allocation=falloc")
+	fmt.Println(fmt.Sprintf("	out=UltiMaker-Cura-%s-src.tar.gz", rel.TagName))
 }

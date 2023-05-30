@@ -31,7 +31,7 @@ type Release struct {
 }
 
 func main() {
-	res, err := http.Get("https://api.github.com/repos/ventoy/Ventoy/releases/latest")
+	res, err := http.Get("https://api.github.com/repos/alexellis/k3sup/releases/latest")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -46,24 +46,16 @@ func main() {
 		log.Fatalf("Kaboom!")
 	}
 
-	fmt.Println("# https://github.com/ventoy/Ventoy")
-	fmt.Println("# https://ventoy.net")
+	fmt.Println("# https://github.com/alexellis/k3sup")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
-		if strings.Contains(rel.Assets[i].Name, "-linux") {
+		if !strings.Contains(rel.Assets[i].Name, "-armhf") && !strings.Contains(rel.Assets[i].Name, "-darwin") && !strings.Contains(rel.Assets[i].Name, ".exe") {
 			fmt.Println(fmt.Sprintf("%s", rel.Assets[i].BrowserDownloadURL))
 			fmt.Println("	auto-file-renaming=false")
 			fmt.Println("	conditional-get=true")
-			fmt.Println("	dir=Ventoy")
+			fmt.Println("	dir=k3sup")
 			fmt.Println("	file-allocation=falloc")
-		}
-		if strings.Contains(rel.Assets[i].Name, "sha256.txt") {
-			fmt.Println(fmt.Sprintf("%s", rel.Assets[i].BrowserDownloadURL))
-			fmt.Println("	auto-file-renaming=false")
-			fmt.Println("	dir=Ventoy")
-			fmt.Println("	file-allocation=falloc")
-			fmt.Println(fmt.Sprintf("	out=ventoy-%s-sha256.txt", rel.TagName))
 		}
 	}
 
@@ -71,7 +63,7 @@ func main() {
 	fmt.Println(fmt.Sprintf("%s", rel.TarballURL))
 	fmt.Println("	auto-file-renaming=false")
 	fmt.Println("	conditional-get=true")
-	fmt.Println("	dir=Ventoy")
+	fmt.Println("	dir=k3sup")
 	fmt.Println("	file-allocation=falloc")
-	fmt.Println(fmt.Sprintf("	out=ventoy-%s-src.tar.gz", rel.TagName))
+	fmt.Println(fmt.Sprintf("	out=k3sup-%s-src.tar.gz", rel.TagName))
 }

@@ -60,6 +60,7 @@ func dumpOne(url string) {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=OpenWRT")
+				fmt.Println("	file-allocation=falloc")
 			}
 		}
 	})
@@ -81,13 +82,17 @@ func main() {
 		log.Fatalf("Kaboom!")
 	}
 
-	// Source code
-	fmt.Println(fmt.Sprintf("%s", rel.TarballURL))
-	fmt.Println("	auto-file-renaming=false")
-	fmt.Println("	dir=OpenWRT")
-	fmt.Println(fmt.Sprintf("	out=openwrt-%s-src.tar.gz", rel.Name))
+	fmt.Println("# https://github.com/openwrt/openwrt")
+	fmt.Println("# https://openwrt.org")
 
 	// Compiled binaries
 	dumpOne(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ath79/generic", rel.Name))
 	dumpOne(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ramips/mt7621", rel.Name))
+
+	// Source code
+	fmt.Println(fmt.Sprintf("%s", rel.TarballURL))
+	fmt.Println("	auto-file-renaming=false")
+	fmt.Println("	dir=OpenWRT")
+	fmt.Println("	file-allocation=falloc")
+	fmt.Println(fmt.Sprintf("	out=openwrt-%s-src.tar.gz", rel.Name))
 }
