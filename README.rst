@@ -49,12 +49,19 @@ file-fetcher
     # https://www.farnsworth.org/dale/codeplug/editcp/downloads/
     # https://www.farnsworth.org/dale/codeplug/editcp/
 
+* https://endeavouros.com/latest-release  the github.com one
+* https://mirror.xenyth.net/archlinux/iso/latest  x86_64, rpi-aarch64, odroid-xu3, odroid-c2
+* https://releases.hashicorp.com/index.html
+* https://releases.hashicorp.com/index.json
+* https://pikvm.org
+* https://libreelec.tv/downloads/raspberry/
+* https://www.pistar.uk/downloads/
+
 ::
 
     aria2c -d foo --conf-path=aria2.conf -i template/foo.aria2.list
     aria2c --dir=bar --conf-path=aria2.conf --input-file=template/bar.aria2.list
 
-* https://mholt.github.io/json-to-go/  hit the easy button
 * https://aria2.github.io/manual/en/html/aria2c.html#input-file  aria2c input files
 * https://aria2.github.io/manual/en/html/aria2c.html#aria2.addUri
 * https://wiki.archlinux.org/title/Aria2
@@ -79,14 +86,3 @@ TODO
 * https://github.com/k8s-at-home/charts/tree/master/charts/stable/aria2
 * https://github.com/wahyd4/aria2-ariang-docker
 * https://github.com/openthings/kubernetes-tools/blob/master/aria/aria2-service.yaml
-
-* https://endeavouros.com/latest-release  (the github.com one)
-* https://mirror.xenyth.net/archlinux/iso/latest  (x86_64, rpi-aarch64, odroid-xu3, odroid-c2)
-* https://releases.hashicorp.com/index.html
-* https://releases.hashicorp.com/index.json
-* https://pikvm.org
-* https://libreelec.tv/downloads/raspberry/
-* https://www.pistar.uk/downloads/
-* http://releases.ubuntu.com/
-* http://cdimage.ubuntu.com/
-* https://ubuntu.com/download/raspberry-pi
