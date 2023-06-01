@@ -25,9 +25,9 @@ func dumpOne(url string, target string) {
 	}
 
 	// Break after we find a single match (e.g.:  device twins)
-	doc.Find("a").EachWithBreak(func(index int, element *goquery.Selection) bool {
-		href, exists := element.Attr("href")
-		if exists {
+	doc.Find("a").EachWithBreak(func(i int, s *goquery.Selection) bool {
+		href, ok := s.Attr("href")
+		if ok {
 			if strings.Contains(href, target) && strings.Contains(href, "full.zip") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	auto-file-renaming=false")

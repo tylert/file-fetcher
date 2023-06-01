@@ -29,9 +29,9 @@ func main() {
 
 	// Stop after showing exactly 3 download links (which should be the newest ones)
 	count := 3
-	doc.Find("a").EachWithBreak(func(index int, element *goquery.Selection) bool {
-		href, exists := element.Attr("href")
-		if exists {
+	doc.Find("a").EachWithBreak(func(i int, s *goquery.Selection) bool {
+		href, ok := s.Attr("href")
+		if ok {
 			if strings.Contains(href, "download") {
 				fmt.Println(fmt.Sprintf("https://nncp.mirrors.quux.org/%s", href))
 				fmt.Println("	allow-overwrite=true")

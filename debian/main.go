@@ -24,11 +24,12 @@ func dumpOne(url string) {
 		log.Fatal("Error loading HTTP response body.", err)
 	}
 
-	// XXX FIXME TODO  Figure out how to use the 'td class=indexcolname' one only!!!
+	fmt.Println(fmt.Sprintf("# %s", url))
+
 	// XXX FIXME TODO  Figure out how to get the version number and use it to rename the checksums!!!
-	doc.Find("a").Each(func(index int, element *goquery.Selection) {
-		href, exists := element.Attr("href")
-		if exists {
+	doc.Find("td.indexcolname a").Each(func(i int, s *goquery.Selection) {
+		href, ok := s.Attr("href")
+		if ok {
 			if strings.Contains(href, "netinst.iso") && !strings.Contains(href, "-edu-") && !strings.Contains(href, "-mac-") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
@@ -37,7 +38,7 @@ func dumpOne(url string) {
 				fmt.Println("	dir=Debian")
 				fmt.Println("	file-allocation=falloc")
 			}
-			if strings.Contains(href, "SHA") {
+			if strings.Contains(href, "SHA") && !strings.Contains(href, "SHA1SUMS") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=Debian")

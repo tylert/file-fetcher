@@ -53,9 +53,9 @@ func dumpOne(url string, target string) {
 	// </td>
 	// <td class="sh">3b28c9bf308b38ccb95aadbd4c52d9c686b8af6ba9ad1b00694f7fedd1f7506f</td>
 
-	doc.Find("a").Each(func(index int, element *goquery.Selection) {
-		href, exists := element.Attr("href")
-		if exists {
+	doc.Find("a").Each(func(i int, s *goquery.Selection) {
+		href, ok := s.Attr("href")
+		if ok {
 			if strings.Contains(href, target) && !strings.Contains(href, "-sfp-") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
