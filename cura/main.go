@@ -48,6 +48,7 @@ func main() {
 
 	fmt.Println("# https://github.com/Ultimaker/Cura")
 	fmt.Println("# https://ultimaker.com/software/ultimaker-cura")
+	fmt.Println("# https://en.wikipedia.org/wiki/Cura_(software)")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {

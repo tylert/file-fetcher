@@ -51,6 +51,8 @@ func dumpOne(url string) {
 func main() {
 	fmt.Println("# https://cdimage.debian.org/cdimage")
 	fmt.Println("# https://www.debian.org")
+	fmt.Println("# https://en.wikipedia.org/wiki/Debian")
+	fmt.Println("# https://en.wikipedia.org/wiki/Debian_version_history")
 
 	dumpOne("http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd")
 	dumpOne("http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd")

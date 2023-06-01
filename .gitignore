@@ -1,8 +1,5 @@
 .DS_Store
 .*.sw?
-*.py[coz]
-__pycache__/
-.venv/
 
 *SHA*SUMS*
 *.sha256
@@ -13,14 +10,15 @@ __pycache__/
 *.gpg
 *.asc
 
-*.AppImage
+*.meta4
 
+*.AppImage
 *.iso
-*.iso.*
 
 *.pdf
 *.deb
 *.tar.gz
+*.tar.xz
 *.zip
 
 *.aria2

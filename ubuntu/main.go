@@ -33,9 +33,9 @@ type Product struct {
 }
 
 func main() {
-	res, err := http.Get("http://releases.ubuntu.com/streams/v1/index.json")
-	//res, err := http.Get("http://releases.ubuntu.com/streams/v1/com.ubuntu.releases:ubuntu-server.json")
-	//res, err := http.Get("http://releases.ubuntu.com/streams/v1/com.ubuntu.releases:ubuntu.json")
+	res, err := http.Get("https://releases.ubuntu.com/streams/v1/index.json")
+	//res, err := http.Get("https://releases.ubuntu.com/streams/v1/com.ubuntu.releases:ubuntu-server.json")
+	//res, err := http.Get("https://releases.ubuntu.com/streams/v1/com.ubuntu.releases:ubuntu.json")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -50,10 +50,12 @@ func main() {
 		log.Fatalf("Kaboom!")
 	}
 
-	fmt.Println("# http://releases.ubuntu.com/streams/v1/")
+	fmt.Println("# https://releases.ubuntu.com/streams/v1/")
 	fmt.Println("# https://releases.ubuntu.com")
 	fmt.Println("# https://cdimage.ubuntu.com")
 	fmt.Println("# https://ubuntu.com/download/raspberry-pi")
+	fmt.Println("# https://en.wikipedia.org/wiki/Ubuntu")
+	fmt.Println("# https://en.wikipedia.org/wiki/Ubuntu_version_history")
 
 	// Live Server
 	for i := 0; i < len(pro.Index.ComUbuntuReleasesUbuntuServer.Products); i++ {

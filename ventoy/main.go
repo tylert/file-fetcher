@@ -48,6 +48,7 @@ func main() {
 
 	fmt.Println("# https://github.com/ventoy/Ventoy")
 	fmt.Println("# https://ventoy.net")
+	fmt.Println("# https://en.wikipedia.org/wiki/Ventoy")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {

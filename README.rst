@@ -4,14 +4,22 @@ file-fetcher
 
 ::
 
-    go run chdk/main.go
-    go run cura/main.go
-    go run debian/main.go
-    go run k3sup/main.go
-    go run nncp/main.go
-    go run openwrt/main.go
-    go run ventoy/main.go
+    go run chdk/main.go | aria2c -i -
+    go run cura/main.go | aria2c -i -
+    go run debian/main.go | aria2c -i -
+    go run k3sup/main.go | aria2c -i -
+    go run nncp/main.go | aria2c -i -
+    go run openwrt/main.go | aria2c -i -
+    go run ubuntu/main.go | aria2c -i -
+    go run ventoy/main.go | aria2c -i -
 
+* https://endeavouros.com/latest-release  the github.com one
+* https://mirror.xenyth.net/archlinux/iso/latest  x86_64, rpi-aarch64, odroid-xu3, odroid-c2
+* https://releases.hashicorp.com/index.html
+* https://releases.hashicorp.com/index.json
+* https://pikvm.org
+* https://libreelec.tv/downloads/raspberry/
+* https://www.pistar.uk/downloads/
 
 ::
 
@@ -49,19 +57,7 @@ file-fetcher
     # https://www.farnsworth.org/dale/codeplug/editcp/downloads/
     # https://www.farnsworth.org/dale/codeplug/editcp/
 
-* https://endeavouros.com/latest-release  the github.com one
-* https://mirror.xenyth.net/archlinux/iso/latest  x86_64, rpi-aarch64, odroid-xu3, odroid-c2
-* https://releases.hashicorp.com/index.html
-* https://releases.hashicorp.com/index.json
-* https://pikvm.org
-* https://libreelec.tv/downloads/raspberry/
-* https://www.pistar.uk/downloads/
-
-::
-
-    aria2c -d foo --conf-path=aria2.conf -i template/foo.aria2.list
-    aria2c --dir=bar --conf-path=aria2.conf --input-file=template/bar.aria2.list
-
+* https://github.com/aria2/aria2
 * https://aria2.github.io/manual/en/html/aria2c.html#input-file  aria2c input files
 * https://aria2.github.io/manual/en/html/aria2c.html#aria2.addUri
 * https://wiki.archlinux.org/title/Aria2

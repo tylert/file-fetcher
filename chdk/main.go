@@ -43,6 +43,7 @@ func main() {
 	fmt.Println("# https://mighty-hoernsche.de")
 	fmt.Println("# https://mighty-hoernsche.de/trunk")
 	fmt.Println("# https://chdk.fandom.com/wiki/CHDK")
+	fmt.Println("# https://en.wikipedia.org/wiki/DIGIC#CHDK")
 
 	dumpOne("https://mighty-hoernsche.de")
 	dumpOne("https://mighty-hoernsche.de/trunk")

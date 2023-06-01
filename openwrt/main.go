@@ -32,7 +32,7 @@ type Release struct {
 	ZipballURL string `json:"zipball_url"`
 }
 
-func dumpOne(url string) {
+func dumpOne(url string, target string) {
 	res, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)
@@ -56,7 +56,7 @@ func dumpOne(url string) {
 	doc.Find("a").Each(func(index int, element *goquery.Selection) {
 		href, exists := element.Attr("href")
 		if exists {
-			if strings.Contains(href, "tplink_eap225-v3") || (strings.Contains(href, "ubnt_edgerouter-x") && !strings.Contains(href, "-sfp-")) {
+			if strings.Contains(href, target) && !strings.Contains(href, "-sfp-") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=OpenWRT")
@@ -84,10 +84,11 @@ func main() {
 
 	fmt.Println("# https://github.com/openwrt/openwrt")
 	fmt.Println("# https://openwrt.org")
+	fmt.Println("# https://en.wikipedia.org/wiki/OpenWrt")
 
 	// Compiled binaries
-	dumpOne(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ath79/generic", rel.Name))
-	dumpOne(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ramips/mt7621", rel.Name))
+	dumpOne(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ath79/generic", rel.Name), "tplink_eap225-v3")
+	dumpOne(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ramips/mt7621", rel.Name), "ubnt_edgerouter-x")
 
 	// Source code
 	fmt.Println(fmt.Sprintf("%s", rel.TarballURL))

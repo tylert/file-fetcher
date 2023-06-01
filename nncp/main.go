@@ -35,6 +35,7 @@ func main() {
 		if exists {
 			if strings.Contains(href, "download") {
 				fmt.Println(fmt.Sprintf("https://nncp.mirrors.quux.org/%s", href))
+				fmt.Println("	allow-overwrite=true")
 				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=NNCP")
 				fmt.Println("	file-allocation=falloc")
