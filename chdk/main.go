@@ -9,7 +9,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-func dumpOne(url string) {
+func dumpOne(url string, target string) {
 	res, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)
@@ -24,10 +24,11 @@ func dumpOne(url string) {
 		log.Fatal("Error loading HTTP response body.", err)
 	}
 
+	// Break after we find a single match (e.g.:  device twins)
 	doc.Find("a").EachWithBreak(func(index int, element *goquery.Selection) bool {
 		href, exists := element.Attr("href")
 		if exists {
-			if strings.Contains(href, "_elph115-") && strings.Contains(href, "full.zip") {
+			if strings.Contains(href, target) && strings.Contains(href, "full.zip") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=CHDK")
@@ -45,6 +46,6 @@ func main() {
 	fmt.Println("# https://chdk.fandom.com/wiki/CHDK")
 	fmt.Println("# https://en.wikipedia.org/wiki/DIGIC#CHDK")
 
-	dumpOne("https://mighty-hoernsche.de")
-	dumpOne("https://mighty-hoernsche.de/trunk")
+	dumpOne("https://mighty-hoernsche.de", "_elph115-")
+	dumpOne("https://mighty-hoernsche.de/trunk", "_elph115-")
 }

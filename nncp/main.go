@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
@@ -30,7 +29,7 @@ func main() {
 
 	// Stop after showing exactly 3 download links (which should be the newest ones)
 	count := 3
-	doc.Find("a").Each(func(index int, element *goquery.Selection) {
+	doc.Find("a").EachWithBreak(func(index int, element *goquery.Selection) bool {
 		href, exists := element.Attr("href")
 		if exists {
 			if strings.Contains(href, "download") {
@@ -42,9 +41,10 @@ func main() {
 
 				count--
 				if count <= 0 {
-					os.Exit(0)
+					return false
 				}
 			}
 		}
+		return true
 	})
 }
