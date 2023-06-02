@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"regexp"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
@@ -26,7 +27,8 @@ func dumpOne(url string) {
 
 	fmt.Println(fmt.Sprintf("# %s", url))
 
-	// XXX FIXME TODO  Figure out how to get the version number and use it to rename the checksums!!!
+	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+?`)
+	ver := ""
 	doc.Find("td.indexcolname a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
@@ -37,13 +39,22 @@ func dumpOne(url string) {
 				fmt.Println("	continue=true")
 				fmt.Println("	dir=Debian")
 				fmt.Println("	file-allocation=falloc")
+				ver = reg.FindString(href)
 			}
+		}
+	})
+	if ver == "" {
+		ver = "testing"
+	}
+	doc.Find("td.indexcolname a").Each(func(i int, s *goquery.Selection) {
+		href, ok := s.Attr("href")
+		if ok {
 			if strings.Contains(href, "SHA") && !strings.Contains(href, "SHA1SUMS") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=Debian")
 				fmt.Println("	file-allocation=falloc")
-				// fmt.Println("	out=debian-%s-%s", thing1, thing2)
+				fmt.Println(fmt.Sprintf("	out=debian-%s-%s", ver, href))
 			}
 		}
 	})
@@ -51,7 +62,7 @@ func dumpOne(url string) {
 
 func main() {
 	fmt.Println("# https://cdimage.debian.org/cdimage")
-	fmt.Println("# https://www.debian.org")
+	fmt.Println("# https://debian.org")
 	fmt.Println("# https://en.wikipedia.org/wiki/Debian")
 	fmt.Println("# https://en.wikipedia.org/wiki/Debian_version_history")
 
