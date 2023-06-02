@@ -4,14 +4,7 @@ file-fetcher
 
 ::
 
-    go run chdk/main.go | aria2c -i -
-    go run cura/main.go | aria2c -i -
-    go run debian/main.go | aria2c -i -
-    go run k3sup/main.go | aria2c -i -
-    go run nncp/main.go | aria2c -i -
-    go run openwrt/main.go | aria2c -i -
-    go run ubuntu/main.go | aria2c -i -
-    go run ventoy/main.go | aria2c -i -
+    go run ${PRODUCT}/main.go | aria2c -i -
 
 * https://endeavouros.com/latest-release  the github.com one
 * https://mirror.xenyth.net/archlinux/iso/latest  x86_64, rpi-aarch64, odroid-xu3, odroid-c2
@@ -26,10 +19,6 @@ file-fetcher
     curl https://api.github.com/repos/keepassxreboot/keepassxc/releases/latest | jq '.assets[].browser_download_url'
     curl https://api.github.com/repos/keepassxreboot/keepassxc/releases/latest | jq '.tarball_url'
     curl https://api.github.com/repos/keepassxreboot/keepassxc/releases/latest | jq '.tag_name'
-
-    curl https://api.github.com/repos/gqrx-sdr/gqrx/releases/latest | jq '.assets[].browser_download_url'
-    curl https://api.github.com/repos/gqrx-sdr/gqrx/releases/latest | jq '.tarball_url'
-    curl https://api.github.com/repos/gqrx-sdr/gqrx/releases/latest | jq '.tag_name'
 
     curl https://api.github.com/repos/hairyhenderson/gomplate/releases/latest | jq '.assets[].browser_download_url'
     curl https://api.github.com/repos/hairyhenderson/gomplate/releases/latest | jq '.tarball_url'

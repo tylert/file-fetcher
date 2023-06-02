@@ -41,6 +41,11 @@ func dumpOne(url string) {
 }
 
 func main() {
+	fmt.Println("# https://mirror.xenyth.net/centos")
+	fmt.Println("# https://centos.org/download")
+	fmt.Println("# https://centos.org")
+	fmt.Println("# https://en.wikipedia.org/wiki/CentOS")
+
 	dumpOne("https://mirror.xenyth.net/centos-stream/9-stream/BaseOS/x86_64/iso")
 	dumpOne("https://mirror.xenyth.net/centos/8-stream/isos/x86_64")
 	dumpOne("https://mirror.xenyth.net/centos/7/isos/x86_64")
