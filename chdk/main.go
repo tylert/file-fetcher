@@ -24,10 +24,13 @@ func dumpOne(url string, target string) {
 		log.Fatal("Error loading HTTP response body.", err)
 	}
 
+	fmt.Println(fmt.Sprintf("# %s", url))
+
 	// Break after we find a single match (e.g.:  device twins)
 	doc.Find("a").EachWithBreak(func(i int, s *goquery.Selection) bool {
 		href, ok := s.Attr("href")
 		if ok {
+			// Don't bother with the partial builds, only full ones
 			if strings.Contains(href, target) && strings.Contains(href, "full.zip") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
@@ -41,11 +44,9 @@ func dumpOne(url string, target string) {
 }
 
 func main() {
-	fmt.Println("# https://mighty-hoernsche.de")
-	fmt.Println("# https://mighty-hoernsche.de/trunk")
 	fmt.Println("# https://chdk.fandom.com/wiki/CHDK")
 	fmt.Println("# https://en.wikipedia.org/wiki/DIGIC#CHDK")
 
-	dumpOne("https://mighty-hoernsche.de", "_elph115-")
-	dumpOne("https://mighty-hoernsche.de/trunk", "_elph115-")
+	dumpOne("https://mighty-hoernsche.de", "_elph115-")       // stable
+	dumpOne("https://mighty-hoernsche.de/trunk", "_elph115-") // unstable
 }

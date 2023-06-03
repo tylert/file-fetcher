@@ -27,11 +27,13 @@ func dumpOne(url string) {
 
 	fmt.Println(fmt.Sprintf("# %s", url))
 
+	// Do a first pass to get the version number to use when renaming the checksum files
 	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+?`)
 	ver := ""
 	doc.Find("td.indexcolname a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
+			// Only bother looking for the basic, boring netinst images
 			if strings.Contains(href, "netinst.iso") && !strings.Contains(href, "-edu-") && !strings.Contains(href, "-mac-") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
@@ -43,12 +45,15 @@ func dumpOne(url string) {
 			}
 		}
 	})
+	// If there's no version string, that means it's a pending release (i.e.:  "testing")
 	if ver == "" {
 		ver = "testing"
 	}
+	// Now that we know the release number, we can give the checksum files sensible names
 	doc.Find("td.indexcolname a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
+			// Don't bother with anything other than SHA512 and SHA256 checksums, for now
 			if strings.Contains(href, "SHA") && !strings.Contains(href, "SHA1SUMS") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	auto-file-renaming=false")
@@ -66,8 +71,8 @@ func main() {
 	fmt.Println("# https://en.wikipedia.org/wiki/Debian")
 	fmt.Println("# https://en.wikipedia.org/wiki/Debian_version_history")
 
-	dumpOne("http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd")
-	dumpOne("http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd")
+	dumpOne("http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd")   // testing
+	dumpOne("http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd") // stable
 	dumpOne("http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd")
 	dumpOne("http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd")
 }
