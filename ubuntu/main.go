@@ -1,41 +1,16 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
-	//"strings"
+	"strings"
+
+	"github.com/PuerkitoBio/goquery"
 )
 
-type Product struct {
-	Format string `json:"format"`
-	Index  struct {
-		ComUbuntuReleasesUbuntu struct {
-			Datatype string   `json:"datatype"`
-			Format   string   `json:"format"`
-			Path     string   `json:"path"`
-			Products []string `json:"products"`
-			Updated  string   `json:"updated"`
-		} `json:"com.ubuntu.releases:ubuntu"`
-		ComUbuntuReleasesUbuntuServer struct {
-			Datatype string   `json:"datatype"`
-			Format   string   `json:"format"`
-			Path     string   `json:"path"`
-			Products []string `json:"products"`
-			Updated  string   `json:"updated"`
-		} `json:"com.ubuntu.releases:ubuntu-server"`
-	} `json:"index"`
-	Updated struct {
-		Datatype string `json:"datatype"`
-		Updated  string `json:"updated"`
-	} `json:"updated"`
-}
-
-func main() {
-	res, err := http.Get("https://releases.ubuntu.com/streams/v1/index.json")
-	//res, err := http.Get("https://releases.ubuntu.com/streams/v1/com.ubuntu.releases:ubuntu-server.json")
-	//res, err := http.Get("https://releases.ubuntu.com/streams/v1/com.ubuntu.releases:ubuntu.json")
+func dumpOne(url string) {
+	res, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -44,26 +19,38 @@ func main() {
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
 
-	var pro Product
-	err = json.NewDecoder(res.Body).Decode(&pro)
+	doc, err := goquery.NewDocumentFromReader(res.Body)
 	if err != nil {
-		log.Fatalf("Kaboom!")
+		log.Fatal("Error loading HTTP response body.", err)
 	}
 
-	fmt.Println("# https://releases.ubuntu.com/streams/v1/")
+	fmt.Println(fmt.Sprintf("# %s", url))
+
+	// XXX FIXME TODO  Fix the names of the checksum files!!!
+	doc.Find("div.name a").Each(func(i int, s *goquery.Selection) {
+		href, ok := s.Attr("href")
+		if ok {
+			if (strings.Contains(href, ".iso") || strings.Contains(href, ".zsync") || strings.Contains(href, ".list") || strings.Contains(href, ".manifest") || strings.Contains(href, "SHA256SUMS")) && !strings.Contains(href, ".torrent") {
+				fmt.Println(fmt.Sprintf("%s/%s", url, href))
+				fmt.Println("	allow-overwrite=true")
+				fmt.Println("	auto-file-renaming=false")
+				fmt.Println("	dir=Ubuntu")
+				fmt.Println("	file-allocation=falloc")
+			}
+		}
+	})
+}
+
+func main() {
+	fmt.Println("# https://mirror.xenyth.net/ubuntu-releases")
 	fmt.Println("# https://releases.ubuntu.com")
 	fmt.Println("# https://cdimage.ubuntu.com")
-	fmt.Println("# https://ubuntu.com/download/raspberry-pi")
 	fmt.Println("# https://en.wikipedia.org/wiki/Ubuntu")
 	fmt.Println("# https://en.wikipedia.org/wiki/Ubuntu_version_history")
+	fmt.Println("# https://ubuntu.com/download/raspberry-pi")
 
-	// Live Server
-	for i := 0; i < len(pro.Index.ComUbuntuReleasesUbuntuServer.Products); i++ {
-		fmt.Println(pro.Index.ComUbuntuReleasesUbuntuServer.Products[i])
-	}
-
-	// Desktop
-	for i := 0; i < len(pro.Index.ComUbuntuReleasesUbuntu.Products); i++ {
-		fmt.Println(pro.Index.ComUbuntuReleasesUbuntu.Products[i])
-	}
+	dumpOne("https://mirror.xenyth.net/ubuntu-releases/23.04") // lunar
+	dumpOne("https://mirror.xenyth.net/ubuntu-releases/22.10") // kinetic
+	dumpOne("https://mirror.xenyth.net/ubuntu-releases/22.04") // jammy
+	dumpOne("https://mirror.xenyth.net/ubuntu-releases/20.04") // focal
 }

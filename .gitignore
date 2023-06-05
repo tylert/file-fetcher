@@ -23,4 +23,5 @@
 *.zip
 
 *.aria2
+*.json
 *.txt
