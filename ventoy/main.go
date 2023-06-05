@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"regexp"
 	"strings"
 	"time"
 )
@@ -50,6 +51,9 @@ func main() {
 	fmt.Println("# https://ventoy.net")
 	fmt.Println("# https://en.wikipedia.org/wiki/Ventoy")
 
+	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+?`)
+	ver := reg.FindString(rel.TagName)
+
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
 		if strings.Contains(rel.Assets[i].Name, "-linux") {
@@ -64,7 +68,7 @@ func main() {
 			fmt.Println("	auto-file-renaming=false")
 			fmt.Println("	dir=Ventoy")
 			fmt.Println("	file-allocation=falloc")
-			fmt.Println(fmt.Sprintf("	out=ventoy-%s-sha256.txt", rel.TagName))
+			fmt.Println(fmt.Sprintf("	out=ventoy-%s-sha256.txt", ver))
 		}
 	}
 
@@ -74,5 +78,5 @@ func main() {
 	fmt.Println("	conditional-get=true")
 	fmt.Println("	dir=Ventoy")
 	fmt.Println("	file-allocation=falloc")
-	fmt.Println(fmt.Sprintf("	out=ventoy-%s-src.tar.gz", rel.TagName))
+	fmt.Println(fmt.Sprintf("	out=ventoy-%s-src.tar.gz", ver))
 }
