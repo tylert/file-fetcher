@@ -64,13 +64,14 @@ func main() {
 			fmt.Println("	conditional-get=true")
 			fmt.Println("	dir=Ventoy")
 			fmt.Println("	file-allocation=falloc")
-		}
-		if strings.Contains(rel.Assets[i].Name, "sha256.txt") {
+		} else if strings.Contains(rel.Assets[i].Name, "sha256.txt") {
 			fmt.Println(fmt.Sprintf("%s", rel.Assets[i].BrowserDownloadURL))
 			fmt.Println("	auto-file-renaming=false")
 			fmt.Println("	dir=Ventoy")
 			fmt.Println("	file-allocation=falloc")
 			fmt.Println(fmt.Sprintf("	out=ventoy-%s-sha256.txt", ver))
+		} else {
+			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
 		}
 	}
 

@@ -62,6 +62,8 @@ func main() {
 			fmt.Println("	conditional-get=true")
 			fmt.Println("	dir=Gqrx")
 			fmt.Println("	file-allocation=falloc")
+		} else {
+			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
 		}
 	}
 
