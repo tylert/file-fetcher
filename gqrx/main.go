@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"regexp"
 	"strings"
 	"time"
 )
@@ -49,6 +50,10 @@ func main() {
 	fmt.Println("# https://github.com/gqrx-sdr/gqrx")
 	fmt.Println("# https://gqrx.dk")
 
+	// This project uses version strings that start with "v" in some places
+	reg := regexp.MustCompile(`\d+?\.\d+`)
+	ver := reg.FindString(rel.TagName)
+
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
 		if strings.Contains(rel.Assets[i].Name, ".AppImage") {
@@ -66,5 +71,5 @@ func main() {
 	fmt.Println("	conditional-get=true")
 	fmt.Println("	dir=Gqrx")
 	fmt.Println("	file-allocation=falloc")
-	//fmt.Println(fmt.Sprintf("	out=Gqrx-%s-src.tar.gz", rel.TagName))
+	fmt.Println(fmt.Sprintf("	out=Gqrx-%s-src.tar.gz", ver))
 }

@@ -17,8 +17,10 @@
 
 *.pdf
 *.deb
+
 *.tar.gz
 *.tar.xz
 *.zip
 
 *.aria2
+*.txt

@@ -48,9 +48,11 @@ func main() {
 	}
 
 	fmt.Println("# https://github.com/ventoy/Ventoy")
+	fmt.Println("# https://ventoy.net/en/download.html")
 	fmt.Println("# https://ventoy.net")
 	fmt.Println("# https://en.wikipedia.org/wiki/Ventoy")
 
+	// This project uses version strings that start with "v" in some places
 	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+?`)
 	ver := reg.FindString(rel.TagName)
 
