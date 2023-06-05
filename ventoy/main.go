@@ -53,7 +53,7 @@ func main() {
 	fmt.Println("# https://en.wikipedia.org/wiki/Ventoy")
 
 	// This project uses version strings that start with "v" in some places
-	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+?`)
+	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
 	ver := reg.FindString(rel.TagName)
 
 	// Compiled binaries
