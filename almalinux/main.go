@@ -30,11 +30,11 @@ func dumpOne(url string) {
 	doc.Find("div.name a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
-			if !strings.Contains(href, ".torrent") && !strings.Contains(href, "MD5") && !strings.Contains(href, "SHA1SUM") {
+			if !strings.Contains(href, ".torrent") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	allow-overwrite=true")
 				fmt.Println("	auto-file-renaming=false")
-				fmt.Println("	dir=CentOS")
+				fmt.Println("	dir=AlmaLinux")
 				fmt.Println("	file-allocation=falloc")
 			}
 		}
@@ -42,12 +42,11 @@ func dumpOne(url string) {
 }
 
 func main() {
-	fmt.Println("# https://mirror.xenyth.net/centos")
-	fmt.Println("# https://centos.org/download")
-	fmt.Println("# https://centos.org")
-	fmt.Println("# https://en.wikipedia.org/wiki/CentOS")
+	fmt.Println("# https://mirror.xenyth.net/almalinux")
+	fmt.Println("# https://mirrors.almalinux.org/isos.html")
+	fmt.Println("# https://almalinux.org")
+	fmt.Println("# https://en.wikipedia.org/wiki/AlmaLinux")
 
-	dumpOne("https://mirror.xenyth.net/centos-stream/9-stream/BaseOS/x86_64/iso")
-	dumpOne("https://mirror.xenyth.net/centos/8-stream/isos/x86_64")
-	dumpOne("https://mirror.xenyth.net/centos/7/isos/x86_64")
+	dumpOne("https://mirror.xenyth.net/almalinux/9/isos/x86_64")
+	dumpOne("https://mirror.xenyth.net/almalinux/8/isos/x86_64")
 }
