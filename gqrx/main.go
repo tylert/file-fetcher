@@ -57,7 +57,7 @@ func main() {
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
 		if strings.Contains(rel.Assets[i].Name, ".AppImage") {
-			fmt.Println(fmt.Sprintf("%s", rel.Assets[i].BrowserDownloadURL))
+			fmt.Println(rel.Assets[i].BrowserDownloadURL)
 			fmt.Println("	dir=Gqrx")
 		} else {
 			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
@@ -65,7 +65,7 @@ func main() {
 	}
 
 	// Source code
-	fmt.Println(fmt.Sprintf("%s", rel.TarballURL))
+	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=Gqrx")
 	fmt.Println(fmt.Sprintf("	out=Gqrx-%s-src.tar.gz", ver))
 }

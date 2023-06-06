@@ -52,7 +52,7 @@ func main() {
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
 		if !strings.Contains(rel.Assets[i].Name, "-armhf") && !strings.Contains(rel.Assets[i].Name, "-darwin") && !strings.Contains(rel.Assets[i].Name, ".exe") {
-			fmt.Println(fmt.Sprintf("%s", rel.Assets[i].BrowserDownloadURL))
+			fmt.Println(rel.Assets[i].BrowserDownloadURL)
 			fmt.Println("	dir=k3sup")
 		} else {
 			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
@@ -60,7 +60,7 @@ func main() {
 	}
 
 	// Source code
-	fmt.Println(fmt.Sprintf("%s", rel.TarballURL))
+	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=k3sup")
 	fmt.Println(fmt.Sprintf("	out=k3sup-%s-src.tar.gz", rel.TagName))
 }

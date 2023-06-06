@@ -28,24 +28,6 @@ file-fetcher
     curl https://api.github.com/repos/jsiebens/hashi-up/releases/latest | jq '.tarball_url'
     curl https://api.github.com/repos/jsiebens/hashi-up/releases/latest | jq '.tag_name'
 
-    curl https://api.github.com/repos/dalefarnsworth-dmr/codeplug/tags | jq '.[].tarball_url' | head -1
-    curl https://api.github.com/repos/dalefarnsworth-dmr/debug/tags | jq '.[].tarball_url' | head -1
-    curl https://api.github.com/repos/dalefarnsworth-dmr/dfu/tags | jq '.[].tarball_url' | head -1
-    curl https://api.github.com/repos/dalefarnsworth-dmr/dmrRadio/tags | jq '.[].tarball_url' | head -1
-    curl https://api.github.com/repos/dalefarnsworth-dmr/editcp/tags | jq '.[].tarball_url' | head -1
-    curl https://api.github.com/repos/dalefarnsworth-dmr/docCodeplug/tags | jq '.[].tarball_url' | head -1
-    curl https://api.github.com/repos/dalefarnsworth-dmr/docker/tags | jq '.[].tarball_url' | head -1
-    curl https://api.github.com/repos/dalefarnsworth-dmr/docs/tags | jq '.[].tarball_url' | head -1
-    curl https://api.github.com/repos/dalefarnsworth-dmr/editcp/tags | jq '.[].tarball_url' | head -1
-    curl https://api.github.com/repos/dalefarnsworth-dmr/genCodeplugInfo/tags | jq '.[].tarball_url' | head -1
-    curl https://api.github.com/repos/dalefarnsworth-dmr/genFileData/tags | jq '.[].tarball_url' | head -1
-    curl https://api.github.com/repos/dalefarnsworth-dmr/stdfu/tags | jq '.[].tarball_url' | head -1
-    curl https://api.github.com/repos/dalefarnsworth-dmr/ui/tags | jq '.[].tarball_url' | head -1
-    curl https://api.github.com/repos/dalefarnsworth-dmr/userdb/tags | jq '.[].tarball_url' | head -1
-    # https://www.farnsworth.org/dale/codeplug/dmrRadio/downloads/
-    # https://www.farnsworth.org/dale/codeplug/editcp/downloads/
-    # https://www.farnsworth.org/dale/codeplug/editcp/
-
 * https://github.com/aria2/aria2
 * https://aria2.github.io
 * https://wiki.archlinux.org/title/Aria2

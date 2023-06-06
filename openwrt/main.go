@@ -89,7 +89,7 @@ func main() {
 	dumpOne(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ramips/mt7621", rel.Name), "ubnt_edgerouter-x")
 
 	// Source code
-	fmt.Println(fmt.Sprintf("%s", rel.TarballURL))
+	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=OpenWRT")
 	fmt.Println(fmt.Sprintf("	out=openwrt-%s-src.tar.gz", rel.Name))
 }

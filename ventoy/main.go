@@ -59,10 +59,10 @@ func main() {
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
 		if strings.Contains(rel.Assets[i].Name, "-linux") {
-			fmt.Println(fmt.Sprintf("%s", rel.Assets[i].BrowserDownloadURL))
+			fmt.Println(rel.Assets[i].BrowserDownloadURL)
 			fmt.Println("	dir=Ventoy")
 		} else if strings.Contains(rel.Assets[i].Name, "sha256.txt") {
-			fmt.Println(fmt.Sprintf("%s", rel.Assets[i].BrowserDownloadURL))
+			fmt.Println(rel.Assets[i].BrowserDownloadURL)
 			fmt.Println("	dir=Ventoy")
 			fmt.Println(fmt.Sprintf("	out=ventoy-%s-sha256.txt", ver))
 		} else {
@@ -71,7 +71,7 @@ func main() {
 	}
 
 	// Source code
-	fmt.Println(fmt.Sprintf("%s", rel.TarballURL))
+	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=Ventoy")
 	fmt.Println(fmt.Sprintf("	out=ventoy-%s-src.tar.gz", ver))
 }
