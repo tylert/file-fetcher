@@ -6,8 +6,8 @@ file-fetcher
 
     go run ${PRODUCT}/main.go | aria2c -i -
 
+* Arch Linux ARM for rpi-aarch64, odroid-xu3, odroid-c2
 * https://endeavouros.com/latest-release  the github.com one
-* https://mirror.xenyth.net/archlinux/iso/latest  x86_64, rpi-aarch64, odroid-xu3, odroid-c2
 * https://releases.hashicorp.com/index.html
 * https://releases.hashicorp.com/index.json
 * https://pikvm.org
@@ -47,8 +47,7 @@ file-fetcher
     # https://www.farnsworth.org/dale/codeplug/editcp/
 
 * https://github.com/aria2/aria2
-* https://aria2.github.io/manual/en/html/aria2c.html#input-file  aria2c input files
-* https://aria2.github.io/manual/en/html/aria2c.html#aria2.addUri
+* https://aria2.github.io
 * https://wiki.archlinux.org/title/Aria2
 * https://github.com/ziahamza/webui-aria2
 
