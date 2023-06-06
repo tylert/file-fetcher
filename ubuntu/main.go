@@ -49,6 +49,7 @@ func main() {
 	fmt.Println("# https://en.wikipedia.org/wiki/Ubuntu_version_history")
 	fmt.Println("# https://ubuntu.com/download/raspberry-pi")
 
+	// XXX FIXME TODO  Try to determine the list of "current" releases programatically!!!
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/23.04") // lunar
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/22.10") // kinetic
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/22.04") // jammy
