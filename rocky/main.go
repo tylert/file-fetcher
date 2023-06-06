@@ -39,6 +39,8 @@ func dumpOne(url string) {
 				if reg.FindString(href) != "" {
 					ver = reg.FindString(href)
 				}
+			} else if !strings.Contains(href, "CHECKSUM") {
+				fmt.Println(fmt.Sprintf("# skipped %s", href))
 			}
 		}
 	})
