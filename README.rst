@@ -16,10 +16,6 @@ file-fetcher
 
 ::
 
-    curl https://api.github.com/repos/keepassxreboot/keepassxc/releases/latest | jq '.assets[].browser_download_url'
-    curl https://api.github.com/repos/keepassxreboot/keepassxc/releases/latest | jq '.tarball_url'
-    curl https://api.github.com/repos/keepassxreboot/keepassxc/releases/latest | jq '.tag_name'
-
     curl https://api.github.com/repos/hairyhenderson/gomplate/releases/latest | jq '.assets[].browser_download_url'
     curl https://api.github.com/repos/hairyhenderson/gomplate/releases/latest | jq '.tarball_url'
     curl https://api.github.com/repos/hairyhenderson/gomplate/releases/latest | jq '.tag_name'
