@@ -27,14 +27,13 @@ func dumpOne(url string) {
 
 	fmt.Println(fmt.Sprintf("# %s", url))
 
-	// XXX FIXME TODO  Add in the bootstrap tarballs too!!!
 	// Do a first pass to get the version number to use when renaming the checksum files
 	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
 	ver := ""
 	doc.Find("div.name a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
-			if !strings.Contains(href, "archlinux-x86_64") && strings.Contains(href, ".iso") && !strings.Contains(href, ".torrent") {
+			if strings.Contains(href, "archlinux") && !strings.Contains(href, "archlinux-x86_64") && !strings.Contains(href, "archlinux-bootstrap-x86_64") && !strings.Contains(href, ".torrent") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	allow-overwrite=true")
 				fmt.Println("	auto-file-renaming=false")
@@ -43,6 +42,8 @@ func dumpOne(url string) {
 				if reg.FindString(href) != "" {
 					ver = reg.FindString(href)
 				}
+			} else if !strings.Contains(href, "sums.txt") {
+				fmt.Println(fmt.Sprintf("# skipped %s", href))
 			}
 		}
 	})
