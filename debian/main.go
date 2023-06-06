@@ -35,11 +35,7 @@ func dumpOne(url string) {
 		if ok {
 			if strings.Contains(href, "netinst.iso") && !strings.Contains(href, "-edu-") && !strings.Contains(href, "-mac-") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
-				fmt.Println("	auto-file-renaming=false")
-				fmt.Println("	conditional-get=true")
-				fmt.Println("	continue=true")
 				fmt.Println("	dir=Debian")
-				fmt.Println("	file-allocation=falloc")
 				ver = reg.FindString(href)
 			}
 		}
@@ -54,9 +50,7 @@ func dumpOne(url string) {
 		if ok {
 			if strings.Contains(href, "SHA") && !strings.Contains(href, "SHA1SUMS") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
-				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=Debian")
-				fmt.Println("	file-allocation=falloc")
 				fmt.Println(fmt.Sprintf("	out=debian-%s-%s", ver, href))
 			}
 		}

@@ -33,9 +33,7 @@ func dumpOne(url string, target string) {
 			// Don't bother with the partial builds, only full ones
 			if strings.Contains(href, target) && strings.Contains(href, "full.zip") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
-				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=CHDK")
-				fmt.Println("	file-allocation=falloc")
 				return false
 			}
 		}

@@ -32,10 +32,7 @@ func dumpOne(url string) {
 		if ok {
 			if !strings.Contains(href, ".torrent") && !strings.Contains(href, "MD5") && !strings.Contains(href, "SHA1SUM") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
-				fmt.Println("	allow-overwrite=true")
-				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=CentOS")
-				fmt.Println("	file-allocation=falloc")
 			}
 		}
 	})

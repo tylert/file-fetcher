@@ -54,10 +54,7 @@ func main() {
 	for i := 0; i < len(rel.Assets); i++ {
 		if strings.Contains(rel.Assets[i].Name, "-linux") {
 			fmt.Println(fmt.Sprintf("%s", rel.Assets[i].BrowserDownloadURL))
-			fmt.Println("	auto-file-renaming=false")
-			fmt.Println("	conditional-get=true")
 			fmt.Println("	dir=Cura")
-			fmt.Println("	file-allocation=falloc")
 		} else {
 			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
 		}
@@ -65,9 +62,6 @@ func main() {
 
 	// Source code
 	fmt.Println(fmt.Sprintf("%s", rel.TarballURL))
-	fmt.Println("	auto-file-renaming=false")
-	fmt.Println("	conditional-get=true")
 	fmt.Println("	dir=Cura")
-	fmt.Println("	file-allocation=falloc")
 	fmt.Println(fmt.Sprintf("	out=UltiMaker-Cura-%s-src.tar.gz", rel.TagName))
 }

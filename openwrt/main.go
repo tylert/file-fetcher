@@ -58,9 +58,7 @@ func dumpOne(url string, target string) {
 		if ok {
 			if strings.Contains(href, target) && !strings.Contains(href, "-sfp-") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
-				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=OpenWRT")
-				fmt.Println("	file-allocation=falloc")
 			}
 		}
 	})
@@ -92,8 +90,6 @@ func main() {
 
 	// Source code
 	fmt.Println(fmt.Sprintf("%s", rel.TarballURL))
-	fmt.Println("	auto-file-renaming=false")
 	fmt.Println("	dir=OpenWRT")
-	fmt.Println("	file-allocation=falloc")
 	fmt.Println(fmt.Sprintf("	out=openwrt-%s-src.tar.gz", rel.Name))
 }

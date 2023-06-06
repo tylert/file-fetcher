@@ -35,10 +35,7 @@ func dumpOne(url string) {
 		if ok {
 			if strings.Contains(href, "archlinux") && !strings.Contains(href, "archlinux-x86_64") && !strings.Contains(href, "archlinux-bootstrap-x86_64") && !strings.Contains(href, ".torrent") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
-				fmt.Println("	allow-overwrite=true")
-				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=ArchLinux")
-				fmt.Println("	file-allocation=falloc")
 				if reg.FindString(href) != "" {
 					ver = reg.FindString(href)
 				}
@@ -53,9 +50,7 @@ func dumpOne(url string) {
 		if ok {
 			if strings.Contains(href, "sums.txt") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
-				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=ArchLinux")
-				fmt.Println("	file-allocation=falloc")
 				fmt.Println(fmt.Sprintf("	out=archlinux-%s-x86_64-%s", ver, href))
 			}
 		}

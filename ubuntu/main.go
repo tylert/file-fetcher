@@ -32,10 +32,7 @@ func dumpOne(url string) {
 		if ok {
 			if (strings.Contains(href, ".iso") || strings.Contains(href, ".zsync") || strings.Contains(href, ".list") || strings.Contains(href, ".manifest") || strings.Contains(href, "SHA256SUMS")) && !strings.Contains(href, ".torrent") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
-				fmt.Println("	allow-overwrite=true")
-				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=Ubuntu")
-				fmt.Println("	file-allocation=falloc")
 			}
 		}
 	})

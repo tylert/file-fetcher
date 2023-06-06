@@ -60,15 +60,10 @@ func main() {
 	for i := 0; i < len(rel.Assets); i++ {
 		if strings.Contains(rel.Assets[i].Name, "-linux") {
 			fmt.Println(fmt.Sprintf("%s", rel.Assets[i].BrowserDownloadURL))
-			fmt.Println("	auto-file-renaming=false")
-			fmt.Println("	conditional-get=true")
 			fmt.Println("	dir=Ventoy")
-			fmt.Println("	file-allocation=falloc")
 		} else if strings.Contains(rel.Assets[i].Name, "sha256.txt") {
 			fmt.Println(fmt.Sprintf("%s", rel.Assets[i].BrowserDownloadURL))
-			fmt.Println("	auto-file-renaming=false")
 			fmt.Println("	dir=Ventoy")
-			fmt.Println("	file-allocation=falloc")
 			fmt.Println(fmt.Sprintf("	out=ventoy-%s-sha256.txt", ver))
 		} else {
 			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
@@ -77,9 +72,6 @@ func main() {
 
 	// Source code
 	fmt.Println(fmt.Sprintf("%s", rel.TarballURL))
-	fmt.Println("	auto-file-renaming=false")
-	fmt.Println("	conditional-get=true")
 	fmt.Println("	dir=Ventoy")
-	fmt.Println("	file-allocation=falloc")
 	fmt.Println(fmt.Sprintf("	out=ventoy-%s-src.tar.gz", ver))
 }

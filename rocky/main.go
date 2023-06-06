@@ -35,10 +35,7 @@ func dumpOne(url string) {
 		if ok {
 			if !strings.Contains(href, "Rocky-x86_64") && strings.Contains(href, ".iso") && !strings.Contains(href, ".CHECKSUM") && !strings.Contains(href, ".torrent") && !strings.Contains(href, "-latest") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
-				fmt.Println("	allow-overwrite=true")
-				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=Rocky")
-				fmt.Println("	file-allocation=falloc")
 				if reg.FindString(href) != "" {
 					ver = reg.FindString(href)
 				}
@@ -51,9 +48,7 @@ func dumpOne(url string) {
 		if ok {
 			if !strings.Contains(href, "Rocky-x86_64") && strings.Contains(href, "CHECKSUM") && !strings.Contains(href, ".CHECKSUM") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
-				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=Rocky")
-				fmt.Println("	file-allocation=falloc")
 				fmt.Println(fmt.Sprintf("	out=Rocky-%s-x86_64-%s", ver, href))
 			}
 		}
