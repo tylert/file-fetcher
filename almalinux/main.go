@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"regexp"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
@@ -26,16 +27,32 @@ func dumpOne(url string) {
 
 	fmt.Println(fmt.Sprintf("# %s", url))
 
-	// XXX FIXME TODO  Fix the names of the checksum files!!!
+	// Do a first pass to get the version number to use when renaming the checksum files
+	reg := regexp.MustCompile(`\d+?\.\d+`)
+	ver := ""
 	doc.Find("div.name a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
-			if !strings.Contains(href, ".torrent") {
+			if strings.Contains(href, ".iso") && !strings.Contains(href, "-latest") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	allow-overwrite=true")
 				fmt.Println("	auto-file-renaming=false")
 				fmt.Println("	dir=AlmaLinux")
 				fmt.Println("	file-allocation=falloc")
+				ver = reg.FindString(href)
+			}
+		}
+	})
+	// Now that we know the release number, we can give the checksum files sensible names
+	doc.Find("div.name a").Each(func(i int, s *goquery.Selection) {
+		href, ok := s.Attr("href")
+		if ok {
+			if strings.Contains(href, "CHECKSUM") {
+				fmt.Println(fmt.Sprintf("%s/%s", url, href))
+				fmt.Println("	auto-file-renaming=false")
+				fmt.Println("	dir=AlmaLinux")
+				fmt.Println("	file-allocation=falloc")
+				fmt.Println(fmt.Sprintf("	out=AlmaLinux-%s-x86_64-%s", ver, href))
 			}
 		}
 	})
