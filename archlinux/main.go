@@ -59,6 +59,7 @@ func dumpOne(url string) {
 
 func main() {
 	fmt.Println("# https://mirror.xenyth.net/archlinux")
+	fmt.Println("# https://archlinux.org/mirrors")
 	fmt.Println("# https://archlinux.org/download")
 	fmt.Println("# https://archlinux.org")
 	fmt.Println("# https://en.wikipedia.org/wiki/Arch_Linux")

@@ -60,6 +60,7 @@ func main() {
 		}
 	}
 
+	// XXX FIXME TODO  This thing is currently broken so fix it!!!
 	// Source code
 	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=Cura")
