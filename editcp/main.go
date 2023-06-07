@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	//"regexp"
+	"regexp"
 )
 
 type Entry []struct {
@@ -19,7 +19,7 @@ type Entry []struct {
 	NodeID string `json:"node_id"`
 }
 
-func dumpOne(url string) {
+func dumpOne(url string, target string) {
 	res, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)
@@ -36,12 +36,13 @@ func dumpOne(url string) {
 	}
 
 	// This project uses version strings that start with "v" in some places
-	//reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
-	//ver := reg.FindString(tag.TagName)
+	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
+	ver := reg.FindString(tag[0].Name)
 
 	// Source code
 	fmt.Println(fmt.Sprintf("%s", tag[0].TarballURL))
 	fmt.Println("	dir=Editcp")
+	fmt.Println(fmt.Sprintf("	out=%s-%s.tar.gz", target, ver))
 }
 
 func main() {
@@ -62,17 +63,17 @@ func main() {
 	fmt.Println("# https://github.com/dalefarnsworth-dmr/ui")
 	fmt.Println("# https://github.com/dalefarnsworth-dmr/userdb")
 
-	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/codeplug/tags")
-	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/debug/tags")
-	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/dfu/tags")
-	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/dmrRadio/tags")
-	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/docCodeplug/tags")
-	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/docker/tags")
-	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/docs/tags")
-	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/editcp/tags")
-	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/genCodeplugInfo/tags")
-	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/genFileData/tags")
-	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/stdfu/tags")
-	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/ui/tags")
-	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/userdb/tags")
+	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/codeplug/tags", "codeplug")
+	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/debug/tags", "debug")
+	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/dfu/tags", "dfu")
+	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/dmrRadio/tags", "dmrRadio")
+	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/docCodeplug/tags", "docCodeplug")
+	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/docker/tags", "docker")
+	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/docs/tags", "docs")
+	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/editcp/tags", "editcp")
+	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/genCodeplugInfo/tags", "genCodeplugInfo")
+	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/genFileData/tags", "genFileData")
+	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/stdfu/tags", "stdfu")
+	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/ui/tags", "ui")
+	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/userdb/tags", "userdb")
 }
