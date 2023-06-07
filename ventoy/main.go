@@ -32,13 +32,10 @@ type Release struct {
 }
 
 func main() {
-	client := &http.Client{}
-	req, err := http.NewRequest("GET", "https://api.github.com/repos/ventoy/Ventoy/releases/latest", nil)
+	res, err := http.Get("https://api.github.com/repos/ventoy/Ventoy/releases/latest")
 	if err != nil {
 		log.Fatal(err)
 	}
-	req.Header.Set("User-Agent", "Golang")
-	res, err := client.Do(req)
 	defer res.Body.Close()
 	if res.StatusCode != 200 {
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
