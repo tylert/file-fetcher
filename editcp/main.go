@@ -42,7 +42,7 @@ func dumpOne(url string, target string) {
 	// Source code
 	fmt.Println(fmt.Sprintf("%s", tag[0].TarballURL))
 	fmt.Println("	dir=Editcp")
-	fmt.Println(fmt.Sprintf("	out=%s-%s.tar.gz", target, ver))
+	fmt.Println(fmt.Sprintf("	out=%s-%s-src.tar.gz", target, ver))
 }
 
 func main() {
