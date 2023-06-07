@@ -63,6 +63,7 @@ func main() {
 	fmt.Println("# https://archlinux.org/download")
 	fmt.Println("# https://archlinux.org")
 	fmt.Println("# https://en.wikipedia.org/wiki/Arch_Linux")
+	fmt.Println("# https://distrowatch.com/arch")
 
 	dumpOne("https://mirror.xenyth.net/archlinux/iso/latest")
 }

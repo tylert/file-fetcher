@@ -62,6 +62,7 @@ func main() {
 	fmt.Println("# https://mirrors.almalinux.org/isos.html")
 	fmt.Println("# https://almalinux.org")
 	fmt.Println("# https://en.wikipedia.org/wiki/AlmaLinux")
+	fmt.Println("# https://distrowatch.com/alma")
 
 	// XXX FIXME TODO  Try to determine the list of "current" releases programatically!!!
 	dumpOne("https://mirror.xenyth.net/almalinux/9/isos/x86_64")

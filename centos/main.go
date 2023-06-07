@@ -43,6 +43,7 @@ func main() {
 	fmt.Println("# https://centos.org/download")
 	fmt.Println("# https://centos.org")
 	fmt.Println("# https://en.wikipedia.org/wiki/CentOS")
+	fmt.Println("# https://distrowatch.com/centos")
 
 	// XXX FIXME TODO  Try to determine the list of "current" releases programatically!!!
 	dumpOne("https://mirror.xenyth.net/centos-stream/9-stream/BaseOS/x86_64/iso")

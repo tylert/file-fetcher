@@ -48,6 +48,8 @@ func main() {
 	fmt.Println("# https://cdimage.ubuntu.com")
 	fmt.Println("# https://en.wikipedia.org/wiki/Ubuntu")
 	fmt.Println("# https://en.wikipedia.org/wiki/Ubuntu_version_history")
+	fmt.Println("# https://distrowatch.com/ubuntu")
+
 	fmt.Println("# https://ubuntu.com/download/raspberry-pi")
 
 	// XXX FIXME TODO  Try to determine the list of "current" releases programatically!!!

@@ -62,6 +62,7 @@ func main() {
 	fmt.Println("# https://debian.org")
 	fmt.Println("# https://en.wikipedia.org/wiki/Debian")
 	fmt.Println("# https://en.wikipedia.org/wiki/Debian_version_history")
+	fmt.Println("# https://distrowatch.com/debian")
 
 	dumpOne("http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd")   // testing
 	dumpOne("http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd") // stable

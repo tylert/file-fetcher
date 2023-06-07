@@ -2,12 +2,30 @@ file-fetcher
 ============
 
 
+TODO
+----
+
+* stderr and stdout maybe???
+* add in common aria2 config entries???
+
+
+Running It
+----------
+
 ::
 
     go run ${PRODUCT}/main.go | aria2c -i -
 
+* https://github.com/aria2/aria2
+* https://aria2.github.io
+* https://wiki.archlinux.org/title/Aria2
+* https://github.com/ziahamza/webui-aria2
+
+
+Next Items
+----------
+
 * Arch Linux ARM for rpi-aarch64, odroid-xu3, odroid-c2
-* https://endeavouros.com/latest-release  the github.com one
 * https://releases.hashicorp.com/index.html
 * https://releases.hashicorp.com/index.json
 * https://pikvm.org
@@ -26,14 +44,9 @@ file-fetcher
     curl https://api.github.com/repos/jsiebens/hashi-up/releases/latest | jq '.tarball_url'
     curl https://api.github.com/repos/jsiebens/hashi-up/releases/latest | jq '.tag_name'
 
-* https://github.com/aria2/aria2
-* https://aria2.github.io
-* https://wiki.archlinux.org/title/Aria2
-* https://github.com/ziahamza/webui-aria2
 
-
-TODO
-----
+Other
+-----
 
 * https://github.com/siku2/arigo
 * https://github.com/cavaliercoder/grab

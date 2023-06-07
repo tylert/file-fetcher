@@ -62,6 +62,7 @@ func main() {
 	fmt.Println("# https://rockylinux.org/download")
 	fmt.Println("# https://rockylinux.org")
 	fmt.Println("# https://en.wikipedia.org/wiki/Rocky_Linux")
+	fmt.Println("# https://distrowatch.com/rocky")
 
 	// XXX FIXME TODO  Try to determine the list of "current" releases programatically!!!
 	dumpOne("https://mirror.xenyth.net/rocky/9/isos/x86_64")
