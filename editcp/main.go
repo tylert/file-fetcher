@@ -6,6 +6,9 @@ import (
 	"log"
 	"net/http"
 	"regexp"
+	"strings"
+
+	"github.com/PuerkitoBio/goquery"
 )
 
 type Entry []struct {
@@ -39,10 +42,35 @@ func dumpOne(url string, target string) {
 	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
 	ver := reg.FindString(tag[0].Name)
 
-	// Source code
 	fmt.Println(fmt.Sprintf("%s", tag[0].TarballURL))
 	fmt.Println("	dir=Editcp")
 	fmt.Println(fmt.Sprintf("	out=%s-%s-src.tar.gz", target, ver))
+}
+
+func dumpTwo(url string) {
+	res, err := http.Get(url)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer res.Body.Close()
+	if res.StatusCode != 200 {
+		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
+	}
+
+	doc, err := goquery.NewDocumentFromReader(res.Body)
+	if err != nil {
+		log.Fatal("Error loading HTTP response body.", err)
+	}
+
+	fmt.Println(fmt.Sprintf("# %s", url))
+
+	doc.Find("a").Each(func(i int, s *goquery.Selection) {
+		href, ok := s.Attr("href")
+		if ok {
+			fmt.Println(fmt.Sprintf("%s/%s", url, href))
+			fmt.Println("	dir=Editcp")
+		}
+	})
 }
 
 func main() {
@@ -63,6 +91,11 @@ func main() {
 	fmt.Println("# https://github.com/dalefarnsworth-dmr/ui")
 	fmt.Println("# https://github.com/dalefarnsworth-dmr/userdb")
 
+	// Compiled binaries
+	dumpTwo("https://www.farnsworth.org/dale/codeplug/dmrRadio/downloads/linux")
+	dumpTwo("https://www.farnsworth.org/dale/codeplug/editcp/downloads/linux")
+
+	// Source code
 	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/codeplug/tags", "codeplug")
 	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/debug/tags", "debug")
 	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/dfu/tags", "dfu")
