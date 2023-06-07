@@ -36,7 +36,9 @@ func dumpOne(url string) {
 			if strings.Contains(href, "netinst.iso") && !strings.Contains(href, "-edu-") && !strings.Contains(href, "-mac-") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	dir=Debian")
-				ver = reg.FindString(href)
+				if reg.FindString(href) != "" {
+					ver = reg.FindString(href)
+				}
 			}
 		}
 	})
