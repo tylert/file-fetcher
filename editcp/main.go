@@ -40,10 +40,8 @@ func dumpOne(url string) {
 	//ver := reg.FindString(tag.TagName)
 
 	// Source code
-	for _, elem := range tag {
-		fmt.Println(fmt.Sprintf("%s", elem.TarballURL))
-		fmt.Println("	dir=Editcp")
-	}
+	fmt.Println(fmt.Sprintf("%s", tag[0].TarballURL))
+	fmt.Println("	dir=Editcp")
 }
 
 func main() {
