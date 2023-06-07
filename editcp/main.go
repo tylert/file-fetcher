@@ -47,7 +47,7 @@ func dumpOne(url string, target string) {
 	fmt.Println(fmt.Sprintf("	out=%s-%s-src.tar.gz", target, ver))
 }
 
-func dumpTwo(url string) {
+func dumpTwo(url string, target string) {
 	res, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)
@@ -67,8 +67,10 @@ func dumpTwo(url string) {
 	doc.Find("a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
-			fmt.Println(fmt.Sprintf("%s/%s", url, href))
-			fmt.Println("	dir=Editcp")
+			if strings.Contains(href, target) {
+				fmt.Println(fmt.Sprintf("%s/%s", url, href))
+				fmt.Println("	dir=Editcp")
+			}
 		}
 	})
 }
@@ -92,8 +94,8 @@ func main() {
 	fmt.Println("# https://github.com/dalefarnsworth-dmr/userdb")
 
 	// Compiled binaries
-	dumpTwo("https://www.farnsworth.org/dale/codeplug/dmrRadio/downloads/linux")
-	dumpTwo("https://www.farnsworth.org/dale/codeplug/editcp/downloads/linux")
+	dumpTwo("https://www.farnsworth.org/dale/codeplug/dmrRadio/downloads/linux", "dmrRadio")
+	dumpTwo("https://www.farnsworth.org/dale/codeplug/editcp/downloads/linux", "editcp")
 
 	// Source code
 	dumpOne("https://api.github.com/repos/dalefarnsworth-dmr/codeplug/tags", "codeplug")
