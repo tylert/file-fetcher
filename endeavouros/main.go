@@ -33,7 +33,7 @@ func main() {
 	doc.Find("a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
-			if strings.Contains(href, ".iso") {
+			if strings.Contains(href, "github") && strings.Contains(href, ".iso") && !strings.Contains(href, ".torrent") {
 				fmt.Println(fmt.Sprintf("%s", href))
 				fmt.Println("	dir=EndeavourOS")
 			}
