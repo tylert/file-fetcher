@@ -47,20 +47,18 @@ func dumpOne(url string, target string) {
 		log.Fatalf("Error loading HTTP response body.", err)
 	}
 
-	// XXX FIXME TODO  Extract the corresponding sha256sum along with the filename!!!
-	// <tr><td class="n">
-	// <a href="openwrt-22.03.5-bla-bla-bla.bin">bla-bla-bla.bin</a>
-	// </td>
-	// <td class="sh">3b28c9bf308b38ccb95aadbd4c52d9c686b8af6ba9ad1b00694f7fedd1f7506f</td>
-
-	doc.Find("a").Each(func(i int, s *goquery.Selection) {
-		href, ok := s.Attr("href")
-		if ok {
-			if strings.Contains(href, target) && !strings.Contains(href, "-sfp-") {
-				fmt.Println(fmt.Sprintf("%s/%s", url, href))
-				fmt.Println("	dir=OpenWRT")
-			}
-		}
+	doc.Find("tr").Each(func(i int, s *goquery.Selection) {
+		s.Find("td").Each(func(ii int, ss *goquery.Selection) {
+			ss.Find("a").Each(func(iii int, sss *goquery.Selection) {
+				href, ok := sss.Attr("href")
+				if ok {
+					if strings.Contains(href, target) && !strings.Contains(href, "-sfp-") {
+						fmt.Println(fmt.Sprintf("%s/%s", url, href))
+						fmt.Println("	dir=OpenWRT")
+					}
+				}
+			})
+		})
 	})
 }
 
