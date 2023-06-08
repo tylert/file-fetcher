@@ -30,9 +30,11 @@ func dumpOne(url string) {
 	doc.Find("div.name a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
-			if !strings.Contains(href, ".torrent") && !strings.Contains(href, "MD5") && !strings.Contains(href, "SHA1SUM") {
+			if !strings.Contains(href, "-latest") && !strings.Contains(href, ".torrent") && !strings.Contains(href, "MD5") && !strings.Contains(href, "SHA1SUM") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	dir=CentOS")
+			} else {
+				fmt.Println(fmt.Sprintf("# skipped %s", href))
 			}
 		}
 	})

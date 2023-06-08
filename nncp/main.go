@@ -27,12 +27,12 @@ func main() {
 	fmt.Println("# https://nncp.mirrors.quux.org/Tarballs.html")
 	fmt.Println("# https://www.complete.org/nncp")
 
-	// Stop after showing exactly 3 download links (which should be the newest ones)
-	count := 3
+	// Stop after showing links for exactly 1 release (which should be the newest ones)
+	count := 2
 	doc.Find("a").EachWithBreak(func(i int, s *goquery.Selection) bool {
 		href, ok := s.Attr("href")
 		if ok {
-			if strings.Contains(href, "download") {
+			if strings.Contains(href, "download") && !strings.Contains(href, ".meta") {
 				fmt.Println(fmt.Sprintf("https://nncp.mirrors.quux.org/%s", href))
 				fmt.Println("	dir=NNCP")
 				count--
