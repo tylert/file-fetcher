@@ -33,8 +33,6 @@ Next Items
 * https://releases.hashicorp.com/index.json
 * https://pikvm.org
 * https://pikvm.org/download
-* https://libreelec.tv/downloads/raspberry/
-* https://github.com/LibreELEC/LibreELEC.tv/releases
 * https://www.pistar.uk/downloads/
 
 ::

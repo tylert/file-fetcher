@@ -32,7 +32,7 @@ func main() {
 	doc.Find("a").EachWithBreak(func(i int, s *goquery.Selection) bool {
 		href, ok := s.Attr("href")
 		if ok {
-			if strings.Contains(href, "download") && !strings.Contains(href, ".meta") {
+			if strings.Contains(href, "download") && !strings.Contains(href, ".meta4") {
 				fmt.Println(fmt.Sprintf("https://nncp.mirrors.quux.org/%s", href))
 				fmt.Println("	dir=NNCP")
 				count--
