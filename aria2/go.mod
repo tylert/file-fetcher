@@ -1,4 +1,4 @@
-module file-fetcher
+module aria2
 
 go 1.20
 

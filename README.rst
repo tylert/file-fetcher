@@ -14,7 +14,9 @@ Running It
 
 ::
 
+    pushd aria2
     go run ${PRODUCT}/main.go | aria2c -i -
+    popd
 
 * https://github.com/aria2/aria2
 * https://aria2.github.io

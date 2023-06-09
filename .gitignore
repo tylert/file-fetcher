@@ -25,3 +25,5 @@
 *.aria2
 *.json
 *.txt
+
+*.bin

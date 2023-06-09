@@ -48,17 +48,16 @@ func dumpOne(url string, target string) {
 	}
 
 	doc.Find("tr").Each(func(i int, s *goquery.Selection) {
-		s.Find("td").Each(func(ii int, ss *goquery.Selection) {
-			ss.Find("a").Each(func(iii int, sss *goquery.Selection) {
-				href, ok := sss.Attr("href")
-				if ok {
-					if strings.Contains(href, target) && !strings.Contains(href, "-sfp-") {
-						fmt.Println(fmt.Sprintf("%s/%s", url, href))
-						fmt.Println("	dir=OpenWRT")
-					}
-				}
-			})
-		})
+		moo := s.Find("td.n a")
+		poo := s.Find("td.sh").Text()
+		href, ok := moo.Attr("href")
+		if ok {
+			if strings.Contains(href, target) && !strings.Contains(href, "-sfp-") {
+				fmt.Println(fmt.Sprintf("%s/%s", url, href))
+				fmt.Println("	dir=OpenWRT")
+				fmt.Println(fmt.Sprintf("	checksum=sha-256=%s", poo))
+			}
+		}
 	})
 }
 
