@@ -1,4 +1,4 @@
-file-fetcher
+File Fetcher
 ============
 
 
@@ -21,6 +21,7 @@ Running It
 * https://github.com/aria2/aria2
 * https://aria2.github.io
 * https://wiki.archlinux.org/title/Aria2
+* http://ariang.mayswind.net/
 * https://github.com/ziahamza/webui-aria2
 
 
@@ -51,6 +52,10 @@ Other
 -----
 
 * https://github.com/siku2/arigo
+* https://github.com/P3TERX/Aria2-Pro-Docker
+* https://github.com/wahyd4/aria2-ariang-docker
+* https://github.com/openthings/kubernetes-tools/blob/master/aria/aria2-service.yaml
+* https://github.com/k8s-at-home/charts/tree/master/charts/stable/aria2
 * https://github.com/cavaliercoder/grab
 * https://github.com/melbahja/got
 * https://github.com/akshaykhairmode/summon
@@ -59,9 +64,5 @@ Other
 * https://github.com/hashicorp/go-getter
 * https://stackoverflow.com/questions/11692860/how-can-i-efficiently-download-a-large-file-using-go
 * https://progolang.com/how-to-download-files-in-go/
-* https://likegeeks.com/downloading-files-using-python/
-* http://ariang.mayswind.net/
-* https://github.com/P3TERX/Aria2-Pro-Docker
-* https://github.com/k8s-at-home/charts/tree/master/charts/stable/aria2
-* https://github.com/wahyd4/aria2-ariang-docker
-* https://github.com/openthings/kubernetes-tools/blob/master/aria/aria2-service.yaml
+* https://github.com/nfx/go-htmltable  for scraping more stubborn table data???
+* https://gist.github.com/salmoni/27aee5bb0d26536391aabe7f13a72494  more complex goquery example

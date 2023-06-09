@@ -1,7 +1,8 @@
 .DS_Store
 .*.sw?
 
-*SHA*SUMS*
+*SHA*SUM*
+*CHECKSUM*
 *.sha256
 *.md5
 
@@ -25,5 +26,5 @@
 *.aria2
 *.json
 *.txt
-
 *.bin
+*.manifest
