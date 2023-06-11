@@ -54,7 +54,6 @@ func main() {
 
 	// XXX FIXME TODO  Try to determine the list of "current" releases programatically!!!
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/23.04") // lunar
-	dumpOne("https://mirror.xenyth.net/ubuntu-releases/22.10") // kinetic
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/22.04") // jammy
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/20.04") // focal
 }
