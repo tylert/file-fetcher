@@ -61,9 +61,24 @@ func main() {
 	fmt.Println("# https://mirror.xenyth.net/archlinux")
 	fmt.Println("# https://archlinux.org/mirrors")
 	fmt.Println("# https://archlinux.org/download")
+	fmt.Println("# https://archlinuxarm.org/about/downloads")
 	fmt.Println("# https://archlinux.org")
+	fmt.Println("# https://archlinuxarm.org")
+	fmt.Println("# https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4")
 	fmt.Println("# https://en.wikipedia.org/wiki/Arch_Linux")
+	fmt.Println("# https://en.wikipedia.org/wiki/Arch_Linux_ARM")
 	fmt.Println("# https://distrowatch.com/arch")
 
 	dumpOne("https://mirror.xenyth.net/archlinux/iso/latest")
+
+	// Get the Pi4 image too
+	fmt.Println("http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-aarch64-latest.tar.gz")
+	fmt.Println("	dir=ArchLinux")
+	//fmt.Println(fmt.Sprintf("	out=ArchLinuxARM-rpi-aarch64-%s.tar.gz", today))
+	fmt.Println("http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-aarch64-latest.tar.gz.md5")
+	fmt.Println("	dir=ArchLinux")
+	//fmt.Println(fmt.Sprintf("	out=ArchLinuxARM-rpi-aarch64-%s.tar.gz.md5", today))
+	fmt.Println("http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-aarch64-latest.tar.gz.sig")
+	fmt.Println("	dir=ArchLinux")
+	//fmt.Println(fmt.Sprintf("	out=ArchLinuxARM-rpi-aarch64-%s.tar.gz.sig", today))
 }

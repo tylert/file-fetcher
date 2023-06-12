@@ -28,7 +28,7 @@ Running It
 Next Items
 ----------
 
-* Arch Linux ARM for rpi-aarch64, odroid-xu3, odroid-c2
+* Arch Linux ARM for odroid-xu3, odroid-c2???
 * https://releases.hashicorp.com/index.html
 * https://releases.hashicorp.com/index.json
 * https://pikvm.org
