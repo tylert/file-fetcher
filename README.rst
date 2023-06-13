@@ -33,7 +33,6 @@ Next Items
 * https://releases.hashicorp.com/index.json
 * https://pikvm.org
 * https://pikvm.org/download
-* https://www.pistar.uk/downloads/
 
 ::
 
