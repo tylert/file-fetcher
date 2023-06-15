@@ -46,7 +46,7 @@ func dumpOne(url string) {
 	if ver == "" {
 		ver = "testing"
 	}
-	// Now that we know the release number, we can give the checksum files sensible names
+	// Now that we know the release number, we can give the generic checksum files sensible names
 	doc.Find("td.indexcolname a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {

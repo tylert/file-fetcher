@@ -27,6 +27,7 @@ func main() {
 	fmt.Println("# https://www.pistar.uk/downloads")
 	fmt.Println("# https://www.pistar.uk")
 
+	// FIXME XXX TODO  Don't include older releases here!!!
 	doc.Find("a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {

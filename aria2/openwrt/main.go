@@ -32,7 +32,7 @@ type Release struct {
 	ZipballURL string `json:"zipball_url"`
 }
 
-func dumpOne(url string, target string) {
+func dumpBin(url string, target string) {
 	res, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)
@@ -82,8 +82,8 @@ func main() {
 	fmt.Println("# https://en.wikipedia.org/wiki/OpenWrt")
 
 	// Compiled binaries
-	dumpOne(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ath79/generic", rel.Name), "tplink_eap225-v3")
-	dumpOne(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ramips/mt7621", rel.Name), "ubnt_edgerouter-x")
+	dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ath79/generic", rel.Name), "tplink_eap225-v3")
+	dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ramips/mt7621", rel.Name), "ubnt_edgerouter-x")
 
 	// Source code
 	fmt.Println(rel.TarballURL)

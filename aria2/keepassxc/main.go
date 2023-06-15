@@ -51,6 +51,7 @@ func main() {
 	fmt.Println("# https://keepassxc.org")
 	fmt.Println("# https://en.wikipedia.org/wiki/KeePassXC")
 
+	// XXX FIXME TODO  This skips everything at the moment!!!
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
 		if strings.Contains(rel.Assets[i].Name, "-linux") {
