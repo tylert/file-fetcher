@@ -28,19 +28,12 @@ Running It
 Next Items
 ----------
 
-* Arch Linux ARM for odroid-xu3, odroid-c2???
+* Arch Linux ARM for odroid-xu3(hc2), odroid-c2???
 * https://releases.hashicorp.com/index.html
 * https://releases.hashicorp.com/index.json
-
-::
-
-    curl https://api.github.com/repos/hairyhenderson/gomplate/releases/latest | jq '.assets[].browser_download_url'
-    curl https://api.github.com/repos/hairyhenderson/gomplate/releases/latest | jq '.tarball_url'
-    curl https://api.github.com/repos/hairyhenderson/gomplate/releases/latest | jq '.tag_name'
-
-    curl https://api.github.com/repos/jsiebens/hashi-up/releases/latest | jq '.assets[].browser_download_url'
-    curl https://api.github.com/repos/jsiebens/hashi-up/releases/latest | jq '.tarball_url'
-    curl https://api.github.com/repos/jsiebens/hashi-up/releases/latest | jq '.tag_name'
+* https://github.com/hairyhenderson/gomplate
+* https://github.com/jsiebens/hashi-up
+* https://github.com/minamijoyo/hcledit
 
 
 Other
@@ -61,3 +54,8 @@ Other
 * https://progolang.com/how-to-download-files-in-go/
 * https://github.com/nfx/go-htmltable  for scraping more stubborn table data???
 * https://gist.github.com/salmoni/27aee5bb0d26536391aabe7f13a72494  more complex goquery example
+* https://www.gnu.org/software/coreutils/manual/html_node/Directory-Setuid-and-Setgid.html
+* https://unix.stackexchange.com/questions/266436/share-files-directories-by-setgid
+* https://stackoverflow.com/questions/71153302/how-to-set-depth-for-recursive-iteration-of-directories-in-filepath-walk-func
+* https://stackoverflow.com/questions/73864379/golang-change-permission-os-chmod-and-os-chowm-recursively
+* https://stackoverflow.com/questions/72904719/golang-chmod-files-and-directories-recursively
