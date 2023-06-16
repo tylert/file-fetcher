@@ -71,6 +71,7 @@ func main() {
 
 	dumpOne("https://mirror.xenyth.net/archlinux/iso/latest")
 
+	// XXX FIXME TODO  Fix the filenames to replace 'latest' with date when last updated/downloaded!!!
 	// Get the Pi4 image too
 	fmt.Println("http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-aarch64-latest.tar.gz")
 	fmt.Println("	dir=ArchLinux")

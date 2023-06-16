@@ -32,7 +32,6 @@ Next Items
 * https://releases.hashicorp.com/index.html
 * https://releases.hashicorp.com/index.json
 * https://github.com/hairyhenderson/gomplate
-* https://github.com/jsiebens/hashi-up
 * https://github.com/minamijoyo/hcledit
 
 
