@@ -42,6 +42,7 @@ func dumpSrc(url string, target string) {
 	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
 	ver := reg.FindString(tag[0].Name)
 
+	// Assume that the first hit is the newest and then stop after that
 	fmt.Println(fmt.Sprintf("%s", tag[0].TarballURL))
 	fmt.Println("	dir=Editcp")
 	fmt.Println(fmt.Sprintf("	out=%s-%s-src.tar.gz", target, ver))

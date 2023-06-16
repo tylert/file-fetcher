@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"regexp"
 	"strings"
 	"time"
 
@@ -32,7 +33,7 @@ type Release struct {
 	ZipballURL string `json:"zipball_url"`
 }
 
-func dumpBin() {
+func dumpBin() string {
 	res, err := http.Get("https://libreelec.tv/downloads/raspberry")
 	if err != nil {
 		log.Fatal(err)
@@ -47,6 +48,10 @@ func dumpBin() {
 		log.Fatal("Error loading HTTP response body.", err)
 	}
 
+	// Do a first pass to get the version number to use when renaming the source files
+	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
+	ver := ""
+
 	// Compiled binaries
 	doc.Find("a").EachWithBreak(func(i int, s *goquery.Selection) bool {
 		href, ok := s.Attr("href")
@@ -54,14 +59,19 @@ func dumpBin() {
 			if strings.Contains(href, ".gz") {
 				fmt.Println(href)
 				fmt.Println("	dir=LibreELEC")
+				if reg.FindString(href) != "" {
+					ver = reg.FindString(href)
+				}
 				return false
 			}
 		}
 		return true
 	})
+
+	return ver
 }
 
-func dumpSrc() {
+func dumpSrc(ver string) {
 	res, err := http.Get("https://api.github.com/repos/LibreELEC/LibreELEC.tv/releases/latest")
 	if err != nil {
 		log.Fatal(err)
@@ -80,7 +90,7 @@ func dumpSrc() {
 	// Source code
 	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=LibreELEC")
-	// XXX FIXME TODO  Fix the filename for the source tarballs!!!
+	fmt.Println(fmt.Sprintf("	out=LibreELEC-src-%s.tar.gz", ver))
 }
 
 func main() {
@@ -89,6 +99,6 @@ func main() {
 	fmt.Println("# https://libreelec.tv")
 	fmt.Println("# https://en.wikipedia.org/wiki/LibreELEC")
 
-	dumpBin()
-	dumpSrc()
+	ver := dumpBin()
+	dumpSrc(ver)
 }
