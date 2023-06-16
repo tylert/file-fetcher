@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	//"regexp"
+	"regexp"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
@@ -27,16 +27,31 @@ func dumpOne(url string) {
 
 	fmt.Println(fmt.Sprintf("# %s", url))
 
-	// XXX FIXME TODO  Fix the names of the checksum files!!!
 	// Do a first pass to get the version number to use when renaming the checksum files
-	//reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
-	//ver := ""
+	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
+	ver := ""
 	doc.Find("div.name a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
-			if (strings.Contains(href, ".iso") || strings.Contains(href, ".zsync") || strings.Contains(href, ".list") || strings.Contains(href, ".manifest") || strings.Contains(href, "SHA256SUMS")) && !strings.Contains(href, ".torrent") {
+			if (strings.Contains(href, ".iso") || strings.Contains(href, ".zsync") || strings.Contains(href, ".list") || strings.Contains(href, ".manifest")) && !strings.Contains(href, ".torrent") && !strings.Contains(href, "-desktop") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	dir=Ubuntu")
+				if reg.FindString(href) != "" {
+					ver = reg.FindString(href)
+				}
+			} else if !strings.Contains(href, "SHA256SUMS") {
+				fmt.Println(fmt.Sprintf("# skipped %s", href))
+			}
+		}
+	})
+	// Now that we know the release number, we can give the generic checksum files sensible names
+	doc.Find("div.name a").Each(func(i int, s *goquery.Selection) {
+		href, ok := s.Attr("href")
+		if ok {
+			if strings.Contains(href, "SHA256SUMS") {
+				fmt.Println(fmt.Sprintf("%s/%s", url, href))
+				fmt.Println("	dir=Ubuntu")
+				fmt.Println(fmt.Sprintf("	out=ubuntu-%s-%s", ver, href))
 			}
 		}
 	})
