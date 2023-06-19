@@ -6,6 +6,7 @@
 *.sha256
 *.md5
 
+*GPG*
 *.sig
 *.sign
 *.gpg

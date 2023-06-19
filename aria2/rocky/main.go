@@ -67,4 +67,10 @@ func main() {
 	// XXX FIXME TODO  Try to determine the list of "current" releases programatically!!!
 	dumpOne("https://mirror.xenyth.net/rocky/9/isos/x86_64")
 	dumpOne("https://mirror.xenyth.net/rocky/8/isos/x86_64")
+
+	// Grab the signing keys too
+	fmt.Println("https://mirror.xenyth.net/rocky/RPM-GPG-KEY-Rocky-9") // 21CB256AE16FC54C6E652949702D426D350D275D
+	fmt.Println("	dir=Rocky")
+	fmt.Println("https://mirror.xenyth.net/rocky/RPM-GPG-KEY-Rocky-8") // 7051C470A929F454CEBE37B715AF5DAC6D745A60
+	fmt.Println("	dir=Rocky")
 }

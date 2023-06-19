@@ -74,8 +74,6 @@ func dumpUgh(url string) {
 
 	fmt.Println(fmt.Sprintf("# %s", url))
 
-	//reg := regexp.MustCompile(``)
-	//ver := ""
 	doc.Find("div.name a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
@@ -100,4 +98,8 @@ func main() {
 	dumpOne("https://mirror.xenyth.net/centos-stream/9-stream/BaseOS/x86_64/iso")
 	dumpOne("https://mirror.xenyth.net/centos/8-stream/isos/x86_64")
 	dumpUgh("https://mirror.xenyth.net/centos/7/isos/x86_64")
+
+	// Grab the signing keys too
+	fmt.Println("https://mirror.xenyth.net/centos/RPM-GPG-KEY-CentOS-7") // 6341AB2753D78A78A7C27BB124C6A8A7F4A80EB5
+	fmt.Println("	dir=CentOS")
 }
