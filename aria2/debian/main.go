@@ -62,8 +62,6 @@ func dumpOne(url string) {
 func main() {
 	fmt.Println("# https://cdimage.debian.org/cdimage")
 	fmt.Println("# https://debian.org")
-	fmt.Println("# https://ftp-master.debian.org/keys.html")
-	fmt.Println("# https://ftp-master.debian.org/keys")
 	fmt.Println("# https://en.wikipedia.org/wiki/Debian")
 	fmt.Println("# https://en.wikipedia.org/wiki/Debian_version_history")
 	fmt.Println("# https://distrowatch.com/debian")
@@ -72,6 +70,9 @@ func main() {
 	dumpOne("http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd") // stable
 	dumpOne("http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd")
 	dumpOne("http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd")
+
+	fmt.Println("# https://ftp-master.debian.org/keys.html")
+	fmt.Println("# https://ftp-master.debian.org/keys")
 
 	// Get the signing keys too
 	fmt.Println("https://ftp-master.debian.org/keys/release-12.asc") // 4D64FEC119C2029067D6E791F8D2585B8783D481
