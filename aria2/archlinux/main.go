@@ -71,6 +71,10 @@ func main() {
 
 	dumpOne("https://mirror.xenyth.net/archlinux/iso/latest")
 
+	// Grab the signing keys too
+	fmt.Println("https://keys.openpgp.org/vks/v1/by-fingerprint/3E80CA1A8B89F69CBA57D98A76A5EF9054449A5C") // 3E80CA1A8B89F69CBA57D98A76A5EF9054449A5C
+	fmt.Println("	dir=ArchLinux")
+
 	// XXX FIXME TODO  Fix the filenames to replace 'latest' with date when last updated/downloaded!!!
 	// Get the Pi4 image too
 	fmt.Println("http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-aarch64-latest.tar.gz")

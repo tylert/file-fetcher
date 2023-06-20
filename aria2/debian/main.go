@@ -62,6 +62,7 @@ func dumpOne(url string) {
 func main() {
 	fmt.Println("# https://cdimage.debian.org/cdimage")
 	fmt.Println("# https://debian.org")
+	fmt.Println("# https://ftp-master.debian.org/keys.html")
 	fmt.Println("# https://en.wikipedia.org/wiki/Debian")
 	fmt.Println("# https://en.wikipedia.org/wiki/Debian_version_history")
 	fmt.Println("# https://distrowatch.com/debian")
