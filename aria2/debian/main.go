@@ -63,6 +63,7 @@ func main() {
 	fmt.Println("# https://cdimage.debian.org/cdimage")
 	fmt.Println("# https://debian.org")
 	fmt.Println("# https://ftp-master.debian.org/keys.html")
+	fmt.Println("# https://ftp-master.debian.org/keys")
 	fmt.Println("# https://en.wikipedia.org/wiki/Debian")
 	fmt.Println("# https://en.wikipedia.org/wiki/Debian_version_history")
 	fmt.Println("# https://distrowatch.com/debian")
@@ -71,4 +72,14 @@ func main() {
 	dumpOne("http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd") // stable
 	dumpOne("http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd")
 	dumpOne("http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd")
+
+	// Get the signing keys too
+	fmt.Println("https://ftp-master.debian.org/keys/release-12.asc") // 4D64FEC119C2029067D6E791F8D2585B8783D481
+	fmt.Println("	dir=Debian")
+	fmt.Println("https://ftp-master.debian.org/keys/release-11.asc") // A4285295FC7B1A81600062A9605C66F00D6C9793
+	fmt.Println("	dir=Debian")
+	fmt.Println("https://ftp-master.debian.org/keys/release-10.asc") // 6D33866EDD8FFA41C0143AEDDCC9EFBF77E11517
+	fmt.Println("	dir=Debian")
+	fmt.Println("https://ftp-master.debian.org/keys/release-9.asc") // 067E3C456BAE240ACEE88F6FEF0F382A1A7B6500
+	fmt.Println("	dir=Debian")
 }

@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"strings"
+	"time"
 
 	"github.com/PuerkitoBio/goquery"
 )
@@ -31,15 +32,16 @@ func main() {
 	fmt.Println("# https://en.wikipedia.org/wiki/Pi-KVM")
 	fmt.Println("# https://www.kickstarter.com/projects/mdevaev/pikvm-v4")
 
-	// XXX FIXME TODO  Rename files with the date they were downloaded/updated!!!
 	// Compiled binaries
+	now := time.Now()
 	doc.Find("a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
 			if strings.Contains(href, "v2-hdmi-rpi4-") {
 				fmt.Println(href)
 				fmt.Println("	dir=Pi-KVM")
-				//fmt.Println(fmt.Sprintf("	out=%s", today))
+				thingy := strings.Split(strings.ReplaceAll(href, "latest", now.Format("2006-01-02")), "/")
+				fmt.Println(fmt.Sprintf("	out=%s", thingy[len(thingy)-1]))
 			} else if strings.Contains(href, ".img") {
 				fmt.Println(fmt.Sprintf("# skipped %s", href))
 			}
