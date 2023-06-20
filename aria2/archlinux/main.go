@@ -62,15 +62,16 @@ func main() {
 	fmt.Println("# https://mirror.xenyth.net/archlinux")
 	fmt.Println("# https://archlinux.org/mirrors")
 	fmt.Println("# https://archlinux.org/download")
-	fmt.Println("# https://archlinuxarm.org/about/downloads")
 	fmt.Println("# https://archlinux.org")
-	fmt.Println("# https://archlinuxarm.org")
-	fmt.Println("# https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4")
 	fmt.Println("# https://en.wikipedia.org/wiki/Arch_Linux")
-	fmt.Println("# https://en.wikipedia.org/wiki/Arch_Linux_ARM")
 	fmt.Println("# https://distrowatch.com/arch")
 
 	dumpOne("https://mirror.xenyth.net/archlinux/iso/latest")
+
+	fmt.Println("# https://archlinuxarm.org/about/downloads")
+	fmt.Println("# https://archlinuxarm.org")
+	fmt.Println("# https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4")
+	fmt.Println("# https://en.wikipedia.org/wiki/Arch_Linux_ARM")
 
 	// Get the Pi4 image too
 	now := time.Now()
