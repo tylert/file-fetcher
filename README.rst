@@ -28,11 +28,11 @@ Running It
 Next Items
 ----------
 
+* https://github.com/minamijoyo/hcledit
+* https://github.com/hairyhenderson/gomplate
 * Arch Linux ARM for odroid-xu3(hc2), odroid-c2???
 * https://releases.hashicorp.com/index.html
 * https://releases.hashicorp.com/index.json
-* https://github.com/hairyhenderson/gomplate
-* https://github.com/minamijoyo/hcledit
 
 
 Other
