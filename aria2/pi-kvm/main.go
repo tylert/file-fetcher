@@ -41,11 +41,18 @@ func main() {
 				fmt.Println(href)
 				fmt.Println("	dir=Pi-KVM")
 				thingy := strings.Split(strings.ReplaceAll(href, "latest", now.Format("2006-01-02")), "/")
-				fmt.Println(fmt.Sprintf("	out=%s", thingy[len(thingy)-1]))
+				fmt.Println(fmt.Sprintf("	out=pikvm-%s", thingy[len(thingy)-1]))
 			} else if strings.Contains(href, ".img") {
 				fmt.Println(fmt.Sprintf("# skipped %s", href))
 			}
 		}
 	})
-	// XXX FIXME TODO  Fetch all the source (docs) too!!!
+
+	// Documentation
+	fmt.Println("https://github.com/pikvm/pikvm/archive/refs/heads/gh-pages.zip")
+	fmt.Println("	dir=Pi-KVM")
+	fmt.Println(fmt.Sprintf("	out=pikvm-handbook-%s.zip", now.Format("2006-01-02")))
+	fmt.Println("https://github.com/pikvm/pikvm/archive/refs/heads/master.zip")
+	fmt.Println("	dir=Pi-KVM")
+	fmt.Println(fmt.Sprintf("	out=pikvm-more-docs-%s.zip", now.Format("2006-01-02")))
 }
