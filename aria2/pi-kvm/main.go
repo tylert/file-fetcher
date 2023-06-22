@@ -43,7 +43,8 @@ func main() {
 				thingy := strings.Split(strings.ReplaceAll(href, "latest", now.Format("2006-01-02")), "/")
 				fmt.Println(fmt.Sprintf("	out=pikvm-%s", thingy[len(thingy)-1]))
 			} else if strings.Contains(href, ".img") {
-				fmt.Println(fmt.Sprintf("# skipped %s", href))
+				whatzit := strings.Split(href, "/")
+				fmt.Println(fmt.Sprintf("# skipped %s", whatzit[len(whatzit)-1]))
 			}
 		}
 	})
