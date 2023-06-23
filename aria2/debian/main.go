@@ -81,6 +81,4 @@ func main() {
 	fmt.Println("	dir=Debian")
 	fmt.Println("https://ftp-master.debian.org/keys/release-10.asc") // 6D33866EDD8FFA41C0143AEDDCC9EFBF77E11517
 	fmt.Println("	dir=Debian")
-	fmt.Println("https://ftp-master.debian.org/keys/release-9.asc") // 067E3C456BAE240ACEE88F6FEF0F382A1A7B6500
-	fmt.Println("	dir=Debian")
 }
