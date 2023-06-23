@@ -51,10 +51,9 @@ func main() {
 	fmt.Println("# https://keepassxc.org")
 	fmt.Println("# https://en.wikipedia.org/wiki/KeePassXC")
 
-	// XXX FIXME TODO  This skips everything at the moment!!!
-	// Compiled binaries
+	// Compiled binaries and source code
 	for i := 0; i < len(rel.Assets); i++ {
-		if strings.Contains(rel.Assets[i].Name, "-linux") {
+		if strings.Contains(rel.Assets[i].Name, ".AppImage") || strings.Contains(rel.Assets[i].Name, "-src") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
 			fmt.Println("	dir=KeePassXC")
 		} else {
