@@ -79,6 +79,8 @@ func main() {
 
 	fmt.Println("# https://github.com/openwrt/openwrt")
 	fmt.Println("# https://openwrt.org")
+	fmt.Println("# https://downloads.openwrt.org/releases")
+	fmt.Println("# https://firmware-selector.openwrt.org")
 	fmt.Println("# https://en.wikipedia.org/wiki/OpenWrt")
 
 	// Compiled binaries
