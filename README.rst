@@ -33,6 +33,8 @@ Next Items
 * Arch Linux ARM for odroid-xu3(hc2), odroid-c2???
 * https://releases.hashicorp.com/index.html
 * https://releases.hashicorp.com/index.json
+* https://www.asus.com/supportonly/rog%20strix%20b550-a%20gaming/helpdesk_bios/
+* https://www.asus.com/supportonly/rog%20strix%20b450-f%20gaming/helpdesk_bios/
 
 
 Other
