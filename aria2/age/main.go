@@ -64,6 +64,12 @@ func main() {
 		}
 	}
 
+	// Documentation
+	fmt.Println("https://raw.githubusercontent.com/FiloSottile/age/main/doc/age-keygen.1.html")
+	fmt.Println("	dir=age")
+	fmt.Println("https://raw.githubusercontent.com/FiloSottile/age/main/doc/age.1.html")
+	fmt.Println("	dir=age")
+
 	// Source code
 	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=age")
