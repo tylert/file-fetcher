@@ -35,6 +35,9 @@ Next Items
 * https://releases.hashicorp.com/index.json
 * https://www.asus.com/supportonly/rog%20strix%20b550-a%20gaming/helpdesk_bios/
 * https://www.asus.com/supportonly/rog%20strix%20b450-f%20gaming/helpdesk_bios/
+* https://bitfieldconsulting.com/golang/scripting
+* https://github.com/bitfield/script
+* https://pkg.go.dev/github.com/bitfield/script
 
 
 Other
