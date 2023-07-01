@@ -84,7 +84,7 @@ func main() {
 	fmt.Println("# https://en.wikipedia.org/wiki/OpenWrt")
 
 	// Compiled binaries
-	dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ath79/generic", rel.Name), "tplink_eap225-v3")
+	dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ath79/generic", rel.Name), "tplink_eap245-v3")
 	dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ramips/mt7621", rel.Name), "ubnt_edgerouter-x")
 
 	// Source code
