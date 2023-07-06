@@ -1,13 +1,15 @@
 package main
 
 import (
-// "github.com/bitfield/script"
+//	"github.com/bitfield/script"
 )
 
 func main() {
-	Python()
-	Pyenv()
-	Git()
+	//Python()
+	//Pyenv()
+	//Git()
+	AgeKeypair()
+	WireguardKeypair()
 	//script.Get("https://wttr.in/Ottawa?m&format=3").Stdout()
 	//script.Get("https://wttr.in/Ottawa?u&format=3").Stdout()
 }
