@@ -87,7 +87,7 @@ func dumpUgh(url string) {
 	})
 }
 
-func main() {
+func doIt() {
 	fmt.Println("# https://mirror.xenyth.net/centos")
 	fmt.Println("# https://centos.org/download")
 	fmt.Println("# https://centos.org")
@@ -102,4 +102,8 @@ func main() {
 	// Get the signing keys too
 	fmt.Println("https://mirror.xenyth.net/centos/RPM-GPG-KEY-CentOS-7") // 6341AB2753D78A78A7C27BB124C6A8A7F4A80EB5
 	fmt.Println("	dir=CentOS")
+}
+
+func main() {
+	doIt()
 }

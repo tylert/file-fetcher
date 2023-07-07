@@ -59,7 +59,7 @@ func dumpOne(url string) {
 	})
 }
 
-func main() {
+func doIt() {
 	fmt.Println("# https://cdimage.debian.org/cdimage")
 	fmt.Println("# https://debian.org")
 	fmt.Println("# https://en.wikipedia.org/wiki/Debian")
@@ -81,4 +81,8 @@ func main() {
 	fmt.Println("	dir=Debian")
 	fmt.Println("https://ftp-master.debian.org/keys/release-10.asc") // 6D33866EDD8FFA41C0143AEDDCC9EFBF77E11517
 	fmt.Println("	dir=Debian")
+}
+
+func main() {
+	doIt()
 }

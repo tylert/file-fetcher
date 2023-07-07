@@ -30,7 +30,7 @@ type Release struct {
 	ZipballURL string `json:"zipball_url"`
 }
 
-func main() {
+func doIt() {
 	res, err := http.Get("https://api.github.com/repos/Ultimaker/Cura/releases/latest")
 	if err != nil {
 		log.Fatal(err)
@@ -64,4 +64,8 @@ func main() {
 	fmt.Println(fmt.Sprintf("https://github.com/Ultimaker/Cura/archive/refs/tags/%s.tar.gz", rel.TagName))
 	fmt.Println("	dir=Cura")
 	fmt.Println(fmt.Sprintf("	out=UltiMaker-Cura-%s-src.tar.gz", rel.TagName))
+}
+
+func main() {
+	doIt()
 }

@@ -57,7 +57,7 @@ func dumpOne(url string) {
 	})
 }
 
-func main() {
+func doIt() {
 	fmt.Println("# https://mirror.xenyth.net/ubuntu-releases")
 	fmt.Println("# https://releases.ubuntu.com")
 	fmt.Println("# https://cdimage.ubuntu.com")
@@ -71,4 +71,8 @@ func main() {
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/23.04") // lunar
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/22.04") // jammy
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/20.04") // focal
+}
+
+func main() {
+	doIt()
 }

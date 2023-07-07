@@ -93,7 +93,7 @@ func dumpSrc(ver string) {
 	fmt.Println(fmt.Sprintf("	out=LibreELEC-src-%s.tar.gz", ver))
 }
 
-func main() {
+func doIt() {
 	fmt.Println("# https://github.com/LibreELEC/LibreELEC.tv")
 	fmt.Println("# https://libreelec.tv/downloads/raspberry")
 	fmt.Println("# https://libreelec.tv")
@@ -101,4 +101,8 @@ func main() {
 
 	ver := dumpBin()
 	dumpSrc(ver)
+}
+
+func main() {
+	doIt()
 }

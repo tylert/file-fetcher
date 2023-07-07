@@ -10,7 +10,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-func main() {
+func doIt() {
 	res, err := http.Get("https://pikvm.org/download")
 	if err != nil {
 		log.Fatal(err)
@@ -56,4 +56,8 @@ func main() {
 	fmt.Println("https://github.com/pikvm/pikvm/archive/refs/heads/master.zip")
 	fmt.Println("	dir=PiKVM")
 	fmt.Println(fmt.Sprintf("	out=pikvm-more-docs-%s.zip", now.Format("2006-01-02")))
+}
+
+func main() {
+	doIt()
 }

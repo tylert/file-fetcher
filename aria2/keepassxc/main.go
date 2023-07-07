@@ -30,7 +30,7 @@ type Release struct {
 	ZipballURL string `json:"zipball_url"`
 }
 
-func main() {
+func doIt() {
 	res, err := http.Get("https://api.github.com/repos/keepassxreboot/keepassxc/releases/latest")
 	if err != nil {
 		log.Fatal(err)
@@ -60,4 +60,8 @@ func main() {
 			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
 		}
 	}
+}
+
+func main() {
+	doIt()
 }

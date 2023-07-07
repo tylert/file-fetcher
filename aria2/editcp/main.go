@@ -76,7 +76,7 @@ func dumpBin(url string, target string) {
 	})
 }
 
-func main() {
+func doIt() {
 	fmt.Println("# https://www.farnsworth.org/dale/codeplug/dmrRadio/downloads")
 	fmt.Println("# https://www.farnsworth.org/dale/codeplug/editcp/downloads")
 	fmt.Println("# https://www.farnsworth.org/dale/codeplug/editcp")
@@ -112,4 +112,8 @@ func main() {
 	dumpSrc("https://api.github.com/repos/dalefarnsworth-dmr/stdfu/tags", "stdfu")
 	dumpSrc("https://api.github.com/repos/dalefarnsworth-dmr/ui/tags", "ui")
 	dumpSrc("https://api.github.com/repos/dalefarnsworth-dmr/userdb/tags", "userdb")
+}
+
+func main() {
+	doIt()
 }

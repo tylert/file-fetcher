@@ -57,7 +57,7 @@ func dumpOne(url string) {
 	})
 }
 
-func main() {
+func doIt() {
 	fmt.Println("# https://mirror.xenyth.net/rocky")
 	fmt.Println("# https://rockylinux.org/download")
 	fmt.Println("# https://rockylinux.org")
@@ -73,4 +73,8 @@ func main() {
 	fmt.Println("	dir=Rocky")
 	fmt.Println("https://mirror.xenyth.net/rocky/RPM-GPG-KEY-Rocky-8") // 7051C470A929F454CEBE37B715AF5DAC6D745A60
 	fmt.Println("	dir=Rocky")
+}
+
+func main() {
+	doIt()
 }

@@ -58,7 +58,7 @@ func dumpOne(url string) {
 	})
 }
 
-func main() {
+func doIt() {
 	fmt.Println("# https://mirror.xenyth.net/archlinux")
 	fmt.Println("# https://archlinux.org/mirrors")
 	fmt.Println("# https://archlinux.org/download")
@@ -90,4 +90,8 @@ func main() {
 	fmt.Println("	dir=ArchLinux")
 	fmt.Println("https://keys.openpgp.org/vks/v1/by-fingerprint/68B3537F39A313B3E574D06777193F152BDBE6A6") // 68B3537F39A313B3E574D06777193F152BDBE6A6
 	fmt.Println("	dir=ArchLinux")
+}
+
+func main() {
+	doIt()
 }

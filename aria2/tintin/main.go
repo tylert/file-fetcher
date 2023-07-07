@@ -30,7 +30,7 @@ type Release struct {
 	ZipballURL string `json:"zipball_url"`
 }
 
-func main() {
+func doIt() {
 	res, err := http.Get("https://api.github.com/repos/scandum/tintin/releases/latest")
 	if err != nil {
 		log.Fatal(err)
@@ -65,4 +65,8 @@ func main() {
 	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=TinTin")
 	fmt.Println(fmt.Sprintf("	out=tintin-src-%s.tar.gz", rel.TagName))
+}
+
+func main() {
+	doIt()
 }

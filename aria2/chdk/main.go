@@ -41,10 +41,14 @@ func dumpOne(url string, target string) {
 	})
 }
 
-func main() {
+func doIt() {
 	fmt.Println("# https://chdk.fandom.com/wiki/CHDK")
 	fmt.Println("# https://en.wikipedia.org/wiki/DIGIC#CHDK")
 
 	dumpOne("https://mighty-hoernsche.de", "_elph115-")       // stable
 	dumpOne("https://mighty-hoernsche.de/trunk", "_elph115-") // unstable
+}
+
+func main() {
+	doIt()
 }

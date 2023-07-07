@@ -9,7 +9,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-func main() {
+func doIt() {
 	res, err := http.Get("https://endeavouros.com/latest-release")
 	if err != nil {
 		log.Fatal(err)
@@ -39,4 +39,8 @@ func main() {
 			}
 		}
 	})
+}
+
+func main() {
+	doIt()
 }

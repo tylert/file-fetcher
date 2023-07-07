@@ -31,7 +31,7 @@ type Release struct {
 	ZipballURL string `json:"zipball_url"`
 }
 
-func main() {
+func doIt() {
 	res, err := http.Get("https://api.github.com/repos/FiloSottile/age/releases/latest")
 	if err != nil {
 		log.Fatal(err)
@@ -48,6 +48,7 @@ func main() {
 	}
 
 	fmt.Println("# https://github.com/FiloSottile/age")
+	fmt.Println("# https://age-encryption.org")
 	fmt.Println("# https://www.complete.org/age-encryption")
 
 	// This project uses version strings that start with "v" in some places
@@ -74,4 +75,8 @@ func main() {
 	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=age")
 	fmt.Println(fmt.Sprintf("	out=age-%s-src.tar.gz", ver))
+}
+
+func main() {
+	doIt()
 }

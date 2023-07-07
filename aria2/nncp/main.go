@@ -9,7 +9,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-func main() {
+func doIt() {
 	res, err := http.Get("https://nncp.mirrors.quux.org/Tarballs.html")
 	if err != nil {
 		log.Fatal(err)
@@ -43,4 +43,8 @@ func main() {
 		}
 		return true
 	})
+}
+
+func main() {
+	doIt()
 }

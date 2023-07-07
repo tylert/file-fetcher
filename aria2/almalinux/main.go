@@ -57,7 +57,7 @@ func dumpOne(url string) {
 	})
 }
 
-func main() {
+func doIt() {
 	fmt.Println("# https://mirror.xenyth.net/almalinux")
 	fmt.Println("# https://mirrors.almalinux.org/isos.html")
 	fmt.Println("# https://almalinux.org")
@@ -67,4 +67,8 @@ func main() {
 	// XXX FIXME TODO  Try to determine the list of "current" releases programatically!!!
 	dumpOne("https://mirror.xenyth.net/almalinux/9/isos/x86_64")
 	dumpOne("https://mirror.xenyth.net/almalinux/8/isos/x86_64")
+}
+
+func main() {
+	doIt()
 }
