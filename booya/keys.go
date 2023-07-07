@@ -16,6 +16,7 @@ func AgeKeypair() {
 			// XXX FIXME TODO  Check if the files exist first!!!
 			b1 := new(bytes.Buffer)
 			b2 := new(bytes.Buffer)
+			// age-keygen 2>/dev/null | tail -1 | tee priv | age-keygen -y - 2>/dev/null > pub
 			_, err := script.Exec("age-keygen").Last(1).Tee(b1).Exec("age-keygen -y -").Tee(b2).String()
 			if err != nil {
 				panic(err)
@@ -45,6 +46,7 @@ func WireguardKeypair() {
 			// XXX FIXME TODO  Check if the files exist first!!!
 			b1 := new(bytes.Buffer)
 			b2 := new(bytes.Buffer)
+			// wg genkey | tee priv | wg pubkey > pub
 			_, err := script.Exec("wg genkey").Tee(b1).Exec("wg pubkey").Tee(b2).String()
 			if err != nil {
 				panic(err)
@@ -77,4 +79,22 @@ func SSHKeypair() {
 			}
 		}
 	}
+
+	// https://stackoverflow.com/questions/71850135/generate-ed25519-key-pair-compatible-with-openssh
+
+	//import "github.com/mikesmitty/edkey"
+
+	//pubKey, privKey, _ := ed25519.GenerateKey(rand.Reader)
+	//publicKey, _ := ssh.NewPublicKey(pubKey)
+
+	//pemKey := &pem.Block{
+	//	Type:  "OPENSSH PRIVATE KEY",
+	//	Bytes: edkey.MarshalED25519PrivateKey(privKey),  // <- marshals ed25519 correctly
+	//}
+
+	//privateKey := pem.EncodeToMemory(pemKey)
+	//authorizedKey := ssh.MarshalAuthorizedKey(publicKey)
+
+	//_ = ioutil.WriteFile("id_ed25519", privateKey, 0600)
+	//_ = ioutil.WriteFile("id_ed25519.pub", authorizedKey, 0644)
 }
