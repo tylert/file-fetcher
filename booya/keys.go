@@ -13,26 +13,22 @@ func AgeKeypair() {
 	paths := strings.Split(os.Getenv("PATH"), ":")
 	for i := 0; i < len(paths); i++ {
 		if _, err := os.Stat(fmt.Sprintf("%s/age-keygen", paths[i])); err == nil {
-			// Private key
+			// XXX FIXME TODO  Check if the files exist first!!!
 			b1 := new(bytes.Buffer)
-			priv, err := script.Exec("age-keygen").Last(1).Tee(b1).String()
+			b2 := new(bytes.Buffer)
+			_, err := script.Exec("age-keygen").Last(1).Tee(b1).Exec("age-keygen -y -").Tee(b2).String()
 			if err != nil {
 				panic(err)
 			}
-			// XXX FIXME TODO  Check if the file exists first!!!
+
+			// Write out the private key file
 			f1, err := os.OpenFile("age1-sec", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0600)
 			if err != nil {
 				panic(err)
 			}
 			b1.WriteTo(f1)
 
-			// Public key
-			b2 := new(bytes.Buffer)
-			_, err2 := script.Echo(priv).Exec("age-keygen -y -").Tee(b2).String()
-			if err2 != nil {
-				panic(err2)
-			}
-			// XXX FIXME TODO  Check if the file exists first!!!
+			// Write out the public key file
 			f2, err := os.OpenFile("age1-pub", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0664)
 			if err != nil {
 				panic(err)
@@ -46,26 +42,22 @@ func WireguardKeypair() {
 	paths := strings.Split(os.Getenv("PATH"), ":")
 	for i := 0; i < len(paths); i++ {
 		if _, err := os.Stat(fmt.Sprintf("%s/wg", paths[i])); err == nil {
-			// Private key
+			// XXX FIXME TODO  Check if the files exist first!!!
 			b1 := new(bytes.Buffer)
-			priv, err := script.Exec("wg genkey").Tee(b1).String()
+			b2 := new(bytes.Buffer)
+			_, err := script.Exec("wg genkey").Tee(b1).Exec("wg pubkey").Tee(b2).String()
 			if err != nil {
 				panic(err)
 			}
-			// XXX FIXME TODO  Check if the file exists first!!!
+
+			// Write out the private key file
 			f1, err := os.OpenFile("wg1-sec", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0600)
 			if err != nil {
 				panic(err)
 			}
 			b1.WriteTo(f1)
 
-			// Public key
-			b2 := new(bytes.Buffer)
-			_, err2 := script.Echo(priv).Exec("wg pubkey").Tee(b2).String()
-			if err2 != nil {
-				panic(err2)
-			}
-			// XXX FIXME TODO  Check if the file exists first!!!
+			// Write out the public key file
 			f2, err := os.OpenFile("wg1-pub", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0664)
 			if err != nil {
 				panic(err)
