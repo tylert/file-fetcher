@@ -1,27 +1,28 @@
 package main
 
 import (
-//	"github.com/bitfield/script"
+// "github.com/bitfield/script"
 )
 
 func main() {
 	//Python()
 	//Pyenv()
 	//Git()
-	AgeKeypair()
-	WireguardKeypair()
+	//AgeKeypair()
+	//WireguardKeypair()
+	SSHKeypair()
 	//script.Get("https://wttr.in/Ottawa?m&format=3").Stdout()
 	//script.Get("https://wttr.in/Ottawa?u&format=3").Stdout()
 }
 
-// Sec-CH-UA                   => XXX
+// Sec-CH-UA                   => meh
 // Sec-CH-UA-Arch              => "x86", "arm"
-// Sec-CH-UA-Bitness           => 64
+// Sec-CH-UA-Bitness           => 64, 32
 // Sec-CH-UA-Form-Factor       => ""
 // Sec-CH-UA-Full-Version      => "1.0.0"
-// Sec-CH-UA-Full-Version-List => XXX
+// Sec-CH-UA-Full-Version-List => meh
 // Sec-CH-UA-Mobile            => ?0
-// Sec-CH-UA-Model             => XXX
+// Sec-CH-UA-Model             => meh
 // Sec-CH-UA-Platform          => "Linux", "macOS", "Windows"
 // Sec-CH-UA-Platform-Version  => "", "13.4.1", "11"
 // Sec-CH-UA-WoW64             => ?1, ?0

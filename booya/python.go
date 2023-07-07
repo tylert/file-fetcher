@@ -10,6 +10,7 @@ import (
 )
 
 func Python() {
+	// XXX FIXME TODO  Also try to find things named:  python2, python3, python37, python3.9, etc.
 	paths := strings.Split(os.Getenv("PATH"), ":")
 	for i := 0; i < len(paths); i++ {
 		if _, err := os.Stat(fmt.Sprintf("%s/python", paths[i])); err == nil {
