@@ -65,7 +65,7 @@ func WireguardKeypair() {
 
 func SSHKeypair() {
 	// XXX FIXME TODO  Check if the files exist first!!!
-	// ssh-keygen -C '' -N '' -a 16 -f ssh1-sec -t ed25519 ; mv ssh1-sec.pub ssh1-pub
+	// ssh-keygen -C '' -N '' -a 16 -f priv -t ed25519 ; mv priv.pub pub
 	pubKey, privKey, _ := ed25519.GenerateKey(rand.Reader)
 	publicKey, _ := ssh.NewPublicKey(pubKey)
 
