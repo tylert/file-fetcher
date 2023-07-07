@@ -17,46 +17,21 @@ func AgeKeypair() {
 	// XXX FIXME TODO  Check if the files exist first!!!
 	b1 := new(bytes.Buffer)
 	b2 := new(bytes.Buffer)
-	// age-keygen 2>/dev/null | tail -1 | tee priv | age-keygen -y - 2>/dev/null > pub
+	// age-keygen 2>/dev/null | tail -1 | tee secret_key_age | age-keygen -y - 2>/dev/null > public_key_age
 	_, err := script.Exec("age-keygen").Last(1).Tee(b1).Exec("age-keygen -y -").Tee(b2).String()
 	if err != nil {
 		panic(err)
 	}
 
-	// Write out the private key file
-	f1, err := os.OpenFile("age1-sec", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0600)
+	// Write out the secret/private key file
+	f1, err := os.OpenFile("secret_key_age", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0600)
 	if err != nil {
 		panic(err)
 	}
 	b1.WriteTo(f1)
 
 	// Write out the public key file
-	f2, err := os.OpenFile("age1-pub", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0664)
-	if err != nil {
-		panic(err)
-	}
-	b2.WriteTo(f2)
-}
-
-func WireguardKeypair() {
-	// XXX FIXME TODO  Check if the files exist first!!!
-	b1 := new(bytes.Buffer)
-	b2 := new(bytes.Buffer)
-	// wg genkey | tee priv | wg pubkey > pub
-	_, err := script.Exec("wg genkey").Tee(b1).Exec("wg pubkey").Tee(b2).String()
-	if err != nil {
-		panic(err)
-	}
-
-	// Write out the private key file
-	f1, err := os.OpenFile("wg1-sec", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0600)
-	if err != nil {
-		panic(err)
-	}
-	b1.WriteTo(f1)
-
-	// Write out the public key file
-	f2, err := os.OpenFile("wg1-pub", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0664)
+	f2, err := os.OpenFile("public_key_age", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0664)
 	if err != nil {
 		panic(err)
 	}
@@ -65,7 +40,7 @@ func WireguardKeypair() {
 
 func SSHKeypair() {
 	// XXX FIXME TODO  Check if the files exist first!!!
-	// ssh-keygen -C '' -N '' -a 16 -f priv -t ed25519 ; mv priv.pub pub
+	// ssh-keygen -C '' -N '' -a 16 -f secret_key_ssh -t ed25519 ; mv secret_key_ssh.pub public_key_ssh
 	pubKey, privKey, _ := ed25519.GenerateKey(rand.Reader)
 	publicKey, _ := ssh.NewPublicKey(pubKey)
 
@@ -77,6 +52,33 @@ func SSHKeypair() {
 	privateKey := pem.EncodeToMemory(pemKey)
 	authorizedKey := ssh.MarshalAuthorizedKey(publicKey)
 
-	_ = ioutil.WriteFile("ssh1-sec", privateKey, 0600)
-	_ = ioutil.WriteFile("ssh1-pub", authorizedKey, 0644)
+	// Write out the secret/private key file
+	_ = ioutil.WriteFile("secret_key_ssh", privateKey, 0600)
+	// Write out the public key file
+	_ = ioutil.WriteFile("public_key_ssh", authorizedKey, 0644)
+}
+
+func WireguardKeypair() {
+	// XXX FIXME TODO  Check if the files exist first!!!
+	b1 := new(bytes.Buffer)
+	b2 := new(bytes.Buffer)
+	// wg genkey | tee secret_key_wg | wg pubkey > public_key_wg
+	_, err := script.Exec("wg genkey").Tee(b1).Exec("wg pubkey").Tee(b2).String()
+	if err != nil {
+		panic(err)
+	}
+
+	// Write out the secret/private key file
+	f1, err := os.OpenFile("secret_key_wg", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0600)
+	if err != nil {
+		panic(err)
+	}
+	b1.WriteTo(f1)
+
+	// Write out the public key file
+	f2, err := os.OpenFile("public_key_wg", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0664)
+	if err != nil {
+		panic(err)
+	}
+	b2.WriteTo(f2)
 }

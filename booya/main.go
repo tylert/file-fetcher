@@ -1,18 +1,12 @@
 package main
 
-import (
-// "github.com/bitfield/script"
-)
-
 func main() {
 	//Python()
 	//Pyenv()
 	//Git()
-	//AgeKeypair()
-	//WireguardKeypair()
+	AgeKeypair()
 	SSHKeypair()
-	//script.Get("https://wttr.in/Ottawa?m&format=3").Stdout()
-	//script.Get("https://wttr.in/Ottawa?u&format=3").Stdout()
+	WireguardKeypair()
 }
 
 // Sec-CH-UA                   => meh
@@ -29,9 +23,13 @@ func main() {
 
 // https://wicg.github.io/ua-client-hints/#sec-ch-ua-platform-version
 
-// These might seem a bit silly to ask since you already had to compile this for their OS/CPU...
-// (work on both macOS and Linux)
-// getconf LONG_BIT
-// uname -m, uname -p, uname -i, uname -s, uname -o
-// arch
-// [ $((0xffffffff)) -eq -1 ] && echo 32 || echo 64
+// It might seem a bit silly to ask for these since you already had to compile this for their OS/CPU...
+// (most work on both Linux and macOS)
+// [ $((0xffffffff)) -eq -1 ] && echo 32 || echo 64  # "64", "32"
+// getconf LONG_BIT  # "64", "32"
+// uname -m  # "x86_64", "arm64", etc.
+// uname -s  # "Linux", "Darwin", etc.
+// uname -o  # "GNU/Linux", "Darwin", etc.
+// uname -p  # "unknown", "arm", etc.
+// uname -i  # "unknown", illegal option, etc.
+// arch  # doesn't work on some Linux distros
