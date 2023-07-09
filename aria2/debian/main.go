@@ -66,10 +66,10 @@ func doIt() {
 	fmt.Println("# https://en.wikipedia.org/wiki/Debian_version_history")
 	fmt.Println("# https://distrowatch.com/debian")
 
-	dumpOne("http://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd")   // testing
-	dumpOne("http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd") // stable
-	dumpOne("http://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd")
-	dumpOne("http://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd")
+	dumpOne("https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd")   // testing
+	dumpOne("https://cdimage.debian.org/cdimage/release/current/amd64/iso-cd") // stable
+	dumpOne("https://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd")
+	dumpOne("https://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd")
 
 	fmt.Println("# https://ftp-master.debian.org/keys.html")
 	fmt.Println("# https://ftp-master.debian.org/keys")
