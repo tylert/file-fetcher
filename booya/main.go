@@ -1,6 +1,12 @@
 package main
 
+import (
+	"fmt"
+)
+
 func main() {
+	fmt.Println(GetVersion())
+
 	//Python()
 	//Pyenv()
 	//Git()
