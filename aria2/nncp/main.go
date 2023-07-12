@@ -25,6 +25,8 @@ func doIt() {
 	}
 
 	fmt.Println("# https://nncp.mirrors.quux.org/Tarballs.html")
+	fmt.Println("# https://nncp.mirrors.quux.org")
+	fmt.Println("# http://www.nncpgo.org")
 	fmt.Println("# https://www.complete.org/nncp")
 
 	// Stop after showing links for exactly 1 release (which should be the newest ones)
