@@ -30,13 +30,13 @@ func doIt() {
 	fmt.Println("# https://en.wikipedia.org/wiki/Go_(programming_language)")
 
 	// Stop after showing links for exactly 1 release (which should be the newest ones)
-	count := 4
+	count := 3
 	doc.Find("tr").EachWithBreak(func(i int, s *goquery.Selection) bool {
 		moo := s.Find("td.filename a")
 		poo := s.Find("td tt").Text()
 		href, ok := moo.Attr("href")
 		if ok {
-			if (strings.Contains(href, "linux") && !strings.Contains(href, "386") && !strings.Contains(href, "s390x") && !strings.Contains(href, "ppc64le")) || strings.Contains(href, "src") {
+			if (strings.Contains(href, "linux") && !strings.Contains(href, "386") && !strings.Contains(href, "armv6l") && !strings.Contains(href, "s390x") && !strings.Contains(href, "ppc64le")) || strings.Contains(href, "src") {
 				fmt.Println(fmt.Sprintf("https://go.dev%s", href))
 				fmt.Println("	dir=golang")
 				fmt.Println(fmt.Sprintf("	checksum=sha-256=%s", poo))
