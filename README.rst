@@ -35,9 +35,6 @@ Next Items
 * https://releases.hashicorp.com/index.json
 * https://www.asus.com/supportonly/rog%20strix%20b550-a%20gaming/helpdesk_bios/
 * https://www.asus.com/supportonly/rog%20strix%20b450-f%20gaming/helpdesk_bios/
-* https://bitfieldconsulting.com/golang/scripting
-* https://github.com/bitfield/script
-* https://pkg.go.dev/github.com/bitfield/script
 
 
 Other
@@ -63,3 +60,6 @@ Other
 * https://stackoverflow.com/questions/71153302/how-to-set-depth-for-recursive-iteration-of-directories-in-filepath-walk-func
 * https://stackoverflow.com/questions/73864379/golang-change-permission-os-chmod-and-os-chowm-recursively
 * https://stackoverflow.com/questions/72904719/golang-chmod-files-and-directories-recursively
+* https://bitfieldconsulting.com/golang/scripting
+* https://github.com/bitfield/script
+* https://pkg.go.dev/github.com/bitfield/script
