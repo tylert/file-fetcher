@@ -5,14 +5,25 @@ import (
 )
 
 func main() {
-	fmt.Println(GetVersion())
+	if aVersion {
+		fmt.Println(GetVersion())
+	}
 
 	//Python()
 	//Pyenv()
 	//Git()
-	AgeKeypair()
-	SSHKeypair()
-	WireguardKeypair()
+
+	if aAgeKey {
+		AgeKeypair()
+	}
+
+	if aSshKey {
+		SSHKeypair()
+	}
+
+	if aWgKey {
+		WireguardKeypair()
+	}
 }
 
 // Sec-CH-UA                   => meh
