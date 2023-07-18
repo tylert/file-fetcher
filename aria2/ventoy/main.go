@@ -76,51 +76,6 @@ func doIt() {
 	fmt.Println(fmt.Sprintf("	out=ventoy-%s-src.tar.gz", ver))
 }
 
-func doItAgain() {
-	res, err := http.Get("https://api.github.com/repos/ventoy/PXE/releases/latest")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer res.Body.Close()
-	if res.StatusCode != 200 {
-		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
-	}
-
-	var rel Release
-	err = json.NewDecoder(res.Body).Decode(&rel)
-	if err != nil {
-		log.Fatalf("Kaboom!")
-	}
-
-	fmt.Println("# https://github.com/ventoy/PXE")
-	fmt.Println("# https://www.iventoy.com/en/download.html")
-	fmt.Println("# https://iventoy.com")
-
-	// This project uses version strings that start with "v" in some places
-	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
-	ver := reg.FindString(rel.TagName)
-
-	// Compiled binaries
-	for i := 0; i < len(rel.Assets); i++ {
-		if strings.Contains(rel.Assets[i].Name, "-linux") {
-			fmt.Println(rel.Assets[i].BrowserDownloadURL)
-			fmt.Println("	dir=Ventoy")
-		} else if strings.Contains(rel.Assets[i].Name, "sha256.txt") {
-			fmt.Println(rel.Assets[i].BrowserDownloadURL)
-			fmt.Println("	dir=Ventoy")
-			fmt.Println(fmt.Sprintf("	out=iventoy-%s-sha256.txt", ver))
-		} else {
-			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
-		}
-	}
-
-	// Source code
-	fmt.Println(rel.TarballURL)
-	fmt.Println("	dir=Ventoy")
-	fmt.Println(fmt.Sprintf("	out=iventoy-%s-src.tar.gz", ver))
-}
-
 func main() {
 	doIt()
-	doItAgain()
 }
