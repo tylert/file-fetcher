@@ -24,6 +24,10 @@ func main() {
 	if aWgKey {
 		WireguardKeypair()
 	}
+
+	if aWgPsk {
+		WireguardPreSharedKey()
+	}
 }
 
 // Sec-CH-UA                   => meh

@@ -15,6 +15,7 @@ var (
 	aSshKey  bool
 	aVersion bool
 	aWgKey   bool
+	aWgPsk   bool
 )
 
 func init() {
@@ -24,6 +25,7 @@ func init() {
 		sSshKey  = "Generate an ssh keypair (default false)"
 		sVersion = "Display build version information (default false)"
 		sWgKey   = "Generate a wireguard keypair (default false)"
+		sWgPsk   = "Generate a wireguard pre-shared key (default false)"
 	)
 
 	flag.BoolVar(&aAgeKey, "age", FromEnvP("MEH_AGE_KEY", false).(bool), sAgeKey)
@@ -34,6 +36,8 @@ func init() {
 	flag.BoolVar(&aVersion, "v", FromEnvP("MEH_VERSION", false).(bool), sVersion)
 	flag.BoolVar(&aWgKey, "wg", FromEnvP("MEH_WG_KEY", false).(bool), sWgKey)
 	flag.BoolVar(&aWgKey, "w", FromEnvP("MEH_WG_KEY", false).(bool), sWgKey)
+	flag.BoolVar(&aWgPsk, "wp", FromEnvP("MEH_WG_PSK", false).(bool), sWgPsk)
+	flag.BoolVar(&aWgPsk, "p", FromEnvP("MEH_WG_PSK", false).(bool), sWgPsk)
 	iniflags.Parse()
 
 	if flag.NArg() > 0 {
