@@ -31,6 +31,7 @@ func AgeKeypair() {
 	b1.WriteTo(f1)
 
 	// Write out the public key file
+	// Can be done with "age-keygen -y secret_key_age > public_key_age" instead
 	f2, err := os.OpenFile("public_key_age", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0664)
 	if err != nil {
 		panic(err)
@@ -55,6 +56,7 @@ func SSHKeypair() {
 	// Write out the secret/private key file
 	_ = ioutil.WriteFile("secret_key_ssh", privateKey, 0600)
 	// Write out the public key file
+	// Can be done with "ssh-keygen -y -f secret_key_ssh > public_key_ssh" instead
 	_ = ioutil.WriteFile("public_key_ssh", authorizedKey, 0644)
 }
 
@@ -76,6 +78,7 @@ func WireguardKeypair() {
 	b1.WriteTo(f1)
 
 	// Write out the public key file
+	// Can be done with "cat secret_key_wg | wg pubkey > public_key_wg" instead
 	f2, err := os.OpenFile("public_key_wg", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0664)
 	if err != nil {
 		panic(err)

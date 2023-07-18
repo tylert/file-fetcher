@@ -50,6 +50,7 @@ func doIt() {
 	fmt.Println("# https://github.com/FiloSottile/age")
 	fmt.Println("# https://age-encryption.org")
 	fmt.Println("# https://www.complete.org/age-encryption")
+	fmt.Println("# https://yaeba.github.io/blog/age")
 
 	// This project uses version strings that start with "v" in some places
 	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
