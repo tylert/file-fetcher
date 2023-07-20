@@ -16,7 +16,7 @@ import (
 func AgeKeypair() {
 	// XXX FIXME TODO  Check if the tools/files exist first!!!
 
-	// age-keygen 2>/dev/null | tail -1 | tee secret_key_age | age-keygen -y - 2>/dev/null > public_key_age  # generate keypair
+	// age-keygen 2>/dev/null | tail -1 | (umask 0077 && tee secret_key_age) | age-keygen -y - 2>/dev/null > public_key_age  # generate keypair
 	// cat secret_key_file | age -p > meh && mv meh secret_key_file  # set/change passphrase
 	// age-keygen -y secret_key_age > public_key_age  # recover public key
 
@@ -65,7 +65,7 @@ func SSHKeypair() {
 func WireguardKeypair() {
 	// XXX FIXME TODO  Check if the tools/files exist first!!!
 
-	// wg genkey | tee secret_key_wg | wg pubkey > public_key_wg  # generate keypair
+	// wg genkey | (umask 0077 && tee secret_key_wg) | wg pubkey > public_key_wg  # generate keypair
 	// cat secret_key_wg | wg pubkey > public_key_wg  # recover public key
 
 	b1 := new(bytes.Buffer)
@@ -91,7 +91,7 @@ func WireguardKeypair() {
 func WireguardPreSharedKey() {
 	// XXX FIXME TODO  Check if the tools/files exist first!!!
 
-	// wg genpsk > shared_key_wg  # generate pre-shared key
+	// (umask 0077 && wg genpsk > shared_key_wg)  # generate pre-shared key
 
 	b3 := new(bytes.Buffer)
 	_, err := script.Exec("wg genpsk").Tee(b3).String()
