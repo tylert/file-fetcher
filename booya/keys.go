@@ -19,8 +19,9 @@ func AgeKeypair() {
 	// XXX FIXME TODO  Check if the files exist first!!!
 
 	// age-keygen 2>/dev/null | tail -1 | (umask 0077 && tee secret_key_age) | age-keygen -y - 2>/dev/null > public_key_age  # generate keypair
-	// cat secret_key_file | age -p > meh && mv meh secret_key_file  # set/change passphrase
 	// age-keygen -y secret_key_age > public_key_age  # recover public key
+	// (umask 0077 && cat secret_key_age | age -p > secret_key_age.age)  # add password-protection to private key
+	// (umask 0077 && age -d secret_key_age.age > secret_key_age)  # remove password-protection from private key
 
 	paths := strings.Split(os.Getenv("PATH"), ":")
 	for _, path := range paths {
@@ -53,8 +54,8 @@ func SSHKeypair() {
 	// XXX FIXME TODO  Check if the files exist first!!!
 
 	// ssh-keygen -C '' -N '' -a 16 -f secret_key_ssh -t ed25519 ; mv secret_key_ssh.pub public_key_ssh  # generate keypair
-	// ssh-keygen -a 512 -p -f secret_key_ssh  # set/change passphrase
 	// ssh-keygen -y -f secret_key_ssh > public_key_ssh  # recover public key
+	// ssh-keygen -a 512 -p -f secret_key_ssh  # add/remove/change password-protection on private key
 
 	pubKey, privKey, _ := ed25519.GenerateKey(rand.Reader)
 	publicKey, _ := ssh.NewPublicKey(pubKey)

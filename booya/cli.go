@@ -36,7 +36,7 @@ func init() {
 	flag.BoolVar(&aVersion, "v", FromEnvP("MEH_VERSION", false).(bool), sVersion)
 	flag.BoolVar(&aWgKey, "wg", FromEnvP("MEH_WG_KEY", false).(bool), sWgKey)
 	flag.BoolVar(&aWgKey, "w", FromEnvP("MEH_WG_KEY", false).(bool), sWgKey)
-	flag.BoolVar(&aWgPsk, "wp", FromEnvP("MEH_WG_PSK", false).(bool), sWgPsk)
+	flag.BoolVar(&aWgPsk, "wgpsk", FromEnvP("MEH_WG_PSK", false).(bool), sWgPsk)
 	flag.BoolVar(&aWgPsk, "p", FromEnvP("MEH_WG_PSK", false).(bool), sWgPsk)
 	iniflags.Parse()
 
