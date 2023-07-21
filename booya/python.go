@@ -23,8 +23,6 @@ func Python() {
 			script.Echo("\n").Stdout()
 		}
 	}
-
-	// XXX FIXME TODO  Nag them if it isn't the latest???  Or at least set a sensible lower-bound!!!
 }
 
 func Pyenv() {
@@ -45,6 +43,4 @@ func Pyenv() {
 			script.Echo("\n").Stdout()
 		}
 	}
-
-	// XXX FIXME TODO  Nag them if it isn't the latest???  Or at least set a sensible lower-bound!!!
 }

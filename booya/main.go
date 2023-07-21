@@ -9,9 +9,10 @@ func main() {
 		fmt.Println(GetVersion())
 	}
 
+	//Git()
+	//GitConfig()
 	//Python()
 	//Pyenv()
-	//Git()
 
 	if aAgeKey {
 		AgeKeypair()
