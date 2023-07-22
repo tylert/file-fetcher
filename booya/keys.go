@@ -73,6 +73,7 @@ func SSHKeypair() {
 }
 
 // https://github.com/mikalv/anything2ed25519
+// https://superuser.com/questions/308126/is-it-possible-to-sign-a-file-using-an-ssh-key
 
 func WireguardKeypair() {
 	// XXX FIXME TODO  Check if the files exist first!!!
