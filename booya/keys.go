@@ -72,6 +72,8 @@ func SSHKeypair() {
 	_ = ioutil.WriteFile("public_key_ssh", authorizedKey, 0644)
 }
 
+// https://github.com/mikalv/anything2ed25519
+
 func WireguardKeypair() {
 	// XXX FIXME TODO  Check if the files exist first!!!
 
