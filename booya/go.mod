@@ -3,6 +3,7 @@ module meh
 go 1.20
 
 require (
+	filippo.io/age v1.1.1
 	github.com/bitfield/script v0.22.0
 	github.com/ian-kent/envconf v0.0.0-20141026121121-c19809918c02
 	github.com/mikesmitty/edkey v0.0.0-20170222072505-3356ea4e686a
