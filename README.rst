@@ -55,3 +55,5 @@ Other
 * https://bitfieldconsulting.com/golang/scripting
 * https://github.com/bitfield/script
 * https://pkg.go.dev/github.com/bitfield/script
+* https://jedisct1.github.io/minisign/
+* https://github.com/aead/minisign
