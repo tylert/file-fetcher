@@ -1,20 +1,17 @@
 package main
 
 import (
-	"bytes"
 	"crypto/rand"
 	"encoding/pem"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
-	"strings"
 
 	"filippo.io/age"
-	"github.com/bitfield/script"
 	"github.com/mikesmitty/edkey"
 	"golang.org/x/crypto/ed25519"
 	"golang.org/x/crypto/ssh"
+	"golang.zx2c4.com/wireguard/wgctrl/wgtypes"
 )
 
 func AgeKeypair() {
@@ -64,8 +61,8 @@ func SSHKeypair() {
 	privateKey := pem.EncodeToMemory(pemKey)
 	authorizedKey := ssh.MarshalAuthorizedKey(publicKey)
 
-	_ = ioutil.WriteFile("secret_key_ssh", privateKey, 0600)
-	_ = ioutil.WriteFile("public_key_ssh", authorizedKey, 0644)
+	_ = os.WriteFile("secret_key_ssh", privateKey, 0600)
+	_ = os.WriteFile("public_key_ssh", authorizedKey, 0644)
 }
 
 func WireguardKeypair() {
@@ -74,31 +71,22 @@ func WireguardKeypair() {
 	// wg genkey | (umask 0077 && tee secret_key_wg) | wg pubkey > public_key_wg  # generate keypair
 	// cat secret_key_wg | wg pubkey > public_key_wg  # recover public key
 
-	paths := strings.Split(os.Getenv("PATH"), ":")
-	for _, path := range paths {
-		if _, err := os.Stat(fmt.Sprintf("%s/wg", path)); err == nil {
-			b1 := new(bytes.Buffer)
-			b2 := new(bytes.Buffer)
-			_, err := script.Exec("wg genkey").Tee(b1).Exec("wg pubkey").Tee(b2).String()
-			if err != nil {
-				panic(err)
-			}
+	priv, _ := wgtypes.GeneratePrivateKey()
+	pub := priv.PublicKey()
 
-			f1, err := os.OpenFile("secret_key_wg", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0600)
-			if err != nil {
-				panic(err)
-			}
-			b1.WriteTo(f1)
-
-			f2, err := os.OpenFile("public_key_wg", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0664)
-			if err != nil {
-				panic(err)
-			}
-			b2.WriteTo(f2)
-
-			break
-		}
+	f3, err := os.OpenFile("secret_key_wg", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0600)
+	if err != nil {
+		panic(err)
 	}
+	f3.Write([]byte(fmt.Sprintf("%s\n", priv.String())))
+	f3.Close()
+
+	f4, err := os.OpenFile("public_key_wg", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0644)
+	if err != nil {
+		panic(err)
+	}
+	f4.Write([]byte(fmt.Sprintf("%s\n", pub.String())))
+	f4.Close()
 }
 
 func WireguardPreSharedKey() {
@@ -106,26 +94,15 @@ func WireguardPreSharedKey() {
 
 	// (umask 0077 && wg genpsk > shared_key_wg)  # generate pre-shared key
 
-	paths := strings.Split(os.Getenv("PATH"), ":")
-	for _, path := range paths {
-		if _, err := os.Stat(fmt.Sprintf("%s/wg", path)); err == nil {
-			b3 := new(bytes.Buffer)
-			_, err := script.Exec("wg genpsk").Tee(b3).String()
-			if err != nil {
-				panic(err)
-			}
+	pskey, _ := wgtypes.GenerateKey()
 
-			f3, err := os.OpenFile("shared_key_wg", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0600)
-			if err != nil {
-				panic(err)
-			}
-			b3.WriteTo(f3)
-
-			break
-		}
+	f5, err := os.OpenFile("shared_key_wg", os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0600)
+	if err != nil {
+		panic(err)
 	}
+	f5.Write([]byte(fmt.Sprintf("%s\n", pskey.String())))
+	f5.Close()
 }
 
-// https://github.com/slaveofcode/age-encryption
 // https://github.com/mikalv/anything2ed25519
 // https://superuser.com/questions/308126/is-it-possible-to-sign-a-file-using-an-ssh-key
