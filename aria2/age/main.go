@@ -48,6 +48,7 @@ func doIt() {
 	}
 
 	fmt.Println("# https://github.com/FiloSottile/age")
+	fmt.Println("# https://github.com/FiloSottile/awesome-age")
 	fmt.Println("# https://age-encryption.org")
 	fmt.Println("# https://www.complete.org/age-encryption")
 	fmt.Println("# https://words.filippo.io/dispatches/age-authentication")
