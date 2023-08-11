@@ -84,7 +84,7 @@ func dumpSrc(ver string) {
 	var rel Release
 	err = json.NewDecoder(res.Body).Decode(&rel)
 	if err != nil {
-		log.Fatalf("Kaboom!")
+		log.Fatal(err)
 	}
 
 	// Source code

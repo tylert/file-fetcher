@@ -74,7 +74,7 @@ func doIt() {
 	var rel Release
 	err = json.NewDecoder(res.Body).Decode(&rel)
 	if err != nil {
-		log.Fatalf("Kaboom!")
+		log.Fatal(err)
 	}
 
 	fmt.Println("# https://github.com/openwrt/openwrt")

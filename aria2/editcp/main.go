@@ -35,7 +35,7 @@ func dumpSrc(url string, target string) {
 	var tag Entry
 	err = json.NewDecoder(res.Body).Decode(&tag)
 	if err != nil {
-		log.Fatalf("Kaboom!")
+		log.Fatal(err)
 	}
 
 	// This project uses version strings that start with "v" in some places

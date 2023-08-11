@@ -21,10 +21,6 @@ Running It
 Next Items
 ----------
 
-* https://salsa.debian.org/api/v4/projects/69786/releases
-* https://salsa.debian.org/jgoerzen/filespooler/
-* https://www.complete.org/filespooler/
-
 * https://github.com/TheZoraiz/ascii-image-converter
 * https://github.com/minamijoyo/hcledit
 * https://github.com/hairyhenderson/gomplate
