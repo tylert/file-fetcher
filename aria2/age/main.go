@@ -60,7 +60,7 @@ func doIt() {
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
-		if strings.Contains(rel.Assets[i].Name, "-linux") {
+		if strings.Contains(rel.Assets[i].Name, "-linux") && strings.Contains(rel.Assets[i].Name, "64") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
 			fmt.Println("	dir=age")
 		} else {
