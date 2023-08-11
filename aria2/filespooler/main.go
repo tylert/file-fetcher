@@ -72,7 +72,7 @@ func doIt() {
 		if strings.Contains(rel.Assets.Sources[j].URL, ".tar.gz") {
 			fmt.Println(rel.Assets.Sources[j].URL)
 			fmt.Println("	dir=Filespooler")
-			fmt.Println(fmt.Sprintf("	out=filespooler-%s-src.tar.gz", ver))
+			fmt.Println(fmt.Sprintf("	out=fspl-%s-src.tar.gz", ver))
 		} else {
 			whatzit := strings.Split(rel.Assets.Sources[j].URL, "/")
 			fmt.Println(fmt.Sprintf("# skipped %s", whatzit[len(whatzit)-1]))
