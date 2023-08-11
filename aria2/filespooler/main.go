@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"regexp"
+	"strings"
 	"time"
 )
 
@@ -50,16 +51,32 @@ func doIt() {
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets.Links); i++ {
-		fmt.Println(fmt.Sprintf("# %s", rel.Assets.Links[i].Name))
-		fmt.Println(rel.Assets.Links[i].DirectAssetURL)
-		fmt.Println("	dir=Filespooler")
-		fmt.Println(fmt.Sprintf("	out=fspl-%s", ver))
+		if strings.Contains(rel.Assets.Links[i].Name, "Linux x86_64") {
+			fmt.Println(fmt.Sprintf("# %s", rel.Assets.Links[i].Name))
+			fmt.Println(rel.Assets.Links[i].DirectAssetURL)
+			fmt.Println("	dir=Filespooler")
+			fmt.Println(fmt.Sprintf("	out=fspl-%s-linux-amd64", ver))
+		} else if strings.Contains(rel.Assets.Links[i].Name, "Linux aarch64") {
+			fmt.Println(fmt.Sprintf("# %s", rel.Assets.Links[i].Name))
+			fmt.Println(rel.Assets.Links[i].DirectAssetURL)
+			fmt.Println("	dir=Filespooler")
+			fmt.Println(fmt.Sprintf("	out=fspl-%s-linux-arm64", ver))
+		} else {
+			whatzit := strings.Split(rel.Assets.Links[i].DirectAssetURL, "/")
+			fmt.Println(fmt.Sprintf("# skipped %s", whatzit[len(whatzit)-3]))
+		}
 	}
 
 	// Source code
 	for j := 0; j < len(rel.Assets.Sources); j++ {
-		fmt.Println(rel.Assets.Sources[j].URL)
-		fmt.Println("	dir=Filespooler")
+		if strings.Contains(rel.Assets.Sources[j].URL, ".tar.gz") {
+			fmt.Println(rel.Assets.Sources[j].URL)
+			fmt.Println("	dir=Filespooler")
+			fmt.Println(fmt.Sprintf("	out=filespooler-%s-src.tar.gz", ver))
+		} else {
+			whatzit := strings.Split(rel.Assets.Sources[j].URL, "/")
+			fmt.Println(fmt.Sprintf("# skipped %s", whatzit[len(whatzit)-1]))
+		}
 	}
 }
 

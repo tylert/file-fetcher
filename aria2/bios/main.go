@@ -31,7 +31,7 @@ func dumpOne(url string) {
 	doc.Find("a").EachWithBreak(func(i int, s *goquery.Selection) bool {
 		href, ok := s.Attr("href")
 		if ok {
-			if strings.Contains(href, "zip") {
+			if strings.Contains(href, ".zip") {
 				moo := href[:strings.IndexByte(href, '?')]
 				fmt.Println(moo)
 				fmt.Println("	dir=bios")
