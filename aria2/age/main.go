@@ -63,6 +63,7 @@ func doIt() {
 		if strings.Contains(rel.Assets[i].Name, "-linux") && strings.Contains(rel.Assets[i].Name, "64") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
 			fmt.Println("	dir=age")
+			// XXX FIXME TODO  Strip the "v" out of the version parts of the filenames
 		} else {
 			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
 		}

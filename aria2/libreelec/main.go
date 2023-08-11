@@ -90,7 +90,7 @@ func dumpSrc(ver string) {
 	// Source code
 	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=LibreELEC")
-	fmt.Println(fmt.Sprintf("	out=LibreELEC-src-%s.tar.gz", ver))
+	fmt.Println(fmt.Sprintf("	out=LibreELEC-%s-src.tar.gz", ver))
 }
 
 func doIt() {
