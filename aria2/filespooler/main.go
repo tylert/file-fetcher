@@ -42,6 +42,7 @@ func doIt() {
 		log.Fatal(err)
 	}
 
+	fmt.Println("# https://salsa.debian.org/jgoerzen/filespooler/-/releases")
 	fmt.Println("# https://salsa.debian.org/jgoerzen/filespooler")
 	fmt.Println("# https://www.complete.org/filespooler")
 
