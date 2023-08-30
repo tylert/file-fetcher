@@ -60,6 +60,7 @@ func doIt() {
 			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
 		}
 	}
+	// XXX FIXME TODO  There is rather poor consistency in the filename case in this project
 }
 
 func main() {
