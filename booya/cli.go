@@ -28,16 +28,16 @@ func init() {
 		sWgPsk   = "Generate a wireguard pre-shared key (default false)"
 	)
 
-	flag.BoolVar(&aAgeKey, "age", FromEnvP("MEH_AGE_KEY", false).(bool), sAgeKey)
-	flag.BoolVar(&aAgeKey, "a", FromEnvP("MEH_AGE_KEY", false).(bool), sAgeKey)
-	flag.BoolVar(&aSshKey, "ssh", FromEnvP("MEH_SSH_KEY", false).(bool), sSshKey)
-	flag.BoolVar(&aSshKey, "s", FromEnvP("MEH_SSH_KEY", false).(bool), sSshKey)
+	flag.BoolVar(&aAgeKey, "age", FromEnvP("MEH_AGEKEY", false).(bool), sAgeKey)
+	flag.BoolVar(&aAgeKey, "a", FromEnvP("MEH_AGEKEY", false).(bool), sAgeKey)
+	flag.BoolVar(&aSshKey, "ssh", FromEnvP("MEH_SSHKEY", false).(bool), sSshKey)
+	flag.BoolVar(&aSshKey, "s", FromEnvP("MEH_SSHKEY", false).(bool), sSshKey)
 	flag.BoolVar(&aVersion, "version", FromEnvP("MEH_VERSION", false).(bool), sVersion)
 	flag.BoolVar(&aVersion, "v", FromEnvP("MEH_VERSION", false).(bool), sVersion)
-	flag.BoolVar(&aWgKey, "wg", FromEnvP("MEH_WG_KEY", false).(bool), sWgKey)
-	flag.BoolVar(&aWgKey, "w", FromEnvP("MEH_WG_KEY", false).(bool), sWgKey)
-	flag.BoolVar(&aWgPsk, "wgpsk", FromEnvP("MEH_WG_PSK", false).(bool), sWgPsk)
-	flag.BoolVar(&aWgPsk, "p", FromEnvP("MEH_WG_PSK", false).(bool), sWgPsk)
+	flag.BoolVar(&aWgKey, "wg", FromEnvP("MEH_WGKEY", false).(bool), sWgKey)
+	flag.BoolVar(&aWgKey, "w", FromEnvP("MEH_WGKEY", false).(bool), sWgKey)
+	flag.BoolVar(&aWgPsk, "wgpsk", FromEnvP("MEH_WGPSK", false).(bool), sWgPsk)
+	flag.BoolVar(&aWgPsk, "p", FromEnvP("MEH_WGPSK", false).(bool), sWgPsk)
 	iniflags.Parse()
 
 	if flag.NArg() > 0 {
