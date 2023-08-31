@@ -57,7 +57,7 @@ func dumpOne(url string) {
 	})
 }
 
-func dumpUgh(url string) {
+func dumpUgh(url string) { // June 30, 2024!!!
 	res, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)
@@ -91,15 +91,16 @@ func doIt() {
 	fmt.Println("# https://mirror.xenyth.net/centos")
 	fmt.Println("# https://centos.org/download")
 	fmt.Println("# https://centos.org")
+	fmt.Println("# https://en.wikipedia.org/wiki/CentOS#CentOS_releases")
 	fmt.Println("# https://en.wikipedia.org/wiki/CentOS")
 	fmt.Println("# https://distrowatch.com/centos")
 
 	// XXX FIXME TODO  Try to determine the list of "current" releases programatically!!!
-	dumpOne("https://mirror.xenyth.net/centos-stream/9-stream/BaseOS/x86_64/iso")
-	dumpOne("https://mirror.xenyth.net/centos/8-stream/isos/x86_64")
-	dumpUgh("https://mirror.xenyth.net/centos/7/isos/x86_64")
+	dumpOne("https://mirror.xenyth.net/centos-stream/9-stream/BaseOS/x86_64/iso") // May 31, 2027!!!
+	dumpOne("https://mirror.xenyth.net/centos/8-stream/isos/x86_64")              // May 31, 2024!!!
+	dumpUgh("https://mirror.xenyth.net/centos/7/isos/x86_64")                     // June 30, 2024!!!
 
-	// Get the signing keys too
+	// Get the signing keys too (but, newer releases don't seem to provide GPG sigs so, June 30, 2024!!!)
 	fmt.Println("https://mirror.xenyth.net/centos/RPM-GPG-KEY-CentOS-7") // 6341AB2753D78A78A7C27BB124C6A8A7F4A80EB5
 	fmt.Println("	dir=CentOS")
 }

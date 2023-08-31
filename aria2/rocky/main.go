@@ -61,6 +61,7 @@ func doIt() {
 	fmt.Println("# https://mirror.xenyth.net/rocky")
 	fmt.Println("# https://rockylinux.org/download")
 	fmt.Println("# https://rockylinux.org")
+	fmt.Println("# https://en.wikipedia.org/wiki/Rocky_Linux#Releases")
 	fmt.Println("# https://en.wikipedia.org/wiki/Rocky_Linux")
 	fmt.Println("# https://distrowatch.com/rocky")
 

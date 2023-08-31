@@ -61,6 +61,7 @@ func doIt() {
 	fmt.Println("# https://mirror.xenyth.net/almalinux")
 	fmt.Println("# https://mirrors.almalinux.org/isos.html")
 	fmt.Println("# https://almalinux.org")
+	fmt.Println("# https://en.wikipedia.org/wiki/AlmaLinux#Releases")
 	fmt.Println("# https://en.wikipedia.org/wiki/AlmaLinux")
 	fmt.Println("# https://distrowatch.com/alma")
 
