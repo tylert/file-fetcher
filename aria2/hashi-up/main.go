@@ -55,14 +55,30 @@ func doIt() {
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
-		if !strings.Contains(rel.Assets[i].Name, "-armhf") && !strings.Contains(rel.Assets[i].Name, "-darwin") && !strings.Contains(rel.Assets[i].Name, ".exe") {
+		if strings.Contains(rel.Assets[i].Name, "hashi-up-arm64") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
 			fmt.Println("	dir=hashi-up")
+			fmt.Println(fmt.Sprintf("	out=hashi-up-%s-linux-arm64", ver))
+		} else if strings.Contains(rel.Assets[i].Name, "hashi-up") && !strings.Contains(rel.Assets[i].Name, "-armhf") && !strings.Contains(rel.Assets[i].Name, "-darwin") && !strings.Contains(rel.Assets[i].Name, ".exe") {
+			fmt.Println(rel.Assets[i].BrowserDownloadURL)
+			fmt.Println("	dir=hashi-up")
+			fmt.Println(fmt.Sprintf("	out=hashi-up-%s-linux-amd64", ver))
+		} else if strings.Contains(rel.Assets[i].Name, "checksums.txt.sig") {
+			fmt.Println(rel.Assets[i].BrowserDownloadURL)
+			fmt.Println("	dir=hashi-up")
+			fmt.Println(fmt.Sprintf("	out=hashi-up-%s-checksums.txt.sig", ver))
+		} else if strings.Contains(rel.Assets[i].Name, "checksums.txt.pem") {
+			fmt.Println(rel.Assets[i].BrowserDownloadURL)
+			fmt.Println("	dir=hashi-up")
+			fmt.Println(fmt.Sprintf("	out=hashi-up-%s-checksums.txt.pem", ver))
+		} else if strings.Contains(rel.Assets[i].Name, "checksums.txt") {
+			fmt.Println(rel.Assets[i].BrowserDownloadURL)
+			fmt.Println("	dir=hashi-up")
+			fmt.Println(fmt.Sprintf("	out=hashi-up-%s-checksums.txt", ver))
 		} else {
 			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
 		}
 	}
-	// XXX FIXME TODO  Play with the strings to slip a version string in there and add missing info for x86_64 Linux
 
 	// Source code
 	fmt.Println(rel.TarballURL)
