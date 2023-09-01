@@ -62,14 +62,14 @@ func dumpOne(url string) {
 func doIt() {
 	fmt.Println("# https://cdimage.debian.org/cdimage")
 	fmt.Println("# https://debian.org")
-	fmt.Println("# https://en.wikipedia.org/wiki/Debian_version_history")
+	fmt.Println("# https://en.wikipedia.org/wiki/Debian_version_history#Release_table")
 	fmt.Println("# https://en.wikipedia.org/wiki/Debian")
 	fmt.Println("# https://distrowatch.com/debian")
 
-	dumpOne("https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd")   // testing
-	dumpOne("https://cdimage.debian.org/cdimage/release/current/amd64/iso-cd") // stable
-	dumpOne("https://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd")
-	dumpOne("https://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd")
+	dumpOne("https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd")               // testing
+	dumpOne("https://cdimage.debian.org/cdimage/release/current/amd64/iso-cd")             // stable
+	dumpOne("https://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd")    // oldstable
+	dumpOne("https://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd") // oldoldstable
 
 	fmt.Println("# https://ftp-master.debian.org/keys.html")
 	fmt.Println("# https://ftp-master.debian.org/keys")

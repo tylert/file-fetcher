@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"strings"
+	//"strings"
 	"time"
 )
 
@@ -31,7 +31,7 @@ type Release struct {
 }
 
 func doIt() {
-	res, err := http.Get("https://api.github.com/repos/alexellis/k3sup/releases/latest")
+	res, err := http.Get("https://api.github.com/repos/loft-sh/vcluster/releases/latest")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -46,37 +46,26 @@ func doIt() {
 		log.Fatal(err)
 	}
 
-	fmt.Println("# https://github.com/alexellis/k3sup")
+	fmt.Println("# https://github.com/loft-sh/vcluster")
+	fmt.Println("# https://vcluster.com")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
-		if !strings.Contains(rel.Assets[i].Name, "-armhf") && !strings.Contains(rel.Assets[i].Name, "-darwin") && !strings.Contains(rel.Assets[i].Name, ".exe") {
-			if strings.Contains(rel.Assets[i].Name, "-arm64.sha256") {
-				fmt.Println(rel.Assets[i].BrowserDownloadURL)
-				fmt.Println("	dir=k3sup")
-				fmt.Println(fmt.Sprintf("	out=k3sup-%s-linux-arm64.sha256.txt", rel.TagName))
-			} else if strings.Contains(rel.Assets[i].Name, "-arm64") {
-				fmt.Println(rel.Assets[i].BrowserDownloadURL)
-				fmt.Println("	dir=k3sup")
-				fmt.Println(fmt.Sprintf("	out=k3sup-%s-linux-arm64", rel.TagName))
-			} else if strings.Contains(rel.Assets[i].Name, ".sha256") {
-				fmt.Println(rel.Assets[i].BrowserDownloadURL)
-				fmt.Println("	dir=k3sup")
-				fmt.Println(fmt.Sprintf("	out=k3sup-%s-linux-amd64.sha256.txt", rel.TagName))
-			} else {
-				fmt.Println(rel.Assets[i].BrowserDownloadURL)
-				fmt.Println("	dir=k3sup")
-				fmt.Println(fmt.Sprintf("	out=k3sup-%s-linux-amd64", rel.TagName))
-			}
-		} else {
-			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
-		}
+		fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
+		//	if strings.Contains(rel.Assets[i].Name, "vcluster") && !strings.Contains(rel.Assets[i].Name, "-darwin") && !strings.Contains(rel.Assets[i].Name, ".exe") && !strings.Contains(rel.Assets[i].Name, ".txt") {
+		//    fmt.Println(rel.Assets[i].BrowserDownloadURL)
+		//    fmt.Println("	dir=vcluster")
+		//    fmt.Println(fmt.Sprintf("	out=vcluster-%s-bla-bla-bla", rel.TagName))
+		//		} else {
+		//			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
+		//		}
+		// XXX FIXME TODO  Don't skip everything!!!
 	}
 
 	// Source code
 	fmt.Println(rel.TarballURL)
-	fmt.Println("	dir=k3sup")
-	fmt.Println(fmt.Sprintf("	out=k3sup-%s-src.tar.gz", rel.TagName))
+	fmt.Println("	dir=vcluster")
+	fmt.Println(fmt.Sprintf("	out=vcluster-%s-src.tar.gz", rel.TagName))
 }
 
 func main() {

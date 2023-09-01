@@ -61,16 +61,16 @@ func doIt() {
 	fmt.Println("# https://mirror.xenyth.net/ubuntu-releases")
 	fmt.Println("# https://releases.ubuntu.com")
 	fmt.Println("# https://cdimage.ubuntu.com")
+	fmt.Println("# https://en.wikipedia.org/wiki/Ubuntu_version_history#Table_of_versions")
 	fmt.Println("# https://en.wikipedia.org/wiki/Ubuntu")
-	fmt.Println("# https://en.wikipedia.org/wiki/Ubuntu_version_history")
 	fmt.Println("# https://distrowatch.com/ubuntu")
-
-	fmt.Println("# https://ubuntu.com/download/raspberry-pi")
 
 	// XXX FIXME TODO  Try to determine the list of "current" releases programatically!!!
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/23.04") // lunar
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/22.04") // jammy
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/20.04") // focal
+
+	fmt.Println("# https://ubuntu.com/download/raspberry-pi")
 }
 
 func main() {
