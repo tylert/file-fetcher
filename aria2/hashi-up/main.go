@@ -53,16 +53,16 @@ func doIt() {
 	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
 	ver := reg.FindString(rel.TagName)
 
-	// XXX FIXME TODO  Play with the strings to slip a version string in there and add missing architecture for x86_64
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
-		if !strings.Contains(rel.Assets[i].Name, ".exe") && !strings.Contains(rel.Assets[i].Name, "-darwin") && !strings.Contains(rel.Assets[i].Name, "-armhf") {
+		if !strings.Contains(rel.Assets[i].Name, "-armhf") && !strings.Contains(rel.Assets[i].Name, "-darwin") && !strings.Contains(rel.Assets[i].Name, ".exe") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
 			fmt.Println("	dir=hashi-up")
 		} else {
 			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
 		}
 	}
+	// XXX FIXME TODO  Play with the strings to slip a version string in there and add missing info for x86_64 Linux
 
 	// Source code
 	fmt.Println(rel.TarballURL)
