@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"regexp"
 	//"strings"
 	"time"
 )
@@ -49,6 +50,10 @@ func doIt() {
 	fmt.Println("# https://github.com/loft-sh/vcluster")
 	fmt.Println("# https://vcluster.com")
 
+	// This project uses version strings that start with "v" in some places
+	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
+	ver := reg.FindString(rel.TagName)
+
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
 		fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
@@ -65,7 +70,7 @@ func doIt() {
 	// Source code
 	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=vcluster")
-	fmt.Println(fmt.Sprintf("	out=vcluster-%s-src.tar.gz", rel.TagName))
+	fmt.Println(fmt.Sprintf("	out=vcluster-%s-src.tar.gz", ver))
 }
 
 func main() {
