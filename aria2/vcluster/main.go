@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 	"regexp"
-	//"strings"
+	"strings"
 	"time"
 )
 
@@ -56,15 +56,33 @@ func doIt() {
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
-		fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
-		//	if strings.Contains(rel.Assets[i].Name, "vcluster") && !strings.Contains(rel.Assets[i].Name, "-darwin") && !strings.Contains(rel.Assets[i].Name, ".exe") && !strings.Contains(rel.Assets[i].Name, ".txt") {
-		//    fmt.Println(rel.Assets[i].BrowserDownloadURL)
-		//    fmt.Println("	dir=vcluster")
-		//    fmt.Println(fmt.Sprintf("	out=vcluster-%s-bla-bla-bla", rel.TagName))
-		//		} else {
-		//			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
-		//		}
-		// XXX FIXME TODO  Don't skip everything!!!
+		if strings.Contains(rel.Assets[i].Name, "vcluster-linux-arm64") {
+			fmt.Println(rel.Assets[i].BrowserDownloadURL)
+			fmt.Println("	dir=vcluster")
+			fmt.Println(fmt.Sprintf("	out=vcluster-%s-linux-arm64", ver))
+		} else if strings.Contains(rel.Assets[i].Name, "vcluster-linux-amd64") {
+			fmt.Println(rel.Assets[i].BrowserDownloadURL)
+			fmt.Println("	dir=vcluster")
+			fmt.Println(fmt.Sprintf("	out=vcluster-%s-linux-amd64", ver))
+		} else if strings.Contains(rel.Assets[i].Name, "vcluster-images.txt") {
+			fmt.Println(rel.Assets[i].BrowserDownloadURL)
+			fmt.Println("	dir=vcluster")
+			fmt.Println(fmt.Sprintf("	out=vcluster-%s-images.txt", ver))
+		} else if strings.Contains(rel.Assets[i].Name, "checksums.txt.sig") {
+			fmt.Println(rel.Assets[i].BrowserDownloadURL)
+			fmt.Println("	dir=vcluster")
+			fmt.Println(fmt.Sprintf("	out=vcluster-%s-checksums.txt.sig", ver))
+		} else if strings.Contains(rel.Assets[i].Name, "checksums.txt.pem") {
+			fmt.Println(rel.Assets[i].BrowserDownloadURL)
+			fmt.Println("	dir=vcluster")
+			fmt.Println(fmt.Sprintf("	out=vcluster-%s-checksums.txt.pem", ver))
+		} else if strings.Contains(rel.Assets[i].Name, "checksums.txt") {
+			fmt.Println(rel.Assets[i].BrowserDownloadURL)
+			fmt.Println("	dir=vcluster")
+			fmt.Println(fmt.Sprintf("	out=vcluster-%s-checksums.txt", ver))
+		} else {
+			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
+		}
 	}
 
 	// Source code
