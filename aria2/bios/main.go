@@ -34,7 +34,7 @@ func dumpOne(url string) {
 			if strings.Contains(href, ".zip") {
 				moo := href[:strings.IndexByte(href, '?')]
 				fmt.Println(moo)
-				fmt.Println("	dir=bios")
+				fmt.Println("	dir=BIOS")
 				count--
 				if count <= 0 {
 					return false
