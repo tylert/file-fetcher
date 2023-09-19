@@ -21,17 +21,17 @@ func AgeKeypair(force bool) {
 		flags |= os.O_EXCL
 	}
 
-	f2, err := os.OpenFile("public_key_age", flags, 0664)
+	f1, err := os.OpenFile("public_key_age", flags, 0664)
 	if err != nil {
 		log.Fatalf("Unable to save file: %v", err)
 	}
-	f2.Write([]byte(fmt.Sprintf("%s\n", identity.Recipient().String())))
-	f2.Close()
-
-	f1, err := os.OpenFile("secret_key_age", flags, 0600)
-	if err != nil {
-		log.Fatalf("Unable to save file: %v", err)
-	}
-	f1.Write([]byte(fmt.Sprintf("%s\n", identity.String())))
+	f1.Write([]byte(fmt.Sprintf("%s\n", identity.Recipient().String())))
 	f1.Close()
+
+	f2, err := os.OpenFile("secret_key_age", flags, 0600)
+	if err != nil {
+		log.Fatalf("Unable to save file: %v", err)
+	}
+	f2.Write([]byte(fmt.Sprintf("%s\n", identity.String())))
+	f2.Close()
 }

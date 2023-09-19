@@ -18,6 +18,10 @@ func main() {
 		AgeKeypair(aForce)
 	}
 
+	if aMinisignKey {
+		MinisignKeypair(aForce)
+	}
+
 	if aSshKey {
 		SSHKeypair(aForce)
 	}

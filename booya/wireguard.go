@@ -20,19 +20,19 @@ func WireguardKeypair(force bool) {
 		flags |= os.O_EXCL
 	}
 
-	f4, err := os.OpenFile("public_key_wg", flags, 0644)
+	f1, err := os.OpenFile("public_key_wg", flags, 0644)
 	if err != nil {
 		log.Fatalf("Unable to save file: %v", err)
 	}
-	f4.Write([]byte(fmt.Sprintf("%s\n", pub.String())))
-	f4.Close()
+	f1.Write([]byte(fmt.Sprintf("%s\n", pub.String())))
+	f1.Close()
 
-	f3, err := os.OpenFile("secret_key_wg", flags, 0600)
+	f2, err := os.OpenFile("secret_key_wg", flags, 0600)
 	if err != nil {
 		log.Fatalf("Unable to save file: %v", err)
 	}
-	f3.Write([]byte(fmt.Sprintf("%s\n", priv.String())))
-	f3.Close()
+	f2.Write([]byte(fmt.Sprintf("%s\n", priv.String())))
+	f2.Close()
 }
 
 func WireguardPreSharedKey(force bool) {
@@ -45,10 +45,10 @@ func WireguardPreSharedKey(force bool) {
 		flags |= os.O_EXCL
 	}
 
-	f5, err := os.OpenFile("shared_key_wg", flags, 0600)
+	f3, err := os.OpenFile("shared_key_wg", flags, 0600)
 	if err != nil {
 		log.Fatalf("Unable to save file: %v", err)
 	}
-	f5.Write([]byte(fmt.Sprintf("%s\n", pskey.String())))
-	f5.Close()
+	f3.Write([]byte(fmt.Sprintf("%s\n", pskey.String())))
+	f3.Close()
 }

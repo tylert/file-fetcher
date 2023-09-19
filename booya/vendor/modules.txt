@@ -1,3 +1,6 @@
+# aead.dev/minisign v0.2.0
+## explicit; go 1.16
+aead.dev/minisign
 # filippo.io/age v1.1.1
 ## explicit; go 1.19
 filippo.io/age
@@ -26,6 +29,7 @@ github.com/mikesmitty/edkey
 github.com/vharitonsky/iniflags
 # golang.org/x/crypto v0.13.0
 ## explicit; go 1.17
+golang.org/x/crypto/blake2b
 golang.org/x/crypto/blowfish
 golang.org/x/crypto/chacha20
 golang.org/x/crypto/chacha20poly1305
