@@ -15,19 +15,19 @@ func main() {
 	//Pyenv()
 
 	if aAgeKey {
-		AgeKeypair()
+		AgeKeypair(aForce)
 	}
 
 	if aSshKey {
-		SSHKeypair()
+		SSHKeypair(aForce)
 	}
 
 	if aWgKey {
-		WireguardKeypair()
+		WireguardKeypair(aForce)
 	}
 
 	if aWgPsk {
-		WireguardPreSharedKey()
+		WireguardPreSharedKey(aForce)
 	}
 }
 

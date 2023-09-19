@@ -12,6 +12,7 @@ import (
 // Command-line arguments
 var (
 	aAgeKey  bool
+	aForce   bool
 	aSshKey  bool
 	aVersion bool
 	aWgKey   bool
@@ -22,6 +23,7 @@ func init() {
 	// Help for command-line arguments
 	const (
 		sAgeKey  = "Generate an age keypair (default false)"
+		sForce   = "Overwrite key files if they exist"
 		sSshKey  = "Generate an ssh keypair (default false)"
 		sVersion = "Display build version information (default false)"
 		sWgKey   = "Generate a wireguard keypair (default false)"
@@ -30,6 +32,8 @@ func init() {
 
 	flag.BoolVar(&aAgeKey, "age", FromEnvP("MEH_AGEKEY", false).(bool), sAgeKey)
 	flag.BoolVar(&aAgeKey, "a", FromEnvP("MEH_AGEKEY", false).(bool), sAgeKey)
+	flag.BoolVar(&aForce, "force", FromEnvP("MEH_FORCE", false).(bool), sForce)
+	flag.BoolVar(&aForce, "f", FromEnvP("MEH_FORCE", false).(bool), sForce)
 	flag.BoolVar(&aSshKey, "ssh", FromEnvP("MEH_SSHKEY", false).(bool), sSshKey)
 	flag.BoolVar(&aSshKey, "s", FromEnvP("MEH_SSHKEY", false).(bool), sSshKey)
 	flag.BoolVar(&aVersion, "version", FromEnvP("MEH_VERSION", false).(bool), sVersion)
