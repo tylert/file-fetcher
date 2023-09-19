@@ -14,10 +14,7 @@ func AgeKeypair(force bool) {
 	// (umask 0077 && cat secret_key_age | age --armor --output secret_key_age.age --passphrase)  # add/change password-protection to private key
 	// (umask 0077 && age --decrypt --output secret_key_age secret_key_age.age)  # remove password-protection from private key
 
-	identity, err := age.GenerateX25519Identity()
-	if err != nil {
-		log.Fatalf("Failed to generate key pair: %v", err)
-	}
+	identity, _ := age.GenerateX25519Identity()
 
 	var flags = os.O_CREATE | os.O_WRONLY | os.O_TRUNC
 	if !force {

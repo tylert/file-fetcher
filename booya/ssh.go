@@ -3,6 +3,8 @@ package main
 import (
 	"crypto/rand"
 	"encoding/pem"
+	"fmt"
+	"log"
 	"os"
 
 	"github.com/mikesmitty/edkey"
@@ -27,9 +29,24 @@ func SSHKeypair(force bool) {
 	privateKey := pem.EncodeToMemory(pemKey)
 	authorizedKey := ssh.MarshalAuthorizedKey(publicKey)
 
-	// XXX FIXME TODO  Do the same force thing if file exists
-	_ = os.WriteFile("secret_key_ssh", privateKey, 0600)
-	_ = os.WriteFile("public_key_ssh", authorizedKey, 0644)
+	var flags = os.O_CREATE | os.O_WRONLY | os.O_TRUNC
+	if !force {
+		flags |= os.O_EXCL
+	}
+
+	f2, err := os.OpenFile("public_key_ssh", flags, 0664)
+	if err != nil {
+		log.Fatalf("Unable to save file: %v", err)
+	}
+	f2.Write([]byte(fmt.Sprintf("%s", authorizedKey)))
+	f2.Close()
+
+	f1, err := os.OpenFile("secret_key_ssh", flags, 0600)
+	if err != nil {
+		log.Fatalf("Unable to save file: %v", err)
+	}
+	f1.Write([]byte(fmt.Sprintf("%s", privateKey)))
+	f1.Close()
 }
 
 // https://github.com/mikalv/anything2ed25519
