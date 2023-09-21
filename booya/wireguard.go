@@ -9,46 +9,48 @@ import (
 )
 
 func WireguardKeypair(force bool) {
-	// wg genkey | (umask 0077 && tee secret_key_wg) | wg pubkey > public_key_wg  # generate keypair
-	// cat secret_key_wg | wg pubkey > public_key_wg  # recover public key
+	// wg genkey | (umask 0077 && tee seckey_wg) | wg pubkey > pubkey_wg  # generate keypair
+	// cat seckey_wg | wg pubkey > pubkey_wg  # recover public key
 
-	priv, _ := wgtypes.GeneratePrivateKey()
-	pub := priv.PublicKey()
+	secKey, _ := wgtypes.GeneratePrivateKey()
+	pubKey := secKey.PublicKey()
 
 	var flags = os.O_CREATE | os.O_WRONLY | os.O_TRUNC
 	if !force {
 		flags |= os.O_EXCL
 	}
 
-	f1, err := os.OpenFile("public_key_wg", flags, 0644)
+	pub, err := os.OpenFile("pubkey_wg", flags, 0644)
 	if err != nil {
-		log.Fatalf("Unable to save file: %v", err)
+		log.Fatalf("Unable to open file: %v", err)
 	}
-	f1.Write([]byte(fmt.Sprintf("%s\n", pub.String())))
-	f1.Close()
+	defer pub.Close()
 
-	f2, err := os.OpenFile("secret_key_wg", flags, 0600)
+	sec, err := os.OpenFile("seckey_wg", flags, 0600)
 	if err != nil {
-		log.Fatalf("Unable to save file: %v", err)
+		log.Fatalf("Unable to open file: %v", err)
 	}
-	f2.Write([]byte(fmt.Sprintf("%s\n", priv.String())))
-	f2.Close()
+	defer sec.Close()
+
+	sec.Write([]byte(fmt.Sprintf("%s\n", secKey.String())))
+	pub.Write([]byte(fmt.Sprintf("%s\n", pubKey.String())))
 }
 
 func WireguardPreSharedKey(force bool) {
-	// (umask 0077 && wg genpsk > shared_key_wg)  # generate pre-shared key
+	// (umask 0077 && wg genpsk > sharedkey_wg)  # generate pre-shared key
 
-	pskey, _ := wgtypes.GenerateKey()
+	psKey, _ := wgtypes.GenerateKey()
 
 	var flags = os.O_CREATE | os.O_WRONLY | os.O_TRUNC
 	if !force {
 		flags |= os.O_EXCL
 	}
 
-	f3, err := os.OpenFile("shared_key_wg", flags, 0600)
+	prot, err := os.OpenFile("sharedkey_wg", flags, 0600)
 	if err != nil {
-		log.Fatalf("Unable to save file: %v", err)
+		log.Fatalf("Unable to open file: %v", err)
 	}
-	f3.Write([]byte(fmt.Sprintf("%s\n", pskey.String())))
-	f3.Close()
+	defer prot.Close()
+
+	prot.Write([]byte(fmt.Sprintf("%s\n", psKey.String())))
 }

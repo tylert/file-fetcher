@@ -13,40 +13,41 @@ import (
 )
 
 func SSHKeypair(force bool) {
-	// ssh-keygen -C '' -N '' -a 16 -f secret_key_ssh -t ed25519 ; mv secret_key_ssh.pub public_key_ssh  # generate keypair
-	// ssh-keygen -y -f secret_key_ssh > public_key_ssh  # recover public key
-	// ssh-keygen -a 512 -p -f secret_key_ssh  # add/remove/change password-protection on private key
+	// ssh-keygen -C '' -N '' -a 16 -f seckey_ssh -t ed25519 ; mv seckey_ssh.pub pubkey_ssh  # generate keypair
+	// ssh-keygen -y -f seckey_ssh > pubkey_ssh  # recover public key
+	// ssh-keygen -a 512 -p -f seckey_ssh  # add/remove/change password-protection on private key
 
-	pubKey, privKey, _ := ed25519.GenerateKey(rand.Reader)
-	publicKey, _ := ssh.NewPublicKey(pubKey)
+	mooKey, pooKey, _ := ed25519.GenerateKey(rand.Reader)
+	booKey, _ := ssh.NewPublicKey(mooKey)
 
 	pemKey := &pem.Block{
 		Type:  "OPENSSH PRIVATE KEY",
-		Bytes: edkey.MarshalED25519PrivateKey(privKey), // marshals ed25519 correctly
+		Bytes: edkey.MarshalED25519PrivateKey(pooKey), // marshals ed25519 correctly
 	}
 	// XXX FIXME TODO  The line-wrapping looks a little funny but it still works fine
 
-	privateKey := pem.EncodeToMemory(pemKey)
-	authorizedKey := ssh.MarshalAuthorizedKey(publicKey)
+	secKey := pem.EncodeToMemory(pemKey)
+	pubKey := ssh.MarshalAuthorizedKey(booKey)
 
 	var flags = os.O_CREATE | os.O_WRONLY | os.O_TRUNC
 	if !force {
 		flags |= os.O_EXCL
 	}
 
-	f1, err := os.OpenFile("public_key_ssh", flags, 0664)
+	pub, err := os.OpenFile("pubkey_ssh", flags, 0664)
 	if err != nil {
-		log.Fatalf("Unable to save file: %v", err)
+		log.Fatalf("Unable to open file: %v", err)
 	}
-	f1.Write([]byte(fmt.Sprintf("%s", authorizedKey)))
-	f1.Close()
+	defer pub.Close()
 
-	f2, err := os.OpenFile("secret_key_ssh", flags, 0600)
+	sec, err := os.OpenFile("seckey_ssh", flags, 0600)
 	if err != nil {
-		log.Fatalf("Unable to save file: %v", err)
+		log.Fatalf("Unable to open file: %v", err)
 	}
-	f2.Write([]byte(fmt.Sprintf("%s", privateKey)))
-	f2.Close()
+	defer sec.Close()
+
+	sec.Write([]byte(fmt.Sprintf("%s", secKey)))
+	pub.Write([]byte(fmt.Sprintf("%s", pubKey)))
 }
 
 // https://github.com/mikalv/anything2ed25519

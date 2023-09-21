@@ -10,31 +10,37 @@ import (
 )
 
 func MinisignKeypair(force bool) {
-	// minisign -GWf -s secret_key_minisign -p public_key_minisign  # generate keypair
-	// minisign -R -s secret_key_minisign -p public_key_minisign  # recover public key
-	// minisign -C -s secret_key_minisign -p public_key_minisign  # add/remove/change password-protection on private key
+	// minisign -GWf -s seckey_ms -p pubkey_ms  # generate keypair
+	// minisign -R -s seckey_ms -p pubkey_ms  # recover public key
+	// minisign -C -s seckey_ms -p pubkey_ms  # add/remove/change password-protection on private key
 
-	public, private, err := minisign.GenerateKey(rand.Reader)
+	mooKey, pooKey, err := minisign.GenerateKey(rand.Reader)
 	if err != nil {
-		log.Fatalln(err)
+		log.Fatalf("Unable to create key: %v", err)
 	}
+	secKey, err2 := minisign.EncryptKey("", pooKey)
+	if err2 != nil {
+		log.Fatalf("Unable to encrypt key: %v", err2)
+	}
+	pubKey, _ := mooKey.MarshalText()
 
 	var flags = os.O_CREATE | os.O_WRONLY | os.O_TRUNC
 	if !force {
 		flags |= os.O_EXCL
 	}
 
-	f1, err := os.OpenFile("public_key_minisign", flags, 0644)
+	pub, err := os.OpenFile("pubkey_ms", flags, 0644)
 	if err != nil {
-		log.Fatalf("Unable to save file: %v", err)
+		log.Fatalf("Unable to open file: %v", err)
 	}
-	f1.Write([]byte(fmt.Sprintf("%s\n", public)))
-	f1.Close()
+	defer pub.Close()
 
-	f2, err := os.OpenFile("secret_key_minisign", flags, 0600)
+	sec, err := os.OpenFile("seckey_ms", flags, 0600)
 	if err != nil {
-		log.Fatalf("Unable to save file: %v", err)
+		log.Fatalf("Unable to open file: %v", err)
 	}
-	f2.Write([]byte(fmt.Sprintf("%s\n", private)))
-	f2.Close()
+	defer sec.Close()
+
+	sec.Write([]byte(fmt.Sprintf("%s\n", secKey)))
+	pub.Write([]byte(fmt.Sprintf("%s\n", pubKey)))
 }
