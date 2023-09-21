@@ -28,7 +28,8 @@ func dumpOne(url string) {
 	fmt.Println(fmt.Sprintf("# %s", url))
 
 	// Do a first pass to get the version number to use when renaming the checksum files
-	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
+	reg1 := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
+	reg2 := regexp.MustCompile(`\d+?\.\d+`)
 	ver := ""
 	doc.Find("div.name a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
@@ -36,8 +37,10 @@ func dumpOne(url string) {
 			if (strings.Contains(href, ".iso") || strings.Contains(href, ".zsync") || strings.Contains(href, ".list") || strings.Contains(href, ".manifest")) && !strings.Contains(href, ".torrent") && !strings.Contains(href, "-desktop") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	dir=Ubuntu")
-				if reg.FindString(href) != "" {
-					ver = reg.FindString(href)
+				if reg1.FindString(href) != "" { // e.g.:  22.04.3
+					ver = reg1.FindString(href)
+				} else if reg2.FindString(href) != "" { // e.g.:  23.04
+					ver = reg2.FindString(href)
 				}
 			} else if !strings.Contains(href, "SHA256SUMS") {
 				fmt.Println(fmt.Sprintf("# skipped %s", href))
@@ -51,7 +54,7 @@ func dumpOne(url string) {
 			if strings.Contains(href, "SHA256SUMS") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	dir=Ubuntu")
-				fmt.Println(fmt.Sprintf("	out=ubuntu-%s-%s", ver, href))
+				fmt.Println(fmt.Sprintf("	out=ubuntu-%s-%s.txt", ver, href))
 			}
 		}
 	})
@@ -61,8 +64,6 @@ func doIt() {
 	fmt.Println("# https://mirror.xenyth.net/ubuntu-releases")
 	fmt.Println("# https://releases.ubuntu.com")
 	fmt.Println("# https://cdimage.ubuntu.com")
-	fmt.Println("# https://cloud-images.ubuntu.com")
-	fmt.Println("# https://cloud-images.ubuntu.com/locator")
 	fmt.Println("# https://en.wikipedia.org/wiki/Ubuntu_version_history#Table_of_versions")
 	fmt.Println("# https://en.wikipedia.org/wiki/Ubuntu")
 	fmt.Println("# https://distrowatch.com/ubuntu")
@@ -73,6 +74,8 @@ func doIt() {
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/22.04") // jammy
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/20.04") // focal
 
+	fmt.Println("# https://cloud-images.ubuntu.com")
+	fmt.Println("# https://cloud-images.ubuntu.com/locator")
 	fmt.Println("# https://ubuntu.com/download/raspberry-pi")
 }
 
