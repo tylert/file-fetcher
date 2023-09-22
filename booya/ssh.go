@@ -22,7 +22,7 @@ func SSHKeypair(force bool) {
 
 	pemKey := &pem.Block{
 		Type:  "OPENSSH PRIVATE KEY",
-		Bytes: edkey.MarshalED25519PrivateKey(pooKey), // marshals ed25519 correctly
+		Bytes: edkey.MarshalED25519PrivateKey(pooKey),
 	}
 	// XXX FIXME TODO  The line-wrapping looks a little funny but it still works fine
 

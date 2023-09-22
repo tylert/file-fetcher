@@ -3,6 +3,7 @@ module meh
 go 1.20
 
 require (
+	aead.dev/minisign v0.2.0
 	filippo.io/age v1.1.1
 	github.com/bitfield/script v0.22.0
 	github.com/ian-kent/envconf v0.0.0-20141026121121-c19809918c02
@@ -13,7 +14,6 @@ require (
 )
 
 require (
-	aead.dev/minisign v0.2.0 // indirect
 	github.com/itchyny/gojq v0.12.13 // indirect
 	github.com/itchyny/timefmt-go v0.1.5 // indirect
 	github.com/smartystreets/goconvey v1.8.1 // indirect
