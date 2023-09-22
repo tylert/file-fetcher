@@ -57,3 +57,8 @@ Other
 * https://pkg.go.dev/github.com/bitfield/script
 * https://jedisct1.github.io/minisign/
 * https://github.com/aead/minisign
+* https://jedisct1.github.io/minisign
+* https://superuser.com/questions/308126/is-it-possible-to-sign-a-file-using-an-ssh-key
+* https://github.com/slok/agebox
+* https://sts10.github.io/2021/09/06/exploring-age-1-point-0.html
+* https://words.filippo.io/dispatches/age-authentication
