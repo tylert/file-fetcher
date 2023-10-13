@@ -10,7 +10,7 @@ import (
 )
 
 func doIt() {
-	res, err := http.Get("https://endeavouros.com/latest-release")
+	res, err := http.Get("https://endeavouros.com")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -24,7 +24,6 @@ func doIt() {
 		log.Fatal("Error loading HTTP response body.", err)
 	}
 
-	fmt.Println("# https://endeavouros.com/latest-release")
 	fmt.Println("# https://endeavouros.com")
 	fmt.Println("# https://github.com/endeavouros-team/ISO/releases/latest")
 	fmt.Println("# https://en.wikipedia.org/wiki/EndeavourOS")
@@ -33,7 +32,7 @@ func doIt() {
 	doc.Find("a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
-			if strings.Contains(href, "github") && strings.Contains(href, ".iso") && !strings.Contains(href, ".torrent") {
+			if strings.Contains(href, "ca.gate") && strings.Contains(href, ".iso") && !strings.Contains(href, ".torrent") {
 				fmt.Println(fmt.Sprintf("%s", href))
 				fmt.Println("	dir=EndeavourOS")
 			}
