@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 	"regexp"
-	//"strings"
+	"strings"
 	"time"
 )
 
@@ -56,13 +56,18 @@ func doIt() {
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
-		fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
+		if strings.Contains(rel.Assets[i].Name, "linux") || strings.Contains(rel.Assets[i].Name, "SHA256SUMS") {
+			fmt.Println(rel.Assets[i].BrowserDownloadURL)
+			fmt.Println("	dir=OpenTofu")
+		} else {
+			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
+		}
 	}
 
 	// Source code
 	fmt.Println(rel.TarballURL)
-	fmt.Println("	dir=opentofu")
-	fmt.Println(fmt.Sprintf("	out=opentofu-%s-src.tar.gz", ver))
+	fmt.Println("	dir=OpenTofu")
+	fmt.Println(fmt.Sprintf("	out=tofu-%s-src.tar.gz", ver))
 }
 
 func main() {
