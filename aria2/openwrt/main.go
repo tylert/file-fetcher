@@ -96,7 +96,7 @@ func doIt() {
 	// Source code
 	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=OpenWRT")
-	fmt.Println(fmt.Sprintf("	out=openwrt-%s-src.tar.gz", rel.Name))
+	fmt.Println(fmt.Sprintf("	out=openwrt-%s-src.tar.gz", ver))
 }
 
 func main() {
