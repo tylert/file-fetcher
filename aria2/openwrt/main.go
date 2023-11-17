@@ -78,6 +78,7 @@ func doIt() {
 		log.Fatal(err)
 	}
 
+	fmt.Println("# https://github.com/openwrt/openwrt/releases")
 	fmt.Println("# https://github.com/openwrt/openwrt")
 	fmt.Println("# https://openwrt.org")
 	fmt.Println("# https://downloads.openwrt.org/releases")
