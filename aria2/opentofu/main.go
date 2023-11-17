@@ -56,7 +56,7 @@ func doIt() {
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
-		if strings.Contains(rel.Assets[i].Name, "linux") || strings.Contains(rel.Assets[i].Name, "SHA256SUMS") {
+		if (strings.Contains(rel.Assets[i].Name, "linux") || strings.Contains(rel.Assets[i].Name, "SHA256SUMS")) && !strings.Contains(rel.Assets[i].Name, "386") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
 			fmt.Println("	dir=OpenTofu")
 		} else {
