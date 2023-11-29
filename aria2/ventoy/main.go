@@ -47,6 +47,7 @@ func doIt() {
 		log.Fatal(err)
 	}
 
+	fmt.Println("# https://github.com/ventoy/Ventoy/releases")
 	fmt.Println("# https://github.com/ventoy/Ventoy")
 	fmt.Println("# https://ventoy.net/en/download.html")
 	fmt.Println("# https://ventoy.net")

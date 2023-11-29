@@ -47,6 +47,7 @@ func doIt() {
 		log.Fatal(err)
 	}
 
+	fmt.Println("# https://github.com/gqrx-sdr/gqrx/releases")
 	fmt.Println("# https://github.com/gqrx-sdr/gqrx")
 	fmt.Println("# https://gqrx.dk")
 

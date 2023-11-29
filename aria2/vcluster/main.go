@@ -47,6 +47,7 @@ func doIt() {
 		log.Fatal(err)
 	}
 
+	fmt.Println("# https://github.com/loft-sh/vcluster/releases")
 	fmt.Println("# https://github.com/loft-sh/vcluster")
 	fmt.Println("# https://vcluster.com")
 

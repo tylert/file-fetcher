@@ -46,6 +46,7 @@ func doIt() {
 		log.Fatal(err)
 	}
 
+	fmt.Println("# https://github.com/Ultimaker/Cura/releases")
 	fmt.Println("# https://github.com/Ultimaker/Cura")
 	fmt.Println("# https://ultimaker.com/software/ultimaker-cura")
 	fmt.Println("# https://en.wikipedia.org/wiki/Cura_(software)")

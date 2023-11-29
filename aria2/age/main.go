@@ -47,6 +47,7 @@ func doIt() {
 		log.Fatal(err)
 	}
 
+	fmt.Println("# https://github.com/FiloSottile/age/releases")
 	fmt.Println("# https://github.com/FiloSottile/age")
 	fmt.Println("# https://github.com/FiloSottile/awesome-age")
 	fmt.Println("# https://age-encryption.org")

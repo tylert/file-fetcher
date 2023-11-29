@@ -47,6 +47,7 @@ func doIt() {
 		log.Fatal(err)
 	}
 
+	fmt.Println("# https://github.com/jsiebens/hashi-up/releases")
 	fmt.Println("# https://github.com/jsiebens/hashi-up")
 
 	// This project uses version strings that start with "v" in some places

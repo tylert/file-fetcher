@@ -46,6 +46,7 @@ func doIt() {
 		log.Fatal(err)
 	}
 
+	fmt.Println("# https://github.com/scandum/tintin/releases")
 	fmt.Println("# https://github.com/scandum/tintin")
 	fmt.Println("# https://tintin.mudhalla.net")
 	fmt.Println("# https://mudhalla.net/tintin/protocols/msdp")

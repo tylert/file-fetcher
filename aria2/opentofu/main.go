@@ -47,6 +47,7 @@ func doIt() {
 		log.Fatal(err)
 	}
 
+	fmt.Println("# https://github.com/opentofu/opentofu/releases")
 	fmt.Println("# https://github.com/opentofu/opentofu")
 	fmt.Println("# https://opentofu.org")
 
