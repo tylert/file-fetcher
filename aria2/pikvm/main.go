@@ -11,7 +11,7 @@ import (
 )
 
 func doIt() {
-	res, err := http.Get("https://pikvm.org/download")
+	res, err := http.Get("https://files.pikvm.org/images")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -25,6 +25,7 @@ func doIt() {
 		log.Fatal("Error loading HTTP response body.", err)
 	}
 
+	fmt.Println("# https://docs.pikvm.org/flashing_os")
 	fmt.Println("# https://pikvm.org/download")
 	fmt.Println("# https://pikvm.org")
 	fmt.Println("# https://docs.pikvm.org")
@@ -37,7 +38,7 @@ func doIt() {
 	doc.Find("a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
-			if strings.Contains(href, "v2-hdmi-rpi4-") {
+			if strings.Contains(href, "v2-hdmi-rpi4-latest") {
 				fmt.Println(href)
 				fmt.Println("	dir=PiKVM")
 				thingy := strings.Split(strings.ReplaceAll(href, "latest", now.Format("2006-01-02")), "/")
