@@ -51,10 +51,6 @@ func doIt() {
 	// https://pcsupport.lenovo.com/ca/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t560/downloads/driver-list/component?name=BIOS%2FUEFI&id=5AC6A815-321D-440E-8833-B07A93E0428C
 	// https://pcsupport.lenovo.com/ca/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t460/downloads/driver-list/component?name=BIOS%2FUEFI&id=5AC6A815-321D-440E-8833-B07A93E0428C
 	// https://pcsupport.lenovo.com/ca/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t450s/downloads/driver-list/component?name=BIOS%2FUEFI&id=5AC6A815-321D-440E-8833-B07A93E0428C
-	// https://www.cyberciti.biz/faq/update-lenovo-bios-from-linux-usb-stick-pen
-	// https://1832jsh.github.io/thinkpad/BIOS_logo.html
-	// https://wilkgr76.github.io/tp_logo
-	// geteltorito.pl -o foo.img foo.iso
 }
 
 func main() {
