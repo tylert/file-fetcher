@@ -25,6 +25,7 @@ func doIt() {
 		log.Fatal("Error loading HTTP response body.", err)
 	}
 
+	fmt.Println("# https://files.pikvm.org/images")
 	fmt.Println("# https://docs.pikvm.org/flashing_os")
 	fmt.Println("# https://pikvm.org/download")
 	fmt.Println("# https://pikvm.org")
@@ -39,11 +40,11 @@ func doIt() {
 		href, ok := s.Attr("href")
 		if ok {
 			if strings.Contains(href, "v2-hdmi-rpi4-latest") {
-				fmt.Println(href)
+				fmt.Println(fmt.Sprintf("https://files.pikvm.org/images/%s", href))
 				fmt.Println("	dir=PiKVM")
 				thingy := strings.Split(strings.ReplaceAll(href, "latest", now.Format("2006-01-02")), "/")
 				fmt.Println(fmt.Sprintf("	out=pikvm-%s", thingy[len(thingy)-1]))
-			} else if strings.Contains(href, ".img") {
+			} else if strings.Contains(href, "v2-hdmi-rpi4-") && strings.Contains(href, ".img") {
 				whatzit := strings.Split(href, "/")
 				fmt.Println(fmt.Sprintf("# skipped %s", whatzit[len(whatzit)-1]))
 			}
