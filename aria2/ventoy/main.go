@@ -47,15 +47,16 @@ func doIt() {
 		log.Fatal(err)
 	}
 
+	// This project uses version strings that start with "v" in some places
+	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
+	ver := reg.FindString(rel.TagName)
+
+	// Spit out some handy links
 	fmt.Println("# https://github.com/ventoy/Ventoy/releases")
 	fmt.Println("# https://github.com/ventoy/Ventoy")
 	fmt.Println("# https://ventoy.net/en/download.html")
 	fmt.Println("# https://ventoy.net")
 	fmt.Println("# https://en.wikipedia.org/wiki/Ventoy")
-
-	// This project uses version strings that start with "v" in some places
-	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
-	ver := reg.FindString(rel.TagName)
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {

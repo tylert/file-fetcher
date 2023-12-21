@@ -47,13 +47,14 @@ func doIt() {
 		log.Fatal(err)
 	}
 
-	fmt.Println("# https://github.com/opentofu/opentofu/releases")
-	fmt.Println("# https://github.com/opentofu/opentofu")
-	fmt.Println("# https://opentofu.org")
-
 	// This project uses version strings that start with "v" in some places
 	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
 	ver := reg.FindString(rel.TagName)
+
+	// Spit out some handy links
+	fmt.Println("# https://github.com/opentofu/opentofu/releases")
+	fmt.Println("# https://github.com/opentofu/opentofu")
+	fmt.Println("# https://opentofu.org")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {

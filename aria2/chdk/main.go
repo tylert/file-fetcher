@@ -42,6 +42,7 @@ func dumpOne(url string, target string) {
 }
 
 func doIt() {
+	// Spit out some handy links
 	fmt.Println("# https://chdk.fandom.com/wiki/CHDK")
 	fmt.Println("# https://en.wikipedia.org/wiki/DIGIC#CHDK")
 

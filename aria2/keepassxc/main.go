@@ -46,6 +46,7 @@ func doIt() {
 		log.Fatal(err)
 	}
 
+	// Spit out some handy links
 	fmt.Println("# https://github.com/keepassxreboot/keepassxc/releases")
 	fmt.Println("# https://github.com/keepassxreboot/keepassxc")
 	fmt.Println("# https://keepassxc.org/download")

@@ -47,13 +47,14 @@ func doIt() {
 		log.Fatal(err)
 	}
 
-	fmt.Println("# https://github.com/gqrx-sdr/gqrx/releases")
-	fmt.Println("# https://github.com/gqrx-sdr/gqrx")
-	fmt.Println("# https://gqrx.dk")
-
 	// This project uses version strings that start with "v" in some places
 	reg := regexp.MustCompile(`\d+?\.\d+`)
 	ver := reg.FindString(rel.TagName)
+
+	// Spit out some handy links
+	fmt.Println("# https://github.com/gqrx-sdr/gqrx/releases")
+	fmt.Println("# https://github.com/gqrx-sdr/gqrx")
+	fmt.Println("# https://gqrx.dk")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {

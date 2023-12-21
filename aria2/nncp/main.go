@@ -24,6 +24,7 @@ func doIt() {
 		log.Fatal("Error loading HTTP response body.", err)
 	}
 
+	// Spit out some handy links
 	fmt.Println("# https://nncp.mirrors.quux.org/Tarballs.html")
 	fmt.Println("# https://nncp.mirrors.quux.org")
 	fmt.Println("# http://www.nncpgo.org")

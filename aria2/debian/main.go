@@ -60,6 +60,7 @@ func dumpOne(url string) {
 }
 
 func doIt() {
+	// Spit out some handy links
 	fmt.Println("# https://cdimage.debian.org/cdimage")
 	fmt.Println("# https://debian.org")
 	fmt.Println("# https://en.wikipedia.org/wiki/Debian_version_history#Release_table")
@@ -71,6 +72,7 @@ func doIt() {
 	dumpOne("https://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd")    // oldstable
 	dumpOne("https://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd") // oldoldstable
 
+	// Spit out some more handy links
 	fmt.Println("# https://ftp-master.debian.org/keys.html")
 	fmt.Println("# https://ftp-master.debian.org/keys")
 

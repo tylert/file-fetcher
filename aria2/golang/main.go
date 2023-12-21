@@ -24,6 +24,7 @@ func doIt() {
 		log.Fatalf("Error loading HTTP response body.", err)
 	}
 
+	// Spit out some handy links
 	fmt.Println("# https://go.dev/dl")
 	fmt.Println("# https://go.dev/doc/devel/release")
 	fmt.Println("# https://go.dev")

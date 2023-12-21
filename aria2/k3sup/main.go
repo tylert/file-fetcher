@@ -46,6 +46,7 @@ func doIt() {
 		log.Fatal(err)
 	}
 
+	// Spit out some handy links
 	fmt.Println("# https://github.com/alexellis/k3sup/releases")
 	fmt.Println("# https://github.com/alexellis/k3sup")
 

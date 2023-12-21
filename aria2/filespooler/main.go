@@ -42,13 +42,14 @@ func doIt() {
 		log.Fatal(err)
 	}
 
-	fmt.Println("# https://salsa.debian.org/jgoerzen/filespooler/-/releases")
-	fmt.Println("# https://salsa.debian.org/jgoerzen/filespooler")
-	fmt.Println("# https://www.complete.org/filespooler")
-
 	// This project uses version strings that start with "v" in some places
 	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
 	ver := reg.FindString(rel.TagName)
+
+	// Spit out some handy links
+	fmt.Println("# https://salsa.debian.org/jgoerzen/filespooler/-/releases")
+	fmt.Println("# https://salsa.debian.org/jgoerzen/filespooler")
+	fmt.Println("# https://www.complete.org/filespooler")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets.Links); i++ {

@@ -47,14 +47,15 @@ func doIt() {
 		log.Fatal(err)
 	}
 
+	// This project uses version strings that start with "v" in some places
+	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
+	ver := reg.FindString(rel.TagName)
+
+	// Spit out some handy links
 	fmt.Println("# https://github.com/itchyny/gojq/releases")
 	fmt.Println("# https://github.com/itchyny/gojq")
 	fmt.Println("# https://jqlang.github.io/jq")
 	fmt.Println("# https://github.com/jqlang/jq")
-
-	// This project uses version strings that start with "v" in some places
-	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
-	ver := reg.FindString(rel.TagName)
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {

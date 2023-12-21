@@ -61,6 +61,7 @@ func dumpOne(url string) {
 }
 
 func doIt() {
+	// Spit out some handy links
 	fmt.Println("# https://mirror.xenyth.net/ubuntu-releases")
 	fmt.Println("# https://releases.ubuntu.com")
 	fmt.Println("# https://cdimage.ubuntu.com")
@@ -75,6 +76,7 @@ func doIt() {
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/22.04") // jammy (until 2027-06-01)
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/20.04") // focal (until 2025-05-29)
 
+	// Spit out some more handy links
 	fmt.Println("# https://cloud-images.ubuntu.com")
 	fmt.Println("# https://cloud-images.ubuntu.com/locator")
 	fmt.Println("# https://ubuntu.com/download/raspberry-pi")

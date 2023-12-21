@@ -78,16 +78,17 @@ func doIt() {
 		log.Fatal(err)
 	}
 
+	// This project uses version strings that start with "v" in some places
+	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
+	ver := reg.FindString(rel.TagName)
+
+	// Spit out some handy links
 	fmt.Println("# https://github.com/openwrt/openwrt/releases")
 	fmt.Println("# https://github.com/openwrt/openwrt")
 	fmt.Println("# https://openwrt.org")
 	fmt.Println("# https://downloads.openwrt.org/releases")
 	fmt.Println("# https://firmware-selector.openwrt.org")
 	fmt.Println("# https://en.wikipedia.org/wiki/OpenWrt")
-
-	// This project uses version strings that start with "v" in some places
-	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
-	ver := reg.FindString(rel.TagName)
 
 	// Compiled binaries
 	dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ath79/generic", ver), "tplink_eap245-v3")

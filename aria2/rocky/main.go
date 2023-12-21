@@ -58,6 +58,7 @@ func dumpOne(url string) {
 }
 
 func doIt() {
+	// Spit out some handy links
 	fmt.Println("# https://mirror.xenyth.net/rocky")
 	fmt.Println("# https://rockylinux.org/download")
 	fmt.Println("# https://rockylinux.org")

@@ -24,6 +24,7 @@ func doIt() {
 		log.Fatal("Error loading HTTP response body.", err)
 	}
 
+	// Spit out some handy links
 	fmt.Println("# https://www.pistar.uk/downloads")
 	fmt.Println("# https://www.pistar.uk")
 

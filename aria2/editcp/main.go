@@ -77,6 +77,7 @@ func dumpBin(url string, target string) {
 }
 
 func doIt() {
+	// Spit out some handy links
 	fmt.Println("# https://www.farnsworth.org/dale/codeplug/dmrRadio/downloads")
 	fmt.Println("# https://www.farnsworth.org/dale/codeplug/editcp/downloads")
 	fmt.Println("# https://www.farnsworth.org/dale/codeplug/editcp")

@@ -47,6 +47,11 @@ func doIt() {
 		log.Fatal(err)
 	}
 
+	// This project uses version strings that start with "v" in some places
+	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
+	ver := reg.FindString(rel.TagName)
+
+	// Spit out some handy links
 	fmt.Println("# https://github.com/FiloSottile/age/releases")
 	fmt.Println("# https://github.com/FiloSottile/age")
 	fmt.Println("# https://github.com/FiloSottile/awesome-age")
@@ -54,10 +59,6 @@ func doIt() {
 	fmt.Println("# https://www.complete.org/age-encryption")
 	fmt.Println("# https://words.filippo.io/dispatches/age-authentication")
 	fmt.Println("# https://yaeba.github.io/blog/age")
-
-	// This project uses version strings that start with "v" in some places
-	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
-	ver := reg.FindString(rel.TagName)
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {

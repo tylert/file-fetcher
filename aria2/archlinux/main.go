@@ -59,6 +59,7 @@ func dumpOne(url string) {
 }
 
 func doIt() {
+	// Spit out some handy links
 	fmt.Println("# https://mirror.xenyth.net/archlinux")
 	fmt.Println("# https://archlinux.org/mirrors")
 	fmt.Println("# https://archlinux.org/download")
@@ -68,6 +69,7 @@ func doIt() {
 
 	dumpOne("https://mirror.xenyth.net/archlinux/iso/latest")
 
+	// Spit out some more handy links
 	fmt.Println("# https://archlinuxarm.org/about/downloads")
 	fmt.Println("# https://archlinuxarm.org")
 	fmt.Println("# https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4")

@@ -58,6 +58,7 @@ func dumpOne(url string) {
 }
 
 func doIt() {
+	// Spit out some handy links
 	fmt.Println("# https://mirror.xenyth.net/almalinux")
 	fmt.Println("# https://mirrors.almalinux.org/isos.html")
 	fmt.Println("# https://almalinux.org")

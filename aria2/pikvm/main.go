@@ -25,6 +25,7 @@ func doIt() {
 		log.Fatal("Error loading HTTP response body.", err)
 	}
 
+	// Spit out some handy links
 	fmt.Println("# https://files.pikvm.org/images")
 	fmt.Println("# https://docs.pikvm.org/flashing_os")
 	fmt.Println("# https://pikvm.org/download")
