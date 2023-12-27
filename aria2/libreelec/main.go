@@ -48,17 +48,15 @@ func dumpBin() string {
 		log.Fatal("Error loading HTTP response body.", err)
 	}
 
-	// Do a first pass to get the version number to use when renaming the source files
 	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
 	ver := ""
 
-	// Compiled binaries
+	// Do a first pass to get the version number to use for the source code
+	// The newest version number will be the first one we find (top-down)
 	doc.Find("a").EachWithBreak(func(i int, s *goquery.Selection) bool {
 		href, ok := s.Attr("href")
 		if ok {
 			if strings.Contains(href, ".gz") {
-				fmt.Println(href)
-				fmt.Println("	dir=LibreELEC")
 				if reg.FindString(href) != "" {
 					ver = reg.FindString(href)
 				}
@@ -66,6 +64,19 @@ func dumpBin() string {
 			}
 		}
 		return true
+	})
+
+	// Compiled binaries
+	doc.Find("a").Each(func(i int, s *goquery.Selection) {
+		href, ok := s.Attr("href")
+		if ok {
+			if strings.Contains(href, ver) && strings.Contains(href, ".gz") && strings.Contains(href, "RPi4") {
+				fmt.Println(href)
+				fmt.Println("	dir=LibreELEC")
+			} else if strings.Contains(href, ".gz") {
+				fmt.Println(fmt.Sprintf("# skipped %s", href))
+			}
+		}
 	})
 
 	return ver
@@ -95,6 +106,7 @@ func dumpSrc(ver string) {
 
 func doIt() {
 	// Spit out some handy links
+	fmt.Println("# https://github.com/LibreELEC/LibreELEC.tv/releases")
 	fmt.Println("# https://github.com/LibreELEC/LibreELEC.tv")
 	fmt.Println("# https://libreelec.tv/downloads/raspberry")
 	fmt.Println("# https://libreelec.tv")
@@ -102,6 +114,8 @@ func doIt() {
 
 	ver := dumpBin()
 	dumpSrc(ver)
+	// XXX FIXME TODO  Some jerk released stable binaries for pre-release source code!!!
+	// This means GitHub thinks 11.0.3 is the latest while the official web site has 11.0.4
 }
 
 func main() {
