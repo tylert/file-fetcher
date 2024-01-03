@@ -80,6 +80,8 @@ func doIt() {
 
 	doOne("https://api.github.com/repos/trzsz/trzsz-go/releases/latest", "trzsz")
 	doOne("https://api.github.com/repos/trzsz/trzsz-ssh/releases/latest", "tssh")
+
+	// XXX FIXME TODO  Fetch the https://github.com/trzsz/trzsz.github.io docs!!!
 }
 
 func main() {
