@@ -16,6 +16,6 @@ require (
 	github.com/itchyny/gojq v0.12.14 // indirect
 	github.com/itchyny/timefmt-go v0.1.5 // indirect
 	github.com/smartystreets/goconvey v1.8.1 // indirect
-	golang.org/x/sys v0.15.0 // indirect
+	golang.org/x/sys v0.16.0 // indirect
 	mvdan.cc/sh/v3 v3.7.0 // indirect
 )
