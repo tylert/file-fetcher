@@ -31,7 +31,7 @@ func main() {
 	// Format Go files
 	_, err2 := script.Exec("go version").String()
 	if err2 != nil {
-		panic(err2)
+		fmt.Println("Missing Go binary")
 	} else {
 		fmt.Println("Formatting Go modules")
 		script.Slice(dd).ExecForEach("gofmt -l -w {{ . }}").Stdout()
@@ -40,7 +40,7 @@ func main() {
 	// Format Terraform files
 	_, err3 := script.Exec("terraform version").String()
 	if err3 != nil {
-		panic(err3)
+		fmt.Println("Missing Terraform binary")
 	} else {
 		fmt.Println("Formatting Terraform modules")
 		script.Slice(dd).ExecForEach("terraform fmt -list=true -write=true {{ . }}").Stdout()
