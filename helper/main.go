@@ -37,12 +37,12 @@ func main() {
 		script.Slice(dd).ExecForEach("gofmt -l -w {{ . }}").Stdout()
 	}
 
-	// Format Terraform files
-	_, err3 := script.Exec("terraform version").String()
+	// Format OpenTofu files
+	_, err3 := script.Exec("tofu version").String()
 	if err3 != nil {
-		fmt.Println("Missing Terraform binary")
+		fmt.Println("Missing OpenTofu binary")
 	} else {
-		fmt.Println("Formatting Terraform modules")
-		script.Slice(dd).ExecForEach("terraform fmt -list=true -write=true {{ . }}").Stdout()
+		fmt.Println("Formatting OpenTofu modules")
+		script.Slice(dd).ExecForEach("tofu fmt -list=true -write=true {{ . }}").Stdout()
 	}
 }
