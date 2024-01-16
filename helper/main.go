@@ -22,13 +22,13 @@ func dedupeSlice[T comparable](sliceList []T) []T {
 
 func main() {
 	// Work on entire subdirectories at a time
-	dirs, err := script.FindFiles(".").Dirname().Slice()
-	if err != nil {
-		panic(err)
+	dirs, err1 := script.FindFiles(".").Dirname().Slice()
+	if err1 != nil {
+		panic(err1)
 	}
 	dd := dedupeSlice(dirs)
 
-	// Format Go files
+	// Go files
 	_, err2 := script.Exec("go version").String()
 	if err2 != nil {
 		fmt.Println("Missing Go binary")
@@ -37,12 +37,20 @@ func main() {
 		script.Slice(dd).ExecForEach("gofmt -l -w {{ . }}").Stdout()
 	}
 
-	// Format OpenTofu files
+	// OpenTofu files
 	_, err3 := script.Exec("tofu version").String()
 	if err3 != nil {
 		fmt.Println("Missing OpenTofu binary")
 	} else {
 		fmt.Println("Formatting OpenTofu modules")
 		script.Slice(dd).ExecForEach("tofu fmt -list=true -write=true {{ . }}").Stdout()
+	}
+
+	_, err4 := script.Exec("tflint --version").String()
+	if err4 != nil {
+		fmt.Println("Missing TFLint binary")
+	} else {
+		fmt.Println("Linting OpenTofu modules")
+		script.Slice(dd).ExecForEach("tflint --chdir={{ . }}").Stdout()
 	}
 }
