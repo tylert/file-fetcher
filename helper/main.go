@@ -38,6 +38,7 @@ func main() {
 	}
 
 	// OpenTofu files
+	// Maybe do this with https://github.com/opentofu/tofu-exec instead
 	_, err3 := script.Exec("tofu version").String()
 	if err3 != nil {
 		fmt.Println("Missing OpenTofu binary")
@@ -46,6 +47,7 @@ func main() {
 		script.Slice(dd).ExecForEach("tofu fmt -list=true -write=true {{ . }}").Stdout()
 	}
 
+	// OpenTofu files
 	_, err4 := script.Exec("tflint --version").String()
 	if err4 != nil {
 		fmt.Println("Missing TFLint binary")
