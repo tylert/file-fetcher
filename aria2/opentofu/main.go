@@ -69,7 +69,7 @@ func doIt() {
 	// Source code
 	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=OpenTofu")
-	fmt.Println(fmt.Sprintf("	out=tofu-%s-src.tar.gz", ver))
+	fmt.Println(fmt.Sprintf("	out=tofu_%s_src.tar.gz", ver))
 }
 
 func main() {
