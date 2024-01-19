@@ -5,6 +5,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"regexp"
 
 	"github.com/bitfield/script"
 )
@@ -24,28 +25,41 @@ func Get(seeker io.ReadSeeker) (string, error) {
 		return "UNKNOWN", err
 	}
 
-	// Slice to remove fill-up zero values which cause a wrong content type detection in the next step
+	// Slice to fill-up zero values which cause a wrong content type detection
 	buff = buff[:n]
 
 	return http.DetectContentType(buff), nil
 }
 
 func main() {
-	script.FindFiles(".").FilterScan(func(line string, w io.Writer) {
+	nhd, err0 := script.FindFiles(".").FilterScan(func(line string, w io.Writer) {
 		file, err1 := os.Open(line)
 		defer file.Close()
 		if err1 != nil {
 			fmt.Println(fmt.Sprintf("ERR1 %s", err1))
 		}
 
-		// Always returns a valid content-type and "application/octet-stream" if no others seemed to match
+		// "application/octet-stream" if no others seemed to match
 		contentType, err2 := Get(file)
 		if err2 != nil {
-			fmt.Println(fmt.Sprintf("ERR2 %s", err1))
+			fmt.Println(fmt.Sprintf("ERR2 %s", err2))
 		}
 
-		fmt.Fprintf(w, "%s  %s\n", contentType, line)
-	}).Stdout()
+		// Only show things that are NOT a hotdog
+		match, _ := regexp.MatchString("^text", contentType)
+		if match {
+			fmt.Fprintf(w, "%s\n", line)
+		}
+	}).Slice()
+	if err0 != nil {
+		panic(err0)
+	}
+
+	reg := regexp.MustCompile("\r")
+	_, err3 := script.Slice(nhd).ReplaceRegexp(reg, "replacement").Stdout()
+	if err3 != nil {
+		panic(err3)
+	}
 }
 
 // XXX FIXME TODO  "sed -i 's/\r//' *" is basically dos2unix
