@@ -49,6 +49,8 @@ func doIt() {
 	// Spit out some handy links
 	fmt.Println("# https://github.com/scandum/tintin/releases")
 	fmt.Println("# https://github.com/scandum/tintin")
+	fmt.Println("# https://aur.archlinux.org/packages/tintin")
+	fmt.Println("# https://aur.archlinux.org/packages/tintin-git")
 	fmt.Println("# https://tintin.mudhalla.net")
 	fmt.Println("# https://mudhalla.net/tintin/protocols/msdp")
 	fmt.Println("# https://tintinplusplus-unoffical-documentation.readthedocs.io")

@@ -49,7 +49,7 @@ func doIt() {
 	// Spit out some handy links
 	fmt.Println("# https://salsa.debian.org/jgoerzen/filespooler/-/releases")
 	fmt.Println("# https://salsa.debian.org/jgoerzen/filespooler")
-	fmt.Println("# https://www.complete.org/filespooler")
+	fmt.Println("# https://complete.org/filespooler")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets.Links); i++ {

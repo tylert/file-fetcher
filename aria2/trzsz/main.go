@@ -73,10 +73,10 @@ func doIt() {
 	fmt.Println("# https://github.com/trzsz/trzsz-go")
 	fmt.Println("# https://github.com/trzsz/trzsz-ssh/releases")
 	fmt.Println("# https://github.com/trzsz/trzsz-ssh")
+	fmt.Println("# https://github.com/trzsz/trzsz.github.io")
 	fmt.Println("# https://trzsz.github.io/go")
 	fmt.Println("# https://trzsz.github.io/ssh")
 	fmt.Println("# https://trzsz.github.io")
-	fmt.Println("# https://github.com/trzsz/trzsz.github.io")
 
 	doOne("https://api.github.com/repos/trzsz/trzsz-go/releases/latest", "trzsz")
 	doOne("https://api.github.com/repos/trzsz/trzsz-ssh/releases/latest", "tssh")

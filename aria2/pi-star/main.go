@@ -10,7 +10,7 @@ import (
 )
 
 func doIt() {
-	res, err := http.Get("https://www.pistar.uk/downloads")
+	res, err := http.Get("https://pistar.uk/downloads")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -25,15 +25,15 @@ func doIt() {
 	}
 
 	// Spit out some handy links
-	fmt.Println("# https://www.pistar.uk/downloads")
-	fmt.Println("# https://www.pistar.uk")
+	fmt.Println("# https://pistar.uk/downloads")
+	fmt.Println("# https://pistar.uk")
 
 	// FIXME XXX TODO  Don't include older releases here!!!
 	doc.Find("a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
 			if strings.Contains(href, ".zip") && (strings.Contains(href, "RPi") || strings.Contains(href, "dvmega")) {
-				fmt.Println(fmt.Sprintf("https://www.pistar.uk/downloads/%s", href))
+				fmt.Println(fmt.Sprintf("https://pistar.uk/downloads/%s", href))
 				fmt.Println("	dir=Pi-Star")
 			}
 		}

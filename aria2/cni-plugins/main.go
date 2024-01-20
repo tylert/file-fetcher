@@ -32,7 +32,7 @@ type Release struct {
 }
 
 func doIt() {
-	res, err := http.Get("https://api.github.com/repos/FiloSottile/age/releases/latest")
+	res, err := http.Get("https://api.github.com/repos/containernetworking/plugins/releases/latest")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -52,19 +52,15 @@ func doIt() {
 	ver := reg.FindString(rel.TagName)
 
 	// Spit out some handy links
-	fmt.Println("# https://github.com/FiloSottile/age/releases")
-	fmt.Println("# https://github.com/FiloSottile/age")
-	fmt.Println("# https://github.com/FiloSottile/awesome-age")
-	fmt.Println("# https://age-encryption.org")
-	fmt.Println("# https://complete.org/age-encryption")
-	fmt.Println("# https://words.filippo.io/dispatches/age-authentication")
-	fmt.Println("# https://yaeba.github.io/blog/age")
+	fmt.Println("# https://github.com/containernetworking/plugins/releases")
+	fmt.Println("# https://github.com/containernetworking/plugins")
+	fmt.Println("# https://cni.dev")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
-		if strings.Contains(rel.Assets[i].Name, "-linux") && strings.Contains(rel.Assets[i].Name, "64") {
+		if strings.Contains(rel.Assets[i].Name, "linux") && (strings.Contains(rel.Assets[i].Name, "arm64") || strings.Contains(rel.Assets[i].Name, "amd64")) && !strings.Contains(rel.Assets[i].Name, "sha1") && !strings.Contains(rel.Assets[i].Name, "mips64") && !strings.Contains(rel.Assets[i].Name, "riscv64") && !strings.Contains(rel.Assets[i].Name, "ppc64le") && !strings.Contains(rel.Assets[i].Name, "s390x") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
-			fmt.Println("	dir=age")
+			fmt.Println("	dir=CNI-plugins")
 			thingy := strings.ReplaceAll(rel.Assets[i].Name, fmt.Sprintf("v%s", ver), ver)
 			fmt.Println(fmt.Sprintf("	out=%s", thingy))
 		} else {
@@ -72,16 +68,10 @@ func doIt() {
 		}
 	}
 
-	// Documentation
-	fmt.Println("https://raw.githubusercontent.com/FiloSottile/age/main/doc/age-keygen.1.html")
-	fmt.Println("	dir=age")
-	fmt.Println("https://raw.githubusercontent.com/FiloSottile/age/main/doc/age.1.html")
-	fmt.Println("	dir=age")
-
 	// Source code
 	fmt.Println(rel.TarballURL)
-	fmt.Println("	dir=age")
-	fmt.Println(fmt.Sprintf("	out=age-%s-src.tar.gz", ver))
+	fmt.Println("	dir=CNI-plugins")
+	fmt.Println(fmt.Sprintf("	out=cni-plugins-src-%s.tar.gz", ver))
 }
 
 func main() {

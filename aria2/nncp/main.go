@@ -27,8 +27,8 @@ func doIt() {
 	// Spit out some handy links
 	fmt.Println("# https://nncp.mirrors.quux.org/Tarballs.html")
 	fmt.Println("# https://nncp.mirrors.quux.org")
+	fmt.Println("# https://complete.org/nncp")
 	fmt.Println("# http://www.nncpgo.org")
-	fmt.Println("# https://www.complete.org/nncp")
 
 	// Stop after showing links for exactly 1 release (which should be the newest ones)
 	count := 2

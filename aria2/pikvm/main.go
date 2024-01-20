@@ -33,7 +33,7 @@ func doIt() {
 	fmt.Println("# https://docs.pikvm.org")
 	fmt.Println("# https://github.com/pikvm/pikvm")
 	fmt.Println("# https://en.wikipedia.org/wiki/Pi-KVM")
-	fmt.Println("# https://www.kickstarter.com/projects/mdevaev/pikvm-v4")
+	fmt.Println("# https://kickstarter.com/projects/mdevaev/pikvm-v4")
 
 	// Compiled binaries
 	now := time.Now()

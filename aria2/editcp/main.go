@@ -78,9 +78,9 @@ func dumpBin(url string, target string) {
 
 func doIt() {
 	// Spit out some handy links
-	fmt.Println("# https://www.farnsworth.org/dale/codeplug/dmrRadio/downloads")
-	fmt.Println("# https://www.farnsworth.org/dale/codeplug/editcp/downloads")
-	fmt.Println("# https://www.farnsworth.org/dale/codeplug/editcp")
+	fmt.Println("# https://farnsworth.org/dale/codeplug/dmrRadio/downloads")
+	fmt.Println("# https://farnsworth.org/dale/codeplug/editcp/downloads")
+	fmt.Println("# https://farnsworth.org/dale/codeplug/editcp")
 	fmt.Println("# https://github.com/dalefarnsworth-dmr/codeplug")
 	fmt.Println("# https://github.com/dalefarnsworth-dmr/debug")
 	fmt.Println("# https://github.com/dalefarnsworth-dmr/dfu")
@@ -96,8 +96,8 @@ func doIt() {
 	fmt.Println("# https://github.com/dalefarnsworth-dmr/userdb")
 
 	// Compiled binaries
-	dumpBin("https://www.farnsworth.org/dale/codeplug/dmrRadio/downloads/linux", "dmrRadio")
-	dumpBin("https://www.farnsworth.org/dale/codeplug/editcp/downloads/linux", "editcp")
+	dumpBin("https://farnsworth.org/dale/codeplug/dmrRadio/downloads/linux", "dmrRadio")
+	dumpBin("https://farnsworth.org/dale/codeplug/editcp/downloads/linux", "editcp")
 
 	// Source code
 	dumpSrc("https://api.github.com/repos/dalefarnsworth-dmr/codeplug/tags", "codeplug")
