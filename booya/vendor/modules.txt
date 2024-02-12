@@ -19,7 +19,7 @@ github.com/itchyny/timefmt-go
 # github.com/mikesmitty/edkey v0.0.0-20170222072505-3356ea4e686a
 ## explicit
 github.com/mikesmitty/edkey
-# golang.org/x/crypto v0.18.0
+# golang.org/x/crypto v0.19.0
 ## explicit; go 1.18
 golang.org/x/crypto/blake2b
 golang.org/x/crypto/blowfish
@@ -36,16 +36,14 @@ golang.org/x/crypto/poly1305
 golang.org/x/crypto/scrypt
 golang.org/x/crypto/ssh
 golang.org/x/crypto/ssh/internal/bcrypt_pbkdf
-# golang.org/x/sys v0.16.0
+# golang.org/x/sys v0.17.0
 ## explicit; go 1.18
 golang.org/x/sys/cpu
-# golang.org/x/tools v0.7.0
-## explicit; go 1.18
 # golang.zx2c4.com/wireguard/wgctrl v0.0.0-20230429144221-925a1e7659e6
 ## explicit; go 1.20
 golang.zx2c4.com/wireguard/wgctrl/wgtypes
-# mvdan.cc/sh/v3 v3.7.0
-## explicit; go 1.19
+# mvdan.cc/sh/v3 v3.8.0
+## explicit; go 1.21
 mvdan.cc/sh/v3/expand
 mvdan.cc/sh/v3/fileutil
 mvdan.cc/sh/v3/pattern
