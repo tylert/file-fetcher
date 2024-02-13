@@ -72,11 +72,11 @@ func doIt() {
 		} else if strings.Contains(rel.Assets[i].Name, "talosctl-linux-amd64") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
 			fmt.Println("	dir=Talos")
-			fmt.Println(fmt.Sprintf("	out=talos-%s-linux-amd64", ver))
+			fmt.Println(fmt.Sprintf("	out=talosctl-%s-linux-amd64", ver))
 		} else if strings.Contains(rel.Assets[i].Name, "talosctl-linux-arm64") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
 			fmt.Println("	dir=Talos")
-			fmt.Println(fmt.Sprintf("	out=talos-%s-linux-arm64", ver))
+			fmt.Println(fmt.Sprintf("	out=talosctl-%s-linux-arm64", ver))
 		} else if strings.Contains(rel.Assets[i].Name, "sha512sum.txt") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
 			fmt.Println("	dir=Talos")
