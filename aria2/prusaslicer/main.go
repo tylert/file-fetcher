@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"regexp"
 	"strings"
 	"time"
 )
@@ -31,7 +32,7 @@ type Release struct {
 }
 
 func doIt() {
-	res, err := http.Get("https://api.github.com/repos/Ultimaker/Cura/releases/latest")
+	res, err := http.Get("https://api.github.com/repos/prusa3d/PrusaSlicer/releases/latest")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -46,26 +47,31 @@ func doIt() {
 		log.Fatal(err)
 	}
 
+	// This project uses version strings that start with "version" in some places
+	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
+	ver := reg.FindString(rel.TagName)
+
 	// Spit out some handy links
-	fmt.Println("# https://github.com/Ultimaker/Cura/releases")
-	fmt.Println("# https://github.com/Ultimaker/Cura")
-	fmt.Println("# https://ultimaker.com/software/ultimaker-cura")
-	fmt.Println("# https://en.wikipedia.org/wiki/Cura_(software)")
+	fmt.Println("# https://github.com/prusa3d/PrusaSlicer/releases")
+	fmt.Println("# https://github.com/prusa3d/PrusaSlicer")
+	fmt.Println("# https://prusa3d.com/en/page/prusaslicer_424")
+	fmt.Println("# https://help.prusa3d.com/article/install-prusaslicer_1903")
+	fmt.Println("# https://help.prusa3d.com/article/download-prusaslicer_2220")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
-		if strings.Contains(rel.Assets[i].Name, "-linux") {
+		if strings.Contains(rel.Assets[i].Name, "+linux") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
-			fmt.Println("	dir=Cura")
+			fmt.Println("	dir=PrusaSlicer")
 		} else {
 			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
 		}
 	}
 
 	// Source code
-	fmt.Println(fmt.Sprintf("https://github.com/Ultimaker/Cura/archive/refs/tags/%s.tar.gz", rel.TagName))
-	fmt.Println("	dir=Cura")
-	fmt.Println(fmt.Sprintf("	out=UltiMaker-Cura-%s-src.tar.gz", rel.TagName))
+	fmt.Println(fmt.Sprintf("https://github.com/prusa3d/PrusaSlicer/archive/refs/tags/%s.tar.gz", rel.TagName))
+	fmt.Println("	dir=PrusaSlicer")
+	fmt.Println(fmt.Sprintf("	out=PrusaSlicer-%s+src.tar.gz", ver))
 }
 
 func main() {
