@@ -19,7 +19,7 @@ github.com/itchyny/timefmt-go
 # github.com/mikesmitty/edkey v0.0.0-20170222072505-3356ea4e686a
 ## explicit
 github.com/mikesmitty/edkey
-# golang.org/x/crypto v0.19.0
+# golang.org/x/crypto v0.20.0
 ## explicit; go 1.18
 golang.org/x/crypto/blake2b
 golang.org/x/crypto/blowfish
