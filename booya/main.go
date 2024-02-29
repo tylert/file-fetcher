@@ -9,8 +9,6 @@ func main() {
 		fmt.Println(GetVersion())
 	}
 
-	//Git()
-	//GitConfig()
 	//Python()
 	//Pyenv()
 
