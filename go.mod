@@ -1,6 +1,6 @@
 module bla
 
-go 1.21.7
+go 1.22.1
 
 require github.com/bitfield/script v0.22.0
 
