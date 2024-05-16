@@ -71,7 +71,6 @@ func doIt() {
 
 	// XXX FIXME TODO  Try to determine the list of "current" releases programatically!!!
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/24.04") // noble (until 2029-05-31)
-	dumpOne("https://mirror.xenyth.net/ubuntu-releases/23.10") // mantic (until 2024-07-01)
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/22.04") // jammy (until 2027-06-01)
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/20.04") // focal (until 2025-05-29)
 
