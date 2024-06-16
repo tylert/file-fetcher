@@ -4,7 +4,7 @@ go 1.22.4
 
 require (
 	aead.dev/minisign v0.3.0
-	filippo.io/age v1.1.1
+	filippo.io/age v1.2.0
 	github.com/bitfield/script v0.22.1
 	github.com/mikesmitty/edkey v0.0.0-20170222072505-3356ea4e686a
 	golang.org/x/crypto v0.24.0

@@ -10,7 +10,7 @@ import (
 )
 
 func MinisignKeypair(force bool) {
-	// minisign -GWf -s seckey_ms -p pubkey_ms  # generate keypair
+	// minisign -fGW -s seckey_ms -p pubkey_ms  # generate keypair
 	// minisign -R -s seckey_ms -p pubkey_ms  # recover public key
 	// minisign -C -s seckey_ms -p pubkey_ms  # add/remove/change password-protection on private key
 

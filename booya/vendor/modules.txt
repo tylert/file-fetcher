@@ -1,7 +1,7 @@
 # aead.dev/minisign v0.3.0
 ## explicit; go 1.21
 aead.dev/minisign
-# filippo.io/age v1.1.1
+# filippo.io/age v1.2.0
 ## explicit; go 1.19
 filippo.io/age
 filippo.io/age/internal/bech32
