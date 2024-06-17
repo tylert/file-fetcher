@@ -14,7 +14,7 @@ Running It
 * https://github.com/aria2/aria2
 * https://aria2.github.io
 * https://wiki.archlinux.org/title/Aria2
-* http://ariang.mayswind.net/
+* http://ariang.mayswind.net
 * https://github.com/ziahamza/webui-aria2
 
 
@@ -22,9 +22,6 @@ Next Items
 ----------
 
 * https://github.com/TheZoraiz/ascii-image-converter
-* https://github.com/minamijoyo/hcledit
-* https://github.com/hairyhenderson/gomplate
-* Arch Linux ARM for odroid-xu3(hc2), odroid-c2???
 * https://releases.hashicorp.com/index.html
 * https://releases.hashicorp.com/index.json
 
@@ -44,7 +41,7 @@ Other
 * https://github.com/huydx/hget
 * https://github.com/hashicorp/go-getter
 * https://stackoverflow.com/questions/11692860/how-can-i-efficiently-download-a-large-file-using-go
-* https://progolang.com/how-to-download-files-in-go/
+* https://progolang.com/how-to-download-files-in-go
 * https://github.com/nfx/go-htmltable  for scraping more stubborn table data???
 * https://gist.github.com/salmoni/27aee5bb0d26536391aabe7f13a72494  more complex goquery example
 * https://www.gnu.org/software/coreutils/manual/html_node/Directory-Setuid-and-Setgid.html
@@ -55,10 +52,17 @@ Other
 * https://bitfieldconsulting.com/golang/scripting
 * https://github.com/bitfield/script
 * https://pkg.go.dev/github.com/bitfield/script
-* https://jedisct1.github.io/minisign/
-* https://github.com/aead/minisign
-* https://jedisct1.github.io/minisign
-* https://superuser.com/questions/308126/is-it-possible-to-sign-a-file-using-an-ssh-key
+
+
+Signcryption
+------------
+
+* https://yaeba.github.io/blog/age
 * https://github.com/slok/agebox
-* https://sts10.github.io/2021/09/06/exploring-age-1-point-0.html
 * https://words.filippo.io/dispatches/age-authentication
+* https://sts10.github.io/2021/09/06/exploring-age-1-point-0.html
+* https://jedisct1.github.io/minisign
+* https://github.com/aead/minisign
+* https://www.agwa.name/blog/post/ssh_signatures
+* https://github.com/42wim/sshsig
+* https://github.com/mikalv/anything2ed25519
