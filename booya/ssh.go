@@ -49,7 +49,3 @@ func SSHKeypair(force bool) {
 	sec.Write([]byte(fmt.Sprintf("%s", secKey)))
 	pub.Write([]byte(fmt.Sprintf("%s", pubKey)))
 }
-
-// https://www.agwa.name/blog/post/ssh_signatures
-// https://github.com/42wim/sshsig
-// https://github.com/mikalv/anything2ed25519
