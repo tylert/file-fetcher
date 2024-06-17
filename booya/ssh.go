@@ -50,5 +50,6 @@ func SSHKeypair(force bool) {
 	pub.Write([]byte(fmt.Sprintf("%s", pubKey)))
 }
 
+// https://www.agwa.name/blog/post/ssh_signatures
+// https://github.com/42wim/sshsig
 // https://github.com/mikalv/anything2ed25519
-// https://superuser.com/questions/308126/is-it-possible-to-sign-a-file-using-an-ssh-key
