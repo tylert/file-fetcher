@@ -37,7 +37,7 @@ func WireguardKeypair(force bool) {
 }
 
 func WireguardPreSharedKey(force bool) {
-	// (umask 0077 && wg genpsk > sharedkey_wg)  # generate pre-shared key
+	// (umask 0077 && wg genpsk > secpsk_wg)  # generate pre-shared key
 
 	psKey, _ := wgtypes.GenerateKey()
 
@@ -46,7 +46,7 @@ func WireguardPreSharedKey(force bool) {
 		flags |= os.O_EXCL
 	}
 
-	prot, err := os.OpenFile("sharedkey_wg", flags, 0600)
+	prot, err := os.OpenFile("secpsk_wg", flags, 0600)
 	if err != nil {
 		log.Fatalf("Unable to open file: %v", err)
 	}
