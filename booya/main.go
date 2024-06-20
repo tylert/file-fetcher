@@ -9,9 +9,6 @@ func main() {
 		fmt.Println(GetVersion())
 	}
 
-	//Python()
-	//Pyenv()
-
 	if aAgeKey {
 		AgeKeypair(aForce)
 	}
@@ -20,8 +17,12 @@ func main() {
 		MinisignKeypair(aForce)
 	}
 
+	if aNncpKeys {
+		NncpConfigData(aForce)
+	}
+
 	if aSshKey {
-		SSHKeypair(aForce)
+		SshKeypair(aForce)
 	}
 
 	if aWgKey {

@@ -15,6 +15,7 @@ var (
 	aAgeKey      bool
 	aForce       bool
 	aMinisignKey bool
+	aNncpKeys    bool
 	aSshKey      bool
 	aVersion     bool
 	aWgKey       bool
@@ -27,6 +28,7 @@ func init() {
 		uAgeKey      = "Generate an age keypair (default false)"
 		uForce       = "Overwrite key files if they exist"
 		uMinisignKey = "Generate a minisign keypair (default false)"
+		uNncpKeys    = "Generate a set of nncp node keypairs (default false)"
 		uSshKey      = "Generate an ssh keypair (default false)"
 		uVersion     = "Display build version information (default false)"
 		uWgKey       = "Generate a wireguard keypair (default false)"
@@ -39,6 +41,8 @@ func init() {
 	flag.BoolVar(&aForce, "f", FromEnvP("MEH_FORCE", false).(bool), uForce)
 	flag.BoolVar(&aMinisignKey, "minisign", FromEnvP("MEH_MINISIGN", false).(bool), uMinisignKey)
 	flag.BoolVar(&aMinisignKey, "m", FromEnvP("MEH_MINISIGN", false).(bool), uMinisignKey)
+	flag.BoolVar(&aNncpKeys, "nncp", FromEnvP("MEH_NNCP", false).(bool), uNncpKeys)
+	flag.BoolVar(&aNncpKeys, "n", FromEnvP("MEH_NNCP", false).(bool), uNncpKeys)
 	flag.BoolVar(&aSshKey, "ssh", FromEnvP("MEH_SSH", false).(bool), uSshKey)
 	flag.BoolVar(&aSshKey, "s", FromEnvP("MEH_SSH", false).(bool), uSshKey)
 	flag.BoolVar(&aVersion, "version", FromEnvP("MEH_VERSION", false).(bool), uVersion)

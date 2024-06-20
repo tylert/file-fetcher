@@ -18,9 +18,9 @@ func MinisignKeypair(force bool) {
 	if err != nil {
 		log.Fatalf("Unable to create key: %v", err)
 	}
-	secKey, err2 := minisign.EncryptKey("", pooKey)
-	if err2 != nil {
-		log.Fatalf("Unable to encrypt key: %v", err2)
+	secKey, err := minisign.EncryptKey("", pooKey)
+	if err != nil {
+		log.Fatalf("Unable to encrypt key: %v", err)
 	}
 	pubKey, _ := mooKey.MarshalText()
 

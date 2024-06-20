@@ -12,7 +12,7 @@ import (
 	"golang.org/x/crypto/ssh"
 )
 
-func SSHKeypair(force bool) {
+func SshKeypair(force bool) {
 	// ssh-keygen -C '' -N '' -a 16 -f seckey_ssh -t ed25519 ; mv seckey_ssh.pub pubkey_ssh  # generate keypair
 	// ssh-keygen -y -f seckey_ssh > pubkey_ssh  # recover public key
 	// ssh-keygen -a 512 -p -f seckey_ssh  # add/remove/change password-protection on private key
