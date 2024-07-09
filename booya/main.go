@@ -34,17 +34,15 @@ func main() {
 	}
 }
 
-// Sec-CH-UA                   => meh
-// Sec-CH-UA-Arch              => "x86", "arm"
-// Sec-CH-UA-Bitness           => 64, 32
-// Sec-CH-UA-Form-Factor       => ""
-// Sec-CH-UA-Full-Version      => "1.0.0"
-// Sec-CH-UA-Full-Version-List => meh
+// Sec-CH-UA                   => meh...
+// Sec-CH-UA-Arch              => "x86", "ARM"
+// Sec-CH-UA-Bitness           => "64", "32"
+// Sec-CH-UA-Form-Factor       => "Desktop"
+// Sec-CH-UA-Full-Version-List => meh...
 // Sec-CH-UA-Mobile            => ?0
-// Sec-CH-UA-Model             => meh
+// Sec-CH-UA-Model             => ""
 // Sec-CH-UA-Platform          => "Linux", "macOS", "Windows"
-// Sec-CH-UA-Platform-Version  => "", "13.4.1", "11"
-// Sec-CH-UA-WoW64             => ?1, ?0
+// Sec-CH-UA-Platform-Version  => "", "14.5", "11"
 
 // https://wicg.github.io/ua-client-hints/#sec-ch-ua-platform-version
 
