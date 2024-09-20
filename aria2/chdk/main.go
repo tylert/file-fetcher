@@ -43,11 +43,17 @@ func dumpOne(url string, target string) {
 
 func doIt() {
 	// Spit out some handy links
-	fmt.Println("# https://chdk.fandom.com/wiki/CHDK")
 	fmt.Println("# https://en.wikipedia.org/wiki/DIGIC#CHDK")
+	fmt.Println("# https://forum.chdk-treff.de/download.php")     // stabile
+	fmt.Println("# https://forum.chdk-treff.de/download_dev.php") // Vorshauversion
+	fmt.Println("# https://forum.chdk-treff.de/index.php")        // de forum
+	fmt.Println("# https://chdk.setepontos.com")                  // en forum
+	fmt.Println("# https://chdk.fandom.com/wiki/CHDK")
 
-	dumpOne("https://mighty-hoernsche.de", "_elph115-")       // stable
-	dumpOne("https://mighty-hoernsche.de/trunk", "_elph115-") // unstable
+	// XXX FIXME TODO  Workaround the dumb new clicky download thing;  Just give me the links!!!
+	//                 "Digital IXUS Serie" -> "IXUS132 (ELPH115)" -> "100b"
+	// dumpOne("https://mighty-hoernsche.de", "_elph115-")       // stable
+	// dumpOne("https://mighty-hoernsche.de/trunk", "_elph115-") // unstable
 }
 
 func main() {
