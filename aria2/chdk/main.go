@@ -44,16 +44,17 @@ func dumpOne(url string, target string) {
 func doIt() {
 	// Spit out some handy links
 	fmt.Println("# https://en.wikipedia.org/wiki/DIGIC#CHDK")
-	fmt.Println("# https://forum.chdk-treff.de/download.php")     // stabile
-	fmt.Println("# https://forum.chdk-treff.de/download_dev.php") // Vorshauversion
-	fmt.Println("# https://forum.chdk-treff.de/index.php")        // de forum
-	fmt.Println("# https://chdk.setepontos.com")                  // en forum
-	fmt.Println("# https://chdk.fandom.com/wiki/CHDK")
+	fmt.Println("# https://chdk.fandom.com/wiki/Downloads")
+	fmt.Println("# https://build.chdk.photos")
+	fmt.Println("# https://app.assembla.com/spaces/chdk/subversion/source")
 
-	// XXX FIXME TODO  Workaround the dumb new clicky download thing;  Just give me the links!!!
-	//                 "Digital IXUS Serie" -> "IXUS132 (ELPH115)" -> "100b"
-	// dumpOne("https://mighty-hoernsche.de", "_elph115-")       // stable
-	// dumpOne("https://mighty-hoernsche.de/trunk", "_elph115-") // unstable
+	// Go to https://build.chdk.photos and click on the following:
+	//     Development / Unstable (trunk)
+	//     "Release / Stable (release)
+	//         -> Digital IXUS (SD, ELPH, IXY)
+	//             -> IXUS 132 (ELPH 115 IS, IXY 90F)
+	//                 -> 100b
+	//                     -> Complete build (zip link with inline sha256 checksum)
 }
 
 func main() {
