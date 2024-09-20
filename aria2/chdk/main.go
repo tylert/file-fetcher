@@ -50,7 +50,7 @@ func doIt() {
 
 	// Go to https://build.chdk.photos and click on the following:
 	//     Development / Unstable (trunk)
-	//     "Release / Stable (release)
+	//     Release / Stable (release)
 	//         -> Digital IXUS (SD, ELPH, IXY)
 	//             -> IXUS 132 (ELPH 115 IS, IXY 90F)
 	//                 -> 100b
