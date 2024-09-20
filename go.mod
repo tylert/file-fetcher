@@ -1,8 +1,8 @@
 module bla
 
-go 1.23.0
+go 1.23.1
 
-require github.com/bitfield/script v0.22.1
+require github.com/bitfield/script v0.23.0
 
 require (
 	github.com/itchyny/gojq v0.12.16 // indirect
