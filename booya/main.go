@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"os"
 )
 
 func main() {
@@ -9,12 +11,47 @@ func main() {
 		fmt.Println(GetVersion())
 	}
 
+	var flags = os.O_CREATE | os.O_WRONLY | os.O_TRUNC
+	if !aForce {
+		flags |= os.O_EXCL
+	}
+
 	if aAgeKey {
-		AgeKeypair(aForce)
+		sec, pub := AgeKeypair()
+
+		pubf, err := os.OpenFile("pubkey_age", flags, 0664)
+		if err != nil {
+			log.Fatalf("Unable to open file: %v", err)
+		}
+		defer pubf.Close()
+
+		secf, err := os.OpenFile("seckey_age", flags, 0600)
+		if err != nil {
+			log.Fatalf("Unable to open file: %v", err)
+		}
+		defer secf.Close()
+
+		secf.Write([]byte(fmt.Sprintf("%s\n", sec)))
+		pubf.Write([]byte(fmt.Sprintf("%s\n", pub)))
 	}
 
 	if aMinisignKey {
-		MinisignKeypair(aForce)
+		sec, pub := MinisignKeypair()
+
+		pubf, err := os.OpenFile("pubkey_ms", flags, 0644)
+		if err != nil {
+			log.Fatalf("Unable to open file: %v", err)
+		}
+		defer pubf.Close()
+
+		secf, err := os.OpenFile("seckey_ms", flags, 0600)
+		if err != nil {
+			log.Fatalf("Unable to open file: %v", err)
+		}
+		defer secf.Close()
+
+		secf.Write([]byte(fmt.Sprintf("%s\n", sec)))
+		pubf.Write([]byte(fmt.Sprintf("%s\n", pub)))
 	}
 
 	if aNncpKeys {
@@ -22,15 +59,53 @@ func main() {
 	}
 
 	if aSshKey {
-		SshKeypair(aForce)
+		sec, pub := SshKeypair()
+
+		pubf, err := os.OpenFile("pubkey_ssh", flags, 0664)
+		if err != nil {
+			log.Fatalf("Unable to open file: %v", err)
+		}
+		defer pubf.Close()
+
+		secf, err := os.OpenFile("seckey_ssh", flags, 0600)
+		if err != nil {
+			log.Fatalf("Unable to open file: %v", err)
+		}
+		defer secf.Close()
+
+		secf.Write([]byte(fmt.Sprintf("%s", sec)))
+		pubf.Write([]byte(fmt.Sprintf("%s", pub)))
 	}
 
 	if aWgKey {
-		WireguardKeypair(aForce)
+		sec, pub := WireguardKeypair()
+
+		pubf, err := os.OpenFile("pubkey_wg", flags, 0644)
+		if err != nil {
+			log.Fatalf("Unable to open file: %v", err)
+		}
+		defer pubf.Close()
+
+		secf, err := os.OpenFile("seckey_wg", flags, 0600)
+		if err != nil {
+			log.Fatalf("Unable to open file: %v", err)
+		}
+		defer secf.Close()
+
+		secf.Write([]byte(fmt.Sprintf("%s\n", sec)))
+		pubf.Write([]byte(fmt.Sprintf("%s\n", pub)))
 	}
 
 	if aWgPsk {
-		WireguardPreSharedKey(aForce)
+		prot := WireguardPreSharedKey()
+
+		protf, err := os.OpenFile("secpsk_wg", flags, 0600)
+		if err != nil {
+			log.Fatalf("Unable to open file: %v", err)
+		}
+		defer protf.Close()
+
+		protf.Write([]byte(fmt.Sprintf("%s\n", prot)))
 	}
 }
 

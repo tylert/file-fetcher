@@ -1,14 +1,10 @@
 package main
 
 import (
-	"fmt"
-	"log"
-	"os"
-
 	"filippo.io/age"
 )
 
-func AgeKeypair(force bool) {
+func AgeKeypair() (string, string) {
 	// age-keygen 2>/dev/null | tail -1 | (umask 0077 && tee seckey_age) | age-keygen -y - 2>/dev/null > pubkey_age  # generate keypair
 	// age-keygen -y seckey_age > pubkey_age  # recover public key
 	// (umask 0077 && cat seckey_age | age --armor --output seckey_age.age --passphrase)  # add/change password-protection to private key
@@ -16,23 +12,5 @@ func AgeKeypair(force bool) {
 
 	identity, _ := age.GenerateX25519Identity()
 
-	var flags = os.O_CREATE | os.O_WRONLY | os.O_TRUNC
-	if !force {
-		flags |= os.O_EXCL
-	}
-
-	pub, err := os.OpenFile("pubkey_age", flags, 0664)
-	if err != nil {
-		log.Fatalf("Unable to open file: %v", err)
-	}
-	defer pub.Close()
-
-	sec, err := os.OpenFile("seckey_age", flags, 0600)
-	if err != nil {
-		log.Fatalf("Unable to open file: %v", err)
-	}
-	defer sec.Close()
-
-	sec.Write([]byte(fmt.Sprintf("%s\n", identity.String())))
-	pub.Write([]byte(fmt.Sprintf("%s\n", identity.Recipient().String())))
+	return identity.String(), identity.Recipient().String()
 }
