@@ -1,7 +1,7 @@
 # aead.dev/minisign v0.3.0
 ## explicit; go 1.21
 aead.dev/minisign
-# filippo.io/age v1.2.0
+# filippo.io/age v1.2.1
 ## explicit; go 1.19
 filippo.io/age
 filippo.io/age/internal/bech32
@@ -17,7 +17,7 @@ github.com/flynn/noise
 # github.com/mikesmitty/edkey v0.0.0-20170222072505-3356ea4e686a
 ## explicit
 github.com/mikesmitty/edkey
-# golang.org/x/crypto v0.30.0
+# golang.org/x/crypto v0.31.0
 ## explicit; go 1.20
 golang.org/x/crypto/blake2b
 golang.org/x/crypto/blake2s
@@ -32,7 +32,6 @@ golang.org/x/crypto/internal/poly1305
 golang.org/x/crypto/nacl/box
 golang.org/x/crypto/nacl/secretbox
 golang.org/x/crypto/pbkdf2
-golang.org/x/crypto/poly1305
 golang.org/x/crypto/salsa20/salsa
 golang.org/x/crypto/scrypt
 golang.org/x/crypto/ssh

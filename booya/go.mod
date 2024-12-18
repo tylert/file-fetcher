@@ -4,10 +4,10 @@ go 1.23.4
 
 require (
 	aead.dev/minisign v0.3.0
-	filippo.io/age v1.2.0
+	filippo.io/age v1.2.1
 	github.com/flynn/noise v1.1.0
 	github.com/mikesmitty/edkey v0.0.0-20170222072505-3356ea4e686a
-	golang.org/x/crypto v0.30.0
+	golang.org/x/crypto v0.31.0
 	golang.zx2c4.com/wireguard/wgctrl v0.0.0-20230429144221-925a1e7659e6
 )
 
