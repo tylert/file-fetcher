@@ -52,6 +52,8 @@ Other
 * https://bitfieldconsulting.com/golang/scripting
 * https://github.com/bitfield/script
 * https://pkg.go.dev/github.com/bitfield/script
+* https://pkg.go.dev/net/http#DetectContentType  detect file type
+* https://golangprojectstructure.com/12-powerful-linux-bash-commands-with-go
 
 
 Signcryption
