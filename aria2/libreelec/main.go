@@ -66,6 +66,7 @@ func dumpBin() string {
 		return true
 	})
 
+	// XXX FIXME TODO  We always get too many returned results here, add a count maybe???
 	// Compiled binaries
 	doc.Find("a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")

@@ -48,6 +48,7 @@ func doIt() {
 	fmt.Println("# https://build.chdk.photos")
 	fmt.Println("# https://app.assembla.com/spaces/chdk/subversion/source")
 
+	// XXX FIXME TODO  This one is currently broken... make it work again!!!
 	// Go to https://build.chdk.photos and click on the following:
 	//     Development / Unstable (trunk)
 	//     Release / Stable (release)
