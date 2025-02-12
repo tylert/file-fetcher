@@ -10,7 +10,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-func dumpOne(url string) {
+func dumpOne(url string, variant string) {
 	res, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)
@@ -33,11 +33,21 @@ func dumpOne(url string) {
 	doc.Find("td.indexcolname a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
-			if strings.Contains(href, "netinst.iso") && !strings.Contains(href, "-edu-") && !strings.Contains(href, "-mac-") {
-				fmt.Println(fmt.Sprintf("%s/%s", url, href))
-				fmt.Println("	dir=Debian")
-				if reg.FindString(href) != "" {
-					ver = reg.FindString(href)
+			if variant != "" {
+				if strings.Contains(href, variant) && !strings.Contains(href, "contents") && !strings.Contains(href, "log") && !strings.Contains(href, "packages") {
+					fmt.Println(fmt.Sprintf("%s/%s", url, href))
+					fmt.Println("	dir=Debian")
+					if reg.FindString(href) != "" {
+						ver = reg.FindString(href)
+					}
+				}
+			} else {
+				if strings.Contains(href, "netinst.iso") && !strings.Contains(href, "-edu-") && !strings.Contains(href, "-mac-") {
+					fmt.Println(fmt.Sprintf("%s/%s", url, href))
+					fmt.Println("	dir=Debian")
+					if reg.FindString(href) != "" {
+						ver = reg.FindString(href)
+					}
 				}
 			}
 		}
@@ -67,10 +77,17 @@ func doIt() {
 	fmt.Println("# https://en.wikipedia.org/wiki/Debian")
 	fmt.Println("# https://distrowatch.com/debian")
 
-	dumpOne("https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd")               // testing
-	dumpOne("https://cdimage.debian.org/cdimage/release/current/amd64/iso-cd")             // stable
-	dumpOne("https://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd")    // oldstable
-	dumpOne("https://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd") // oldoldstable
+	// Live CD versions
+	// dumpOne("https://cdimage.debian.org/cdimage/weekly-live-builds/amd64/iso-hybrid", "cinnamon") // testing
+	dumpOne("https://cdimage.debian.org/cdimage/release/current-live/amd64/iso-hybrid", "cinnamon") // stable
+	// dumpOne("https://cdimage.debian.org/cdimage/archive/latest-oldstable-live/amd64/iso-hybrid", "cinnamon")
+	// dumpOne("https://cdimage.debian.org/cdimage/archive/latest-oldoldstable-live/amd64/iso-hybrid", "cinnamon")
+
+	// Dead CD versions
+	// dumpOne("https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd", "") // testing
+	// dumpOne("https://cdimage.debian.org/cdimage/release/current/amd64/iso-cd", "") // stable
+	// dumpOne("https://cdimage.debian.org/cdimage/archive/latest-oldstable/amd64/iso-cd", "")
+	// dumpOne("https://cdimage.debian.org/cdimage/archive/latest-oldoldstable/amd64/iso-cd", "")
 
 	// Spit out some more handy links
 	fmt.Println("# https://ftp-master.debian.org/keys.html")
@@ -79,10 +96,10 @@ func doIt() {
 	// Get the signing keys too
 	fmt.Println("https://ftp-master.debian.org/keys/release-12.asc") // 4D64FEC119C2029067D6E791F8D2585B8783D481
 	fmt.Println("	dir=Debian")
-	fmt.Println("https://ftp-master.debian.org/keys/release-11.asc") // A4285295FC7B1A81600062A9605C66F00D6C9793
-	fmt.Println("	dir=Debian")
-	fmt.Println("https://ftp-master.debian.org/keys/release-10.asc") // 6D33866EDD8FFA41C0143AEDDCC9EFBF77E11517
-	fmt.Println("	dir=Debian")
+	// fmt.Println("https://ftp-master.debian.org/keys/release-11.asc") // A4285295FC7B1A81600062A9605C66F00D6C9793
+	// fmt.Println("	dir=Debian")
+	// fmt.Println("https://ftp-master.debian.org/keys/release-10.asc") // 6D33866EDD8FFA41C0143AEDDCC9EFBF77E11517
+	// fmt.Println("	dir=Debian")
 }
 
 func main() {
