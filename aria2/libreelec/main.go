@@ -66,18 +66,23 @@ func dumpBin() string {
 		return true
 	})
 
-	// XXX FIXME TODO  We always get too many returned results here, add a count maybe???
-	// Compiled binaries
-	doc.Find("a").Each(func(i int, s *goquery.Selection) {
+	// Compiled binaries (stop after finding exactly 1)
+	count := 1
+	doc.Find("a").EachWithBreak(func(i int, s *goquery.Selection) bool {
 		href, ok := s.Attr("href")
 		if ok {
 			if strings.Contains(href, ver) && strings.Contains(href, ".gz") && strings.Contains(href, "RPi4") {
 				fmt.Println(href)
 				fmt.Println("	dir=LibreELEC")
+				count--
+				if count <= 0 {
+					return false
+				}
 			} else if strings.Contains(href, ".gz") {
 				fmt.Println(fmt.Sprintf("# skipped %s", href))
 			}
 		}
+		return true
 	})
 
 	return ver
