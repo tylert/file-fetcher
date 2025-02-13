@@ -19,17 +19,17 @@ func main() {
 	if aAgeKey {
 		sec, pub := AgeKeypair()
 
-		pubf, err := os.OpenFile("pubkey_age", flags, 0664)
-		if err != nil {
-			log.Fatalf("Unable to open file: %v", err)
-		}
-		defer pubf.Close()
-
 		secf, err := os.OpenFile("seckey_age", flags, 0600)
 		if err != nil {
 			log.Fatalf("Unable to open file: %v", err)
 		}
 		defer secf.Close()
+
+		pubf, err := os.OpenFile("pubkey_age", flags, 0664)
+		if err != nil {
+			log.Fatalf("Unable to open file: %v", err)
+		}
+		defer pubf.Close()
 
 		secf.Write([]byte(fmt.Sprintf("%s\n", sec)))
 		pubf.Write([]byte(fmt.Sprintf("%s\n", pub)))
@@ -38,40 +38,55 @@ func main() {
 	if aMinisignKey {
 		sec, pub := MinisignKeypair()
 
-		pubf, err := os.OpenFile("pubkey_ms", flags, 0644)
-		if err != nil {
-			log.Fatalf("Unable to open file: %v", err)
-		}
-		defer pubf.Close()
-
 		secf, err := os.OpenFile("seckey_ms", flags, 0600)
 		if err != nil {
 			log.Fatalf("Unable to open file: %v", err)
 		}
 		defer secf.Close()
 
+		pubf, err := os.OpenFile("pubkey_ms", flags, 0644)
+		if err != nil {
+			log.Fatalf("Unable to open file: %v", err)
+		}
+		defer pubf.Close()
+
 		secf.Write([]byte(fmt.Sprintf("%s\n", sec)))
 		pubf.Write([]byte(fmt.Sprintf("%s\n", pub)))
 	}
 
 	if aNncpKeys {
-		NncpConfigData(aForce)
-	}
+		sec, pub := NncpConfigData()
 
-	if aSshKey {
-		sec, pub := SshKeypair()
+		secf, err := os.OpenFile("seckeys_nncp", flags, 0600)
+		if err != nil {
+			log.Fatalf("Unable to open file: %v", err)
+		}
+		defer secf.Close()
 
-		pubf, err := os.OpenFile("pubkey_ssh", flags, 0664)
+		pubf, err := os.OpenFile("pubkeys_nncp", flags, 0644)
 		if err != nil {
 			log.Fatalf("Unable to open file: %v", err)
 		}
 		defer pubf.Close()
+
+		secf.Write([]byte(fmt.Sprintf("%s\n", sec)))
+		pubf.Write([]byte(fmt.Sprintf("%s\n", pub)))
+	}
+
+	if aSshKey {
+		sec, pub := SshKeypair()
 
 		secf, err := os.OpenFile("seckey_ssh", flags, 0600)
 		if err != nil {
 			log.Fatalf("Unable to open file: %v", err)
 		}
 		defer secf.Close()
+
+		pubf, err := os.OpenFile("pubkey_ssh", flags, 0664)
+		if err != nil {
+			log.Fatalf("Unable to open file: %v", err)
+		}
+		defer pubf.Close()
 
 		secf.Write([]byte(fmt.Sprintf("%s", sec)))
 		pubf.Write([]byte(fmt.Sprintf("%s", pub)))
@@ -80,32 +95,32 @@ func main() {
 	if aWgKey {
 		sec, pub := WireguardKeypair()
 
-		pubf, err := os.OpenFile("pubkey_wg", flags, 0644)
-		if err != nil {
-			log.Fatalf("Unable to open file: %v", err)
-		}
-		defer pubf.Close()
-
 		secf, err := os.OpenFile("seckey_wg", flags, 0600)
 		if err != nil {
 			log.Fatalf("Unable to open file: %v", err)
 		}
 		defer secf.Close()
 
+		pubf, err := os.OpenFile("pubkey_wg", flags, 0644)
+		if err != nil {
+			log.Fatalf("Unable to open file: %v", err)
+		}
+		defer pubf.Close()
+
 		secf.Write([]byte(fmt.Sprintf("%s\n", sec)))
 		pubf.Write([]byte(fmt.Sprintf("%s\n", pub)))
 	}
 
 	if aWgPsk {
-		prot := WireguardPreSharedKey()
+		sec := WireguardPreSharedKey()
 
-		protf, err := os.OpenFile("secpsk_wg", flags, 0600)
+		secf, err := os.OpenFile("secpsk_wg", flags, 0600)
 		if err != nil {
 			log.Fatalf("Unable to open file: %v", err)
 		}
-		defer protf.Close()
+		defer secf.Close()
 
-		protf.Write([]byte(fmt.Sprintf("%s\n", prot)))
+		secf.Write([]byte(fmt.Sprintf("%s\n", sec)))
 	}
 }
 

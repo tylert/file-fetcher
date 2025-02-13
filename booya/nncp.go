@@ -5,7 +5,6 @@ import (
 	"encoding/base32"
 	"fmt"
 	"log"
-	"os"
 
 	"github.com/flynn/noise"
 	"golang.org/x/crypto/blake2b"
@@ -17,8 +16,8 @@ var (
 	Base32Codec *base32.Encoding = base32.StdEncoding.WithPadding(base32.NoPadding)
 )
 
-func NncpConfigData(force bool) {
-	// nncp-cfgnew > secdata_nncp
+func NncpConfigData() (string, string) {
+	// nncp-cfgnew > seckeys_nncp  # generate keypairs
 
 	exchPub, exchPrv, err := box.GenerateKey(rand.Reader)
 	if err != nil {
@@ -33,24 +32,13 @@ func NncpConfigData(force bool) {
 		log.Fatalf("Unable to create noise key: %v", err)
 	}
 
-	var flags = os.O_CREATE | os.O_WRONLY | os.O_TRUNC
-	if !force {
-		flags |= os.O_EXCL
-	}
-
-	sec, err := os.OpenFile("secdata_nncp", flags, 0600)
-	if err != nil {
-		log.Fatalf("Unable to open file: %v", err)
-	}
-	defer sec.Close()
-
 	noisePub := new([32]byte)
 	noisePrv := new([32]byte)
 	copy(noisePrv[:], noiseKey.Private)
 	copy(noisePub[:], noiseKey.Public)
 	id := blake2b.Sum256([]byte(signPub))
 
-	sec.Write([]byte(fmt.Sprintf(`self: {
+	secKey := fmt.Sprintf(`self: {
   id: %s
   exchpub: %s
   exchprv: %s
@@ -58,13 +46,27 @@ func NncpConfigData(force bool) {
   signprv: %s
   noisepub: %s
   noiseprv: %s
-}
-`,
+}`,
 		Base32Codec.EncodeToString(id[:]),
 		Base32Codec.EncodeToString(exchPub[:]),
 		Base32Codec.EncodeToString(exchPrv[:]),
 		Base32Codec.EncodeToString(signPub[:]),
 		Base32Codec.EncodeToString(signPrv[:]),
 		Base32Codec.EncodeToString(noisePub[:]),
-		Base32Codec.EncodeToString(noisePrv[:]))))
+		Base32Codec.EncodeToString(noisePrv[:]))
+
+	pubKey := fmt.Sprintf(`neigh: {
+  self: {
+    id: %s
+    exchpub: %s
+    signpub: %s
+    noisepub: %s
+  }
+}`,
+		Base32Codec.EncodeToString(id[:]),
+		Base32Codec.EncodeToString(exchPub[:]),
+		Base32Codec.EncodeToString(signPub[:]),
+		Base32Codec.EncodeToString(noisePub[:]))
+
+	return secKey, pubKey
 }
