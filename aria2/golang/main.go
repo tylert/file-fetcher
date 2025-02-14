@@ -41,6 +41,7 @@ func doIt() {
 				fmt.Println(fmt.Sprintf("https://go.dev%s", href))
 				fmt.Println("	dir=golang")
 				fmt.Println(fmt.Sprintf("	checksum=sha-256=%s", poo))
+				// XXX FIXME TODO  Spit this stuff out into a SHASUMS.txt file too (they don't provide one so we'll build it)
 				count--
 				if count <= 0 {
 					return false
