@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"regexp"
 	"strings"
 	"time"
@@ -57,7 +58,7 @@ func dumpBin(url string, target string) {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	dir=OpenWRT")
 				fmt.Println(fmt.Sprintf("	checksum=sha-256=%s", poo))
-				// XXX FIXME TODO  Spit this stuff out into a SHASUMS.txt file too (they don't provide one so we'll build it)
+				fmt.Fprintln(os.Stderr, fmt.Sprintf("%s  %s", poo, href))
 			}
 		}
 	})

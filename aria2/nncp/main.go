@@ -30,12 +30,12 @@ func doIt() {
 	fmt.Println("# https://complete.org/nncp")
 	fmt.Println("# http://www.nncpgo.org")
 
-	// Stop after showing links for exactly 1 release (which should be the newest ones)
-	count := 2
+	// Newest releases are at the top / Single table row per release
+	count := 4
 	doc.Find("a").EachWithBreak(func(i int, s *goquery.Selection) bool {
 		href, ok := s.Attr("href")
 		if ok {
-			if strings.Contains(href, "download") && !strings.Contains(href, ".meta4") {
+			if strings.Contains(href, "download") {
 				fmt.Println(fmt.Sprintf("https://nncp.mirrors.quux.org/%s", href))
 				fmt.Println("	dir=NNCP")
 				count--

@@ -5,10 +5,13 @@ File Fetcher
 Running It
 ----------
 
+Inline checksums (if present) will be sent to stderr and Aria2 output will be
+sent to stdout.
+
 ::
 
     pushd aria2
-    go run ${PRODUCT}/main.go | aria2c -i -
+    go run ${PRODUCT}/main.go 2>meh | aria2c -i -
     popd
 
 * https://github.com/aria2/aria2
