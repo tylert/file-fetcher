@@ -120,8 +120,6 @@ func doIt() {
 
 	ver := dumpBin()
 	dumpSrc(ver)
-	// XXX FIXME TODO  Some jerk released stable binaries for pre-release source code!!!
-	// This means GitHub thinks 11.0.3 is the latest while the official web site has 11.0.4
 }
 
 func main() {
