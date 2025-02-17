@@ -32,7 +32,7 @@ type Release struct {
 }
 
 func doIt() {
-	res, err := http.Get("https://api.github.com/repos/portapack-mayhem/mayhem-firmware/releases/latest")
+	res, err := http.Get("https://api.github.com/repos/markqvist/RNode_Firmware/releases/latest")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -47,27 +47,21 @@ func doIt() {
 		log.Fatal(err)
 	}
 
-	// This project uses version strings that start with "v" in some places
-	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
+	reg := regexp.MustCompile(`\d+?\.\d+?\d+`)
 	ver := reg.FindString(rel.TagName)
 
 	// Spit out some handy links
-	fmt.Println("# https://github.com/portapack-mayhem/mayhem-firmware/releases")
-	fmt.Println("# https://github.com/portapack-mayhem/mayhem-firmware")
-	fmt.Println("# https://rtl-sdr.com/a-review-of-the-new-hackrf-portapack-h4m")
+	fmt.Println("# https://github.com/markqvist/RNode_Firmware/releases")
+	fmt.Println("# https://github.com/markqvist/RNode_Firmware")
+	fmt.Println("# https://unsigned.io/hardware/RNode.html")
+	fmt.Println("# https://unsigned.io/rnode_firmware")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
-		if strings.Contains(rel.Assets[i].Name, "FIRMWARE.zip") {
+		if strings.Contains(rel.Assets[i].Name, "heltec_t114.zip") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
-			fmt.Println("	dir=Mayhem")
-			thingy := strings.ReplaceAll(rel.Assets[i].Name, fmt.Sprintf("v%s", ver), ver)
-			fmt.Println(fmt.Sprintf("	out=%s", thingy))
-		} else if strings.Contains(rel.Assets[i].Name, "COPY_TO_SDCARD.zip") {
-			fmt.Println(rel.Assets[i].BrowserDownloadURL)
-			fmt.Println("	dir=Mayhem")
-			thingy := strings.ReplaceAll(rel.Assets[i].Name, fmt.Sprintf("v%s", ver), ver)
-			fmt.Println(fmt.Sprintf("	out=%s", thingy))
+			fmt.Println("	dir=RNode")
+			fmt.Println(fmt.Sprintf("	out=rnode_firmware_%s_heltec_t114.zip", ver))
 		} else {
 			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
 		}
@@ -75,8 +69,8 @@ func doIt() {
 
 	// Source code
 	fmt.Println(rel.TarballURL)
-	fmt.Println("	dir=Mayhem")
-	fmt.Println(fmt.Sprintf("	out=mayhem_%s_SOURCE.tar.gz", ver))
+	fmt.Println("	dir=RNode")
+	fmt.Println(fmt.Sprintf("	out=rnode_firmware_%s_src.tar.gz", ver))
 }
 
 func main() {
