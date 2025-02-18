@@ -33,7 +33,9 @@ func doIt() {
 	// Spit out some handy links
 	fmt.Println("# https://en.wikipedia.org/wiki/DIGIC#CHDK")
 	fmt.Println("# https://chdk.fandom.com/wiki/Downloads")
+	fmt.Println("# https://build.chdk.photos/#build=trunk/IXUS/ixus132_elph115/100b")
 	fmt.Println("# https://build.chdk.photos/#build=release/IXUS/ixus132_elph115/100b")
+	fmt.Println("# https://build.chdk.photos")
 	fmt.Println("# https://app.assembla.com/spaces/chdk/subversion/source")
 
 	/*
