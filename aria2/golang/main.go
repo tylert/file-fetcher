@@ -42,8 +42,8 @@ func doIt() {
 				fmt.Println(fmt.Sprintf("https://go.dev%s", href))
 				fmt.Println("	dir=golang")
 				fmt.Println(fmt.Sprintf("	checksum=sha-256=%s", poo))
-				// XXX FIXME TODO  Chop out the "/dl/" parts
-				fmt.Fprintln(os.Stderr, fmt.Sprintf("%s  %s", poo, href))
+				whatzit := strings.Split(href, "/")
+				fmt.Fprintln(os.Stderr, fmt.Sprintf("%s  %s", poo, whatzit[2]))
 				count--
 				if count <= 0 {
 					return false
