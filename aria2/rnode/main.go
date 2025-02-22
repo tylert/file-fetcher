@@ -32,6 +32,8 @@ type Release struct {
 }
 
 func doIt() {
+	// XXX FIXME TODO  Do some testing then contact the primary maintainer to get Heltec T114 added!!!
+	// res, err := http.Get("https://api.github.com/repos/liberatedsystems/RNode_Firmware_CE/releases/latest")
 	res, err := http.Get("https://api.github.com/repos/markqvist/RNode_Firmware/releases/latest")
 	if err != nil {
 		log.Fatal(err)
@@ -51,10 +53,13 @@ func doIt() {
 	ver := reg.FindString(rel.TagName)
 
 	// Spit out some handy links
+	fmt.Println("# https://github.com/liberatedsystems/RNode_Firmware_CE/releases")
+	fmt.Println("# https://github.com/liberatedsystems/RNode_Firmware_CE")
 	fmt.Println("# https://github.com/markqvist/RNode_Firmware/releases")
 	fmt.Println("# https://github.com/markqvist/RNode_Firmware")
 	fmt.Println("# https://unsigned.io/hardware/RNode.html")
 	fmt.Println("# https://unsigned.io/rnode_firmware")
+	fmt.Println("# https://liberatedsystems.co.uk")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
