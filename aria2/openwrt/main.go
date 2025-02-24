@@ -93,8 +93,15 @@ func doIt() {
 	fmt.Println("# https://en.wikipedia.org/wiki/OpenWrt")
 
 	// Compiled binaries
-	dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ath79/generic", ver), "tplink_eap245-v3")
 	dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ramips/mt7621", ver), "ubnt_edgerouter-x")
+	dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ath79/generic", ver), "tplink_eap245-v3")
+
+	// ramips/mt7621 -> mipsel_24kc (Little-Endian)
+	// main package repo https://downloads.openwrt.org/releases/${REL}/packages/mipsel_24kc
+	// other package repo https://downloads.openwrt.org/releases/${REL}/targets/ramips/mt7621/packages
+	// ath79/generic -> mips_24kc (Big-Endian)
+	// main package repo https://downloads.openwrt.org/releases/${REL}/packages/mips_24kc
+	// other package repo https://downloads.openwrt.org/releases/${REL}/targets/ath79/generic/packages
 
 	// Source code
 	fmt.Println(rel.TarballURL)
