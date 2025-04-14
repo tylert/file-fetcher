@@ -34,7 +34,7 @@ func dumpOne(url string) {
 	doc.Find("div.name a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
-			if (strings.Contains(href, ".iso") || strings.Contains(href, ".zsync") || strings.Contains(href, ".list") || strings.Contains(href, ".manifest")) && !strings.Contains(href, ".torrent") && !strings.Contains(href, "-desktop") {
+			if (strings.Contains(href, ".iso") || strings.Contains(href, ".zsync") || strings.Contains(href, ".list") || strings.Contains(href, ".manifest")) && !strings.Contains(href, ".torrent") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	dir=Ubuntu")
 				if reg1.FindString(href) != "" { // e.g.:  22.04.3
