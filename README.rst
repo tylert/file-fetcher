@@ -57,6 +57,7 @@ Other
 * https://pkg.go.dev/github.com/bitfield/script
 * https://pkg.go.dev/net/http#DetectContentType  detect file type
 * https://golangprojectstructure.com/12-powerful-linux-bash-commands-with-go
+* https://github.com/USA-RedDragon/gitea-mirror  Go program to mirror git repos?
 
 
 Signcryption
