@@ -95,13 +95,17 @@ func doIt() {
 	// Compiled binaries
 	dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ramips/mt7621", ver), "ubnt_edgerouter-x")
 	dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ath79/generic", ver), "tplink_eap245-v3")
+	dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/bcm27xx/bcm2710", ver), "rpi-3")
+	dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/bcm27xx/bcm2711", ver), "rpi-4")
+	// dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/bcm27xx/bcm2712", ver), "rpi-5")
 
 	// ramips/mt7621 -> mipsel_24kc (Little-Endian)
-	// main package repo https://downloads.openwrt.org/releases/${REL}/packages/mipsel_24kc
-	// other package repo https://downloads.openwrt.org/releases/${REL}/targets/ramips/mt7621/packages
 	// ath79/generic -> mips_24kc (Big-Endian)
-	// main package repo https://downloads.openwrt.org/releases/${REL}/packages/mips_24kc
-	// other package repo https://downloads.openwrt.org/releases/${REL}/targets/ath79/generic/packages
+	// bcm27xx/bcm2710 -> aarch64_cortex-a53 (Whatever-Endian)
+	// bcm27xx/bcm2711 -> aarch64_cortex-a72 (Whatever-Endian)
+	// bcm27xx/bcm2712 -> aarch64_cortex-a76 (Whatever-Endian)
+	// main package repo https://downloads.openwrt.org/releases/${RELEASE}/packages/${RIGHT_SIDE}
+	// other package repo https://downloads.openwrt.org/releases/${RELEASE}/targets/${LEFT_SIDE}/packages
 
 	// Source code
 	fmt.Println(rel.TarballURL)
