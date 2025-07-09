@@ -1,6 +1,6 @@
 module meh
 
-go 1.24.4
+go 1.24.5
 
 require (
 	aead.dev/minisign v0.3.0
