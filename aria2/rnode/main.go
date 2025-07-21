@@ -31,10 +31,8 @@ type Release struct {
 	ZipballURL string `json:"zipball_url"`
 }
 
-func doIt() {
-	// XXX FIXME TODO  Do some testing then contact the primary maintainer to get Heltec T114 added!!!
-	// res, err := http.Get("https://api.github.com/repos/liberatedsystems/RNode_Firmware_CE/releases/latest")
-	res, err := http.Get("https://api.github.com/repos/markqvist/RNode_Firmware/releases/latest")
+func dumpOne(url string) {
+	res, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -52,21 +50,16 @@ func doIt() {
 	reg := regexp.MustCompile(`\d+?\.\d+?\d+`)
 	ver := reg.FindString(rel.TagName)
 
-	// Spit out some handy links
-	fmt.Println("# https://github.com/liberatedsystems/RNode_Firmware_CE/releases")
-	fmt.Println("# https://github.com/liberatedsystems/RNode_Firmware_CE")
-	fmt.Println("# https://github.com/markqvist/RNode_Firmware/releases")
-	fmt.Println("# https://github.com/markqvist/RNode_Firmware")
-	fmt.Println("# https://unsigned.io/hardware/RNode.html")
-	fmt.Println("# https://unsigned.io/rnode_firmware")
-	fmt.Println("# https://liberatedsystems.co.uk")
-
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
 		if strings.Contains(rel.Assets[i].Name, "heltec_t114.zip") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
 			fmt.Println("	dir=RNode")
 			fmt.Println(fmt.Sprintf("	out=rnode_firmware_%s_heltec_t114.zip", ver))
+		} else if strings.Contains(rel.Assets[i].Name, "rak4631.zip") {
+			fmt.Println(rel.Assets[i].BrowserDownloadURL)
+			fmt.Println("	dir=RNode")
+			fmt.Println(fmt.Sprintf("	out=rnode_firmware_%s_rak4631.zip", ver))
 		} else {
 			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
 		}
@@ -76,6 +69,20 @@ func doIt() {
 	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=RNode")
 	fmt.Println(fmt.Sprintf("	out=rnode_firmware_%s_src.tar.gz", ver))
+}
+
+func doIt() {
+	// Spit out some handy links
+	fmt.Println("# https://github.com/liberatedsystems/RNode_Firmware_CE/releases")
+	fmt.Println("# https://github.com/liberatedsystems/RNode_Firmware_CE")
+	fmt.Println("# https://github.com/markqvist/RNode_Firmware/releases")
+	fmt.Println("# https://github.com/markqvist/RNode_Firmware")
+	fmt.Println("# https://unsigned.io/hardware/RNode.html")
+	fmt.Println("# https://unsigned.io/rnode_firmware")
+	fmt.Println("# https://liberatedsystems.co.uk")
+
+	dumpOne("https://api.github.com/repos/liberatedsystems/RNode_Firmware_CE/releases/latest")
+	dumpOne("https://api.github.com/repos/markqvist/RNode_Firmware/releases/latest")
 }
 
 func main() {
