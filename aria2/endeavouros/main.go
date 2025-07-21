@@ -5,12 +5,16 @@ import (
 	"log"
 	"net/http"
 	"strings"
+	"time"
 
 	"github.com/PuerkitoBio/goquery"
 )
 
 func doIt() {
-	res, err := http.Get("https://endeavouros.com/#Download")
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get("https://endeavouros.com/#Download")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -26,6 +30,7 @@ func doIt() {
 
 	// Spit out some handy links
 	fmt.Println("# https://endeavouros.com")
+	fmt.Println("# https://endeavouros-team.github.io/EndeavourOS-Development")
 	fmt.Println("# https://github.com/endeavouros-team/ISO/releases/latest")
 	fmt.Println("# https://en.wikipedia.org/wiki/EndeavourOS")
 	fmt.Println("# https://distrowatch.com/endeavour")
