@@ -32,7 +32,10 @@ type Release struct {
 }
 
 func doOne(url string, tool string) {
-	res, err := http.Get(url)
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get(url)
 	if err != nil {
 		log.Fatal(err)
 	}

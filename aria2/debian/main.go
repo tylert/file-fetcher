@@ -6,12 +6,16 @@ import (
 	"net/http"
 	"regexp"
 	"strings"
+	"time"
 
 	"github.com/PuerkitoBio/goquery"
 )
 
 func dumpOne(url string, variant string) {
-	res, err := http.Get(url)
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get(url)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -94,8 +98,8 @@ func doIt() {
 	fmt.Println("# https://ftp-master.debian.org/keys")
 
 	// Get the signing keys too
-	fmt.Println("https://ftp-master.debian.org/keys/release-12.asc") // 4D64FEC119C2029067D6E791F8D2585B8783D481
-	fmt.Println("	dir=Debian")
+	// fmt.Println("https://ftp-master.debian.org/keys/release-12.asc") // 4D64FEC119C2029067D6E791F8D2585B8783D481
+	// fmt.Println("	dir=Debian")
 	// fmt.Println("https://ftp-master.debian.org/keys/release-11.asc") // A4285295FC7B1A81600062A9605C66F00D6C9793
 	// fmt.Println("	dir=Debian")
 	// fmt.Println("https://ftp-master.debian.org/keys/release-10.asc") // 6D33866EDD8FFA41C0143AEDDCC9EFBF77E11517

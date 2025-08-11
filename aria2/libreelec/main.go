@@ -34,7 +34,10 @@ type Release struct {
 }
 
 func dumpBin() string {
-	res, err := http.Get("https://libreelec.tv/downloads/raspberry")
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get("https://libreelec.tv/downloads/raspberry")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -89,7 +92,10 @@ func dumpBin() string {
 }
 
 func dumpSrc(ver string) {
-	res, err := http.Get("https://api.github.com/repos/LibreELEC/LibreELEC.tv/releases/latest")
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get("https://api.github.com/repos/LibreELEC/LibreELEC.tv/releases/latest")
 	if err != nil {
 		log.Fatal(err)
 	}

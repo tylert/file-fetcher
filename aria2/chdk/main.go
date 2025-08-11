@@ -2,11 +2,10 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"net/http"
-	"strings"
-
-	"github.com/PuerkitoBio/goquery"
+	//"log"
+	//"net/http"
+	//"strings"
+	//"github.com/PuerkitoBio/goquery"
 )
 
 func doIt() {
@@ -15,7 +14,10 @@ func doIt() {
 	// https://gist.github.com/cryptix/87127f76a94183747b53
 
 	/*
-		res, err := http.Get("https://build.chdk.photos/#build=release/IXUS/ixus132_elph115/100b")
+		client := http.Client{
+			Timeout: 5 * time.Second,
+		}
+		res, err := client.Get("https://build.chdk.photos/#build=release/IXUS/ixus132_elph115/100b")
 		if err != nil {
 			log.Fatal(err)
 		}

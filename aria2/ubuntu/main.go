@@ -6,12 +6,16 @@ import (
 	"net/http"
 	"regexp"
 	"strings"
+	"time"
 
 	"github.com/PuerkitoBio/goquery"
 )
 
 func dumpOne(url string) {
-	res, err := http.Get(url)
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get(url)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -72,7 +76,6 @@ func doIt() {
 	// XXX FIXME TODO  Try to determine the list of "current" releases programatically!!!
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/24.04") // Noble Numbat (until 2029-05-31)
 	// dumpOne("https://mirror.xenyth.net/ubuntu-releases/22.04") // Jammy Jellyfish (until 2027-06-01)
-	// dumpOne("https://mirror.xenyth.net/ubuntu-releases/20.04") // Focal Fossa (until 2025-05-29)
 
 	// Spit out some more handy links
 	fmt.Println("# https://cloud-images.ubuntu.com")

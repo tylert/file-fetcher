@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"regexp"
 	"strings"
+	"time"
 
 	"github.com/PuerkitoBio/goquery"
 )
@@ -23,7 +24,10 @@ type Entry []struct {
 }
 
 func dumpSrc(url string, target string) {
-	res, err := http.Get(url)
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get(url)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -49,7 +53,10 @@ func dumpSrc(url string, target string) {
 }
 
 func dumpBin(url string, target string) {
-	res, err := http.Get(url)
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get(url)
 	if err != nil {
 		log.Fatal(err)
 	}

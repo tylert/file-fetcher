@@ -35,7 +35,10 @@ type Release struct {
 }
 
 func dumpBin(url string, target string) {
-	res, err := http.Get(url)
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get(url)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -65,7 +68,10 @@ func dumpBin(url string, target string) {
 }
 
 func doIt() {
-	res, err := http.Get("https://api.github.com/repos/openwrt/openwrt/releases/latest")
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get("https://api.github.com/repos/openwrt/openwrt/releases/latest")
 	if err != nil {
 		log.Fatal(err)
 	}

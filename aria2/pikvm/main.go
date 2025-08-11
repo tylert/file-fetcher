@@ -11,7 +11,10 @@ import (
 )
 
 func doIt() {
-	res, err := http.Get("https://files.pikvm.org/images")
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get("https://files.pikvm.org/images")
 	if err != nil {
 		log.Fatal(err)
 	}

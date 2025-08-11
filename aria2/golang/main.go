@@ -6,12 +6,16 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/PuerkitoBio/goquery"
 )
 
 func doIt() {
-	res, err := http.Get("https://go.dev/dl")
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get("https://go.dev/dl")
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -5,12 +5,16 @@ import (
 	"log"
 	"net/http"
 	"strings"
+	"time"
 
 	"github.com/PuerkitoBio/goquery"
 )
 
 func doIt() {
-	res, err := http.Get("https://nncp.mirrors.quux.org/Tarballs.html")
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get("https://nncp.mirrors.quux.org/Tarballs.html")
 	if err != nil {
 		log.Fatal(err)
 	}

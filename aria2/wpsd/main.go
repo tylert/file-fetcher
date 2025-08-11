@@ -5,12 +5,16 @@ import (
 	"log"
 	"net/http"
 	"strings"
+	"time"
 
 	"github.com/PuerkitoBio/goquery"
 )
 
 func doIt() {
-	res, err := http.Get("https://w0chp.radio/wpsd")
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get("https://w0chp.radio/wpsd")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -26,7 +30,7 @@ func doIt() {
 
 	// Spit out some handy links
 	fmt.Println("# https://w0chp.radio/wpsd")
-  fmt.Println("# https://manual.wpsd.radio")
+	fmt.Println("# https://manual.wpsd.radio")
 
 	doc.Find("a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")

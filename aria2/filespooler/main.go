@@ -27,7 +27,10 @@ type Release struct {
 }
 
 func doIt() {
-	res, err := http.Get("https://salsa.debian.org/api/v4/projects/69786/releases/permalink/latest")
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get("https://salsa.debian.org/api/v4/projects/69786/releases/permalink/latest")
 	if err != nil {
 		log.Fatal(err)
 	}

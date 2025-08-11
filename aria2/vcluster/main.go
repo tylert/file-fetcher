@@ -32,7 +32,10 @@ type Release struct {
 }
 
 func doIt() {
-	res, err := http.Get("https://api.github.com/repos/loft-sh/vcluster/releases/latest")
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get("https://api.github.com/repos/loft-sh/vcluster/releases/latest")
 	if err != nil {
 		log.Fatal(err)
 	}
