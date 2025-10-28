@@ -101,8 +101,8 @@ func doIt() {
 	// Compiled binaries
 	dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ramips/mt7621", ver), "ubnt_edgerouter-x")
 	dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ath79/generic", ver), "tplink_eap245-v3")
-	dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/bcm27xx/bcm2710", ver), "rpi-3")
-	dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/bcm27xx/bcm2711", ver), "rpi-4")
+	// dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/bcm27xx/bcm2710", ver), "rpi-3")
+	// dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/bcm27xx/bcm2711", ver), "rpi-4")
 	// dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/bcm27xx/bcm2712", ver), "rpi-5")
 
 	// ramips/mt7621 -> mipsel_24kc (Little-Endian)
