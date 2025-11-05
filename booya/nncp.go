@@ -17,7 +17,7 @@ var (
 )
 
 func NncpConfigData() (string, string) {
-	// (umask 0077 && nncp-cfgnew > seckeys_nncp)  # generate keypairs
+	// (umask 0077 && nncp-cfgnew | grep -v '^.*#' | grep -v '^$' > seckeys_nncp)  # generate keypairs
 	// nncp-cfgmin -cfg seckeys_nncp > pubkeys_nncp  # show only the public keys
 	// nncp-cfgenc seckeys_nncp > seckeys_nncp.eblob  # add symmetric encryption
 	// (umask 0077 && nncp-cfgenc -d seckeys_nncp.eblob > seckeys_nncp)  # remove symmetric encryption
@@ -80,6 +80,9 @@ func NncpConfigData() (string, string) {
 		Base32Codec.EncodeToString(noisePub[:]))
 
 	pubKey := fmt.Sprintf(`{
+  spool: /var/spool/nncp
+  log: /var/spool/nncp/log
+  self: null
   neigh: {
     bubba: {
       id: %s
