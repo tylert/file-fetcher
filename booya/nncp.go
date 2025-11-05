@@ -84,7 +84,7 @@ func NncpConfigData() (string, string) {
   log: /var/spool/nncp/log
   self: null
   neigh: {
-    bubba: {
+    self: {
       id: %s
       exchpub: %s
       signpub: %s
