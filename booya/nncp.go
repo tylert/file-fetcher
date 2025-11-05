@@ -44,6 +44,8 @@ func NncpConfigData() (string, string) {
 	secKey := fmt.Sprintf(`{
   spool: /var/spool/nncp
   log: /var/spool/nncp/log
+  mcd-listen: [".*"]
+  mcd-send: {.*: 10}
   self: {
     id: %s
     exchpub: %s
@@ -59,6 +61,9 @@ func NncpConfigData() (string, string) {
       exchpub: %s
       signpub: %s
       noisepub: %s
+      exec: {
+        sendmail: ["/usr/sbin/sendmail"]
+      }
     }
   }
 }`,
