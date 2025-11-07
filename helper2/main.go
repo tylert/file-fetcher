@@ -66,3 +66,4 @@ func main() {
 
 // https://mimesniff.spec.whatwg.org
 // https://gist.github.com/rayrutjes/db9b9ea8e02255d62ce2
+// https://github.com/xyproto/mime
