@@ -71,6 +71,11 @@ func doIt() {
 			fmt.Println("	dir=Mayhem")
 			thingy := strings.ReplaceAll(rel.Assets[i].Name, fmt.Sprintf("v%s", ver), ver)
 			fmt.Println(fmt.Sprintf("	out=%s", thingy))
+		} else if strings.Contains(rel.Assets[i].Name, "ppfw.tar") {
+			fmt.Println(rel.Assets[i].BrowserDownloadURL)
+			fmt.Println("	dir=Mayhem")
+			thingy := strings.ReplaceAll(rel.Assets[i].Name, fmt.Sprintf("v%s", ver), ver)
+			fmt.Println(fmt.Sprintf("	out=%s", thingy))
 		} else {
 			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
 		}
