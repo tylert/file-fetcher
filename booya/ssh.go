@@ -10,7 +10,7 @@ import (
 )
 
 func SshKeypair() (string, string) {
-	// ssh-keygen -C '' -N '' -f seckey_ssh -t ed25519 ; mv seckey_ssh.pub pubkey_ssh  # generate keypair
+	// ssh-keygen -q -C '' -N '' -f seckey_ssh -t ed25519 ; mv seckey_ssh.pub pubkey_ssh  # generate keypair
 	// ssh-keygen -y -f seckey_ssh > pubkey_ssh  # recover public key
 	// ssh-keygen -c -f seckey_ssh  # change comment (repack private key)
 	// ssh-keygen -p -f seckey_ssh  # change password (repack private key)
