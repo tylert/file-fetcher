@@ -45,7 +45,7 @@ func doIt() {
 		if ok {
 			if strings.Contains(href, "v2-hdmi-rpi4-latest") {
 				fmt.Println(fmt.Sprintf("https://files.pikvm.org/images/%s", href))
-				fmt.Println("	dir=PiKVM")
+				fmt.Println("	dir=Linux/PiKVM")
 				thingy := strings.Split(strings.ReplaceAll(href, "latest", now.Format("2006-01-02")), "/")
 				fmt.Println(fmt.Sprintf("	out=pikvm-%s", thingy[len(thingy)-1]))
 			} else if strings.Contains(href, "v2-hdmi-rpi4-") && strings.Contains(href, ".img") {
@@ -57,10 +57,10 @@ func doIt() {
 
 	// Documentation
 	fmt.Println("https://github.com/pikvm/pikvm/archive/refs/heads/gh-pages.zip")
-	fmt.Println("	dir=PiKVM")
+	fmt.Println("	dir=Linux/PiKVM")
 	fmt.Println(fmt.Sprintf("	out=pikvm-handbook-%s.zip", now.Format("2006-01-02")))
 	fmt.Println("https://github.com/pikvm/pikvm/archive/refs/heads/master.zip")
-	fmt.Println("	dir=PiKVM")
+	fmt.Println("	dir=Linux/PiKVM")
 	fmt.Println(fmt.Sprintf("	out=pikvm-more-docs-%s.zip", now.Format("2006-01-02")))
 }
 
