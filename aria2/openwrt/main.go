@@ -59,7 +59,7 @@ func dumpBin(url string, target string) {
 		if ok {
 			if strings.Contains(href, target) && !strings.Contains(href, "-sfp-") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
-				fmt.Println("	dir=OpenWRT")
+				fmt.Println("	dir=Linux/OpenWRT")
 				fmt.Println(fmt.Sprintf("	checksum=sha-256=%s", poo))
 				fmt.Fprintln(os.Stderr, fmt.Sprintf("%s  %s", poo, href))
 			}
@@ -115,7 +115,7 @@ func doIt() {
 
 	// Source code
 	fmt.Println(rel.TarballURL)
-	fmt.Println("	dir=OpenWRT")
+	fmt.Println("	dir=Linux/OpenWRT")
 	fmt.Println(fmt.Sprintf("	out=openwrt-%s-src.tar.gz", ver))
 }
 

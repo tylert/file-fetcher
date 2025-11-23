@@ -40,7 +40,7 @@ func doIt() {
 		if ok {
 			if strings.Contains(href, "gigenet") && strings.Contains(href, ".iso") && !strings.Contains(href, ".torrent") {
 				fmt.Println(fmt.Sprintf("%s", href))
-				fmt.Println("	dir=EndeavourOS")
+				fmt.Println("	dir=Linux/EndeavourOS")
 			}
 		}
 	})

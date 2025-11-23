@@ -40,7 +40,7 @@ func dumpOne(url string) {
 		if ok {
 			if (strings.Contains(href, ".iso") || strings.Contains(href, ".zsync") || strings.Contains(href, ".list") || strings.Contains(href, ".manifest")) && !strings.Contains(href, ".torrent") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
-				fmt.Println("	dir=Ubuntu")
+				fmt.Println("	dir=Linux/Ubuntu")
 				if reg1.FindString(href) != "" { // e.g.:  22.04.3
 					ver = reg1.FindString(href)
 				} else if reg2.FindString(href) != "" { // e.g.:  23.04
@@ -57,7 +57,7 @@ func dumpOne(url string) {
 		if ok {
 			if strings.Contains(href, "SHA256SUMS") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
-				fmt.Println("	dir=Ubuntu")
+				fmt.Println("	dir=Linux/Ubuntu")
 				fmt.Println(fmt.Sprintf("	out=ubuntu-%s-%s.txt", ver, href))
 			}
 		}

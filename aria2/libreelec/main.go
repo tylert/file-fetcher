@@ -76,7 +76,7 @@ func dumpBin() string {
 		if ok {
 			if strings.Contains(href, ver) && strings.Contains(href, ".gz") && strings.Contains(href, "RPi4") {
 				fmt.Println(href)
-				fmt.Println("	dir=LibreELEC")
+				fmt.Println("	dir=Linux/LibreELEC")
 				count--
 				if count <= 0 {
 					return false
@@ -112,7 +112,7 @@ func dumpSrc(ver string) {
 
 	// Source code
 	fmt.Println(rel.TarballURL)
-	fmt.Println("	dir=LibreELEC")
+	fmt.Println("	dir=Linux/LibreELEC")
 	fmt.Println(fmt.Sprintf("	out=LibreELEC-%s-src.tar.gz", ver))
 }
 
