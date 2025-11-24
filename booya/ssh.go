@@ -10,10 +10,10 @@ import (
 )
 
 func SshKeypair() (string, string) {
-	// ssh-keygen -q -C '' -N '' -f seckey_ssh -t ed25519 ; mv seckey_ssh.pub pubkey_ssh  # generate keypair
-	// ssh-keygen -y -f seckey_ssh > pubkey_ssh  # recover public key
-	// ssh-keygen -c -f seckey_ssh  # change comment (repack private key)
-	// ssh-keygen -p -f seckey_ssh  # change password (repack private key)
+	// ssh-keygen -f seckey_ssh -t ed25519 -q -C '' -N '' ; mv seckey_ssh.pub pubkey_ssh  # generate keypair
+	// ssh-keygen -f seckey_ssh -y > pubkey_ssh  # recover public key
+	// ssh-keygen -f seckey_ssh -c  # change comment (repack private key)
+	// ssh-keygen -f seckey_ssh -p  # change password (repack private key)
 
 	mooKey, pooKey, _ := ed25519.GenerateKey(rand.Reader)
 	booKey, _ := ssh.NewPublicKey(mooKey)
