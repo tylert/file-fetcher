@@ -50,8 +50,8 @@ func doIt() {
 	}
 
 	// Spit out some handy links
-	fmt.Println("# https://github.com/scandum/tintin/releases")
 	fmt.Println("# https://github.com/scandum/tintin")
+	fmt.Println("# https://github.com/scandum/tintin/releases")
 	fmt.Println("# https://aur.archlinux.org/packages/tintin")
 	fmt.Println("# https://aur.archlinux.org/packages/tintin-git")
 	fmt.Println("# https://tintin.mudhalla.net")

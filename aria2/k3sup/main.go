@@ -50,8 +50,8 @@ func doIt() {
 	}
 
 	// Spit out some handy links
-	fmt.Println("# https://github.com/alexellis/k3sup/releases")
 	fmt.Println("# https://github.com/alexellis/k3sup")
+	fmt.Println("# https://github.com/alexellis/k3sup/releases")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {

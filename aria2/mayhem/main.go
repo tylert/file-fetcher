@@ -55,8 +55,8 @@ func doIt() {
 	ver := reg.FindString(rel.TagName)
 
 	// Spit out some handy links
-	fmt.Println("# https://github.com/portapack-mayhem/mayhem-firmware/releases")
 	fmt.Println("# https://github.com/portapack-mayhem/mayhem-firmware")
+	fmt.Println("# https://github.com/portapack-mayhem/mayhem-firmware/releases")
 	fmt.Println("# https://rtl-sdr.com/a-review-of-the-new-hackrf-portapack-h4m")
 
 	// Compiled binaries

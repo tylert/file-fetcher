@@ -55,8 +55,8 @@ func doIt() {
 	ver := reg.FindString(rel.TagName)
 
 	// Spit out some handy links
-	fmt.Println("# https://github.com/siderolabs/talos/releases")
 	fmt.Println("# https://github.com/siderolabs/talos")
+	fmt.Println("# https://github.com/siderolabs/talos/releases")
 	fmt.Println("# https://talos.dev")
 	fmt.Println("# https://siderolabs.com")
 	fmt.Println("# https://siderolabs.com/platform/talos-os-for-kubernetes")

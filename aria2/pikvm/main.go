@@ -31,8 +31,8 @@ func doIt() {
 	// Spit out some handy links
 	fmt.Println("# https://files.pikvm.org/images")
 	fmt.Println("# https://docs.pikvm.org/flashing_os")
-	fmt.Println("# https://pikvm.org/download")
 	fmt.Println("# https://pikvm.org")
+	fmt.Println("# https://pikvm.org/download")
 	fmt.Println("# https://docs.pikvm.org")
 	fmt.Println("# https://github.com/pikvm/pikvm")
 	fmt.Println("# https://en.wikipedia.org/wiki/Pi-KVM")

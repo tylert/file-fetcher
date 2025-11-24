@@ -91,8 +91,8 @@ func doIt() {
 	ver := reg.FindString(rel.TagName)
 
 	// Spit out some handy links
-	fmt.Println("# https://github.com/openwrt/openwrt/releases")
 	fmt.Println("# https://github.com/openwrt/openwrt")
+	fmt.Println("# https://github.com/openwrt/openwrt/releases")
 	fmt.Println("# https://openwrt.org")
 	fmt.Println("# https://downloads.openwrt.org/releases")
 	fmt.Println("# https://firmware-selector.openwrt.org")

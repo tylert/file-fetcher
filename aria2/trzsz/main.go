@@ -72,10 +72,10 @@ func doOne(url string, tool string) {
 
 func doIt() {
 	// Spit out some handy links
-	fmt.Println("# https://github.com/trzsz/trzsz-go/releases")
 	fmt.Println("# https://github.com/trzsz/trzsz-go")
-	fmt.Println("# https://github.com/trzsz/trzsz-ssh/releases")
+	fmt.Println("# https://github.com/trzsz/trzsz-go/releases")
 	fmt.Println("# https://github.com/trzsz/trzsz-ssh")
+	fmt.Println("# https://github.com/trzsz/trzsz-ssh/releases")
 	fmt.Println("# https://github.com/trzsz/trzsz.github.io")
 	fmt.Println("# https://trzsz.github.io/go")
 	fmt.Println("# https://trzsz.github.io/ssh")
