@@ -82,13 +82,13 @@ func doIt() {
 	now := time.Now()
 	fmt.Println("http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-aarch64-latest.tar.gz")
 	fmt.Println("	dir=Linux/ArchLinux")
-	fmt.Println(fmt.Sprintf("	out=ArchLinuxARM-rpi-aarch64-%s.tar.gz", now.Format("2006-01-02")))
+	fmt.Printf("	out=ArchLinuxARM-rpi-aarch64-%s.tar.gz", now.Format("2006-01-02"))
 	fmt.Println("http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-aarch64-latest.tar.gz.md5")
 	fmt.Println("	dir=Linux/ArchLinux")
-	fmt.Println(fmt.Sprintf("	out=ArchLinuxARM-rpi-aarch64-%s.tar.gz.md5", now.Format("2006-01-02")))
+	fmt.Printf("	out=ArchLinuxARM-rpi-aarch64-%s.tar.gz.md5", now.Format("2006-01-02"))
 	fmt.Println("http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-aarch64-latest.tar.gz.sig")
 	fmt.Println("	dir=Linux/ArchLinux")
-	fmt.Println(fmt.Sprintf("	out=ArchLinuxARM-rpi-aarch64-%s.tar.gz.sig", now.Format("2006-01-02")))
+	fmt.Printf("	out=ArchLinuxARM-rpi-aarch64-%s.tar.gz.sig", now.Format("2006-01-02"))
 
 	// Get the signing keys too
 	fmt.Println("https://keys.openpgp.org/vks/v1/by-fingerprint/3E80CA1A8B89F69CBA57D98A76A5EF9054449A5C") // 3E80CA1A8B89F69CBA57D98A76A5EF9054449A5C
