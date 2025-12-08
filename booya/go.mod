@@ -1,6 +1,6 @@
 module meh
 
-go 1.25.4
+go 1.25.5
 
 require (
 	aead.dev/minisign v0.3.0
@@ -13,5 +13,5 @@ require (
 
 require (
 	github.com/kr/pretty v0.3.1 // indirect
-	golang.org/x/sys v0.38.0 // indirect
+	golang.org/x/sys v0.39.0 // indirect
 )
