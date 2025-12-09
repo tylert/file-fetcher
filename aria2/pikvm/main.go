@@ -14,7 +14,7 @@ func doIt() {
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
-	res, err := client.Get("https://files.pikvm.org/images")
+	res, err := client.Get("https://files.pikvm.org/images/v2-hdmi-rpi4/aarch64")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -43,12 +43,12 @@ func doIt() {
 	doc.Find("a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
-			if strings.Contains(href, "v2-hdmi-rpi4-latest") {
-				fmt.Println(fmt.Sprintf("https://files.pikvm.org/images/%s", href))
+			if strings.Contains(href, "latest") {
+				fmt.Println(fmt.Sprintf("https://files.pikvm.org/images/v2-hdmi-rpi4/aarch64/%s", href))
 				fmt.Println("	dir=Linux/PiKVM")
 				thingy := strings.Split(strings.ReplaceAll(href, "latest", now.Format("2006-01-02")), "/")
 				fmt.Println(fmt.Sprintf("	out=pikvm-%s", thingy[len(thingy)-1]))
-			} else if strings.Contains(href, "v2-hdmi-rpi4-") && strings.Contains(href, ".img") {
+			} else if strings.Contains(href, "v2-hdmi-rpi4-aarch64-") && strings.Contains(href, ".img") {
 				whatzit := strings.Split(href, "/")
 				fmt.Println(fmt.Sprintf("# skipped %s", whatzit[len(whatzit)-1]))
 			}

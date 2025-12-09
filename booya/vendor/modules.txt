@@ -15,7 +15,7 @@ github.com/flynn/noise
 # github.com/mikesmitty/edkey v0.0.0-20170222072505-3356ea4e686a
 ## explicit
 github.com/mikesmitty/edkey
-# golang.org/x/crypto v0.45.0
+# golang.org/x/crypto v0.46.0
 ## explicit; go 1.24.0
 golang.org/x/crypto/blake2b
 golang.org/x/crypto/blake2s
