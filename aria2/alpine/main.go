@@ -33,8 +33,12 @@ func dumpOne(url string) {
 	doc.Find("a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
-			if strings.HasPrefix(href, "alpine-standard-") || strings.HasPrefix(href, "alpine-rpi-") {
+			if strings.HasPrefix(href, "alpine-standard-") && strings.Contains(href, "-x86_64.iso") && !strings.Contains(href, "rc1") && !strings.Contains(href, "rc2") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
+				fmt.Println("	out=Linux/Alpine")
+			} else if strings.HasPrefix(href, "alpine-rpi-") && strings.Contains(href, "-aarch64.img.gz") && !strings.Contains(href, "rc1") && !strings.Contains(href, "rc2") {
+				fmt.Println(fmt.Sprintf("%s/%s", url, href))
+				fmt.Println("	out=Linux/Alpine")
 			} else {
 				fmt.Println(fmt.Sprintf("# skipped %s", href))
 			}
