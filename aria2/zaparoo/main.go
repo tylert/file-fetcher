@@ -35,7 +35,7 @@ func doIt() {
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
-	res, err := client.Get("https://api.github.com/repos/pdfcpu/pdfcpu/releases/latest")
+	res, err := client.Get("https://api.github.com/repos/ZaparooProject/zaparoo-core/releases/latest")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -55,21 +55,24 @@ func doIt() {
 	ver := reg.FindString(rel.TagName)
 
 	// Spit out some handy links
-	fmt.Println("# https://github.com/pdfcpu/pdfcpu/releases")
-	fmt.Println("# https://github.com/pdfcpu/pdfcpu")
-	fmt.Println("# https://pdfcpu.io")
+	fmt.Println("# https://github.com/ZaparooProject/zaparoo-core/releases")
+	fmt.Println("# https://github.com/ZaparooProject/zaparoo-core")
+	fmt.Println("# https://zaparoo.org")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {
-		if strings.Contains(rel.Assets[i].Name, "_Linux_arm64") {
+		if strings.Contains(rel.Assets[i].Name, "zaparoo-linux_amd64") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
-			fmt.Println("	dir=pdfcpu")
-		} else if strings.Contains(rel.Assets[i].Name, "_Linux_x86_64") {
+			fmt.Println("	dir=zaparoo")
+		} else if strings.Contains(rel.Assets[i].Name, "zaparoo-mister_arm") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
-			fmt.Println("	dir=pdfcpu")
-		} else if strings.Contains(rel.Assets[i].Name, "checksums.txt") {
+			fmt.Println("	dir=zaparoo")
+		} else if strings.Contains(rel.Assets[i].Name, "zaparoo-batocera_amd64") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
-			fmt.Println("	dir=pdfcpu")
+			fmt.Println("	dir=zaparoo")
+		} else if strings.Contains(rel.Assets[i].Name, "zaparoo-libreelec_arm64") {
+			fmt.Println(rel.Assets[i].BrowserDownloadURL)
+			fmt.Println("	dir=zaparoo")
 		} else {
 			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
 		}
@@ -77,8 +80,8 @@ func doIt() {
 
 	// Source code
 	fmt.Println(rel.TarballURL)
-	fmt.Println("	dir=pdfcpu")
-	fmt.Println(fmt.Sprintf("	out=pdfcpu_%s_src.tar.gz", ver))
+	fmt.Println("	dir=zaparoo")
+	fmt.Println(fmt.Sprintf("	out=zaparoo-core-%s-src.tar.gz", ver))
 }
 
 func main() {

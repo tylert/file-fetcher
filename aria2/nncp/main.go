@@ -29,8 +29,8 @@ func doIt() {
 	}
 
 	// Spit out some handy links
-	fmt.Println("# https://nncp.mirrors.quux.org")
 	fmt.Println("# https://nncp.mirrors.quux.org/Tarballs.html")
+	fmt.Println("# https://nncp.mirrors.quux.org")
 	fmt.Println("# https://complete.org/nncp")
 	fmt.Println("# http://www.nncpgo.org")
 

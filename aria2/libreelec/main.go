@@ -118,8 +118,8 @@ func dumpSrc(ver string) {
 
 func doIt() {
 	// Spit out some handy links
-	fmt.Println("# https://github.com/LibreELEC/LibreELEC.tv")
 	fmt.Println("# https://github.com/LibreELEC/LibreELEC.tv/releases")
+	fmt.Println("# https://github.com/LibreELEC/LibreELEC.tv")
 	fmt.Println("# https://libreelec.tv")
 	fmt.Println("# https://libreelec.tv/downloads/raspberry")
 	fmt.Println("# https://en.wikipedia.org/wiki/LibreELEC")

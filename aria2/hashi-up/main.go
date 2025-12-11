@@ -55,8 +55,8 @@ func doIt() {
 	ver := reg.FindString(rel.TagName)
 
 	// Spit out some handy links
-	fmt.Println("# https://github.com/jsiebens/hashi-up")
 	fmt.Println("# https://github.com/jsiebens/hashi-up/releases")
+	fmt.Println("# https://github.com/jsiebens/hashi-up")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {

@@ -29,8 +29,8 @@ func doIt() {
 	}
 
 	// Spit out some handy links
-	fmt.Println("# https://grapheneos.org")
 	fmt.Println("# https://grapheneos.org/releases")
+	fmt.Println("# https://grapheneos.org")
 	fmt.Println("# https://comparisontabl.es/google-pixel-phones")
 	fmt.Println("# https://en.wikipedia.org/wiki/GrapheneOS")
 

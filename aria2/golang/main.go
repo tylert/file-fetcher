@@ -31,8 +31,8 @@ func doIt() {
 
 	// Spit out some handy links
 	fmt.Println("# https://go.dev/dl")
-	fmt.Println("# https://go.dev/doc/devel/release")
 	fmt.Println("# https://go.dev")
+	fmt.Println("# https://go.dev/doc/devel/release")
 	fmt.Println("# https://en.wikipedia.org/wiki/Go_(programming_language)")
 
 	// Stop after showing links for exactly 1 release (which should be the newest ones)
