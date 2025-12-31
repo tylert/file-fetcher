@@ -53,7 +53,7 @@ func main() {
 				if count <= 0 {
 					return false
 				}
-			} else {
+			} else if !strings.Contains(href, "darwin") {
 				fmt.Println(fmt.Sprintf("# skipped %s", href))
 			}
 		}
