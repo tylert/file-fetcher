@@ -27,7 +27,7 @@ type Release struct {
 	TagName    string    `json:"tag_name"`
 }
 
-func doIt() {
+func main() {
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -84,8 +84,4 @@ func doIt() {
 			fmt.Println(fmt.Sprintf("# skipped %s", whatzit[len(whatzit)-1]))
 		}
 	}
-}
-
-func main() {
-	doIt()
 }

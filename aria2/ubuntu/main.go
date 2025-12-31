@@ -65,7 +65,7 @@ func dumpOne(url string) {
 	})
 }
 
-func doIt() {
+func main() {
 	// Spit out some handy links
 	fmt.Println("# https://mirror.xenyth.net/ubuntu-releases")
 	fmt.Println("# https://releases.ubuntu.com")
@@ -75,6 +75,7 @@ func doIt() {
 	fmt.Println("# https://distrowatch.com/ubuntu")
 
 	// XXX FIXME TODO  Try to determine the list of "current" releases programatically!!!
+	// dumpOne("https://mirror.xenyth.net/ubuntu-releases/26.04") // Resolute Racoon (until 2031-05-29)
 	dumpOne("https://mirror.xenyth.net/ubuntu-releases/24.04") // Noble Numbat (until 2029-05-31)
 	// dumpOne("https://mirror.xenyth.net/ubuntu-releases/22.04") // Jammy Jellyfish (until 2027-06-01)
 
@@ -82,8 +83,4 @@ func doIt() {
 	fmt.Println("# https://cloud-images.ubuntu.com")
 	fmt.Println("# https://cloud-images.ubuntu.com/locator")
 	fmt.Println("# https://ubuntu.com/download/raspberry-pi")
-}
-
-func main() {
-	doIt()
 }

@@ -68,7 +68,7 @@ func dumpBin(url string, target string) {
 	})
 }
 
-func doIt() {
+func main() {
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -113,15 +113,11 @@ func doIt() {
 	// bcm27xx/bcm2710 -> aarch64_cortex-a53 (Whatever-Endian)
 	// bcm27xx/bcm2711 -> aarch64_cortex-a72 (Whatever-Endian)
 	// bcm27xx/bcm2712 -> aarch64_cortex-a76 (Whatever-Endian)
-	// main package repo https://downloads.openwrt.org/releases/${RELEASE}/packages/${RIGHT_SIDE}
-	// other package repo https://downloads.openwrt.org/releases/${RELEASE}/targets/${LEFT_SIDE}/packages
+	//   main package repo https://downloads.openwrt.org/releases/${RELEASE}/packages/${RIGHT_SIDE}
+	//   other package repo https://downloads.openwrt.org/releases/${RELEASE}/targets/${LEFT_SIDE}/packages
 
 	// Source code
 	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=Linux/OpenWRT")
 	fmt.Println(fmt.Sprintf("	out=openwrt-%s-src.tar.gz", ver))
-}
-
-func main() {
-	doIt()
 }

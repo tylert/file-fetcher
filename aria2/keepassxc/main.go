@@ -31,7 +31,7 @@ type Release struct {
 	ZipballURL string `json:"zipball_url"`
 }
 
-func doIt() {
+func main() {
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -67,8 +67,4 @@ func doIt() {
 		}
 	}
 	// XXX FIXME TODO  There is rather poor consistency in the filename case in this project
-}
-
-func main() {
-	doIt()
 }

@@ -74,7 +74,7 @@ func dumpOne(url string, variant string) {
 	})
 }
 
-func doIt() {
+func main() {
 	// Spit out some handy links
 	fmt.Println("# https://cdimage.debian.org/cdimage")
 	fmt.Println("# https://debian.org")
@@ -105,8 +105,4 @@ func doIt() {
 	// fmt.Println("	dir=Linux/Debian")
 	// fmt.Println("https://ftp-master.debian.org/keys/release-11.asc") // A4285295FC7B1A81600062A9605C66F00D6C9793
 	// fmt.Println("	dir=Linux/Debian")
-}
-
-func main() {
-	doIt()
 }

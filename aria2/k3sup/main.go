@@ -31,7 +31,7 @@ type Release struct {
 	ZipballURL string `json:"zipball_url"`
 }
 
-func doIt() {
+func main() {
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -83,8 +83,4 @@ func doIt() {
 	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=k3sup")
 	fmt.Println(fmt.Sprintf("	out=k3sup-%s-src.tar.gz", rel.TagName))
-}
-
-func main() {
-	doIt()
 }

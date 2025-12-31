@@ -11,7 +11,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-func doIt() {
+func main() {
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -51,8 +51,4 @@ func doIt() {
 		}
 		return true
 	})
-}
-
-func main() {
-	doIt()
 }

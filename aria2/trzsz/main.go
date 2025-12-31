@@ -32,7 +32,7 @@ type Release struct {
 	ZipballURL string `json:"zipball_url"`
 }
 
-func doOne(url string, tool string) {
+func dumpOne(url string, tool string) {
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -71,7 +71,7 @@ func doOne(url string, tool string) {
 	fmt.Println(fmt.Sprintf("	out=%s_%s_src.tar.gz", tool, ver))
 }
 
-func doIt() {
+func main() {
 	// Spit out some handy links
 	fmt.Println("# https://github.com/trzsz/trzsz-go/releases")
 	fmt.Println("# https://github.com/trzsz/trzsz-go")
@@ -82,12 +82,8 @@ func doIt() {
 	fmt.Println("# https://trzsz.github.io/ssh")
 	fmt.Println("# https://trzsz.github.io")
 
-	doOne("https://api.github.com/repos/trzsz/trzsz-go/releases/latest", "trzsz")
-	doOne("https://api.github.com/repos/trzsz/trzsz-ssh/releases/latest", "tssh")
+	dumpOne("https://api.github.com/repos/trzsz/trzsz-go/releases/latest", "trzsz")
+	dumpOne("https://api.github.com/repos/trzsz/trzsz-ssh/releases/latest", "tssh")
 
 	// XXX FIXME TODO  Fetch the https://github.com/trzsz/trzsz.github.io docs!!!
-}
-
-func main() {
-	doIt()
 }

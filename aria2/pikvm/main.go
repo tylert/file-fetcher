@@ -11,7 +11,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-func doIt() {
+func main() {
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -63,8 +63,4 @@ func doIt() {
 	fmt.Println("https://github.com/pikvm/pikvm/archive/refs/heads/master.zip")
 	fmt.Println("	dir=Linux/PiKVM")
 	fmt.Println(fmt.Sprintf("	out=pikvm-more-docs-%s.zip", now.Format("2006-01-02")))
-}
-
-func main() {
-	doIt()
 }

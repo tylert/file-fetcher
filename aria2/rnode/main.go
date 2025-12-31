@@ -75,7 +75,7 @@ func dumpOne(url string) {
 	fmt.Println(fmt.Sprintf("	out=rnode_firmware_%s_src.tar.gz", ver))
 }
 
-func doIt() {
+func main() {
 	// Spit out some handy links
 	fmt.Println("# https://github.com/liberatedsystems/RNode_Firmware_CE/releases")
 	fmt.Println("# https://github.com/liberatedsystems/RNode_Firmware_CE")
@@ -87,8 +87,4 @@ func doIt() {
 
 	dumpOne("https://api.github.com/repos/liberatedsystems/RNode_Firmware_CE/releases/latest")
 	dumpOne("https://api.github.com/repos/markqvist/RNode_Firmware/releases/latest")
-}
-
-func main() {
-	doIt()
 }

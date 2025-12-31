@@ -9,7 +9,7 @@ import (
 	//"github.com/PuerkitoBio/goquery"
 )
 
-func doIt() {
+func main() {
 	// XXX FIXME TODO  Sigh, the CHDK builds page is all Jabbascript... https://github.com/robertkrimen/otto
 	// https://github.com/PuerkitoBio/goquery/wiki/Tips-and-tricks#handle-javascript-based-pages
 	// https://gist.github.com/cryptix/87127f76a94183747b53
@@ -52,8 +52,4 @@ func doIt() {
 			}
 		})
 	*/
-}
-
-func main() {
-	doIt()
 }

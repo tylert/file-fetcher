@@ -47,7 +47,7 @@ func dumpOne(url string) {
 	})
 }
 
-func doIt() {
+func main() {
 	fmt.Println("# https://dl-cdn.alpinelinux.org/alpine/latest-stable")
 	fmt.Println("# https://alpinelinux.org")
 	fmt.Println("# https://en.wikipedia.org/wiki/Alpine_Linux")
@@ -55,8 +55,4 @@ func doIt() {
 
 	dumpOne("https://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/x86_64")
 	dumpOne("https://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/aarch64")
-}
-
-func main() {
-	doIt()
 }
