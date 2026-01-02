@@ -15,6 +15,7 @@ CGO_ENABLED=0 go build \
     -mod='vendor' \
     -trimpath
     # -o ${tool}
+# upx --brute ${tool}
 # zip ${tool}-${os}-${arch}-${version}.zip ${tool}
 
 # syft packages ${tool} -o spdx-json=sbom.spdx.json
