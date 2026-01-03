@@ -64,16 +64,16 @@ func main() {
 	for i := 0; i < len(rel.Assets); i++ {
 		if strings.Contains(rel.Assets[i].Name, "zaparoo-linux_amd64") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
-			fmt.Println("	dir=zaparoo")
+			fmt.Println("	dir=Zaparoo")
 		} else if strings.Contains(rel.Assets[i].Name, "zaparoo-mister_arm") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
-			fmt.Println("	dir=zaparoo")
+			fmt.Println("	dir=Zaparoo")
 		} else if strings.Contains(rel.Assets[i].Name, "zaparoo-batocera_amd64") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
-			fmt.Println("	dir=zaparoo")
+			fmt.Println("	dir=Zaparoo")
 		} else if strings.Contains(rel.Assets[i].Name, "zaparoo-libreelec_arm64") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
-			fmt.Println("	dir=zaparoo")
+			fmt.Println("	dir=Zaparoo")
 		} else {
 			fmt.Println(fmt.Sprintf("# skipped %s", rel.Assets[i].Name))
 		}
@@ -81,6 +81,6 @@ func main() {
 
 	// Source code
 	fmt.Println(rel.TarballURL)
-	fmt.Println("	dir=zaparoo")
+	fmt.Println("	dir=Zaparoo")
 	fmt.Println(fmt.Sprintf("	out=zaparoo-core-%s-src.tar.gz", ver))
 }
