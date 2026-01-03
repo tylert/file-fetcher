@@ -26,12 +26,12 @@ func main() {
 
 	doc, err := goquery.NewDocumentFromReader(res.Body)
 	if err != nil {
-		log.Fatal("Error loading HTTP response body.", err)
+		log.Fatal(err)
 	}
 
 	// Spit out some handy links
-	fmt.Println("# https://grapheneos.org/releases")
 	fmt.Println("# https://grapheneos.org")
+	fmt.Println("# https://grapheneos.org/releases")
 	fmt.Println("# https://comparisontabl.es/google-pixel-phones")
 	fmt.Println("# https://en.wikipedia.org/wiki/GrapheneOS")
 

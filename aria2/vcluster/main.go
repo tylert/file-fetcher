@@ -56,8 +56,8 @@ func main() {
 	ver := reg.FindString(rel.TagName)
 
 	// Spit out some handy links
-	fmt.Println("# https://github.com/loft-sh/vcluster/releases")
 	fmt.Println("# https://github.com/loft-sh/vcluster")
+	fmt.Println("# https://github.com/loft-sh/vcluster/releases")
 	fmt.Println("# https://vcluster.com")
 
 	// Compiled binaries

@@ -56,8 +56,8 @@ func main() {
 	ver := reg.FindString(rel.TagName)
 
 	// Spit out some handy links
-	fmt.Println("# https://github.com/opentofu/opentofu/releases")
 	fmt.Println("# https://github.com/opentofu/opentofu")
+	fmt.Println("# https://github.com/opentofu/opentofu/releases")
 	fmt.Println("# https://opentofu.org")
 
 	// Compiled binaries

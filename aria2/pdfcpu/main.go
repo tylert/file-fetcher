@@ -56,8 +56,8 @@ func main() {
 	ver := reg.FindString(rel.TagName)
 
 	// Spit out some handy links
-	fmt.Println("# https://github.com/pdfcpu/pdfcpu/releases")
 	fmt.Println("# https://github.com/pdfcpu/pdfcpu")
+	fmt.Println("# https://github.com/pdfcpu/pdfcpu/releases")
 	fmt.Println("# https://pdfcpu.io")
 
 	// Compiled binaries

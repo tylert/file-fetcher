@@ -51,8 +51,8 @@ func main() {
 	ver := reg.FindString(rel.TagName)
 
 	// Spit out some handy links
-	fmt.Println("# https://salsa.debian.org/jgoerzen/filespooler/-/releases")
 	fmt.Println("# https://salsa.debian.org/jgoerzen/filespooler")
+	fmt.Println("# https://salsa.debian.org/jgoerzen/filespooler/-/releases")
 	fmt.Println("# https://complete.org/filespooler")
 
 	// Compiled binaries

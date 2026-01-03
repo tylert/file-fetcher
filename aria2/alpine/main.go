@@ -26,7 +26,7 @@ func dumpOne(url string) {
 
 	doc, err := goquery.NewDocumentFromReader(res.Body)
 	if err != nil {
-		log.Fatal("Error loading HTTP response body.", err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(fmt.Sprintf("# %s", url))

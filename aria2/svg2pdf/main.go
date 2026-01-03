@@ -55,8 +55,8 @@ func main() {
 	ver := reg.FindString(rel.TagName)
 
 	// Spit out some handy links
-	fmt.Println("# https://github.com/typst/svg2pdf/releases")
 	fmt.Println("# https://github.com/typst/svg2pdf")
+	fmt.Println("# https://github.com/typst/svg2pdf/releases")
 	fmt.Println("# https://typst.app")
 
 	// Source code

@@ -27,7 +27,7 @@ func dumpOne(url string, variant string) {
 
 	doc, err := goquery.NewDocumentFromReader(res.Body)
 	if err != nil {
-		log.Fatal("Error loading HTTP response body.", err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(fmt.Sprintf("# %s", url))
@@ -85,6 +85,7 @@ func main() {
 	// Live CD versions
 	// dumpOne("https://cdimage.debian.org/cdimage/weekly-live-builds/amd64/iso-hybrid", "cinnamon") // testing
 	dumpOne("https://cdimage.debian.org/cdimage/release/current-live/amd64/iso-hybrid", "cinnamon") // stable
+	dumpOne("https://cdimage.debian.org/cdimage/release/current-live/amd64/iso-hybrid", "xfce")     // stable
 	// dumpOne("https://cdimage.debian.org/cdimage/archive/latest-oldstable-live/amd64/iso-hybrid", "cinnamon")
 	// dumpOne("https://cdimage.debian.org/cdimage/archive/latest-oldoldstable-live/amd64/iso-hybrid", "cinnamon")
 
@@ -102,7 +103,5 @@ func main() {
 	// fmt.Println("https://ftp-master.debian.org/keys/release-13.asc") // 41587F7DB8C774BCCF131416762F67A0B2C39DE4
 	// fmt.Println("	dir=Linux/Debian")
 	// fmt.Println("https://ftp-master.debian.org/keys/release-12.asc") // 4D64FEC119C2029067D6E791F8D2585B8783D481
-	// fmt.Println("	dir=Linux/Debian")
-	// fmt.Println("https://ftp-master.debian.org/keys/release-11.asc") // A4285295FC7B1A81600062A9605C66F00D6C9793
 	// fmt.Println("	dir=Linux/Debian")
 }

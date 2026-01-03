@@ -49,7 +49,7 @@ func dumpBin() string {
 
 	doc, err := goquery.NewDocumentFromReader(res.Body)
 	if err != nil {
-		log.Fatal("Error loading HTTP response body.", err)
+		log.Fatal(err)
 	}
 
 	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
@@ -119,8 +119,8 @@ func dumpSrc(ver string) {
 
 func main() {
 	// Spit out some handy links
-	fmt.Println("# https://github.com/LibreELEC/LibreELEC.tv/releases")
 	fmt.Println("# https://github.com/LibreELEC/LibreELEC.tv")
+	fmt.Println("# https://github.com/LibreELEC/LibreELEC.tv/releases")
 	fmt.Println("# https://libreelec.tv")
 	fmt.Println("# https://libreelec.tv/downloads/raspberry")
 	fmt.Println("# https://en.wikipedia.org/wiki/LibreELEC")

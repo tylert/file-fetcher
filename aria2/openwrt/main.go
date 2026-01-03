@@ -50,7 +50,7 @@ func dumpBin(url string, target string) {
 
 	doc, err := goquery.NewDocumentFromReader(res.Body)
 	if err != nil {
-		log.Fatalf("Error loading HTTP response body.", err)
+		log.Fatal(err)
 	}
 
 	doc.Find("tr").Each(func(i int, s *goquery.Selection) {
@@ -92,8 +92,8 @@ func main() {
 	ver := reg.FindString(rel.TagName)
 
 	// Spit out some handy links
-	fmt.Println("# https://github.com/openwrt/openwrt/releases")
 	fmt.Println("# https://github.com/openwrt/openwrt")
+	fmt.Println("# https://github.com/openwrt/openwrt/releases")
 	fmt.Println("# https://openwrt.org")
 	fmt.Println("# https://downloads.openwrt.org/releases")
 	fmt.Println("# https://firmware-selector.openwrt.org")

@@ -56,8 +56,8 @@ func main() {
 	ver := reg.FindString(rel.TagName)
 
 	// Spit out some handy links
-	fmt.Println("# https://github.com/ventoy/Ventoy/releases")
 	fmt.Println("# https://github.com/ventoy/Ventoy")
+	fmt.Println("# https://github.com/ventoy/Ventoy/releases")
 	fmt.Println("# https://ventoy.net")
 	fmt.Println("# https://ventoy.net/en/download.html")
 	fmt.Println("# https://en.wikipedia.org/wiki/Ventoy")

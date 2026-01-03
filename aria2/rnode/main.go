@@ -77,10 +77,10 @@ func dumpOne(url string) {
 
 func main() {
 	// Spit out some handy links
-	fmt.Println("# https://github.com/liberatedsystems/RNode_Firmware_CE/releases")
 	fmt.Println("# https://github.com/liberatedsystems/RNode_Firmware_CE")
-	fmt.Println("# https://github.com/markqvist/RNode_Firmware/releases")
+	fmt.Println("# https://github.com/liberatedsystems/RNode_Firmware_CE/releases")
 	fmt.Println("# https://github.com/markqvist/RNode_Firmware")
+	fmt.Println("# https://github.com/markqvist/RNode_Firmware/releases")
 	fmt.Println("# https://unsigned.io/hardware/RNode.html")
 	fmt.Println("# https://unsigned.io/rnode_firmware")
 	fmt.Println("# https://liberatedsystems.co.uk")

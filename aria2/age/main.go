@@ -46,8 +46,7 @@ func main() {
 	}
 
 	var rel Release
-	err = json.NewDecoder(res.Body).Decode(&rel)
-	if err != nil {
+	if err = json.NewDecoder(res.Body).Decode(&rel); err != nil {
 		log.Fatal(err)
 	}
 
@@ -56,8 +55,8 @@ func main() {
 	ver := reg.FindString(rel.TagName)
 
 	// Spit out some handy links
-	fmt.Println("# https://github.com/FiloSottile/age/releases")
 	fmt.Println("# https://github.com/FiloSottile/age")
+	fmt.Println("# https://github.com/FiloSottile/age/releases")
 	fmt.Println("# https://github.com/FiloSottile/awesome-age")
 	fmt.Println("# https://age-encryption.org")
 	fmt.Println("# https://complete.org/age-encryption")

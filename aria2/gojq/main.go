@@ -56,8 +56,8 @@ func main() {
 	ver := reg.FindString(rel.TagName)
 
 	// Spit out some handy links
-	fmt.Println("# https://github.com/itchyny/gojq/releases")
 	fmt.Println("# https://github.com/itchyny/gojq")
+	fmt.Println("# https://github.com/itchyny/gojq/releases")
 	fmt.Println("# https://jqlang.github.io/jq")
 	fmt.Println("# https://github.com/jqlang/jq")
 

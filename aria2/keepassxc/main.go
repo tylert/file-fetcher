@@ -51,8 +51,8 @@ func main() {
 	}
 
 	// Spit out some handy links
-	fmt.Println("# https://github.com/keepassxreboot/keepassxc/releases")
 	fmt.Println("# https://github.com/keepassxreboot/keepassxc")
+	fmt.Println("# https://github.com/keepassxreboot/keepassxc/releases")
 	fmt.Println("# https://keepassxc.org/download")
 	fmt.Println("# https://keepassxc.org")
 	fmt.Println("# https://en.wikipedia.org/wiki/KeePassXC")
