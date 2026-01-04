@@ -13,10 +13,10 @@ import (
 )
 
 func main() {
-	Debian()
+	Devuan()
 }
 
-func Debian() {
+func Devuan() {
 	// Spit out some handy links
 	fmt.Println("# https://mirror.leaseweb.com/devuan")
 	fmt.Println("# https://devuan.org")

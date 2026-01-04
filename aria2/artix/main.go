@@ -14,10 +14,10 @@ import (
 )
 
 func main() {
-	ArtixLinux()
+	Artix()
 }
 
-func ArtixLinux() {
+func Artix() {
 	// Spit out some handy links
 	fmt.Println("# https://iso.artixlinux.org/isos.php")
 	fmt.Println("# https://artixlinux.org")
