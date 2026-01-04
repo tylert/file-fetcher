@@ -1,0 +1,53 @@
+/*usr/bin/env go run "$0" "$@"; exit;*/
+
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/http"
+	"strings"
+	"time"
+
+	"github.com/PuerkitoBio/goquery"
+)
+
+func main() {
+	Debian()
+}
+
+func Debian() {
+	// Spit out some handy links
+	fmt.Println("# https://mirror.leaseweb.com/devuan")
+	fmt.Println("# https://devuan.org")
+	fmt.Println("# https://en.wikipedia.org/wiki/Devuan")
+	fmt.Println("# https://distrowatch.com/devuan")
+
+	// Fetch the webby stuff
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get("https://mirror.leaseweb.com/devuan/devuan_excalibur/desktop-live")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer res.Body.Close()
+	if res.StatusCode != 200 {
+		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
+	}
+	doc, err := goquery.NewDocumentFromReader(res.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Moo
+	doc.Find("a").Each(func(i int, s *goquery.Selection) {
+		href, ok := s.Attr("href")
+		if ok {
+			if strings.Contains(href, "devuan") {
+				fmt.Println(fmt.Sprintf("https://mirror.leaseweb.com/devuan/devuan_excalibur/desktop-live/%s", href))
+				fmt.Println("	dir=Linux/Devuan")
+			}
+		}
+	})
+}
