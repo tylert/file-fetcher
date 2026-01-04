@@ -1,4 +1,5 @@
 /*usr/bin/env go run "$0" "$@"; exit;*/
+
 package main
 
 import (
@@ -33,6 +34,15 @@ type Release struct {
 }
 
 func main() {
+	// Spit out some handy links
+	fmt.Println("# https://github.com/siderolabs/talos")
+	fmt.Println("# https://github.com/siderolabs/talos/releases")
+	fmt.Println("# https://talos.dev")
+	fmt.Println("# https://siderolabs.com")
+	fmt.Println("# https://siderolabs.com/platform/talos-os-for-kubernetes")
+	fmt.Println("# https://kubito.dev/posts/talos-linux-raspberry-pi")
+
+	// Fetch the webby stuff
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -44,7 +54,6 @@ func main() {
 	if res.StatusCode != 200 {
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
-
 	var rel Release
 	err = json.NewDecoder(res.Body).Decode(&rel)
 	if err != nil {
@@ -54,14 +63,6 @@ func main() {
 	// This project uses version strings that start with "v" in some places
 	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
 	ver := reg.FindString(rel.TagName)
-
-	// Spit out some handy links
-	fmt.Println("# https://github.com/siderolabs/talos")
-	fmt.Println("# https://github.com/siderolabs/talos/releases")
-	fmt.Println("# https://talos.dev")
-	fmt.Println("# https://siderolabs.com")
-	fmt.Println("# https://siderolabs.com/platform/talos-os-for-kubernetes")
-	fmt.Println("# https://kubito.dev/posts/talos-linux-raspberry-pi")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {

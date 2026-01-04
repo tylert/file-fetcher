@@ -1,4 +1,5 @@
 /*usr/bin/env go run "$0" "$@"; exit;*/
+
 package main
 
 import (
@@ -33,6 +34,17 @@ type Release struct {
 }
 
 func main() {
+	GoJQ()
+}
+
+func GoJQ() {
+	// Spit out some handy links
+	fmt.Println("# https://github.com/itchyny/gojq")
+	fmt.Println("# https://github.com/itchyny/gojq/releases")
+	fmt.Println("# https://jqlang.github.io/jq")
+	fmt.Println("# https://github.com/jqlang/jq")
+
+	// Fetch the webby stuff
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -44,7 +56,6 @@ func main() {
 	if res.StatusCode != 200 {
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
-
 	var rel Release
 	err = json.NewDecoder(res.Body).Decode(&rel)
 	if err != nil {
@@ -54,12 +65,6 @@ func main() {
 	// This project uses version strings that start with "v" in some places
 	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
 	ver := reg.FindString(rel.TagName)
-
-	// Spit out some handy links
-	fmt.Println("# https://github.com/itchyny/gojq")
-	fmt.Println("# https://github.com/itchyny/gojq/releases")
-	fmt.Println("# https://jqlang.github.io/jq")
-	fmt.Println("# https://github.com/jqlang/jq")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {

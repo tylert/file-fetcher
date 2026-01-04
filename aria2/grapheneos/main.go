@@ -1,4 +1,5 @@
 /*usr/bin/env go run "$0" "$@"; exit;*/
+
 package main
 
 import (
@@ -12,6 +13,17 @@ import (
 )
 
 func main() {
+	GrapheneOS()
+}
+
+func GrapheneOS() {
+	// Spit out some handy links
+	fmt.Println("# https://grapheneos.org")
+	fmt.Println("# https://grapheneos.org/releases")
+	fmt.Println("# https://comparisontabl.es/google-pixel-phones")
+	fmt.Println("# https://en.wikipedia.org/wiki/GrapheneOS")
+
+	// Fetch the webby stuff
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -23,17 +35,10 @@ func main() {
 	if res.StatusCode != 200 {
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
-
 	doc, err := goquery.NewDocumentFromReader(res.Body)
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	// Spit out some handy links
-	fmt.Println("# https://grapheneos.org")
-	fmt.Println("# https://grapheneos.org/releases")
-	fmt.Println("# https://comparisontabl.es/google-pixel-phones")
-	fmt.Println("# https://en.wikipedia.org/wiki/GrapheneOS")
 
 	f := func(i int, s *goquery.Selection) bool {
 		link, _ := s.Attr("href")

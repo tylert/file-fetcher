@@ -1,4 +1,5 @@
 /*usr/bin/env go run "$0" "$@"; exit;*/
+
 package main
 
 import (
@@ -12,6 +13,21 @@ import (
 )
 
 func main() {
+	PiKVM()
+}
+
+func PiKVM() {
+	// Spit out some handy links
+	fmt.Println("# https://files.pikvm.org/images")
+	fmt.Println("# https://docs.pikvm.org/flashing_os")
+	fmt.Println("# https://pikvm.org")
+	fmt.Println("# https://pikvm.org/download")
+	fmt.Println("# https://docs.pikvm.org")
+	fmt.Println("# https://github.com/pikvm/pikvm")
+	fmt.Println("# https://en.wikipedia.org/wiki/Pi-KVM")
+	fmt.Println("# https://kickstarter.com/projects/mdevaev/pikvm-v4")
+
+	// Fetch the webby stuff
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -23,21 +39,10 @@ func main() {
 	if res.StatusCode != 200 {
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
-
 	doc, err := goquery.NewDocumentFromReader(res.Body)
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	// Spit out some handy links
-	fmt.Println("# https://files.pikvm.org/images")
-	fmt.Println("# https://docs.pikvm.org/flashing_os")
-	fmt.Println("# https://pikvm.org")
-	fmt.Println("# https://pikvm.org/download")
-	fmt.Println("# https://docs.pikvm.org")
-	fmt.Println("# https://github.com/pikvm/pikvm")
-	fmt.Println("# https://en.wikipedia.org/wiki/Pi-KVM")
-	fmt.Println("# https://kickstarter.com/projects/mdevaev/pikvm-v4")
 
 	// Compiled binaries
 	now := time.Now()

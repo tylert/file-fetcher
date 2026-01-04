@@ -1,4 +1,5 @@
 /*usr/bin/env go run "$0" "$@"; exit;*/
+
 package main
 
 import (
@@ -34,7 +35,24 @@ type Release struct {
 	ZipballURL string `json:"zipball_url"`
 }
 
+func main() {
+	LibreELEC()
+}
+
+func LibreELEC() {
+	// Spit out some handy links
+	fmt.Println("# https://github.com/LibreELEC/LibreELEC.tv")
+	fmt.Println("# https://github.com/LibreELEC/LibreELEC.tv/releases")
+	fmt.Println("# https://libreelec.tv")
+	fmt.Println("# https://libreelec.tv/downloads/raspberry")
+	fmt.Println("# https://en.wikipedia.org/wiki/LibreELEC")
+
+	ver := dumpBin()
+	dumpSrc(ver)
+}
+
 func dumpBin() string {
+	// Fetch the webby stuff
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -46,17 +64,15 @@ func dumpBin() string {
 	if res.StatusCode != 200 {
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
-
 	doc, err := goquery.NewDocumentFromReader(res.Body)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
-	ver := ""
-
 	// Do a first pass to get the version number to use for the source code
 	// The newest version number will be the first one we find (top-down)
+	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
+	ver := ""
 	doc.Find("a").EachWithBreak(func(i int, s *goquery.Selection) bool {
 		href, ok := s.Attr("href")
 		if ok {
@@ -93,6 +109,7 @@ func dumpBin() string {
 }
 
 func dumpSrc(ver string) {
+	// Fetch the webby stuff
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -104,7 +121,6 @@ func dumpSrc(ver string) {
 	if res.StatusCode != 200 {
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
-
 	var rel Release
 	err = json.NewDecoder(res.Body).Decode(&rel)
 	if err != nil {
@@ -115,16 +131,4 @@ func dumpSrc(ver string) {
 	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=Linux/LibreELEC")
 	fmt.Println(fmt.Sprintf("	out=LibreELEC-%s-src.tar.gz", ver))
-}
-
-func main() {
-	// Spit out some handy links
-	fmt.Println("# https://github.com/LibreELEC/LibreELEC.tv")
-	fmt.Println("# https://github.com/LibreELEC/LibreELEC.tv/releases")
-	fmt.Println("# https://libreelec.tv")
-	fmt.Println("# https://libreelec.tv/downloads/raspberry")
-	fmt.Println("# https://en.wikipedia.org/wiki/LibreELEC")
-
-	ver := dumpBin()
-	dumpSrc(ver)
 }

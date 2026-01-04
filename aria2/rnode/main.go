@@ -1,4 +1,5 @@
 /*usr/bin/env go run "$0" "$@"; exit;*/
+
 package main
 
 import (
@@ -32,7 +33,26 @@ type Release struct {
 	ZipballURL string `json:"zipball_url"`
 }
 
+func main() {
+	RNode()
+}
+
+func RNode() {
+	// Spit out some handy links
+	fmt.Println("# https://github.com/liberatedsystems/RNode_Firmware_CE")
+	fmt.Println("# https://github.com/liberatedsystems/RNode_Firmware_CE/releases")
+	fmt.Println("# https://github.com/markqvist/RNode_Firmware")
+	fmt.Println("# https://github.com/markqvist/RNode_Firmware/releases")
+	fmt.Println("# https://unsigned.io/hardware/RNode.html")
+	fmt.Println("# https://unsigned.io/rnode_firmware")
+	fmt.Println("# https://liberatedsystems.co.uk")
+
+	dumpOne("https://api.github.com/repos/liberatedsystems/RNode_Firmware_CE/releases/latest")
+	dumpOne("https://api.github.com/repos/markqvist/RNode_Firmware/releases/latest")
+}
+
 func dumpOne(url string) {
+	// Fetch the webby stuff
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -44,7 +64,6 @@ func dumpOne(url string) {
 	if res.StatusCode != 200 {
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
-
 	var rel Release
 	err = json.NewDecoder(res.Body).Decode(&rel)
 	if err != nil {
@@ -73,18 +92,4 @@ func dumpOne(url string) {
 	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=RNode")
 	fmt.Println(fmt.Sprintf("	out=rnode_firmware_%s_src.tar.gz", ver))
-}
-
-func main() {
-	// Spit out some handy links
-	fmt.Println("# https://github.com/liberatedsystems/RNode_Firmware_CE")
-	fmt.Println("# https://github.com/liberatedsystems/RNode_Firmware_CE/releases")
-	fmt.Println("# https://github.com/markqvist/RNode_Firmware")
-	fmt.Println("# https://github.com/markqvist/RNode_Firmware/releases")
-	fmt.Println("# https://unsigned.io/hardware/RNode.html")
-	fmt.Println("# https://unsigned.io/rnode_firmware")
-	fmt.Println("# https://liberatedsystems.co.uk")
-
-	dumpOne("https://api.github.com/repos/liberatedsystems/RNode_Firmware_CE/releases/latest")
-	dumpOne("https://api.github.com/repos/markqvist/RNode_Firmware/releases/latest")
 }

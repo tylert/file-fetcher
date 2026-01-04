@@ -1,4 +1,5 @@
 /*usr/bin/env go run "$0" "$@"; exit;*/
+
 package main
 
 import (
@@ -24,67 +25,11 @@ type Entry []struct {
 	NodeID string `json:"node_id"`
 }
 
-func dumpSrc(url string, target string) {
-	client := http.Client{
-		Timeout: 5 * time.Second,
-	}
-	res, err := client.Get(url)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer res.Body.Close()
-	if res.StatusCode != 200 {
-		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
-	}
-
-	var tag Entry
-	err = json.NewDecoder(res.Body).Decode(&tag)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// This project uses version strings that start with "v" in some places
-	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
-	ver := reg.FindString(tag[0].Name)
-
-	// Assume that the first hit is the newest and then stop after that
-	fmt.Println(fmt.Sprintf("%s", tag[0].TarballURL))
-	fmt.Println("	dir=Editcp")
-	fmt.Println(fmt.Sprintf("	out=%s-%s-src.tar.gz", target, ver))
-}
-
-func dumpBin(url string, target string) {
-	client := http.Client{
-		Timeout: 5 * time.Second,
-	}
-	res, err := client.Get(url)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer res.Body.Close()
-	if res.StatusCode != 200 {
-		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
-	}
-
-	doc, err := goquery.NewDocumentFromReader(res.Body)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println(fmt.Sprintf("# %s", url))
-
-	doc.Find("a").Each(func(i int, s *goquery.Selection) {
-		href, ok := s.Attr("href")
-		if ok {
-			if strings.Contains(href, target) {
-				fmt.Println(fmt.Sprintf("%s/%s", url, href))
-				fmt.Println("	dir=Editcp")
-			}
-		}
-	})
-}
-
 func main() {
+	Editcp()
+}
+
+func Editcp() {
 	// Spit out some handy links
 	fmt.Println("# https://farnsworth.org/dale/codeplug/dmrRadio/downloads")
 	fmt.Println("# https://farnsworth.org/dale/codeplug/editcp/downloads")
@@ -121,4 +66,64 @@ func main() {
 	dumpSrc("https://api.github.com/repos/dalefarnsworth-dmr/stdfu/tags", "stdfu")
 	dumpSrc("https://api.github.com/repos/dalefarnsworth-dmr/ui/tags", "ui")
 	dumpSrc("https://api.github.com/repos/dalefarnsworth-dmr/userdb/tags", "userdb")
+}
+
+func dumpBin(url string, target string) {
+	fmt.Println(fmt.Sprintf("# %s", url))
+
+	// Fetch the webby stuff
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get(url)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer res.Body.Close()
+	if res.StatusCode != 200 {
+		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
+	}
+	doc, err := goquery.NewDocumentFromReader(res.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	doc.Find("a").Each(func(i int, s *goquery.Selection) {
+		href, ok := s.Attr("href")
+		if ok {
+			if strings.Contains(href, target) {
+				fmt.Println(fmt.Sprintf("%s/%s", url, href))
+				fmt.Println("	dir=Editcp")
+			}
+		}
+	})
+}
+
+func dumpSrc(url string, target string) {
+	// Fetch the webby stuff
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get(url)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer res.Body.Close()
+	if res.StatusCode != 200 {
+		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
+	}
+	var tag Entry
+	err = json.NewDecoder(res.Body).Decode(&tag)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// This project uses version strings that start with "v" in some places
+	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
+	ver := reg.FindString(tag[0].Name)
+
+	// Assume that the first hit is the newest and then stop after that
+	fmt.Println(fmt.Sprintf("%s", tag[0].TarballURL))
+	fmt.Println("	dir=Editcp")
+	fmt.Println(fmt.Sprintf("	out=%s-%s-src.tar.gz", target, ver))
 }

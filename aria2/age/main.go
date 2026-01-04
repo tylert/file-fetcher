@@ -1,4 +1,5 @@
 /*usr/bin/env go run "$0" "$@"; exit;*/
+
 package main
 
 import (
@@ -33,6 +34,20 @@ type Release struct {
 }
 
 func main() {
+	Age()
+}
+
+func Age() {
+	// Spit out some handy links
+	fmt.Println("# https://github.com/FiloSottile/age")
+	fmt.Println("# https://github.com/FiloSottile/age/releases")
+	fmt.Println("# https://github.com/FiloSottile/awesome-age")
+	fmt.Println("# https://age-encryption.org")
+	fmt.Println("# https://complete.org/age-encryption")
+	fmt.Println("# https://words.filippo.io/dispatches/age-authentication")
+	fmt.Println("# https://yaeba.github.io/blog/age")
+
+	// Fetch the webby stuff
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -44,7 +59,6 @@ func main() {
 	if res.StatusCode != 200 {
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
-
 	var rel Release
 	if err = json.NewDecoder(res.Body).Decode(&rel); err != nil {
 		log.Fatal(err)
@@ -53,15 +67,6 @@ func main() {
 	// This project uses version strings that start with "v" in some places
 	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
 	ver := reg.FindString(rel.TagName)
-
-	// Spit out some handy links
-	fmt.Println("# https://github.com/FiloSottile/age")
-	fmt.Println("# https://github.com/FiloSottile/age/releases")
-	fmt.Println("# https://github.com/FiloSottile/awesome-age")
-	fmt.Println("# https://age-encryption.org")
-	fmt.Println("# https://complete.org/age-encryption")
-	fmt.Println("# https://words.filippo.io/dispatches/age-authentication")
-	fmt.Println("# https://yaeba.github.io/blog/age")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {

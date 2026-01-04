@@ -1,4 +1,5 @@
 /*usr/bin/env go run "$0" "$@"; exit;*/
+
 package main
 
 import (
@@ -32,6 +33,11 @@ type Release struct {
 }
 
 func main() {
+	// Spit out some handy links
+	fmt.Println("# https://github.com/alexellis/k3sup")
+	fmt.Println("# https://github.com/alexellis/k3sup/releases")
+
+	// Fetch the webby stuff
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -43,16 +49,11 @@ func main() {
 	if res.StatusCode != 200 {
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
-
 	var rel Release
 	err = json.NewDecoder(res.Body).Decode(&rel)
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	// Spit out some handy links
-	fmt.Println("# https://github.com/alexellis/k3sup")
-	fmt.Println("# https://github.com/alexellis/k3sup/releases")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets); i++ {

@@ -1,4 +1,5 @@
 /*usr/bin/env go run "$0" "$@"; exit;*/
+
 package main
 
 import (
@@ -28,6 +29,16 @@ type Release struct {
 }
 
 func main() {
+	FileSpooler()
+}
+
+func FileSpooler() {
+	// Spit out some handy links
+	fmt.Println("# https://salsa.debian.org/jgoerzen/filespooler")
+	fmt.Println("# https://salsa.debian.org/jgoerzen/filespooler/-/releases")
+	fmt.Println("# https://complete.org/filespooler")
+
+	// Fetch the webby stuff
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -39,7 +50,6 @@ func main() {
 	if res.StatusCode != 200 {
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
-
 	var rel Release
 	err = json.NewDecoder(res.Body).Decode(&rel)
 	if err != nil {
@@ -49,11 +59,6 @@ func main() {
 	// This project uses version strings that start with "v" in some places
 	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
 	ver := reg.FindString(rel.TagName)
-
-	// Spit out some handy links
-	fmt.Println("# https://salsa.debian.org/jgoerzen/filespooler")
-	fmt.Println("# https://salsa.debian.org/jgoerzen/filespooler/-/releases")
-	fmt.Println("# https://complete.org/filespooler")
 
 	// Compiled binaries
 	for i := 0; i < len(rel.Assets.Links); i++ {

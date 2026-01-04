@@ -1,4 +1,5 @@
 /*usr/bin/env go run "$0" "$@"; exit;*/
+
 package main
 
 import (
@@ -13,6 +14,17 @@ import (
 )
 
 func main() {
+	Golang()
+}
+
+func Golang() {
+	// Spit out some handy links
+	fmt.Println("# https://go.dev/dl")
+	fmt.Println("# https://go.dev")
+	fmt.Println("# https://go.dev/doc/devel/release")
+	fmt.Println("# https://en.wikipedia.org/wiki/Go_(programming_language)")
+
+	// Fetch the webby stuff
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -24,17 +36,10 @@ func main() {
 	if res.StatusCode != 200 {
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
-
 	doc, err := goquery.NewDocumentFromReader(res.Body)
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	// Spit out some handy links
-	fmt.Println("# https://go.dev/dl")
-	fmt.Println("# https://go.dev")
-	fmt.Println("# https://go.dev/doc/devel/release")
-	fmt.Println("# https://en.wikipedia.org/wiki/Go_(programming_language)")
 
 	// Stop after showing links for exactly 1 release (which should be the newest ones)
 	count := 3

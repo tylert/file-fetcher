@@ -1,4 +1,5 @@
 /*usr/bin/env go run "$0" "$@"; exit;*/
+
 package main
 
 import (
@@ -12,6 +13,17 @@ import (
 )
 
 func main() {
+	NNCP()
+}
+
+func NNCP() {
+	// Spit out some handy links
+	fmt.Println("# https://nncp.mirrors.quux.org/Tarballs.html")
+	fmt.Println("# https://nncp.mirrors.quux.org")
+	fmt.Println("# https://complete.org/nncp")
+	fmt.Println("# http://www.nncpgo.org")
+
+	// Fetch the webby stuff
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -23,17 +35,10 @@ func main() {
 	if res.StatusCode != 200 {
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
-
 	doc, err := goquery.NewDocumentFromReader(res.Body)
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	// Spit out some handy links
-	fmt.Println("# https://nncp.mirrors.quux.org/Tarballs.html")
-	fmt.Println("# https://nncp.mirrors.quux.org")
-	fmt.Println("# https://complete.org/nncp")
-	fmt.Println("# http://www.nncpgo.org")
 
 	// Newest releases are at the top / Single table row per release
 	count := 4

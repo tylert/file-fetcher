@@ -1,4 +1,5 @@
 /*usr/bin/env go run "$0" "$@"; exit;*/
+
 package main
 
 import (
@@ -12,6 +13,15 @@ import (
 )
 
 func main() {
+	Wpsd()
+}
+
+func Wpsd() {
+	// Spit out some handy links
+	fmt.Println("# https://w0chp.radio/wpsd")
+	fmt.Println("# https://manual.wpsd.radio")
+
+	// Fetch the webby stuff
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -23,15 +33,10 @@ func main() {
 	if res.StatusCode != 200 {
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
-
 	doc, err := goquery.NewDocumentFromReader(res.Body)
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	// Spit out some handy links
-	fmt.Println("# https://w0chp.radio/wpsd")
-	fmt.Println("# https://manual.wpsd.radio")
 
 	doc.Find("a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")

@@ -1,4 +1,5 @@
 /*usr/bin/env go run "$0" "$@"; exit;*/
+
 package main
 
 import (
@@ -32,7 +33,29 @@ type Release struct {
 	ZipballURL string `json:"zipball_url"`
 }
 
+func main() {
+	Trzsz()
+}
+
+func Trzsz() {
+	// Spit out some handy links
+	fmt.Println("# https://github.com/trzsz/trzsz-go")
+	fmt.Println("# https://github.com/trzsz/trzsz-go/releases")
+	fmt.Println("# https://github.com/trzsz/trzsz-ssh")
+	fmt.Println("# https://github.com/trzsz/trzsz-ssh/releases")
+	fmt.Println("# https://github.com/trzsz/trzsz.github.io")
+	fmt.Println("# https://trzsz.github.io/go")
+	fmt.Println("# https://trzsz.github.io/ssh")
+	fmt.Println("# https://trzsz.github.io")
+
+	dumpOne("https://api.github.com/repos/trzsz/trzsz-go/releases/latest", "trzsz")
+	dumpOne("https://api.github.com/repos/trzsz/trzsz-ssh/releases/latest", "tssh")
+
+	// XXX FIXME TODO  Fetch the https://github.com/trzsz/trzsz.github.io docs!!!
+}
+
 func dumpOne(url string, tool string) {
+	// Fetch the webby stuff
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -44,7 +67,6 @@ func dumpOne(url string, tool string) {
 	if res.StatusCode != 200 {
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
-
 	var rel Release
 	err = json.NewDecoder(res.Body).Decode(&rel)
 	if err != nil {
@@ -69,21 +91,4 @@ func dumpOne(url string, tool string) {
 	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=trzsz")
 	fmt.Println(fmt.Sprintf("	out=%s_%s_src.tar.gz", tool, ver))
-}
-
-func main() {
-	// Spit out some handy links
-	fmt.Println("# https://github.com/trzsz/trzsz-go")
-	fmt.Println("# https://github.com/trzsz/trzsz-go/releases")
-	fmt.Println("# https://github.com/trzsz/trzsz-ssh")
-	fmt.Println("# https://github.com/trzsz/trzsz-ssh/releases")
-	fmt.Println("# https://github.com/trzsz/trzsz.github.io")
-	fmt.Println("# https://trzsz.github.io/go")
-	fmt.Println("# https://trzsz.github.io/ssh")
-	fmt.Println("# https://trzsz.github.io")
-
-	dumpOne("https://api.github.com/repos/trzsz/trzsz-go/releases/latest", "trzsz")
-	dumpOne("https://api.github.com/repos/trzsz/trzsz-ssh/releases/latest", "tssh")
-
-	// XXX FIXME TODO  Fetch the https://github.com/trzsz/trzsz.github.io docs!!!
 }

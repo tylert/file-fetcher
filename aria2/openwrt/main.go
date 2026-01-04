@@ -1,4 +1,5 @@
 /*usr/bin/env go run "$0" "$@"; exit;*/
+
 package main
 
 import (
@@ -35,40 +36,21 @@ type Release struct {
 	ZipballURL string `json:"zipball_url"`
 }
 
-func dumpBin(url string, target string) {
-	client := http.Client{
-		Timeout: 5 * time.Second,
-	}
-	res, err := client.Get(url)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer res.Body.Close()
-	if res.StatusCode != 200 {
-		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
-	}
-
-	doc, err := goquery.NewDocumentFromReader(res.Body)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	doc.Find("tr").Each(func(i int, s *goquery.Selection) {
-		moo := s.Find("td.n a")
-		poo := s.Find("td.sh").Text()
-		href, ok := moo.Attr("href")
-		if ok {
-			if strings.Contains(href, target) && !strings.Contains(href, "-sfp-") {
-				fmt.Println(fmt.Sprintf("%s/%s", url, href))
-				fmt.Println("	dir=Linux/OpenWRT")
-				fmt.Println(fmt.Sprintf("	checksum=sha-256=%s", poo))
-				fmt.Fprintln(os.Stderr, fmt.Sprintf("%s  %s", poo, href))
-			}
-		}
-	})
+func main() {
+	OpenWRT()
 }
 
-func main() {
+func OpenWRT() {
+	// Spit out some handy links
+	fmt.Println("# https://github.com/openwrt/openwrt")
+	fmt.Println("# https://github.com/openwrt/openwrt/releases")
+	fmt.Println("# https://openwrt.org")
+	fmt.Println("# https://downloads.openwrt.org/releases")
+	fmt.Println("# https://firmware-selector.openwrt.org")
+	fmt.Println("# https://en.wikipedia.org/wiki/OpenWrt")
+	fmt.Println("# https://openwrt.org/docs/guide-user/virtualization/docker_openwrt_image")
+
+	// Fetch the webby stuff
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -80,7 +62,6 @@ func main() {
 	if res.StatusCode != 200 {
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
-
 	var rel Release
 	err = json.NewDecoder(res.Body).Decode(&rel)
 	if err != nil {
@@ -90,15 +71,6 @@ func main() {
 	// This project uses version strings that start with "v" in some places
 	reg := regexp.MustCompile(`\d+?\.\d+?\.\d+`)
 	ver := reg.FindString(rel.TagName)
-
-	// Spit out some handy links
-	fmt.Println("# https://github.com/openwrt/openwrt")
-	fmt.Println("# https://github.com/openwrt/openwrt/releases")
-	fmt.Println("# https://openwrt.org")
-	fmt.Println("# https://downloads.openwrt.org/releases")
-	fmt.Println("# https://firmware-selector.openwrt.org")
-	fmt.Println("# https://en.wikipedia.org/wiki/OpenWrt")
-	fmt.Println("# https://openwrt.org/docs/guide-user/virtualization/docker_openwrt_image")
 
 	// Compiled binaries
 	dumpBin(fmt.Sprintf("https://downloads.openwrt.org/releases/%s/targets/ramips/mt7621", ver), "ubnt_edgerouter-x")
@@ -120,4 +92,37 @@ func main() {
 	fmt.Println(rel.TarballURL)
 	fmt.Println("	dir=Linux/OpenWRT")
 	fmt.Println(fmt.Sprintf("	out=openwrt-%s-src.tar.gz", ver))
+}
+
+func dumpBin(url string, target string) {
+	// Fetch the webby stuff
+	client := http.Client{
+		Timeout: 5 * time.Second,
+	}
+	res, err := client.Get(url)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer res.Body.Close()
+	if res.StatusCode != 200 {
+		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
+	}
+	doc, err := goquery.NewDocumentFromReader(res.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	doc.Find("tr").Each(func(i int, s *goquery.Selection) {
+		moo := s.Find("td.n a")
+		poo := s.Find("td.sh").Text()
+		href, ok := moo.Attr("href")
+		if ok {
+			if strings.Contains(href, target) && !strings.Contains(href, "-sfp-") {
+				fmt.Println(fmt.Sprintf("%s/%s", url, href))
+				fmt.Println("	dir=Linux/OpenWRT")
+				fmt.Println(fmt.Sprintf("	checksum=sha-256=%s", poo))
+				fmt.Fprintln(os.Stderr, fmt.Sprintf("%s  %s", poo, href))
+			}
+		}
+	})
 }

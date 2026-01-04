@@ -1,4 +1,5 @@
 /*usr/bin/env go run "$0" "$@"; exit;*/
+
 package main
 
 import (
@@ -11,7 +12,24 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
+func main() {
+	Alpine()
+}
+
+func Alpine() {
+	fmt.Println("# https://dl-cdn.alpinelinux.org/alpine/latest-stable")
+	fmt.Println("# https://alpinelinux.org")
+	fmt.Println("# https://en.wikipedia.org/wiki/Alpine_Linux")
+	fmt.Println("# https://distrowatch.com/alpine")
+
+	dumpOne("https://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/x86_64")
+	dumpOne("https://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/aarch64")
+}
+
 func dumpOne(url string) {
+	fmt.Println(fmt.Sprintf("# %s", url))
+
+	// Fetch the webby stuff
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -23,13 +41,10 @@ func dumpOne(url string) {
 	if res.StatusCode != 200 {
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
-
 	doc, err := goquery.NewDocumentFromReader(res.Body)
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	fmt.Println(fmt.Sprintf("# %s", url))
 
 	doc.Find("a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
@@ -45,14 +60,4 @@ func dumpOne(url string) {
 			}
 		}
 	})
-}
-
-func main() {
-	fmt.Println("# https://dl-cdn.alpinelinux.org/alpine/latest-stable")
-	fmt.Println("# https://alpinelinux.org")
-	fmt.Println("# https://en.wikipedia.org/wiki/Alpine_Linux")
-	fmt.Println("# https://distrowatch.com/table.php?distribution=alpine")
-
-	dumpOne("https://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/x86_64")
-	dumpOne("https://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/aarch64")
 }

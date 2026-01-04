@@ -1,4 +1,5 @@
 /*usr/bin/env go run "$0" "$@"; exit;*/
+
 package main
 
 import (
@@ -12,6 +13,18 @@ import (
 )
 
 func main() {
+	EndeavourOS()
+}
+
+func EndeavourOS() {
+	// Spit out some handy links
+	fmt.Println("# https://endeavouros.com")
+	fmt.Println("# https://endeavouros-team.github.io/EndeavourOS-Development")
+	fmt.Println("# https://github.com/endeavouros-team/ISO/releases/latest")
+	fmt.Println("# https://en.wikipedia.org/wiki/EndeavourOS")
+	fmt.Println("# https://distrowatch.com/endeavour")
+
+	// Fetch the webby stuff
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -23,18 +36,10 @@ func main() {
 	if res.StatusCode != 200 {
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
-
 	doc, err := goquery.NewDocumentFromReader(res.Body)
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	// Spit out some handy links
-	fmt.Println("# https://endeavouros.com")
-	fmt.Println("# https://endeavouros-team.github.io/EndeavourOS-Development")
-	fmt.Println("# https://github.com/endeavouros-team/ISO/releases/latest")
-	fmt.Println("# https://en.wikipedia.org/wiki/EndeavourOS")
-	fmt.Println("# https://distrowatch.com/endeavour")
 
 	doc.Find("a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
