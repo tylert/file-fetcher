@@ -50,7 +50,7 @@ func OpenWRT() {
 	fmt.Println("# https://en.wikipedia.org/wiki/OpenWrt")
 	fmt.Println("# https://openwrt.org/docs/guide-user/virtualization/docker_openwrt_image")
 
-	// Fetch the webby stuff
+	// Do a fetch to figure out what the latest version is currently
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
@@ -59,7 +59,7 @@ func OpenWRT() {
 		log.Fatal(err)
 	}
 	defer res.Body.Close()
-	if res.StatusCode != 200 {
+	if res.StatusCode != http.StatusOK { // 200
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
 	var rel Release
@@ -104,7 +104,7 @@ func dumpBin(url string, target string) {
 		log.Fatal(err)
 	}
 	defer res.Body.Close()
-	if res.StatusCode != 200 {
+	if res.StatusCode != http.StatusOK { // 200
 		log.Fatalf("Status code error: %d %s", res.StatusCode, res.Status)
 	}
 	doc, err := goquery.NewDocumentFromReader(res.Body)
