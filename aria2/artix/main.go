@@ -53,6 +53,12 @@ func Artix() {
 				if reg.FindString(href) != "" {
 					ver = reg.FindString(href)
 				}
+			} else if strings.Contains(href, "artix-base-s6") {
+				fmt.Println(fmt.Sprintf("%s", href))
+				fmt.Println("	dir=Linux/Artix")
+				if reg.FindString(href) != "" {
+					ver = reg.FindString(href)
+				}
 			}
 		}
 	})
