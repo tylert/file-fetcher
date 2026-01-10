@@ -19,6 +19,7 @@ func main() {
 
 func Artix() {
 	// Spit out some handy links
+	fmt.Println("# https://iso.artixlinux.org/weekly-isos.php")
 	fmt.Println("# https://iso.artixlinux.org/isos.php")
 	fmt.Println("# https://artixlinux.org")
 	fmt.Println("# https://en.wikipedia.org/wiki/Artix_Linux")
@@ -28,7 +29,7 @@ func Artix() {
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
-	res, err := client.Get("https://iso.artixlinux.org/isos.php")
+	res, err := client.Get("https://iso.artixlinux.org/weekly-isos.php")
 	if err != nil {
 		log.Fatal(err)
 	}
