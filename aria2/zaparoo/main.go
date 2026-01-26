@@ -73,9 +73,6 @@ func Zaparoo() {
 		} else if strings.Contains(rel.Assets[i].Name, "zaparoo-mister_arm") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
 			fmt.Println("	dir=Zaparoo")
-		} else if strings.Contains(rel.Assets[i].Name, "zaparoo-batocera_amd64") {
-			fmt.Println(rel.Assets[i].BrowserDownloadURL)
-			fmt.Println("	dir=Zaparoo")
 		} else if strings.Contains(rel.Assets[i].Name, "zaparoo-libreelec_arm64") {
 			fmt.Println(rel.Assets[i].BrowserDownloadURL)
 			fmt.Println("	dir=Zaparoo")

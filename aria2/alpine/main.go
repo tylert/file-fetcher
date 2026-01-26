@@ -49,10 +49,13 @@ func dumpOne(url string) {
 	doc.Find("a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
-			if strings.HasPrefix(href, "alpine-standard-") && strings.Contains(href, "-x86_64.iso") && !strings.Contains(href, "rc1") && !strings.Contains(href, "rc2") {
+			if strings.HasPrefix(href, "alpine-standard-") && strings.Contains(href, "x86_64.iso") && !strings.Contains(href, "rc1") && !strings.Contains(href, "rc2") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	dir=Linux/Alpine")
-			} else if strings.HasPrefix(href, "alpine-rpi-") && strings.Contains(href, "-aarch64.img.gz") && !strings.Contains(href, "rc1") && !strings.Contains(href, "rc2") {
+			} else if strings.HasPrefix(href, "alpine-rpi-") && strings.Contains(href, "aarch.img.gz") && !strings.Contains(href, "rc1") && !strings.Contains(href, "rc2") {
+				fmt.Println(fmt.Sprintf("%s/%s", url, href))
+				fmt.Println("	dir=Linux/Alpine")
+			} else if strings.HasPrefix(href, "alpine-minirootfs-") && !strings.Contains(href, "rc1") && !strings.Contains(href, "rc2") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	dir=Linux/Alpine")
 			} else {
@@ -61,3 +64,9 @@ func dumpOne(url string) {
 		}
 	})
 }
+
+/*
+The alpine-standard ISO 9660 image is used for booting x86_64 machines.
+The alpine-rpi raw image is used for booting Raspberry Pi machines.
+The alpine-minirootfs filesystem tarball is used for doing takeovers (either x86_64 or aarch64).
+*/
