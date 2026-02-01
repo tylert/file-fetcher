@@ -27,6 +27,7 @@ func Debian() {
 
 	// Live CD versions
 	dumpOne("https://cdimage.debian.org/cdimage/release/current-live/amd64/iso-hybrid", "xfce")
+	dumpOne("https://cdimage.debian.org/cdimage/release/current-live/amd64/iso-hybrid", "cinnamon")
 
 	// Spit out some more handy links
 	// fmt.Println("# https://ftp-master.debian.org/keys.html")
