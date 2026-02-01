@@ -48,7 +48,13 @@ func Artix() {
 	doc.Find("a").Each(func(i int, s *goquery.Selection) {
 		href, ok := s.Attr("href")
 		if ok {
-			if strings.Contains(href, "artix-xfce-s6") {
+			if strings.Contains(href, "artix-xfce-openrc") {
+				fmt.Println(fmt.Sprintf("%s", href))
+				fmt.Println("	dir=Linux/Artix")
+				if reg.FindString(href) != "" {
+					ver = reg.FindString(href)
+				}
+			} else if strings.Contains(href, "artix-xfce-s6") {
 				fmt.Println(fmt.Sprintf("%s", href))
 				fmt.Println("	dir=Linux/Artix")
 				if reg.FindString(href) != "" {
