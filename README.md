@@ -1,13 +1,16 @@
 # File Fetcher
 
+
 ## Running It
 
 Inline checksums (if present) will be sent to stderr and Aria2 output
 will be sent to stdout.
 
+```
     pushd aria2
     go run ${PRODUCT}/main.go 2>meh | aria2c -i -
     popd
+```
 
 * <https://github.com/aria2/aria2>
 * <https://aria2.github.io>
@@ -15,11 +18,13 @@ will be sent to stdout.
 * <http://ariang.mayswind.net>
 * <https://github.com/ziahamza/webui-aria2>
 
+
 ## Next Items
 
 * <https://github.com/TheZoraiz/ascii-image-converter>
 * <https://releases.hashicorp.com/index.html>
 * <https://releases.hashicorp.com/index.json>
+
 
 ## Other
 
@@ -49,6 +54,7 @@ will be sent to stdout.
 * <https://pkg.go.dev/net/http#DetectContentType> detect file type
 * <https://golangprojectstructure.com/12-powerful-linux-bash-commands-with-go>
 * <https://github.com/USA-RedDragon/gitea-mirror> Go program to mirror git repos?
+
 
 ## Signcryption
 
