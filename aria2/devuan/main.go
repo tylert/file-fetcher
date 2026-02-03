@@ -27,7 +27,9 @@ func Devuan() {
 	client := http.Client{
 		Timeout: 5 * time.Second,
 	}
-	res, err := client.Get("https://mirror.leaseweb.com/devuan/devuan_excalibur/desktop-live")
+	// XXX FIXME TODO  Hunt for files that are named LATEST_STABLE_IS_* and convert it to lowercase
+	// https://mirror.leaseweb.com/devuan/LATEST_STABLE_IS_EXCALIBUR
+	res, err := client.Get("https://mirror.leaseweb.com/devuan/devuan_excalibur/minimal-live")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -45,7 +47,7 @@ func Devuan() {
 		href, ok := s.Attr("href")
 		if ok {
 			if strings.Contains(href, "devuan") {
-				fmt.Println(fmt.Sprintf("https://mirror.leaseweb.com/devuan/devuan_excalibur/desktop-live/%s", href))
+				fmt.Println(fmt.Sprintf("https://mirror.leaseweb.com/devuan/devuan_excalibur/minimal-live/%s", href))
 				fmt.Println("	dir=Linux/Devuan")
 			}
 		}
