@@ -14,6 +14,8 @@ func SshKeypair() (string, string) {
 	// ssh-keygen -f seckey_ssh -y > pubkey_ssh  # recover public key
 	// ssh-keygen -f seckey_ssh -c  # change comment (repack private key)
 	// ssh-keygen -f seckey_ssh -p  # change password (repack private key)
+	// dropbearconvert openssh dropbear seckey_ssh sec2key_ssh  # convert key for dropbear (unencrypted only)
+	// dropbearconvert dropbear openssh sec2key_ssh seckey_ssh  # convert key for openssh (unencrypted only)
 
 	mooKey, pooKey, _ := ed25519.GenerateKey(rand.Reader)
 	booKey, _ := ssh.NewPublicKey(mooKey)
