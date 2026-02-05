@@ -96,7 +96,7 @@ func dumpOne(url string, variant string) {
 			if strings.Contains(href, "SHA") && !strings.Contains(href, "SHA1SUMS") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	dir=Linux/Debian")
-				fmt.Println(fmt.Sprintf("	out=debian-%s-%s-%s", ver, variant, href))
+				fmt.Println(fmt.Sprintf("	out=debian-live-%s-amd64-%s-%s", ver, variant, href))
 			}
 		}
 	})
