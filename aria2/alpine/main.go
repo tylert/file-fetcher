@@ -52,7 +52,7 @@ func dumpOne(url string) {
 			if strings.HasPrefix(href, "alpine-standard-") && strings.Contains(href, "x86_64.iso") && !strings.Contains(href, "rc1") && !strings.Contains(href, "rc2") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	dir=Linux/Alpine")
-			} else if strings.HasPrefix(href, "alpine-rpi-") && strings.Contains(href, "aarch.img.gz") && !strings.Contains(href, "rc1") && !strings.Contains(href, "rc2") {
+			} else if strings.HasPrefix(href, "alpine-rpi-") && strings.Contains(href, "aarch64.img.gz") && !strings.Contains(href, "rc1") && !strings.Contains(href, "rc2") {
 				fmt.Println(fmt.Sprintf("%s/%s", url, href))
 				fmt.Println("	dir=Linux/Alpine")
 			} else if strings.HasPrefix(href, "alpine-minirootfs-") && !strings.Contains(href, "rc1") && !strings.Contains(href, "rc2") {
