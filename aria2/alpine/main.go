@@ -29,6 +29,10 @@ func Alpine() {
 func dumpOne(url string) {
 	fmt.Println(fmt.Sprintf("# %s", url))
 
+	// XXX FIXME TODO  There's too many stale versions being returned here now!!!
+	// Alpine makes a giant snuggle pile of all their past dot-release ISOs in the same directory
+	// Maybe use https://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/x86_64/latest-releases.yaml instead of web-scraping the html goop???
+
 	// Fetch the webby stuff
 	client := http.Client{
 		Timeout: 5 * time.Second,
